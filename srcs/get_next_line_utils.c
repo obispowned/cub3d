@@ -6,13 +6,14 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 11:26:41 by agutierr          #+#    #+#             */
-/*   Updated: 2020/01/27 14:45:34 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/10/04 12:58:57 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../header/get_next_line.h"
+//#include <get_next_line.h>
 
-size_t				ft_strlen(char *s)
+size_t				gnlft_strlen(char *s)
 {
 	unsigned int	i;
 
@@ -22,7 +23,7 @@ size_t				ft_strlen(char *s)
 	return (i);
 }
 
-char				*ft_strdup(char *s1)
+char				*gnlft_strdup(char *s1)
 {
 	char			*new;
 	int				i;
@@ -43,14 +44,14 @@ char				*ft_strdup(char *s1)
 	return (new);
 }
 
-char				*ft_strchr(char *s, char c)
+char				*gnlft_strchr(char *s, char c)
 {
 	while (*s && *s != c)
 		s++;
 	return ((*s == c) ? s : NULL);
 }
 
-char				*ft_strjoin(char *s1, char *s2)
+char				*gnlft_strjoin(char *s1, char *s2)
 {
 	int				i;
 	int				j;
@@ -58,7 +59,7 @@ char				*ft_strjoin(char *s1, char *s2)
 	char			*s;
 
 	i = 0;
-	count = ft_strlen(s1) + ft_strlen(s2) + 1;
+	count = gnlft_strlen(s1) + gnlft_strlen(s2) + 1;
 	if (!(s = malloc(sizeof(char) * count)))
 		return (NULL);
 	while (s1[i])
@@ -77,16 +78,16 @@ char				*ft_strjoin(char *s1, char *s2)
 	return (s);
 }
 
-char				*ft_substr(char *s, unsigned int start, unsigned int len)
+char				*gnlft_substr(char *s, unsigned int start, unsigned int len)
 {
 	char			*dest;
 	unsigned int	i;
 	unsigned int	total;
 	unsigned int	lenglo;
 
-	lenglo = ft_strlen(s);
+	lenglo = gnlft_strlen(s);
 	if (start > lenglo)
-		return (ft_strdup(""));
+		return (gnlft_strdup(""));
 	i = 0;
 	total = start + len;
 	if (len < (lenglo - start))

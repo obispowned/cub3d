@@ -6,11 +6,12 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 11:26:00 by agutierr          #+#    #+#             */
-/*   Updated: 2020/01/27 14:44:54 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/10/04 12:57:33 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../header/get_next_line.h"
+//#include <get_next_line.h>
 
 void				destroy(char **str)
 {
@@ -31,15 +32,15 @@ char				*feed(char *aux, char **line, int *len)
 		i++;
 	if (aux[i] == '\n')
 	{
-		*line = ft_substr(aux, 0, i);
-		temp = ft_substr(aux, i + 1, ft_strlen(aux) - i - 1);
+		*line = gnlft_substr(aux, 0, i);
+		temp = gnlft_substr(aux, i + 1, gnlft_strlen(aux) - i - 1);
 		destroy(&aux);
 		aux = temp;
 		*len = 1;
 	}
 	else
 	{
-		*line = ft_strdup(aux);
+		*line = gnlft_strdup(aux);
 		destroy(&aux);
 		*len = 0;
 	}
@@ -52,7 +53,7 @@ int					check_error(int len, char *aux, char **line)
 		return (-1);
 	else if (len == 0 && aux == 0)
 	{
-		*line = ft_strdup("");
+		*line = gnlft_strdup("");
 		return (0);
 	}
 	return (1);
@@ -71,14 +72,14 @@ int					get_next_line(int fd, char **line)
 	{
 		buff[len] = '\0';
 		if (!aux[fd])
-			aux[fd] = ft_strdup(buff);
+			aux[fd] = gnlft_strdup(buff);
 		else
 		{
-			temp = ft_strjoin(aux[fd], buff);
+			temp = gnlft_strjoin(aux[fd], buff);
 			destroy(&aux[fd]);
 			aux[fd] = temp;
 		}
-		if (ft_strchr(aux[fd], '\n'))
+		if (gnlft_strchr(aux[fd], '\n'))
 			break ;
 	}
 	if (check_error(len, aux[fd], &*line) < 1)

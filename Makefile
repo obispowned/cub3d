@@ -1,59 +1,45 @@
-#####################################
-### CONFIG
-#####################################
-NAME		:= cub3D
-CC 			:= gcc
-CFLAGS		:= -Wall -Wextra -Werror -pedantic -O3 #-Wall -Wextra -Werror # -O3 -Wall -Wextra -Werror
-DFLAGS		:= -g
-LIBFT 		:= ./libft/libft.a
-LIBFTSRC	:= $(wildcard libft/*.c)
-LIBFTOBJ	:= $(patsubst %.c, %.o, $(LIBFTSRC))
-RM			:= rm -rf
-MKDIR		:= mkdir -p
+NAME			= 	cub3D
 
+SRCS			=	srcs/get_next_line.c\
+					srcs/get_next_line_utils.c\
+					srcs/main.c\
+					srcs/file_procesator.c
 
-SRCS := $(shell find src/ -type f -iname *.c)
-OBJ := $(patsubst %.c, %.o, $(SRCS))
-MLX = ./mlx
-INCLUDES 	:= -I includes -Imlx -Llibft -Lmlx -lmlx -framework OpenGL -framework AppKit -lm
+OBJS			= $(SRCS:.c=.o)
 
-#####################################
-### RULES
-#####################################
+LIBFT       	:= ./libft/libft.a
 
-$(NAME): $(LIBFT) $(MLX) $(OBJ_DIRS) $(OBJ)
-	$(CC) $(CFLAGS) $(INCLUDES) $(OBJ) $(LIBFT) -o $(NAME)
+FLAGS			= -Wall -Werror -Wextra -g
 
-$(LIBFT): $(LIBFTOBJ)
-	ar rcs $(LIBFT) $(LIBFTOBJ)
-$(MLX):
-	@ make -C $(MLX)
+GCC 			= gcc
 
-all: $(NAME)
+INCLUDE			= -I minilibx -I header
 
-libft/%.o: libft/%.c
-	$(CC) -I includes -c $< -o $@
+MLX_DIR			= minilibx_opengl
 
-obj/%.o: src/%.c
-	$(MKDIR) obj/
-	$(CC) -I includes -c $< -o $@
+all:		$(NAME)
 
-normi:
-	norminette src/*
+$(NAME):	$(OBJS)
+				@echo "\033[0;31m[Remove last version...]"
+				@rm -rf cub3D
+				@echo "\033[0;35m[minilib compilation...]"
+			$(MAKE) -C minilibx_opengl
+				@echo "\033[0;36m[Libft compilation...]"
+			$(MAKE) -C libft
+				@echo "\033[0;33m[cub3D compilation...]"
+			$(GCC) $(LIBFT) $(OBJS) -o $(NAME) -L $(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
+				@echo "\033[1;32m[* * * * * * * * * * * * * * * * * * * * * * *]"
+				@echo "\033[1;32m[ C O M P I L E D  	  S U C C E S F U L L Y]"
+				@echo "\033[1;32m[* * * * * * * * * * * * * * * * * * * * * * *]"
 
-clean:
-	$(RM) libft/*.o obj/* mlx/*.o
+%.o: %.c
+	$(GCC) $(FLAGS) $(INCLUDE) -c $<  -o $(<:.c=.o)
 
 fclean: clean
-	$(RM) $(NAME) *.dSYM $(LIBFT) a.out obj
-	make -C $(MLX) clean
+	rm -f $(NAME)
 
-re: fclean all
+clean :
+		@echo "\033[0;31m[Deleting Objects...]"
+	$(RM) $(OBJS)
 
-debug: fclean
-	$(CC) $(DFLAGS) $(SRCS) libft/*.c -I includes -o $(NAME)
-
-debugmlx:	fclean
-	$(CC) $(DFLAGS) $(INCLUDES) $(SRCS) libft/*.c -I includes -o $(NAME)
-
-.PHONY:	all clean fclean re debug
+re:				fclean $(NAME)
