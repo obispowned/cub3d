@@ -24,23 +24,48 @@ t_config reset_t_config()
 	return (config);
 }
 
+t_config check_file(char *file, t_config config)
+{
+	config = check_R(file, config);
+	config = check_path(file, config);
+	config = check_ceil_floor(file, config);
+	config = check_map(file, config);
+	return (config);
+}
+
 t_config load_file(char *file, t_config config)
 {
 	int fd;
-	int i;
 	char buf[2];
+	int ret;
+	int  numero_de_lineas;
+	char *line;
 
+	numero_de_lineas = 0;
 	buf[1] = '\0';
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-		print_error("ERROR: fallo en la lectura .cub file");
-	while ((read(fd, &buf[0], 1)) > 0)
 	{
-		config = check_file(config); /**ESTOY AQUI**/
-		if(buf[0] == '\n')
-			break;
+		printf("ERROR: Fallo al intentar abrir el archivo .cub");
+		exit(-1);
+	}
+	while((ret = get_next_line(fd, &line)) > 0)
+	{
+		numero_de_lineas++;
+		//config = check_file(config);
+		if ((int)ft_strlen(line) > config.mapR)
+			config.mapR = ft_strlen(line);
+	}
+	if (config.mapR < numero_de_lineas)
+	{
+		printf("mayor numero de caracteres: %d\n", config.mapR);
+		printf("numero de lineas: %d\n", numero_de_lineas);
+		config.mapR = numero_de_lineas;
+		printf("mapR final: %d\n", config.mapR);
+
 	}
 	close(fd);
+	printf("mapR final: %d\n", config.mapR);
 	return (config);
 }
 
@@ -48,8 +73,14 @@ t_config file_procesator(char *file)
 {
 	t_config config;
 
+	if (file[ft_strlen(file) -1] != 'b' && file[ft_strlen(file) -2] != 'u' &&
+	file[ft_strlen(file) -3] != 'c' && file[ft_strlen(file) -4] != '.')
+	{
+		printf("ERROR: El archivo que ingresa debe ser tener la extension .cub");
+		exit(-1);
+	}
 	config = reset_t_config();
 	config = load_file(file, config);
-//	config = check_map(file, config);
+	config = check_map(file, config);
 	return (config);
 }

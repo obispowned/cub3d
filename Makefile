@@ -3,7 +3,8 @@ NAME			= 	cub3D
 SRCS			=	srcs/get_next_line.c\
 					srcs/get_next_line_utils.c\
 					srcs/main.c\
-					srcs/file_procesator.c
+					srcs/file_procesator.c\
+					srcs/check_nd_save.c
 
 OBJS			= $(SRCS:.c=.o)
 
