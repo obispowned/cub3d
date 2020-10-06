@@ -23,8 +23,8 @@ typedef struct	s_config
 
 t_config reset_t_config();
 t_config file_procesator(char *file);
-t_config check_file(char *file, t_config config);
-t_config check_R(char *file, t_config config);
+t_config check_file(char *line, t_config config);
+t_config check_R(char *file, t_config config, int i);
 t_config check_path(char *file, t_config config);
 t_config check_ceil_floor(char *file, t_config config);
 t_config check_map(char *file, t_config config);

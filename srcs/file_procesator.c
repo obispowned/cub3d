@@ -24,17 +24,26 @@ t_config reset_t_config()
 	return (config);
 }
 
-t_config check_file(char *file, t_config config)
+t_config check_file(char *line, t_config config)
 {
-	config = check_R(file, config);
-	config = check_path(file, config);
-	config = check_ceil_floor(file, config);
-	config = check_map(file, config);
+	int i;
+
+	i = 0;
+	while (line[i] != '\0')
+	{
+		if ((line[i] == 'R') && (line[i+1] == ' '))
+			config = check_R(line, config, i);
+		i++;
+	}
+	config = check_R(line, config);
+	config = check_path(line, config);
+	config = check_ceil_floor(line, config);
+	config = check_map(line, config);
 	return (config);
 }
 
 t_config load_file(char *file, t_config config)
-{
+{ //le paso el archivo y la estructura y devuelve primera lectura
 	int fd;
 	char buf[2];
 	int ret;
@@ -52,7 +61,7 @@ t_config load_file(char *file, t_config config)
 	while((ret = get_next_line(fd, &line)) > 0)
 	{
 		numero_de_lineas++;
-		//config = check_file(config);
+		config = check_file(line, config);
 		if ((int)ft_strlen(line) > config.mapR)
 			config.mapR = ft_strlen(line);
 	}
@@ -69,7 +78,7 @@ t_config load_file(char *file, t_config config)
 	return (config);
 }
 
-t_config file_procesator(char *file)
+t_config file_procesator(char *file) //le pasamos el archivo y devuelve la estructura rellenada
 {
 	t_config config;
 
