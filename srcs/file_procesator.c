@@ -33,12 +33,18 @@ t_config check_file(char *line, t_config config)
 	{
 		if ((line[i] == 'R') && (line[i+1] == ' '))
 			config = check_R(line, config, i);
+		if (((line[i] == 'N') && (line[i+1] == 'O')) ||
+		((line[i] == 'S') && (line[i+1] == 'O')) ||
+		((line[i] == 'W') && (line[i+1] == 'E')) ||
+		((line[i] == 'E') && (line[i+1] == 'A')) ||
+		((line[i] == 'S') && (line[i+1] == ' ')))
+			config = check_path(line, config, i);
 		i++;
 	}
-	config = check_R(line, config);
-	config = check_path(line, config);
-	config = check_ceil_floor(line, config);
-	config = check_map(line, config);
+
+/*	config = check_ceil_floor(line, config);
+	config = check_map(line, config);*/
+
 	return (config);
 }
 
