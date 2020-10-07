@@ -16,5 +16,7 @@ int main(int argc, char **argv)
 //		game_loading();
 	}
 
+	printf("width %d, height %d\n", config.width, config.height);
+
 	return(0);
 }

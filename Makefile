@@ -4,7 +4,9 @@ SRCS			=	srcs/get_next_line.c\
 					srcs/get_next_line_utils.c\
 					srcs/main.c\
 					srcs/file_procesator.c\
-					srcs/check_nd_save.c
+					srcs/check_nd_save.c\
+					srcs/get_things.c\
+					srcs/ft_utils.c
 
 OBJS			= $(SRCS:.c=.o)
 

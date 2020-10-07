@@ -33,17 +33,17 @@ t_config check_file(char *line, t_config config)
 	{
 		if ((line[i] == 'R') && (line[i+1] == ' '))
 			config = check_R(line, config, i);
-		if (((line[i] == 'N') && (line[i+1] == 'O')) ||
+/*		if (((line[i] == 'N') && (line[i+1] == 'O')) ||
 		((line[i] == 'S') && (line[i+1] == 'O')) ||
 		((line[i] == 'W') && (line[i+1] == 'E')) ||
 		((line[i] == 'E') && (line[i+1] == 'A')) ||
 		((line[i] == 'S') && (line[i+1] == ' ')))
-			config = check_path(line, config, i);
+			config = check_path(line, config, i);*/
 		i++;
 	}
 
-/*	config = check_ceil_floor(line, config);
-	config = check_map(line, config);*/
+/*	config = check_ceil_floor(line, config, i);
+	config = check_map(line, config, i);*/
 
 	return (config);
 }
@@ -96,6 +96,6 @@ t_config file_procesator(char *file) //le pasamos el archivo y devuelve la estru
 	}
 	config = reset_t_config();
 	config = load_file(file, config);
-	config = check_map(file, config);
+//	config = check_map(file, config);
 	return (config);
 }

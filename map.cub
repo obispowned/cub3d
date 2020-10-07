@@ -1,6 +1,6 @@
-R 900 700
-NO brick.xpm
-SO dirt.xpm
+			R 900 700
+NO       brick.xpm
+S      O dirt.xpm
 EA stone.xpm
 WE wood.xpm
 S brice_sprite.xpm
