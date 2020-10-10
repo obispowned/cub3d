@@ -3,9 +3,10 @@
 t_config reset_t_config()
 {
 	t_config config;
-	int i;
+	int o;
 
-	i = 0;
+	o = 0;
+	config.i = 0;
 	config.height = 0;
 	config.width = 0;
 	config.NO = NULL;
@@ -15,31 +16,28 @@ t_config reset_t_config()
 	config.S = NULL;
 	config.mapR = 0;
 
-	while (i < 3)
+	while (o < 3)
 	{
-		config.ceil[i] = 0;
-		config.floor[i] = 0;
-		i++;
+		config.ceil[o] = 0;
+		config.floor[o] = 0;
+		o++;
 	}
 	return (config);
 }
 
 t_config check_file(char *line, t_config config)
 {
-	int i;
-
-	i = 0;
-	while (line[i] != '\0')
+	while (line[config.i] != '\0')
 	{
-		if ((line[i] == 'R') && (line[i+1] == ' '))
-			config = check_R(line, config, i);
+		if ((line[config.i] == 'R') && (line[config.i+1] == ' '))
+			config = check_R(line, config);
 /*		if (((line[i] == 'N') && (line[i+1] == 'O')) ||
 		((line[i] == 'S') && (line[i+1] == 'O')) ||
 		((line[i] == 'W') && (line[i+1] == 'E')) ||
 		((line[i] == 'E') && (line[i+1] == 'A')) ||
 		((line[i] == 'S') && (line[i+1] == ' ')))
 			config = check_path(line, config, i);*/
-		i++;
+		config.i++;
 	}
 
 /*	config = check_ceil_floor(line, config, i);
@@ -70,14 +68,15 @@ t_config load_file(char *file, t_config config)
 		config = check_file(line, config);
 		if ((int)ft_strlen(line) > config.mapR)
 			config.mapR = ft_strlen(line);
+		free(line);
 	}
+	free (line);
 	if (config.mapR < numero_de_lineas)
 	{
 		printf("mayor numero de caracteres: %d\n", config.mapR);
 		printf("numero de lineas: %d\n", numero_de_lineas);
 		config.mapR = numero_de_lineas;
 		printf("mapR final: %d\n", config.mapR);
-
 	}
 	close(fd);
 	printf("mapR final: %d\n", config.mapR);
