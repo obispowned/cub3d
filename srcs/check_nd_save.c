@@ -15,7 +15,6 @@ t_config check_R(char *line, t_config config)
 	return (config);
 }
 
-
 t_config check_path(char *line, t_config config)
 {
 	char **splitter;
@@ -44,4 +43,37 @@ t_config check_path(char *line, t_config config)
 	}
 	double_kill(splitter);
 	return (config);
+}
+
+t_config check_ceil_floor(char *line, t_config config)
+{
+	char **splitter;
+	int i;
+	char conmut;
+
+	i = 0;
+	conmut = line[i]; //para saber si lo guardaremos en config.ceil[3] o en config.floor[3]/
+	while ((line[i] != '\0') && ((line[i] < '0') || (line[i] > '9')))
+		i++;
+	splitter = ft_split(&line[i], ',');
+	if ((splitter[3]) || (ft_isdigit(splitter[0]) != 1) || (ft_isdigit(splitter[1]) != 1) || (ft_isdigit(splitter[2]) != 1))
+	{
+		printf("ERROR: Formato de ceil/floor incorrecto.");
+		exit(-1);
+	}
+	if (conmut == 'C')
+	{
+		config.ceil[0] = atoi(splitter[0]);
+		config.ceil[1] = atoi(splitter[1]);
+		config.ceil[2] = atoi(splitter[2]);
+	}
+	if (conmut == 'F')
+	{
+		config.floor[0] = atoi(splitter[0]);
+		config.floor[1] = atoi(splitter[1]);
+		config.floor[2] = atoi(splitter[2]);
+	}
+	double_kill(splitter);
+	return (config);
+
 }

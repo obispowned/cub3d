@@ -14,6 +14,7 @@ int main(int argc, char **argv)
 	{
 		config = file_procesator(argv[1]);
 //		game_loading();
+
 	}
 
 	printf("width %d, height %d\n", config.width, config.height);
@@ -23,6 +24,8 @@ int main(int argc, char **argv)
 	printf("path  WE: %s\n", config.WE);
 	printf("path  EA: %s\n", config.EA);
 	printf("path  S: %s\n", config.S);
+	printf("floor: | %d,%d,%d |\n", config.floor[0], config.floor[1],  config.floor[2]);
+	printf("ceil: | %d,%d,%d |\n", config.ceil[0], config.ceil[1], config.ceil[2]);
 
 	system("leaks cub3D");
 

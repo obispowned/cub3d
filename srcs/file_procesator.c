@@ -37,11 +37,13 @@ t_config check_file(char *line, t_config config)
 		((line[config.i] == 'E') && (line[config.i+1] == 'A') && (line[config.i+2] == ' ')) ||
 		((line[config.i] == 'S') && (line[config.i+1] == ' ')))
 			config = check_path(line, config);
+		if (((line[config.i] == 'F') && (line[config.i+1] == ' ')) ||
+		((line[config.i] == 'C') && (line[config.i+1] == ' ')))
+			config = check_ceil_floor(line, config);
 		config.i++;
 	}
 
-/*	config = check_ceil_floor(line, config);
-	config = check_map(line, config);*/
+	/*config = check_map(line, config);*/
 
 	return (config);
 }
