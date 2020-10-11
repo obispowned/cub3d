@@ -20,7 +20,7 @@ t_config check_path(char *line, t_config config)
 {
 	char **splitter;
 
-	splitter = ft_split(line, ' ');
+	splitter = ft_split((const char *)line, ' ');
 	if ((splitter[2]) || ((splitter[1][ft_strlen(splitter[1]) -1] != 'm') && (splitter[1][ft_strlen(splitter[1]) -2] != 'p')
 	 && (splitter[1][ft_strlen(splitter[1]) -3] != 'x')  && (splitter[1][ft_strlen(splitter[1]) -4] != '.')))
 	{
@@ -28,15 +28,15 @@ t_config check_path(char *line, t_config config)
 		exit(-1);
 	}
 	if ((line[config.i] == 'N') && (line[config.i+1] == 'O') && (line[config.i+2] == ' '))
-		config.NO = splitter[1];
+		config.NO = ft_strdup(splitter[1]);
 	else if ((line[config.i] == 'S') && (line[config.i+1] == 'O') && (line[config.i+2] == ' '))
-		config.SO = splitter[1];
+		config.SO = ft_strdup(splitter[1]);
 	else if	((line[config.i] == 'W') && (line[config.i+1] == 'E') && (line[config.i+2] == ' '))
-		config.WE = splitter[1];
+		config.WE = ft_strdup(splitter[1]);
 	else if ((line[config.i] == 'E') && (line[config.i+1] == 'A') && (line[config.i+2] == ' '))
-		config.EA = splitter[1];
+		config.EA = ft_strdup(splitter[1]);
 	else if ((line[config.i] == 'S') && (line[config.i+1] == ' '))
-		config.S = splitter[1];
+		config.S = ft_strdup(splitter[1]);
 	else
 	{
 		printf("ERROR: Formato de texturas incorrecto.");

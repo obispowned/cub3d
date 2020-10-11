@@ -9,7 +9,7 @@
 
 int		ft_strlen(char *str);
 char	*ft_strjoin_char(char *str, char c);
-char	*my_strdup(char *str);
+char	*ft_strdup(char *str);
 char	**ft_split(char const *s, char c);
 void	double_kill(char **str);
 int  	ft_isdigit(char *str);

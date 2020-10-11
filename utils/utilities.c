@@ -12,3 +12,4 @@ void		double_kill(char **str)
 	}
 	free(str);
 }
+
