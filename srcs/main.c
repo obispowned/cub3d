@@ -17,6 +17,13 @@ int main(int argc, char **argv)
 	}
 
 	printf("width %d, height %d\n", config.width, config.height);
+
+	printf("path  NO: %s\n", config.NO);
+	printf("path  SO: %s\n", config.SO);
+	printf("path  WE: %s\n", config.WE);
+	printf("path  EA: %s\n", config.EA);
+	printf("path  S: %s\n", config.S);
+
 	system("leaks cub3D");
 
 	return(0);

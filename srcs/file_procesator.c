@@ -31,17 +31,17 @@ t_config check_file(char *line, t_config config)
 	{
 		if ((line[config.i] == 'R') && (line[config.i+1] == ' '))
 			config = check_R(line, config);
-/*		if (((line[i] == 'N') && (line[i+1] == 'O')) ||
-		((line[i] == 'S') && (line[i+1] == 'O')) ||
-		((line[i] == 'W') && (line[i+1] == 'E')) ||
-		((line[i] == 'E') && (line[i+1] == 'A')) ||
-		((line[i] == 'S') && (line[i+1] == ' ')))
-			config = check_path(line, config, i);*/
+		if (((line[config.i] == 'N') && (line[config.i+1] == 'O') && (line[config.i+2] == ' ')) ||
+		((line[config.i] == 'S') && (line[config.i+1] == 'O') && (line[config.i+2] == ' ')) ||
+		((line[config.i] == 'W') && (line[config.i+1] == 'E') && (line[config.i+2] == ' ')) ||
+		((line[config.i] == 'E') && (line[config.i+1] == 'A') && (line[config.i+2] == ' ')) ||
+		((line[config.i] == 'S') && (line[config.i+1] == ' ')))
+			config = check_path(line, config);
 		config.i++;
 	}
 
-/*	config = check_ceil_floor(line, config, i);
-	config = check_map(line, config, i);*/
+/*	config = check_ceil_floor(line, config);
+	config = check_map(line, config);*/
 
 	return (config);
 }
@@ -64,6 +64,7 @@ t_config load_file(char *file, t_config config)
 	}
 	while((ret = get_next_line(fd, &line)) > 0)
 	{
+		config.i = 0;
 		numero_de_lineas++;
 		config = check_file(line, config);
 		if ((int)ft_strlen(line) > config.mapR)

@@ -33,10 +33,8 @@ t_config 	reset_t_config();
 
 /* funciones para guardar los datos en la estructura*/
 t_config 	check_R(char *file, t_config config);
-//t_config 	check_path(char *file, t_config config, int i);
-//t_config 	check_ceil_floor(char *file, t_config config, int i);
-//t_config 	check_map(char *file, t_config config, int i);
-//int			get_width(char *line, int i, int width);
-//int			get_height(char *line, int i, int width, int height);
+t_config 	check_path(char *file, t_config config);
+//t_config 	check_ceil_floor(char *file, t_config config);
+//t_config 	check_map(char *file, t_config config);
 
 #endif

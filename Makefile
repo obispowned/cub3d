@@ -9,6 +9,7 @@ SRCS			=	srcs/get_next_line.c\
 					utils/ft_strdup.c\
 					utils/ft_strjoin_char.c\
 					utils/ft_strlen.c\
+					utils/ft_is.c\
 					utils/utilities.c\
 
 
