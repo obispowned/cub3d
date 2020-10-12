@@ -10,6 +10,7 @@
 
 typedef struct	s_config
 {
+	int		flag;
 	int 	height;
 	int		width;
 	char 	*NO;
@@ -20,7 +21,8 @@ typedef struct	s_config
 	int 	ceil[3];
 	int		floor[3];
 	int		**map;
-	int		mapR;
+	int		map_max_lines;
+	int		map_max_rows;
 	int		i;
 }				t_config;
 
@@ -31,10 +33,11 @@ t_config 	load_file(char *file, t_config config);
 t_config 	check_file(char *line, t_config config);
 t_config 	reset_t_config();
 
-/* funciones para guardar los datos en la estructura*/
+/* funciones para guardar los datos en la estructura - PRIMERA LECTURA*/
 t_config 	check_R(char *file, t_config config);
 t_config 	check_path(char *file, t_config config);
 t_config 	check_ceil_floor(char *line, t_config config);
-//t_config 	check_map(char *file, t_config config);
+/*	funciones para guardar, checkear y parsear el mapa - SEGUNDA LECTURA*/
+t_config	read_map(char *file, t_config config);
 
 #endif

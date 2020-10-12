@@ -5,6 +5,7 @@ SRCS			=	srcs/get_next_line.c\
 					srcs/main.c\
 					srcs/file_procesator.c\
 					srcs/check_nd_save.c\
+					srcs/get_map_reads.c\
 					utils/ft_split.c\
 					utils/ft_strdup.c\
 					utils/ft_strjoin_char.c\

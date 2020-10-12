@@ -11,6 +11,7 @@ t_config check_R(char *line, t_config config)
 	}
 	config.width = atoi(splitter[1]);
 	config.height = atoi(splitter[2]);
+	config.flag += 1;
 	double_kill(splitter);
 	return (config);
 }
@@ -26,15 +27,15 @@ t_config check_path(char *line, t_config config)
 		printf("ERROR: Formato de texturas incorrecto.");
 		exit(-1);
 	}
-	if ((line[config.i] == 'N') && (line[config.i+1] == 'O') && (line[config.i+2] == ' '))
+	if ((line[config.i] == 'N') && (line[config.i+1] == 'O') && (line[config.i+2] == ' ') && (!config.NO))
 		config.NO = ft_strdup(splitter[1]);
-	else if ((line[config.i] == 'S') && (line[config.i+1] == 'O') && (line[config.i+2] == ' '))
+	else if ((line[config.i] == 'S') && (line[config.i+1] == 'O') && (line[config.i+2] == ' ') && (!config.SO))
 		config.SO = ft_strdup(splitter[1]);
-	else if	((line[config.i] == 'W') && (line[config.i+1] == 'E') && (line[config.i+2] == ' '))
+	else if	((line[config.i] == 'W') && (line[config.i+1] == 'E') && (line[config.i+2] == ' ') && (!config.WE))
 		config.WE = ft_strdup(splitter[1]);
-	else if ((line[config.i] == 'E') && (line[config.i+1] == 'A') && (line[config.i+2] == ' '))
+	else if ((line[config.i] == 'E') && (line[config.i+1] == 'A') && (line[config.i+2] == ' ') && (!config.EA))
 		config.EA = ft_strdup(splitter[1]);
-	else if ((line[config.i] == 'S') && (line[config.i+1] == ' '))
+	else if ((line[config.i] == 'S') && (line[config.i+1] == ' ') && (!config.S))
 		config.S = ft_strdup(splitter[1]);
 	else
 	{
@@ -42,20 +43,19 @@ t_config check_path(char *line, t_config config)
 		exit(-1);
 	}
 	double_kill(splitter);
+	config.flag += 1;
 	return (config);
 }
 
 t_config check_ceil_floor(char *line, t_config config)
 {
 	char **splitter;
-	int i;
 	char conmut;
 
-	i = 0;
-	conmut = line[i]; //para saber si lo guardaremos en config.ceil[3] o en config.floor[3]/
-	while ((line[i] != '\0') && ((line[i] < '0') || (line[i] > '9')))
-		i++;
-	splitter = ft_split(&line[i], ',');
+	conmut = line[config.i]; //para saber si lo guardaremos en config.ceil[3] o en config.floor[3]/
+	while ((line[config.i] != '\0') && ((line[config.i] < '0') || (line[config.i] > '9')))
+		config.i++;
+	splitter = ft_split(&line[config.i], ',');
 	if ((splitter[3]) || (ft_isdigit(splitter[0]) != 1) || (ft_isdigit(splitter[1]) != 1) || (ft_isdigit(splitter[2]) != 1))
 	{
 		printf("ERROR: Formato de ceil/floor incorrecto.");
@@ -66,14 +66,19 @@ t_config check_ceil_floor(char *line, t_config config)
 		config.ceil[0] = atoi(splitter[0]);
 		config.ceil[1] = atoi(splitter[1]);
 		config.ceil[2] = atoi(splitter[2]);
+		config.flag += 1;
 	}
 	if (conmut == 'F')
 	{
 		config.floor[0] = atoi(splitter[0]);
 		config.floor[1] = atoi(splitter[1]);
 		config.floor[2] = atoi(splitter[2]);
+		config.flag += 1;
 	}
+	while (line[config.i])
+		config.i++;
 	double_kill(splitter);
 	return (config);
-
 }
+
+
