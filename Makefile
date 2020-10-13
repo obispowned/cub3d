@@ -1,15 +1,16 @@
 NAME			= 	cub3D
 
-SRCS			=	srcs/get_next_line.c\
-					srcs/get_next_line_utils.c\
-					srcs/main.c\
+SRCS			=	srcs/main.c\
 					srcs/file_procesator.c\
 					srcs/check_nd_save.c\
 					srcs/get_map_reads.c\
 					utils/ft_split.c\
 					utils/ft_strdup.c\
 					utils/ft_strjoin_char.c\
+					utils/get_next_line.c\
+					utils/get_next_line_utils.c\
 					utils/ft_strlen.c\
+					utils/ft_calloc.c\
 					utils/ft_is.c\
 					utils/utilities.c\
 

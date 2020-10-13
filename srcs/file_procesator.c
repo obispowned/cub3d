@@ -44,6 +44,7 @@ t_config check_file(char *line, t_config config)
 		((line[config.i] == 'C') && (line[config.i+1] == ' ')))
 			config = check_ceil_floor(line, config);
 		if ((line[config.i] == '1') && ((line[config.i+1] == '1') ||
+		(line[config.i+1] == '2') || (line[config.i+1] == '3') ||
 		(line[config.i+1] == '0') || (line[config.i+1] == 'N')||
 		(line[config.i+1] == 'S') || (line[config.i+1] == 'W')||
 		(line[config.i+1] == 'E')) && (config.flag == 8))
@@ -51,10 +52,11 @@ t_config check_file(char *line, t_config config)
 			if (ft_strlen(line) > config.map_max_rows)
 				config.map_max_rows = ft_strlen(line);
 			config.map_max_lines += 1;
-			while (line[config.i])
+			while (line[config.i] != '\0')
 				config.i++;
+
 		}
-		if (line)
+		if (line[config.i] != '\0')
 			config.i++;
 	}
 	return (config);
@@ -82,6 +84,11 @@ t_config load_file(char *file, t_config config)
 	}
 	free (line);
 	close(fd);
+	if (config.flag != 8)	//si no hay 8 valores guardados en la struct
+	{
+		printf("Faltan datos en el archivo .cub");
+		exit(-1);
+	}
 	return (config);
 }
 

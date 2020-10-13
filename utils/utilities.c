@@ -13,3 +13,10 @@ void		double_kill(char **str)
 	free(str);
 }
 
+int 		what_is_higher(int a, int b)
+{
+	if (a > b)
+		return (a);
+	else
+		return (b);
+}
