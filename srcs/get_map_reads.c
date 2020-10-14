@@ -6,8 +6,8 @@ t_config		read_map(char *file, t_config config)
 	char buf[2];
 	int ret;
 	char *line;
-	int i;
 	char **map;
+	int i;
 
 	i = 0;
 	buf[1] = '\0';
@@ -17,17 +17,26 @@ t_config		read_map(char *file, t_config config)
 		printf("ERROR: Fallo al intentar abrir el archivo .cub");
 		exit(-1);
 	}
-	map = (char **)calloc(what_is_higher(config.map_max_lines, config.map_max_rows), 0);
+	if(!(map = (char **)calloc(sizeof(char **) * what_is_higher(config.map_max_lines, config.map_max_rows), 1)))
+	{
+		printf("Error de malloc |get_map_reads.c|");
+		exit(-1);
+	}
+//	map[what_is_higher(config.map_max_lines, config.map_max_rows) + 1] = NULL;
 	while((ret = get_next_line(fd, &line)) > 0)
 	{
-		config.i = 0;
 		if (who_needs_a_map(line) == 1)
-			*map++ = ft_strdup(line); /*MALLOC FALLO*/
+		{
+			map[i] = ft_strdup(line);
+			printf("%s\n", map[i]);
+			i++;
+		}
 		free(line);
 	}
+	/*CONTINUAR AQUI*/
 	free (line);
 	close(fd);
-	double_kill(map); /*SI QUITAMOS ESTO NOS DA BIEN PERO CON 3 LEAKS*/
+ 	double_kill(map);
 	return (config);
 }
 

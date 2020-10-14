@@ -6,7 +6,7 @@ char *ft_strdup(char *str)
 	int	i;
 
 	i = 0;
-	if (!(finally = (char *)malloc((sizeof(char *)) * ft_strlen(str)) + 1))
+	if (!(finally = (char *)malloc(sizeof(char) * ft_strlen(str) + 1)))
 	{
 		printf("ERROR: malloc my_strdup ha fallado");
 		exit(-1);
