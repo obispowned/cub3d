@@ -30,6 +30,8 @@ t_config		read_map(char *file, t_config config)
 		}
 		free(line);
 	}
+	if (check_map(map) == 1)
+//		parse_map();
 	/*CONTINUAR AQUI*/
 	free (line);
 	close(fd);
@@ -64,4 +66,41 @@ int		who_needs_a_map(char *line)
 		i++;
 	}
 	return (final);
+}
+
+int		check_map(char **map)
+{
+	int j, i;
+
+	i = 0;
+	while(map[i])
+	{
+		j = 0;
+		while(map[i][j])
+		{
+			if ((map[i][j] == 9) &&
+			((check_me_baby(map[i+1][j], "0NSW2E") == 0) ||
+			(check_me_baby(map[i-1][j], "0NSW2E") == 0) ||
+			(check_me_baby(map[i][j+1], "0NSW2E") == 0) ||
+			(check_me_baby(map[i][j-1], "0NSW2E") == 0)))
+			{
+				printf("ERROR: Mapa abierto por algun lugar");
+				exit (-1);
+			}
+			j++;
+		}
+		i++;
+	}
+}
+
+
+int		check_me_baby(char c, char *str)
+{
+	int i;
+	while (str[i])
+	{
+		if (str[i] == c)
+			return (0);
+	}
+	return (1);
 }
