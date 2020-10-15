@@ -3,14 +3,12 @@
 t_config		read_map(char *file, t_config config)
 {	//segunda lectura de mapa para guardarlo para posteriormente chekearlo
 	int fd;
-	char buf[2];
 	int ret;
 	char *line;
 	char **map;
 	int i;
 
 	i = 0;
-	buf[1] = '\0';
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 	{
@@ -22,12 +20,11 @@ t_config		read_map(char *file, t_config config)
 		printf("Error de malloc |get_map_reads.c|");
 		exit(-1);
 	}
-//	map[what_is_higher(config.map_max_lines, config.map_max_rows) + 1] = NULL;
 	while((ret = get_next_line(fd, &line)) > 0)
 	{
 		if (who_needs_a_map(line) == 1)
 		{
-			map[i] = ft_strdup(line);
+			map[i] = ft_strdup_sustitute_char(line, ' ', '9', what_is_higher(config.map_max_lines, config.map_max_rows));
 			printf("%s\n", map[i]);
 			i++;
 		}
