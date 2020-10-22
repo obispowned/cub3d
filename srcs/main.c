@@ -1,5 +1,6 @@
 #include "../header/cub3d.h"
 #include "../header/get_next_line.h"
+#include "utils.h"
 
 int main(int argc, char **argv)
 {
@@ -17,6 +18,7 @@ int main(int argc, char **argv)
 
 	}
 
+	printf("\n");
 	printf("width %d, height %d\n", config.width, config.height);
 
 	printf("path  NO: %s\n", config.NO);
@@ -24,18 +26,21 @@ int main(int argc, char **argv)
 	printf("path  WE: %s\n", config.WE);
 	printf("path  EA: %s\n", config.EA);
 	printf("path  S: %s\n", config.S);
+
 	printf("floor: | %d,%d,%d |\n", config.floor[0], config.floor[1],  config.floor[2]);
 	printf("ceil: | %d,%d,%d |\n", config.ceil[0], config.ceil[1], config.ceil[2]);
-	printf("flag: | %d |\n", config.flag);
-	printf("lines: | %d |\n", config.map_max_lines);
-	printf("max rows: | %d |\n", config.map_max_rows);
+
+	printf("Elementos guardados sin contar el **map: | %d |\n", config.flag);
+	printf("Cantidad de lineas: | %d |\n", config.map_max_lines);
+	printf("Cantidad de columnas: | %d |\n", config.map_max_rows);
 
 
 	printf("\n");
 	printf("\n");
 
+	ace(config.NO, config.SO, config.WE, config.EA, config.S, NULL);
 
-	system("leaks cub3D");
+//	system("leaks cub3D");
 
 	return(0);
 }

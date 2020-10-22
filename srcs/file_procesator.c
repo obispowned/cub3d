@@ -5,7 +5,6 @@ t_config reset_t_config()
 	t_config config;
 	int o;
 
-
 	o = 0;
 	config.flag = 0;
 	config.i = 0;

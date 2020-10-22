@@ -25,18 +25,24 @@ INCLUDE			= -I minilibx -I header
 
 MLX_DIR			= minilibx_opengl
 
+LEAKS			= DYLD_INSERT_LIBRARIES=/Applications/Xcode.app/Contents/Developer/usr/lib/libLeaksAtExit.dylib leaks -atExit -- ./cub3D maps/map3.cub
+
+RED 			= \033[0;31m
+PURPLE			= \033[0;35m
+GREEN			= \033[1;32m
+
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-				@echo "\033[0;31m[Remove last version...]"
+				@echo "${RED}[Remove last version...]${RESET}"
 				@rm -rf cub3D
-				@echo "\033[0;35m[minilib compilation...]"
+				@echo "${PURPLE}[minilib compilation...]${RESET}"
 			$(MAKE) -C minilibx_opengl
-				@echo "\033[0;36m[Libft compilation...]"
 			$(GCC) $(OBJS) -o $(NAME) -L $(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
-				@echo "\033[1;32m[* * * * * * * * * * * * * * * * * * * * * * *]"
-				@echo "\033[1;32m[ C O M P I L E D  	  S U C C E S F U L L Y]"
-				@echo "\033[1;32m[* * * * * * * * * * * * * * * * * * * * * * *]"
+				@echo "${GREEN}[.oOo.oOo.oOo.oOo.]"
+				@echo "[ C O M P I L A O ]"
+				@echo "[.oOo.oOo.oOo.oOo.]"
+#			$(LEAKS)
 
 %.o: %.c
 	$(GCC) $(FLAGS) $(INCLUDE) -c $<  -o $(<:.c=.o)
@@ -45,7 +51,7 @@ fclean: clean
 	rm -f $(NAME)
 
 clean :
-		@echo "\033[0;31m[Deleting Objects...]"
+		@echo "\033[0;31m[BORRANDO MIERDA...]"
 	$(RM) $(OBJS)
 
 re:				fclean $(NAME)

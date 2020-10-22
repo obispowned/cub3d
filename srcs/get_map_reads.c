@@ -15,9 +15,9 @@ t_config		read_map(char *file, t_config config)
 		printf("ERROR: Fallo al intentar abrir el archivo .cub");
 		exit(-1);
 	}
-	if(!(map = (char **)calloc(sizeof(char **) * what_is_higher(config.map_max_lines, config.map_max_rows), 1)))
+	if(!(map = (char **)calloc(sizeof(char *) * what_is_higher(config.map_max_lines, config.map_max_rows) + 3 , 1)))
 	{
-		printf("Error de malloc |get_map_reads.c|");
+		printf("Error de malloc en archivo: get_map_reads.c");
 		exit(-1);
 	}
 	while((ret = get_next_line(fd, &line)) > 0)
@@ -25,13 +25,18 @@ t_config		read_map(char *file, t_config config)
 		if (who_needs_a_map(line) == 1)
 		{
 			map[i] = ft_strdup_sustitute_char(line, ' ', '9', what_is_higher(config.map_max_lines, config.map_max_rows));
-			printf("%s\n", map[i]);
 			i++;
 		}
 		free(line);
 	}
-	if (check_map(map) == 1)
-//		parse_map();
+	while(i < what_is_higher(config.map_max_lines, config.map_max_rows))
+	{
+		map[i] = fill_me('9', what_is_higher(config.map_max_lines, config.map_max_rows));
+		i++;
+	}
+
+	check_map(map);
+
 	/*CONTINUAR AQUI*/
 	free (line);
 	close(fd);
@@ -68,7 +73,27 @@ int		who_needs_a_map(char *line)
 	return (final);
 }
 
-int		check_map(char **map)
+char 		*fill_me(char c, int lenght)
+{
+	char 	*finally;
+	int 	i;
+
+	i = 0;
+	if(!(finally = ((char *)malloc(sizeof(char) * lenght + 1))))
+	{
+		printf("Error: Malloc ha fallado en fill_me()");
+		exit (-1);
+	}
+	while(i <= lenght)
+	{
+		finally[i] = c;
+		i++;
+	}
+	finally[i] = '\0';
+	return (finally);
+}
+
+void		check_map(char **map)
 {
 	int j, i;
 
@@ -76,9 +101,11 @@ int		check_map(char **map)
 	while(map[i])
 	{
 		j = 0;
+		printf("\n");
 		while(map[i][j])
 		{
-			if ((map[i][j] == 9) &&
+			printf("%c", map[i][j]);
+/*			if ((map[i][j] == '9') &&
 			((check_me_baby(map[i+1][j], "0NSW2E") == 0) ||
 			(check_me_baby(map[i-1][j], "0NSW2E") == 0) ||
 			(check_me_baby(map[i][j+1], "0NSW2E") == 0) ||
@@ -86,7 +113,7 @@ int		check_map(char **map)
 			{
 				printf("ERROR: Mapa abierto por algun lugar");
 				exit (-1);
-			}
+			}*/
 			j++;
 		}
 		i++;
@@ -94,13 +121,17 @@ int		check_map(char **map)
 }
 
 
-int		check_me_baby(char c, char *str)
+/*int		check_me_baby(char c, char *str)
 {
 	int i;
+
+	i = 0;
+	if (!c)
+		return (1);
 	while (str[i])
 	{
 		if (str[i] == c)
 			return (0);
 	}
 	return (1);
-}
+}*/
