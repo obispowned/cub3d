@@ -17,6 +17,7 @@ t_config reset_t_config()
 	config.S = NULL;
 	config.map_max_lines = 0;
 	config.map_max_rows = 0;
+	config.maxR = 0;
 
 	while (o < 3)
 	{

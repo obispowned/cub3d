@@ -41,7 +41,7 @@ $(NAME):	$(OBJS)
 			$(GCC) $(OBJS) -o $(NAME) -L $(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 				@echo "${GREEN}[.oOo.oOo.oOo.oOo.]"
 				@echo "[ C O M P I L A O ]"
-				@echo "[.oOo.oOo.oOo.oOo.]"
+				@echo "[.oOo.oOo.o Oo.oOo.]"
 #			$(LEAKS)
 
 %.o: %.c

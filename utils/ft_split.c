@@ -59,7 +59,7 @@ char			**ft_split(char const *s, char c)
 	if (s == NULL)
 		return (NULL);
 	tab_counter = count_segment(s, c);
-	if ((strs = (char**)malloc(sizeof(char*) * (tab_counter + 1))) == NULL)
+	if ((strs = (char **)malloc(sizeof(char *) * (tab_counter + 1))) == NULL)
 		return (NULL);
 	tab_counter = 0;
 	j = -1;

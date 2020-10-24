@@ -23,6 +23,7 @@ typedef struct	s_config
 	int		**map;
 	int		map_max_lines;
 	int		map_max_rows;
+	int		maxR;
 	int		i;
 }				t_config;
 
@@ -35,6 +36,7 @@ t_config 	reset_t_config();
 
 /* funciones para guardar los datos en la estructura - PRIMERA LECTURA*/
 t_config 	check_R(char *file, t_config config);
+//void 		check_R_error(char **splitter);
 t_config 	check_path(char *file, t_config config);
 t_config 	check_ceil_floor(char *line, t_config config);
 /*	funciones para guardar, checkear y parsear el mapa - SEGUNDA LECTURA*/
