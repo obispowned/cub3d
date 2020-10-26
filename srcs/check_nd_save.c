@@ -56,6 +56,8 @@ t_config check_ceil_floor(char *line, t_config config)
 	while ((line[config.i] != '\0') && ((line[config.i] < '0') || (line[config.i] > '9')))
 		config.i++;
 	splitter = ft_split(&line[config.i], ',');
+	if (ft_isdigit(splitter[2]) != 1)
+		splitter[2] = give_me_digit_without_spaces(splitter[2]);
 	if ((splitter[3]) || (ft_isdigit(splitter[0]) != 1) || (ft_isdigit(splitter[1]) != 1) || (ft_isdigit(splitter[2]) != 1))
 	{
 		printf("ERROR: Formato de ceil/floor incorrecto.");

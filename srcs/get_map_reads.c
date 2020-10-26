@@ -18,22 +18,23 @@ t_config		read_map(char *file, t_config config)
 	config.maxR = what_is_higher(config.map_max_lines, config.map_max_rows);
 	if(!(map = (char **)calloc(sizeof(char *) * config.maxR + 1, 1)))
 	{
-		printf("Error de malloc en archivo: get_map_reads.c");
+		printf("Error de malloc en archivo: get_map_reads.c funcion: read_map");
 		exit(-1);
 	}
-	while((ret = get_next_line(fd, &line)) > 0)
+	while((ret = get_next_line(fd, &line)) > 0 || (ret = get_next_line(fd, &line)) == EOF )
 	{
 		if (who_needs_a_map(line) == 1)
 			map[i++] = ft_strdup_sustitute_char(line, ' ', '9', config.maxR);
 		free(line);
 	}
-	map[i++] = ft_strdup_sustitute_char(line, ' ', '9', config.maxR);
+	if (who_needs_a_map(line) == 1)
+		map[i++] = ft_strdup_sustitute_char(line, ' ', '9', config.maxR);
+//	free (line);
 	while(i < config.maxR)
 		map[i++] = fill_me('9', config.maxR);
 	check_map(map);
 
 	/*CONTINUAR AQUI*/
-	free (line);
 	close(fd);
  	double_kill(map);
 	return (config);
@@ -54,7 +55,7 @@ int		who_needs_a_map(char *line)
 		((line[i] == 'N') && (line[i+1] == 'O')) || ((line[i] == 'S') && (line[i+1] == 'O')) ||
 		((line[i] == 'W') && (line[i+1] == 'E')) || ((line[i] == 'E') && (line[i+1] == 'A')) ||
 		((line[i] == 'S') && (line[i+1] == ' ')))
-			break;
+			break; //TAL VEZ HAYA QUE METER RETURN 0 POR AQUI.
 		if ((line[i] == '1') &&
 		((line[i+1] == '0') || (line[i+1] == '1') ||
 		(line[i+1] == 'N') || (line[i+1] == 'S') ||
