@@ -23,5 +23,6 @@ void	*ft_calloc(size_t count, size_t size);
 //liberacion de memoria
 void	double_kill(char **str); //liberar un doble puntero
 void	ace(char *str, ...); //liberar cualquier cantidad de punteros
+void 	print_error(char *str);
 
 #endif

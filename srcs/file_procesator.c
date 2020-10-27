@@ -72,10 +72,7 @@ t_config load_file(char *file, t_config config)
 	buf[1] = '\0';
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-	{
-		printf("ERROR: Fallo al intentar abrir el archivo .cub");
-		exit(-1);
-	}
+		print_error("Fallo al intentar abrir el archivo.");
 	while((ret = get_next_line(fd, &line)) > 0)
 	{
 		config.i = 0;
@@ -85,10 +82,7 @@ t_config load_file(char *file, t_config config)
 	free (line);
 	close(fd);
 	if (config.flag != 8)	//si no hay 8 valores guardados en la struct
-	{
-		printf("Faltan datos en el archivo .cub");
-		exit(-1);
-	}
+		print_error("Faltan datos en el archivo .cub");
 	return (config);
 }
 
@@ -98,10 +92,7 @@ t_config file_procesator(char *file) //le pasamos el archivo y devuelve la estru
 
 	if (file[ft_strlen(file) -1] != 'b' && file[ft_strlen(file) -2] != 'u' &&
 	file[ft_strlen(file) -3] != 'c' && file[ft_strlen(file) -4] != '.')
-	{
-		printf("ERROR: El archivo que ingresa debe ser tener la extension .cub");
-		exit(-1);
-	}
+		printf("El archivo que ingresa debe ser tener la extension .cub");
 	config = reset_t_config();
 	config = load_file(file, config);
 	config = read_map(file, config);

@@ -11,16 +11,10 @@ t_config		read_map(char *file, t_config config)
 	i = 0;
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-	{
-		printf("ERROR: Fallo al intentar abrir el archivo .cub");
-		exit(-1);
-	}
+		print_error("Fallo al intentar abrir el archivo .cub");
 	config.maxR = what_is_higher(config.map_max_lines, config.map_max_rows);
 	if(!(map = (char **)calloc(sizeof(char *) * config.maxR + 1, 1)))
-	{
-		printf("Error de malloc en archivo: get_map_reads.c funcion: read_map");
-		exit(-1);
-	}
+		printf("Malloc ha fallado en: get_map_reads.c");
 	while((ret = get_next_line(fd, &line)) > 0 || (ret = get_next_line(fd, &line)) == EOF )
 	{
 		if (who_needs_a_map(line) == 1)
@@ -76,10 +70,7 @@ char 		*fill_me(char c, int lenght)
 
 	i = 0;
 	if(!(finally = ((char *)malloc(sizeof(char) * lenght + 1))))
-	{
-		printf("Error: Malloc ha fallado en fill_me()");
-		exit (-1);
-	}
+		printf("Malloc ha fallado en: get_map_reads.c");
 	while(i <= lenght)
 	{
 		finally[i] = c;
@@ -101,15 +92,16 @@ void		check_map(char **map)
 		while(map[i][j])
 		{
 			printf("%c", map[i][j]);
-/*			if ((map[i][j] == '9') &&
-			((check_me_baby(map[i+1][j], "0NSW2E") == 0) ||
-			(check_me_baby(map[i-1][j], "0NSW2E") == 0) ||
-			(check_me_baby(map[i][j+1], "0NSW2E") == 0) ||
-			(check_me_baby(map[i][j-1], "0NSW2E") == 0)))
-			{
-				printf("ERROR: Mapa abierto por algun lugar");
-				exit (-1);
-			}*/
+			if (map[i][j] == '9')
+			{ /*CUANDO I ES 0 Y QUIERO ACCEDER A I-1 ME DA SEG FAULT, ASI CON TODO*/
+				if((check_me_baby(map[i+1][j], "0NSW2E") == 0) ||
+				(check_me_baby(map[i-1][j], "0NSW2E") == 0) ||
+				(check_me_baby(map[i][j+1], "0NSW2E") == 0) ||
+				(check_me_baby(map[i][j-1], "0NSW2E") == 0))
+				{
+					print_error("Mapa abierto por algun lugar.");
+				}
+			}
 			j++;
 		}
 		i++;
@@ -117,7 +109,7 @@ void		check_map(char **map)
 }
 
 
-/*int		check_me_baby(char c, char *str)
+int		check_me_baby(char c, char *str)
 {
 	int i;
 
@@ -128,6 +120,7 @@ void		check_map(char **map)
 	{
 		if (str[i] == c)
 			return (0);
+		i++;
 	}
 	return (1);
-}*/
+}

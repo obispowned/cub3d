@@ -7,10 +7,7 @@ int main(int argc, char **argv)
 	t_config	config;
 
 	if (argc != 2)
-	{
-		printf("ERROR: Incluya un archivo .cub como argumento");
-		exit(-1);
-	}
+		print_error("Incluya un archivo .cub como argumento");
 	else
 	{
 		config = file_procesator(argv[1]);

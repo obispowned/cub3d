@@ -7,10 +7,7 @@ char *ft_strdup(char *str)
 
 	i = 0;
 	if (!(finally = (char *)malloc(sizeof(char) * ft_strlen(str) + 1)))
-	{
-		printf("ERROR: malloc my_strdup ha fallado");
-		exit(-1);
-	}
+		printf("Malloc ha fallado en: ft_strdup.c");
 	while (str[i] != '\0')
 	{
 		finally[i] = str[i];
@@ -28,10 +25,7 @@ char *ft_strdup_sustitute_char(char *str, char now, char final, int max)
 	i = 0;
 	j = 0;
 	if (!(finally = (char *)malloc(sizeof(char) * max + 1)))
-	{
-		printf("ERROR: malloc my_strdup ha fallado");
-		exit(-1);
-	}
+		printf("Malloc ha fallado en: ft_strdup.c");
 	while (str[i] != '\0')
 	{
 		if (str[i] == '\t')

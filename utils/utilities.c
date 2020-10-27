@@ -31,3 +31,9 @@ int 		what_is_higher(int a, int b)
 	else
 		return (b);
 }
+
+void 		print_error(char *str)
+{
+	printf("ERROR: %s\n", str);
+	exit(-1);
+}
