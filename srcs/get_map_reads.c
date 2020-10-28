@@ -15,7 +15,7 @@ t_config		read_map(char *file, t_config config)
 	config.maxR = what_is_higher(config.map_max_lines, config.map_max_rows);
 	if(!(map = (char **)calloc(sizeof(char *) * config.maxR + 1, 1)))
 		printf("Malloc ha fallado en: get_map_reads.c");
-	while((ret = get_next_line(fd, &line)) > 0 || (ret = get_next_line(fd, &line)) == EOF )
+	while(((ret = get_next_line(fd, &line)) > 0) || ((ret = get_next_line(fd, &line)) == EOF ))
 	{
 		if (who_needs_a_map(line) == 1)
 			map[i++] = ft_strdup_sustitute_char(line, ' ', '9', config.maxR);
@@ -94,13 +94,13 @@ void		check_map(char **map)
 			printf("%c", map[i][j]);
 			if (map[i][j] == '9')
 			{ /*CUANDO I ES 0 Y QUIERO ACCEDER A I-1 ME DA SEG FAULT, ASI CON TODO*/
-				if((check_me_baby(map[i+1][j], "0NSW2E") == 0) ||
+/*				if((check_me_baby(map[i+1][j], "0NSW2E") == 0) ||
 				(check_me_baby(map[i-1][j], "0NSW2E") == 0) ||
 				(check_me_baby(map[i][j+1], "0NSW2E") == 0) ||
 				(check_me_baby(map[i][j-1], "0NSW2E") == 0))
 				{
 					print_error("Mapa abierto por algun lugar.");
-				}
+				}*/
 			}
 			j++;
 		}
@@ -108,7 +108,7 @@ void		check_map(char **map)
 	}
 }
 
-
+/*
 int		check_me_baby(char c, char *str)
 {
 	int i;
@@ -123,4 +123,4 @@ int		check_me_baby(char c, char *str)
 		i++;
 	}
 	return (1);
-}
+}*/

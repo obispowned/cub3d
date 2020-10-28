@@ -7,8 +7,7 @@ SRCS			=	srcs/main.c\
 					utils/ft_split.c\
 					utils/ft_strdup.c\
 					utils/ft_strjoin_char.c\
-					utils/get_next_line.c\
-					utils/get_next_line_utils.c\
+					get_next_line/get_next_line.c\
 					utils/ft_strlen.c\
 					utils/ft_calloc.c\
 					utils/ft_is.c\
