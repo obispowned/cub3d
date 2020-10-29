@@ -15,7 +15,7 @@ t_config		read_map(char *file, t_config config)
 	config.maxR = what_is_higher(config.map_max_lines, config.map_max_rows);
 	if(!(map = (char **)calloc(sizeof(char *) * config.maxR + 1, 1)))
 		printf("Malloc ha fallado en: get_map_reads.c");
-	while(((ret = get_next_line(fd, &line)) > 0) || ((ret = get_next_line(fd, &line)) == EOF ))
+	while(((ret = get_next_line(fd, &line)) > 0) )
 	{
 		if (who_needs_a_map(line) == 1)
 			map[i++] = ft_strdup_sustitute_char(line, ' ', '9', config.maxR);
@@ -23,7 +23,7 @@ t_config		read_map(char *file, t_config config)
 	}
 	if (who_needs_a_map(line) == 1)
 		map[i++] = ft_strdup_sustitute_char(line, ' ', '9', config.maxR);
-//	free (line);
+	free (line);
 	while(i < config.maxR)
 		map[i++] = fill_me('9', config.maxR);
 	check_map(map);

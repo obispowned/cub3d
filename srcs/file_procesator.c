@@ -73,12 +73,14 @@ t_config load_file(char *file, t_config config)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 		print_error("Fallo al intentar abrir el archivo.");
-	while(((ret = get_next_line(fd, &line)) > 0) || ((ret = get_next_line(fd, &line)) == EOF ))
+	while(((ret = get_next_line(fd, &line)) > 0))
 	{
 		config.i = 0;
 		config = check_file(line, config);
 		free(line);
 	}
+	config = check_file(line, config);
+	free(line);
 	close(fd);
 	if (config.flag != 8)	//si no hay 8 valores guardados en la struct
 		print_error("Faltan datos en el archivo .cub");
