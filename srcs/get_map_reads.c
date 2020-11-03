@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_map_reads.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/03 13:05:06 by agutierr          #+#    #+#             */
+/*   Updated: 2020/11/03 14:44:14 by agutierr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../header/cub3d.h"
 
 t_config		read_map(char *file, t_config config)
-{	//segunda lectura de mapa para guardarlo para posteriormente chekearlo
+{	//segunda lectura de mapa para guardarlo para posteriormente checkearlos
 	int fd;
 	int ret;
 	char *line;
@@ -26,7 +38,7 @@ t_config		read_map(char *file, t_config config)
 	kill(line);
 	while(i < config.maxR)
 		map[i++] = fill_me('9', config.maxR);
-	check_map(map);
+	check_map(&config, map);
 
 	/*CONTINUAR AQUI*/
 	close(fd);
@@ -83,7 +95,62 @@ char 		*fill_me(char c, int lenght)
 	return (finally);
 }
 
-void		check_map(char **map)
+void		check_map(t_config *config, char **map)
+{
+	int i;
+	int j;
+
+	i = 0;
+	print_map(map);
+	valid_map(map);
+	while(map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (((map[i][j] == 'N') || (map[i][j] == 'S') ||
+				(map[i][j] == 'E') || (map[i][j] == 'W')) &&
+				(config->player_begin[0] == 0 && config->player_begin[1] == 0))
+			{
+				config->player_begin[0] = i;
+				config->player_begin[1] = j;
+			}
+			else if (((map[i][j] == 'N') || (map[i][j] == 'S') ||
+				(map[i][j] == 'E') || (map[i][j] == 'W')) &&
+				(config->player_begin[0] != 0 && config->player_begin[1] != 0))
+				print_error("Ya existe otra posicion para el jugador");
+			j++;
+		}
+		i++;
+	}
+}
+
+void		valid_map(char **map)
+{
+	int i;
+	int j;
+
+	i = 1;
+	while(map[i+1])
+	{
+		j = 1;
+		while (map[i][j+1])
+		{
+			if (((map[i][j] == '9') && ((map[i-1][j] != '1') || (map[i-1][j] != '9'))) ||
+			((map[i][j] == '9') && ((map[i+1][j] != '1') || (map[i+1][j] != '9'))) ||
+			((map[i][j] == '9') && ((map[i][j+1] != '1') || (map[i][j+1] != '9'))) ||
+			((map[i][j] == '9') && ((map[i][j-1] != '1') || (map[i][j-1] != '9'))) )
+			{
+				printf("%d-%d \n", i, j);
+				print_error("mapa abierto en coordenadas: ");
+			}
+			j++;
+		}
+		i++;
+	}
+}
+
+void		print_map(char **map)
 {
 	int i;
 

@@ -56,10 +56,10 @@ char	*give_me_a_path(char *line)
 		if (line[i])
 			i++;
 	}
-/*	final[i] = '\0';
+	final[i] = '\0';
 	if ((final[ft_strlen(final) -1] != 'm') && (final[ft_strlen(final) -2] != 'p')
 	 && (final[ft_strlen(final) -3] != 'x')  && (final[ft_strlen(final) -4] != '.'))
-		print_error("Formato de texturas incorrecto.");*/
+		print_error("Formato de texturas incorrecto. La textura debe ser una: ./ruta.xmp");
 	return (final);
 }
 

@@ -1,11 +1,12 @@
 R 700 400  
-NO brick.xpm
-SO dirt.xpm
-EA stone.xpm
-WE wood.xpm
-S brice_sprite.xpm
+NO ./brick.xpm
+SO ./dirt.xpm
+EA ./stone.xpm
+WE ./wood.xpm
+S ./brice_sprite.xpm
 C 106,176,76
 F 83,92,104
+
   11111111  1111111111111111
   10000001111000001000000001
   10020000000000001000000001

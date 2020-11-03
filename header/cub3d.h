@@ -25,6 +25,7 @@ typedef struct	s_config
 	int		map_max_rows;
 	int		maxR;
 	int		i;
+	int		player_begin[2];
 }				t_config;
 
 
@@ -43,7 +44,9 @@ t_config 	check_ceil_floor(char *line, t_config config);
 /*	funciones para guardar, checkear y parsear el mapa - SEGUNDA LECTURA*/
 t_config	read_map(char *file, t_config config);
 int			who_needs_a_map(char *line);
-void		check_map(char **map);
+void		check_map(t_config *config, char **map);
+void		valid_map(char **map);
+void		print_map(char **map);
 char 		*fill_me(char c, int lenght);
 int			check_me_baby(char c, char *str);
 

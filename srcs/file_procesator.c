@@ -18,6 +18,8 @@ t_config reset_t_config()
 	config.map_max_lines = 0;
 	config.map_max_rows = 0;
 	config.maxR = 0;
+	config.player_begin[0] = 0;
+	config.player_begin[1] = 0;
 
 	while (o < 3)
 	{
