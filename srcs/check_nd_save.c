@@ -48,12 +48,18 @@ char	*give_me_a_path(char *line)
 			{
 				while (white_spaces(line[i]) == 1)
 					i++;
-				final[j++] = line[i];
+				final[j] = line[i];
+				j++;
 				i++;
 			}
 		}
-		i++;
+		if (line[i])
+			i++;
 	}
+/*	final[i] = '\0';
+	if ((final[ft_strlen(final) -1] != 'm') && (final[ft_strlen(final) -2] != 'p')
+	 && (final[ft_strlen(final) -3] != 'x')  && (final[ft_strlen(final) -4] != '.'))
+		print_error("Formato de texturas incorrecto.");*/
 	return (final);
 }
 
