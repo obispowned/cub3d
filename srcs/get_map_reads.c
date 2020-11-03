@@ -38,12 +38,45 @@ t_config		read_map(char *file, t_config config)
 	kill(line);
 	while(i < config.maxR)
 		map[i++] = fill_me('9', config.maxR);
+	
 	check_map(&config, map);
+	valid_map(map);
 
 	/*CONTINUAR AQUI*/
 	close(fd);
  	double_kill(map);
 	return (config);
+}
+
+void		valid_map(char **map)
+{ //validamos que en todos los 9 del mapa no haya al lado un 0
+	int i;
+	int j;
+
+	i = 1;
+	while(map[i+1])
+	{
+		j = 1;
+		while (map[i][j+1])
+		{
+			if ((map[i][j] == '9') &&
+			(((map[i-1][j] != '1') && (map[i-1][j] != '9')) ||
+			((map[i+1][j] != '1') && (map[i+1][j] != '9')) ||
+			((map[i][j+1] != '1') && (map[i][j+1] != '9')) ||
+			((map[i][j-1] != '1') && (map[i][j-1] != '9'))))
+			{
+				printf("Coordenadas: %d-%d contenido: %c\n", i, j, map[i][j]);
+				printf("map[i-1][j]: %c\n", map[i-1][j]);
+				printf("map[i+1][j]: %c\n", map[i+1][j]);
+				printf("map[i][j-1]: %c\n", map[i][j-1]);
+				printf("map[i][j+1]: %c\n", map[i][j+1]);
+				print_error("Mapa abierto\n");
+			}
+			j++;
+		}
+		i++;
+	}
+	printf("| El mapa es VALIDO |\n");
 }
 
 int		who_needs_a_map(char *line)
@@ -102,12 +135,14 @@ void		check_map(t_config *config, char **map)
 
 	i = 0;
 	print_map(map);
-	valid_map(map);
 	while(map[i])
 	{
 		j = 0;
 		while (map[i][j])
-		{
+		{	//COMPRUEBO PRIMERAS POSICIONES DEL MAPA Y QUE SOLO HAYA UNA POSICION DE JUGADOR
+			if (((i == 0) && (map[i][j] != '9') && (map[i][j] != '1')) ||
+				((j == 0) && (map[i][j] != '9') && (map[i][j] != '1')))
+				print_error("Mapa malamente Cerrao. tratra");
 			if (((map[i][j] == 'N') || (map[i][j] == 'S') ||
 				(map[i][j] == 'E') || (map[i][j] == 'W')) &&
 				(config->player_begin[0] == 0 && config->player_begin[1] == 0))
@@ -125,30 +160,7 @@ void		check_map(t_config *config, char **map)
 	}
 }
 
-void		valid_map(char **map)
-{
-	int i;
-	int j;
 
-	i = 1;
-	while(map[i+1])
-	{
-		j = 1;
-		while (map[i][j+1])
-		{
-			if (((map[i][j] == '9') && ((map[i-1][j] != '1') || (map[i-1][j] != '9'))) ||
-			((map[i][j] == '9') && ((map[i+1][j] != '1') || (map[i+1][j] != '9'))) ||
-			((map[i][j] == '9') && ((map[i][j+1] != '1') || (map[i][j+1] != '9'))) ||
-			((map[i][j] == '9') && ((map[i][j-1] != '1') || (map[i][j-1] != '9'))) )
-			{
-				printf("%d-%d \n", i, j);
-				print_error("mapa abierto en coordenadas: ");
-			}
-			j++;
-		}
-		i++;
-	}
-}
 
 void		print_map(char **map)
 {

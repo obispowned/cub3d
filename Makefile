@@ -16,11 +16,11 @@ SRCS			=	srcs/main.c\
 
 OBJS			= $(SRCS:.c=.o)
 
-FLAGS			= -Wall -Werror -Wextra -g
+FLAGS			= -g
 
 GCC 			= gcc
 
-INCLUDE			= -I minilibx -I header
+INCLUDE			= -I header
 
 MLX_DIR			= minilibx_opengl
 
@@ -33,11 +33,11 @@ GREEN			= \033[1;32m
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-				@echo "${RED}[Remove last version...]${RESET}"
+				@echo "${RED}[...Haciendo CLEAN del a.out...]${RESET}"
 				@rm -rf cub3D
-				@echo "${PURPLE}[minilib compilation...]${RESET}"
+				@echo "${PURPLE}[Compilando Minilibx...]${RESET}"
 			$(MAKE) -C minilibx_opengl
-			$(GCC) $(OBJS) -o $(NAME) -L $(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
+			$(GCC) $(OBJS) -o $(NAME) -L $(MLX_DIR)
 				@echo "${GREEN}[.oOo.oOo.oOo.oOo.]"
 				@echo "[ C O M P I L A O ]"
 				@echo "[.oOo.oOo.oOo.oOo.]"

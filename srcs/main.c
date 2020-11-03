@@ -31,6 +31,8 @@ int main(int argc, char **argv)
 	printf("Cantidad de lineas: | %d |\n", config.map_max_lines);
 	printf("Cantidad de columnas: | %d |\n", config.map_max_rows);
 
+	printf("Coordenadas de cominezo: | %d-%d |\n", config.player_begin[0], config.player_begin[1]);
+
 
 	printf("\n");
 	printf("\n");
