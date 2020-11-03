@@ -37,8 +37,11 @@ char	*ft_strdup_gnl(char *str)
 	i = 0;
 	if (!(final = ((char *)malloc(sizeof(char) * (ft_strlen_gnl(str) + 1)))))
 		return (NULL);
-	while(str[i++])
+	while(str[i])
+	{
 		final[i] = str[i];
+		i++;
+	}
 	final[i] = '\0';
 	return (final);
 }

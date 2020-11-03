@@ -19,11 +19,11 @@ t_config		read_map(char *file, t_config config)
 	{
 		if (who_needs_a_map(line) == 1)
 			map[i++] = ft_strdup_sustitute_char(line, ' ', '9', config.maxR);
-		free(line);
+		kill(line);
 	}
 	if (who_needs_a_map(line) == 1)
 		map[i++] = ft_strdup_sustitute_char(line, ' ', '9', config.maxR);
-	free (line);
+	kill(line);
 	while(i < config.maxR)
 		map[i++] = fill_me('9', config.maxR);
 	check_map(map);
@@ -36,32 +36,35 @@ t_config		read_map(char *file, t_config config)
 
 int		who_needs_a_map(char *line)
 {
-	int		i;
-	int		final;
+	int i;
+	int j;
+	int coincide;
+	char *chain2;
 
-	final = 0;
+	coincide = 0;
+	chain2 = "102 NSWE";
 	i = 0;
-	while (line[i] != '\0')
+	j = 0;
+	while(line[i] != '\0')
 	{
-		while (line[i] == ' ')
-			i++;
-		if ((line[i] == 'C') || (line[i] == 'R') || (line[i] == 'F') ||
-		((line[i] == 'N') && (line[i+1] == 'O')) || ((line[i] == 'S') && (line[i+1] == 'O')) ||
-		((line[i] == 'W') && (line[i+1] == 'E')) || ((line[i] == 'E') && (line[i+1] == 'A')) ||
-		((line[i] == 'S') && (line[i+1] == ' ')))
-			break; //TAL VEZ HAYA QUE METER RETURN 0 POR AQUI.
-		if ((line[i] == '1') &&
-		((line[i+1] == '0') || (line[i+1] == '1') ||
-		(line[i+1] == 'N') || (line[i+1] == 'S') ||
-		(line[i+1] == 'E') || (line[i+1] == 'W')) &&
-		((line[i+2] == '0') || (line[i+2] == '1') ||
-		(line[i+2] == 'N') || (line[i+2] == 'S') ||
-		(line[i+2] == 'E') || (line[i+2] == 'W')))
-			final = 1;
+		coincide = 0;
+		j = 0;
+		while(chain2[j] != '\0')
+		{
+			if(line[i] == chain2[j])
+				coincide = 1;
+			j++;
+		}
+		if (coincide != 1)
+			return(0);
 		i++;
 	}
-	return (final);
+	if (coincide == 1)
+		return (1);
+	else
+		return (0);
 }
+
 
 char 		*fill_me(char c, int lenght)
 {
@@ -82,28 +85,12 @@ char 		*fill_me(char c, int lenght)
 
 void		check_map(char **map)
 {
-	int j, i;
+	int i;
 
 	i = 0;
 	while(map[i])
 	{
-		j = 0;
-		printf("\n");
-		while(map[i][j])
-		{
-			printf("%c", map[i][j]);
-			if (map[i][j] == '9')
-			{ /*CUANDO I ES 0 Y QUIERO ACCEDER A I-1 ME DA SEG FAULT, ASI CON TODO*/
-/*				if((check_me_baby(map[i+1][j], "0NSW2E") == 0) ||
-				(check_me_baby(map[i-1][j], "0NSW2E") == 0) ||
-				(check_me_baby(map[i][j+1], "0NSW2E") == 0) ||
-				(check_me_baby(map[i][j-1], "0NSW2E") == 0))
-				{
-					print_error("Mapa abierto por algun lugar.");
-				}*/
-			}
-			j++;
-		}
+		printf("%s\n", map[i]);
 		i++;
 	}
 }

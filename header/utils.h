@@ -21,8 +21,11 @@ void	*ft_memset(void *ptr, int x, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 
 //liberacion de memoria
+void	kill(char *str);
 void	double_kill(char **str); //liberar un doble puntero
 void	ace(char *str, ...); //liberar cualquier cantidad de punteros
 void 	print_error(char *str);
+////
+int		white_spaces(char c);
 
 #endif

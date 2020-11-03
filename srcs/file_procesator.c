@@ -32,14 +32,14 @@ t_config check_file(char *line, t_config config)
 {
 	while (line[config.i] != '\0')
 	{
-		if ((line[config.i] == 'R') && (line[config.i+1] == ' '))
+		if ((line[config.i] == 'R') && (white_spaces(line[config.i+1])))
 			config = check_R(line, config);
-		if (((line[config.i] == 'N') && (line[config.i+1] == 'O') && (line[config.i+2] == ' ')) ||
-		((line[config.i] == 'S') && (line[config.i+1] == 'O') && (line[config.i+2] == ' ')) ||
-		((line[config.i] == 'W') && (line[config.i+1] == 'E') && (line[config.i+2] == ' ')) ||
-		((line[config.i] == 'E') && (line[config.i+1] == 'A') && (line[config.i+2] == ' ')) ||
-		((line[config.i] == 'S') && (line[config.i+1] == ' ')))
-			config = check_path(line, config);
+		if (((line[config.i] == 'N') && (line[config.i+1] == 'O') && (white_spaces(line[config.i+2]))) ||
+		((line[config.i] == 'S') && (line[config.i+1] == 'O') && (white_spaces(line[config.i+2]))) ||
+		((line[config.i] == 'W') && (line[config.i+1] == 'E') && (white_spaces(line[config.i+2]))) ||
+		((line[config.i] == 'E') && (line[config.i+1] == 'A') && (white_spaces(line[config.i+2]))) ||
+		((line[config.i] == 'S') && (white_spaces(line[config.i+1]))))
+			config = check_path(&line[config.i], config);
 		if (((line[config.i] == 'F') && (line[config.i+1] == ' ')) ||
 		((line[config.i] == 'C') && (line[config.i+1] == ' ')))
 			config = check_ceil_floor(line, config);
@@ -62,6 +62,7 @@ t_config check_file(char *line, t_config config)
 	return (config);
 }
 
+
 t_config load_file(char *file, t_config config)
 { //le paso el archivo y la estructura y devuelve primera lectura
 	int fd;
@@ -77,10 +78,10 @@ t_config load_file(char *file, t_config config)
 	{
 		config.i = 0;
 		config = check_file(line, config);
-		free(line);
+		kill(line);
 	}
 	config = check_file(line, config);
-	free(line);
+	kill(line);
 	close(fd);
 	if (config.flag != 8)	//si no hay 8 valores guardados en la struct
 		print_error("Faltan datos en el archivo .cub");

@@ -1,7 +1,7 @@
 R 768 1068
 NO ./textures/sand.xpm
 SO ./textures/stone.xpm
-WE ./textures/blue.xpm
+WE ./blue.xpm
 EA ./textures/red_brick.xpm
 S ./textures/hitler.xpm
 F 51,51,51
