@@ -3,6 +3,8 @@
 t_config check_R(char *line, t_config config)
 {
 	char **splitter;
+
+	line = change_char(line, '\t', ' ');
 	splitter = ft_split(line, ' ');
 	if ((splitter[3]) || (ft_isdigit(splitter[1]) != 1) || (ft_isdigit(splitter[2]) != 1))
 		print_error("Formato de Resolucion incorrecto.");
@@ -11,6 +13,20 @@ t_config check_R(char *line, t_config config)
 	config.flag += 1;
 	double_kill(splitter);
 	return (config);
+}
+
+char		*change_char(char *line, char a, char b)
+{
+	int		i;
+
+	i =	0;
+	while(line[i])
+	{
+		if(line[i] == a)
+			line[i] = b;
+		i++;
+	}
+	return (line);
 }
 
 t_config check_path(char *line, t_config config)

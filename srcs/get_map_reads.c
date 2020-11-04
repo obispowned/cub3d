@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 13:05:06 by agutierr          #+#    #+#             */
-/*   Updated: 2020/11/03 14:44:14 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/11/04 12:31:47 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,23 +57,32 @@ void		valid_map(char **map)
 	while(map[i+1])
 	{
 		j = 1;
-		while (map[i][j+1])
+		while (map[i][j+1]) 
 		{
-			if ((map[i][j] == '9') &&
+			if ((map[0][j] == '9') &&
+			(((map[1][j] != '1') && (map[1][j] != '9')) ||
+			((map[0][j+1] != '1') && (map[0][j+1] != '9')) ||
+			((map[0][j-1] != '1') && (map[0][j-1] != '9'))))
+			{
+				printf("Coordenadas: %d-%d \n", i, j);
+				print_error("Mapa abierto\n");
+			}
+			else if ((map[i][j] == '9') &&
 			(((map[i-1][j] != '1') && (map[i-1][j] != '9')) ||
 			((map[i+1][j] != '1') && (map[i+1][j] != '9')) ||
 			((map[i][j+1] != '1') && (map[i][j+1] != '9')) ||
 			((map[i][j-1] != '1') && (map[i][j-1] != '9'))))
 			{
-				printf("Coordenadas: %d-%d contenido: %c\n", i, j, map[i][j]);
-				printf("map[i-1][j]: %c\n", map[i-1][j]);
-				printf("map[i+1][j]: %c\n", map[i+1][j]);
-				printf("map[i][j-1]: %c\n", map[i][j-1]);
-				printf("map[i][j+1]: %c\n", map[i][j+1]);
+				printf("Coordenadas: %d-%d \n", i, j);
 				print_error("Mapa abierto\n");
 			}
 			j++;
 		}
+		if ((map[i][j] == '9') &&
+			(((map[i-1][j] != '1') && (map[i-1][j] != '9')) ||
+			((map[i+1][j] != '1') && (map[i+1][j] != '9')) ||
+			((map[i][j-1] != '1') && (map[i][j-1] != '9'))))
+				print_error("Mapa abierto\n");
 		i++;
 	}
 	printf("| El mapa es VALIDO |\n");
@@ -87,7 +96,7 @@ int		who_needs_a_map(char *line)
 	char *chain2;
 
 	coincide = 0;
-	chain2 = "102 NSWE";
+	chain2 = "102 NSWE\t";
 	i = 0;
 	j = 0;
 	while(line[i] != '\0')
@@ -142,7 +151,7 @@ void		check_map(t_config *config, char **map)
 		{	//COMPRUEBO PRIMERAS POSICIONES DEL MAPA Y QUE SOLO HAYA UNA POSICION DE JUGADOR
 			if (((i == 0) && (map[i][j] != '9') && (map[i][j] != '1')) ||
 				((j == 0) && (map[i][j] != '9') && (map[i][j] != '1')))
-				print_error("Mapa malamente Cerrao. tratra");
+				print_error("Mapa malamente Cerrao.");
 			if (((map[i][j] == 'N') || (map[i][j] == 'S') ||
 				(map[i][j] == 'E') || (map[i][j] == 'W')) &&
 				(config->player_begin[0] == 0 && config->player_begin[1] == 0))

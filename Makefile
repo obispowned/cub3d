@@ -16,7 +16,7 @@ SRCS			=	srcs/main.c\
 
 OBJS			= $(SRCS:.c=.o)
 
-FLAGS			= -g
+FLAGS			= -Wall -Werror -Wextra -g
 
 GCC 			= gcc
 
