@@ -1,8 +1,8 @@
 R 1080 720
-NO tests/textures/grey.xpm
-SO tests/textures/grey.xpm
-WE tests/textures/whitestone.xpm
-EA tests/textures/whitestone.xpm
+NO ./tests/textures/grey.xpm
+SO ./tests/textures/grey.xpm
+WE ./tests/textures/whitestone.xpm
+EA ./tests/textures/whitestone.xpm
 
 S tests/textures/sprite/42.xpm
 F 0,60,0

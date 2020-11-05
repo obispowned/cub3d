@@ -39,7 +39,7 @@ int main(int argc, char **argv)
 
 	ace(config.NO, config.SO, config.WE, config.EA, config.S, NULL);
 
+//	exit(-1);
 	system("leaks cub3D");
-
 	return(0);
 }

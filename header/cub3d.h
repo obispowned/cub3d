@@ -37,9 +37,10 @@ t_config 	reset_t_config();
 
 /* funciones para guardar los datos en la estructura - PRIMERA LECTURA*/
 t_config 	check_R(char *file, t_config config);
-char		*give_me_a_path(char *line);
 t_config 	check_path(char *file, t_config config);
+char		*give_me_a_path(char *line);
 t_config 	check_ceil_floor(char *line, t_config config);
+void		check_ceil_floor2(char conmut, char **splitter, t_config *config);
 
 /*	funciones para guardar, checkear y parsear el mapa - SEGUNDA LECTURA*/
 t_config	read_map(char *file, t_config config); //segunda lectura para sacar el mapa
