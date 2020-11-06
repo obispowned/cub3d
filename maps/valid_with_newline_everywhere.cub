@@ -3,16 +3,16 @@
 R 800 400
 
 
-NO tests/textures/grass.xpm
+NO ./tests/textures/grass.xpm
 
-SO tests/textures/brownstone.xpm
+SO ./tests/textures/brownstone.xpm
 
-WE tests/textures/grass.xpm
+WE ./tests/textures/grass.xpm
 
 
-EA tests/textures/whitestone.xpm
+EA ./tests/textures/whitestone.xpm
 
-S tests/textures/sprite/chest.xpm
+S ./tests/textures/sprite/chest.xpm
 
 
 F 220,100,0

@@ -15,6 +15,9 @@ int main(int argc, char **argv)
 
 	}
 
+	if (config.player_begin[0] == 0 && config.player_begin[1] == 0)
+		print_error("Este mapa no puede ser usado sin un jugador");
+
 	printf("\n");
 	printf("width %d, height %d\n", config.width, config.height);
 
