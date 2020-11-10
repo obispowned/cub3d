@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 08:33:02 by agutierr          #+#    #+#             */
-/*   Updated: 2020/11/05 14:02:45 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/11/10 14:04:45 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ char		*ft_strdup_sustitute_char(char *str, char now, char final, int max)
 	int		i;
 	int		j;
 
-	i = -1;
+	i = 0;
 	j = 0;
 	if (!(finally = (char *)malloc(sizeof(char) * max + 2)))
 		print_error("Malloc ha fallado en: ft_strdup.c");
-	while (str[++i] != '\0')
+	while (str[i] != '\0')
 	{
 		if (str[i] == '\t')
 			print_error("No debe haber tabulaciones");
@@ -48,6 +48,7 @@ char		*ft_strdup_sustitute_char(char *str, char now, char final, int max)
 		else
 			finally[j] = str[i];
 		j++;
+		i++;
 	}
 	while (j < max + 1)
 	{

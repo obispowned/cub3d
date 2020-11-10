@@ -1,6 +1,6 @@
 TEST_COUNT=10
 CUB3D=./cub3D
-MAPS_FOLDER=./maps/validos/
+MAPS_FOLDER=./maps/
 
 MAIN_BG="\033[46;30m"
 ALERT_BG="\033[41;4;30m"

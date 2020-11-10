@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 13:05:06 by agutierr          #+#    #+#             */
-/*   Updated: 2020/11/05 14:19:33 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/11/10 14:43:59 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,36 +19,56 @@ t_config		read_map(char *file, t_config config)
 	char		*line;
 	char		**map;
 	int			i;
-
+	int			j;
+	
+	j = 0;
 	i = 0;
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 		print_error("Fallo al intentar abrir el archivo .cub");
-	config.maxR = what_is_higher(config.map_max_lines, config.map_max_rows);
-	if (!(map = (char **)calloc(sizeof(char *) * config.maxR + 1, 1)))
+	if (!(map = (char **)malloc(sizeof(char *) * config.map_max_lines + 3)))
 		printf("Malloc ha fallado en: get_map_reads.c");
-	while (((ret = get_next_line(fd, &line)) > 0) )
+	map[config.map_max_lines + 2] = NULL;
+	while (((ret = get_next_line(fd, &line)) > 0))
 	{
-		if (who_needs_a_map(line) == 1)
+		if (who_needs_a_map(line, "102 NSWE\t") == 1)
 		{
-			map[i] = ft_strdup_sustitute_char(line, ' ', '9', config.maxR);
+			map[i] = ft_strdup_sustitute_char(line, ' ', '9', config.map_max_rows + 1); /**/
 			i++;
 		}
 		kill(line);
 	}
-	if (who_needs_a_map(line) == 1)
-		map[i++] = ft_strdup_sustitute_char(line, ' ', '9', config.maxR);
+	if (who_needs_a_map(line, "102 NSWE\t") == 1)
+	{
+		map[i] = ft_strdup_sustitute_char(line, ' ', '9', config.map_max_rows); /**/
+		i++;
+	}
 	kill(line);
-	while (i < config.maxR)
-		map[i++] = fill_me('9', config.maxR);
-	
+	map[i] = malloc(sizeof(char) * config.map_max_rows + 1);
+	while (j < config.map_max_rows + 1)
+	{
+		map[i][j] = '9';
+		j++;
+	}
+	map[i][j] = '\0';
+//	valid_last_line(i-1, map);
 	check_map(&config, map);
 	valid_map(map);
-
-	/*CONTINUAR AQUI*/
 	close(fd);
  	double_kill(map);
 	return (config);
+}
+
+void	valid_last_line(int i, char **map)
+{
+	int j;
+
+	j = 0;
+	i--;
+	while (map[i][j++])
+		if ((map[i][j] == '9') &&
+		((map[i-1][j] != '9') && (map[i-1][j] != '1')))
+			print_error("Mapa abierto en la ultima linea");
 }
 
 void		valid_map(char **map)
@@ -82,24 +102,22 @@ void		valid_map(char **map)
 			j++;
 		}
 		if ((map[i][j] == '9') &&
-			(((map[i - 1][j] != '1') && (map[i - 1][j] != '9')) ||
-			((map[i + 1][j] != '1') && (map[i + 1][j] != '9')) ||
-			((map[i][j - 1] != '1') && (map[i][j - 1] != '9'))))
-				print_error("Mapa abierto\n");
+		(((map[i - 1][j] != '1') && (map[i - 1][j] != '9')) ||
+		((map[i + 1][j] != '1') && (map[i + 1][j] != '9')) ||
+		((map[i][j - 1] != '1') && (map[i][j - 1] != '9'))))
+			print_error("Mapa abierto\n");
 		i++;
 	}
 	printf("| El mapa es VALIDO |\n");
 }
 
-int			who_needs_a_map(char *line)
+int			who_needs_a_map(char *line, char *chain2)
 {
 	int		i;
 	int		j;
 	int		coincide;
-	char	*chain2;
 
 	coincide = 0;
-	chain2 = "102 NSWE\t";
 	i = 0;
 	j = 0;
 	while (line[i] != '\0')
@@ -123,20 +141,23 @@ int			who_needs_a_map(char *line)
 }
 
 
-char 		*fill_me(char c, int lenght)
+char 		*fill_me(char c, int lenght, char **map)
 {
 	char 	*finally;
 	int 	i;
-
-	i = 0;
+	
 	if(!(finally = ((char *)malloc(sizeof(char) * lenght + 2))))
 		printf("Malloc ha fallado en: get_map_reads.c");
-	while(i <= lenght)
+	if (map)
 	{
-		finally[i] = c;
-		i++;
+		i = 0;
+		while(i <= lenght)
+		{
+			finally[i] = c;
+			i++;
+		}
+		finally[i] = '\0';
 	}
-	finally[i] = '\0';
 	return (finally);
 }
 
@@ -152,9 +173,9 @@ void		check_map(t_config *config, char **map)
 		j = 0;
 		while (map[i][j])
 		{	//COMPRUEBO PRIMERAS POSICIONES DEL MAPA Y QUE SOLO HAYA UNA POSICION DE JUGADOR
-/*			if (((i == 0) && (map[i][j] != '9') && (map[i][j] != '1')) ||
+			if (((i == 0) && (map[i][j] != '9') && (map[i][j] != '1')) ||
 				((j == 0) && (map[i][j] != '9') && (map[i][j] != '1')))
-				print_error("Mapa malamente Cerrao.");*/
+				print_error("Mapa malamente Cerrao.");
 			if (((map[i][j] == 'N') || (map[i][j] == 'S') ||
 				(map[i][j] == 'E') || (map[i][j] == 'W')) &&
 				(config->player_begin[0] == 0 && config->player_begin[1] == 0))
@@ -180,7 +201,7 @@ void		print_map(char **map)
 	int i;
 
 	i = 0;
-	while(map[i])
+	while(map[i] != NULL)
 	{
 		printf("%s\n", map[i]);
 		i++;
