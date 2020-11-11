@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 08:33:02 by agutierr          #+#    #+#             */
-/*   Updated: 2020/11/10 14:04:45 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/11/11 11:56:41 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char		*ft_strdup_sustitute_char(char *str, char now, char final, int max)
 
 	i = 0;
 	j = 0;
-	if (!(finally = (char *)malloc(sizeof(char) * max + 2)))
+	if (!(finally = (char *)malloc(sizeof(char) * max + 1)))
 		print_error("Malloc ha fallado en: ft_strdup.c");
 	while (str[i] != '\0')
 	{
@@ -50,7 +50,7 @@ char		*ft_strdup_sustitute_char(char *str, char now, char final, int max)
 		j++;
 		i++;
 	}
-	while (j < max + 1)
+	while (j < max)
 	{
 		finally[j] = '9';
 		j++;
