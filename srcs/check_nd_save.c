@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 08:32:54 by agutierr          #+#    #+#             */
-/*   Updated: 2020/11/11 11:36:41 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/11/12 11:14:44 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,21 +41,21 @@ char		*change_char(char *line, char a, char b)
 	return (line);
 }
 
-void	check_path(char *line, t_config *config)
+void	check_path(char *line, t_config *config, int i)
 {
-	if ((line[config->i] == 'N') && (line[config->i + 1] == 'O')
-	&& (white_spaces(line[config->i + 2])) && (!config->NO))
+	if ((line[i] == 'N') && (line[i + 1] == 'O')
+	&& (white_spaces(line[i + 2])) && (!config->NO))
 		config->NO = give_me_a_path(line);
-	else if ((line[config->i] == 'S') && (line[config->i + 1] == 'O')
-	&& (white_spaces(line[config->i + 2])) && (!config->SO))
+	else if ((line[i] == 'S') && (line[i + 1] == 'O')
+	&& (white_spaces(line[i + 2])) && (!config->SO))
 		config->SO = give_me_a_path(line);
-	else if ((line[config->i] == 'W') && (line[config->i + 1] == 'E')
-	&& (white_spaces(line[config->i + 2])) && (!config->WE))
+	else if ((line[i] == 'W') && (line[i + 1] == 'E')
+	&& (white_spaces(line[i + 2])) && (!config->WE))
 		config->WE = give_me_a_path(line);
-	else if ((line[config->i] == 'E') && (line[config->i + 1] == 'A')
-	&& (white_spaces(line[config->i + 2])) && (!config->EA))
+	else if ((line[i] == 'E') && (line[i + 1] == 'A')
+	&& (white_spaces(line[i + 2])) && (!config->EA))
 		config->EA = give_me_a_path(line);
-	else if ((line[config->i] == 'S') && (white_spaces(line[config->i + 1])) && (!config->S))
+	else if ((line[i] == 'S') && (white_spaces(line[i + 1])) && (!config->S))
 		config->S = give_me_a_path(line);
 	else
 		print_error("Formato de texturas incorrecto.");
@@ -96,23 +96,23 @@ char		*give_me_a_path(char *line)
 	return (final);
 }
 
-void	check_ceil_floor(char *line, t_config *config)
+void	check_ceil_floor(char *line, t_config *config, int i)
 {
 	char	**splitter;
 	char	conmut;
 
-	conmut = line[config->i]; /*para saber si lo guardaremos en config.ceil[3] o en config.floor[3]*/
-	while ((line[config->i] != '\0') && ((line[config->i] < '0') || (line[config->i] > '9')))
-		config->i++;
-	splitter = ft_split(&line[config->i], ',');
+	conmut = line[i]; /*para saber si lo guardaremos en config.ceil[3] o en config.floor[3]*/
+	while ((line[i] != '\0') && ((line[i] < '0') || (line[i] > '9')))
+		i++;
+	splitter = ft_split(&line[i], ',');
 	if (ft_isdigit(splitter[2]) != 1)
 		splitter[2] = give_me_digit_without_spaces(splitter[2]);
 	if ((splitter[3]) || (ft_isdigit(splitter[0]) != 1) ||
 	(ft_isdigit(splitter[1]) != 1) || (ft_isdigit(splitter[2]) != 1))
 		print_error("Formato de ceil/floor incorrecto.");
 	check_ceil_floor2(conmut, splitter, config);
-	while (line[config->i])
-		config->i++;
+	while (line[i])
+		i++;
 	double_kill(splitter);
 }
 

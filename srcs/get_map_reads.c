@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 13:05:06 by agutierr          #+#    #+#             */
-/*   Updated: 2020/11/11 14:17:14 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/11/12 11:56:29 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void		read_map(char *file, t_config *config)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 		print_error("Fallo al intentar abrir el archivo .cub");
-	if (!(map = (char **)malloc(sizeof(char *) * config->map_max_lines + 3)))
+	if (!(map = (char **)malloc(sizeof(char *) * config->map_max_lines + 2)))
 		printf("Malloc ha fallado en: get_map_reads.c");
-	map[config->map_max_lines + 2] = NULL;
+	map[config->map_max_lines + 1] = NULL;
 	while (((ret = get_next_line(fd, &line)) > 0))
 	{
 		if (who_needs_a_map(line, "102 NSWE\t") == 1)
@@ -38,7 +38,6 @@ void		read_map(char *file, t_config *config)
 		}
 		kill(line);
 	}
-	
 	if (who_needs_a_map(line, "102 NSWE\t") == 1)
 	{
 		map[i] = ft_strdup_sustitute_char(line, ' ', '9', config->map_max_rows + 1); /**/
@@ -51,25 +50,12 @@ void		read_map(char *file, t_config *config)
 		j++;
 	}
 	map[i][j] = '\0';
-	valid_last_line(i-1, map);
 	check_map(config, map);
 	valid_map(map);
 	close(fd);
 	kill(line);
 	print_map(map);
  	double_kill(map);
-}
-
-void	valid_last_line(int i, char **map)
-{
-	int j;
-
-	j = 0;
-	i--;
-	while (map[i][j++])
-		if ((map[i][j] == '9') &&
-		((map[i-1][j] != '9') && (map[i-1][j] != '1')))
-			print_error("Mapa abierto en la ultima linea");
 }
 
 void		valid_map(char **map)
@@ -84,9 +70,9 @@ void		valid_map(char **map)
 		while (map[i][j + 1] != '\0') 
 		{
 			if ((map[0][j] == '9') &&
-			(((map[1][j] != '1') && (map[1][j] != '9')) ||
-			((map[0][j + 1] != '1') && (map[0][j + 1] != '9')) ||
-			((map[0][j - 1] != '1') && (map[0][j - 1] != '9'))))
+			(((map[1][j] != '1') && (map[1][j] != '9'))
+			|| ((map[0][j + 1] != '1') && (map[0][j + 1] != '9'))
+			|| ((map[0][j - 1] != '1') && (map[0][j - 1] != '9'))))
 			{
 				printf("Coordenadas: %d-%d \n", i, j);
 				print_error("Mapa abierto\n");
@@ -109,7 +95,23 @@ void		valid_map(char **map)
 			print_error("Mapa abierto\n");
 		i++;
 	}
+	valid_map3(map, i);
 	printf("| El mapa es VALIDO |\n");
+}
+
+void		valid_map3(char **map, int i)
+{
+	int		j;
+
+	j = 1;
+	while (map[i][j] != '\0')
+	{
+		if (map[i][j] != '9')
+			print_error("Mapa abierto en la ultima linea.");
+		if ((map[i-1][j] != '9') && (map[i-1][j] != '1'))
+			print_error("Mapa abierto en la ultima linea.");
+		j++;
+	}
 }
 
 int			who_needs_a_map(char *line, char *chain2)
@@ -205,20 +207,3 @@ void		print_map(char **map)
 		i++;
 	}
 }
-
-/*
-int		check_me_baby(char c, char *str)
-{
-	int i;
-
-	i = 0;
-	if (!c)
-		return (1);
-	while (str[i])
-	{
-		if (str[i] == c)
-			return (0);
-		i++;
-	}
-	return (1);
-}*/

@@ -36,9 +36,9 @@ void		reset_t_config();
 
 /* funciones para guardar los datos en la estructura - PRIMERA LECTURA*/
 void		check_R(char *file, t_config *config);
-void		check_path(char *file, t_config *config);
+void		check_path(char *file, t_config *config, int i);
 char		*give_me_a_path(char *line);
-void		check_ceil_floor(char *line, t_config *config);
+void		check_ceil_floor(char *line, t_config *config, int i);
 void		check_ceil_floor2(char conmut, char **splitter, t_config *config);
 
 /*	funciones para guardar, checkear y parsear el mapa - SEGUNDA LECTURA*/
@@ -47,13 +47,11 @@ int			who_needs_a_map(char *line, char *chain2); //devuelve 1 si encontro caract
 void		check_map(t_config *config, char **map); //checkeo de primeras posiciones de mapa y guardo NWSE que no se repita en el mapa
 
 /*	VALIDANDO EL PU;ETERO MAPA*/
-void		valid_last_line(int i, char **map);
 void		valid_map(char **map); //valido que los 9 no toquen ningun 0
-int         valid_map2(char **map, int i, int j);
+void		valid_map3(char **map, int i); //valido ultima linea
 void		print_map(char **map); // pintamos el mapa y ya
 
 char		*change_char(char *line, char a, char b); //cambia todos los char-a de line por char-b
 char 		*fill_me(char c, int lenght, char **map);
-int			check_me_baby(char c, char *str);
 
 #endif
