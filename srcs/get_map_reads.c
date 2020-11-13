@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 13:05:06 by agutierr          #+#    #+#             */
-/*   Updated: 2020/11/12 11:56:29 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/11/13 14:14:00 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void		read_map(char *file, t_config *config)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 		print_error("Fallo al intentar abrir el archivo .cub");
-	if (!(map = (char **)malloc(sizeof(char *) * config->map_max_lines + 2)))
+	if (!(map = (char **)calloc(sizeof(char *) * config->map_max_lines + 2, 1)))
 		printf("Malloc ha fallado en: get_map_reads.c");
-	map[config->map_max_lines + 1] = NULL;
+//	map[config->map_max_lines + 1] = NULL;
 	while (((ret = get_next_line(fd, &line)) > 0))
 	{
 		if (who_needs_a_map(line, "102 NSWE\t") == 1)
@@ -43,13 +43,12 @@ void		read_map(char *file, t_config *config)
 		map[i] = ft_strdup_sustitute_char(line, ' ', '9', config->map_max_rows + 1); /**/
 		i++;
 	}
-	map[i] = calloc(sizeof(char) * config->map_max_rows + 2, 1);
+	map[i] = calloc(sizeof(char) * config->map_max_rows + 3, 1);
 	while (j < config->map_max_rows + 1)
 	{
 		map[i][j] = '9';
 		j++;
 	}
-	map[i][j] = '\0';
 	check_map(config, map);
 	valid_map(map);
 	close(fd);
