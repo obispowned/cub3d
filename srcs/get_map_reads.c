@@ -26,7 +26,7 @@ void		read_map(char *file, t_config *config)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 		print_error("Fallo al intentar abrir el archivo .cub");
-	if (!(map = (char **)calloc(sizeof(char *) * config->map_max_lines + 2, 1)))
+	if (!(map = (char **)calloc(sizeof(char *) * config->map_max_lines + 2, 1))) /*PROBABLE SEG FAULT EN LINES*/
 		printf("Malloc ha fallado en: get_map_reads.c");
 //	map[config->map_max_lines + 1] = NULL;
 	while (((ret = get_next_line(fd, &line)) > 0))
@@ -169,26 +169,27 @@ void		check_map(t_config *config, char **map)
 
 	i = 0;
 
-	while(map[i] != 0)
+	while(map[i] != NULL)
 	{
+		printf("0\n");
 		j = 0;
 		while (map[i][j] != '\0') /*i2*/
 		{	//COMPRUEBO PRIMERAS POSICIONES DEL MAPA Y QUE SOLO HAYA UNA POSICION DE JUGADOR
 			if (((i == 0) && ((map[i][j] != '9') && (map[i][j] != '1'))) ||
 				((j == 0) && ((map[i][j] != '9') && (map[i][j] != '1'))))
 				print_error("Mapa malamente Cerrao.");
-			if (((map[i][j] == 'N') || (map[i][j] == 'S') ||
-				(map[i][j] == 'E') || (map[i][j] == 'W')) &&
-				(config->player_begin[0] == 0 && config->player_begin[1] == 0))
+			if ((map[i][j] == 'N') || (map[i][j] == 'S') ||
+				(map[i][j] == 'E') || (map[i][j] == 'W'))
 			{
-				config->player_begin[0] = i;
-				config->player_begin[1] = j;
-				map[i][j] = '0';
+				if ((config->player_begin[0] == 0) && (config->player_begin[1] == 0))
+				{
+					config->player_begin[0] = i;
+					config->player_begin[1] = j;
+					map[i][j] = '0';
+				}
+				else
+					print_error("Ya existe otra posicion para el jugador");
 			}
-			else if (((map[i][j] == 'N') || (map[i][j] == 'S') ||
-				(map[i][j] == 'E') || (map[i][j] == 'W')) &&
-				(config->player_begin[0] != 0 && config->player_begin[1] != 0))
-				print_error("Ya existe otra posicion para el jugador");
 			j++;
 		}
 		i++;
