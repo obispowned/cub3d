@@ -31,6 +31,7 @@ t_config reset_t_config()
 
 t_config check_file(char *line, t_config config)
 {
+	config.i = 0;
 	while (line[config.i] != '\0')
 	{
 		if ((line[config.i] == 'R') && (white_spaces(line[config.i + 1])))
