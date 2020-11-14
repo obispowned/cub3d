@@ -26,35 +26,47 @@ void		read_map(char *file, t_config *config)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 		print_error("Fallo al intentar abrir el archivo .cub");
-	if (!(map = (char **)calloc(sizeof(char *) * config->map_max_lines + 2, 1))) /*PROBABLE SEG FAULT EN LINES*/
+	if (!(map = (char **)malloc(sizeof(char *) * config->map_max_lines + 2))) /*PROBABLE SEG FAULT EN LINES*/
 		printf("Malloc ha fallado en: get_map_reads.c");
-//	map[config->map_max_lines + 1] = NULL;
+	map[config->map_max_lines+1] = NULL;
+	printf("max lineas %d\n", config->map_max_lines);
+	printf("max rows %d\n", config->map_max_rows);
 	while (((ret = get_next_line(fd, &line)) > 0))
 	{
+		printf("0");
 		if (who_needs_a_map(line, "102 NSWE\t") == 1)
 		{
-			map[i] = ft_strdup_sustitute_char(line, ' ', '9', config->map_max_rows + 1); /**/
+			printf("1");
+			map[i] = ft_strdup_sustitute_char(line, ' ', '9', config->map_max_rows); /*+2 en funcion*/
 			i++;
+			printf("2");
 		}
-		kill(line);
+//		kill(line);
 	}
+	printf("AAAA");
 	if (who_needs_a_map(line, "102 NSWE\t") == 1)
 	{
-		map[i] = ft_strdup_sustitute_char(line, ' ', '9', config->map_max_rows + 1); /**/
+		map[i] = ft_strdup_sustitute_char(line, ' ', '9', config->map_max_rows); /*+2 en funcion*/
 		i++;
 	}
-	map[i] = calloc(sizeof(char) * config->map_max_rows + 3, 1);
+	map[i] = malloc(sizeof(char) * config->map_max_rows + 2);
+	map[i][config->map_max_rows+1] = '\0';
 	while (j < config->map_max_rows + 1)
 	{
 		map[i][j] = '9';
 		j++;
 	}
-	check_map(config, map);
-	valid_map(map);
+	if (map[4][6] == '\0')
+		printf("popopo");
+	if (map[4][6] == '\0')
+		printf("papapapa");
+/*	check_map(config, map);
+	printf("3\n");
+	valid_map(map);*/
 	close(fd);
-	kill(line);
+	//kill(line);
 	print_map(map);
- 	double_kill(map);
+// 	double_kill(map);
 }
 
 void		valid_map(char **map)
@@ -168,12 +180,12 @@ void		check_map(t_config *config, char **map)
 	int j;
 
 	i = 0;
+	j = 0;
 
-	while(map[i] != NULL)
-	{
-		printf("0\n");
-		j = 0;
-		while (map[i][j] != '\0') /*i2*/
+	print_map(map);
+//	while(map[i][j] != '\0')
+//	{
+		while (map[i][j] != '\0')
 		{	//COMPRUEBO PRIMERAS POSICIONES DEL MAPA Y QUE SOLO HAYA UNA POSICION DE JUGADOR
 			if (((i == 0) && ((map[i][j] != '9') && (map[i][j] != '1'))) ||
 				((j == 0) && ((map[i][j] != '9') && (map[i][j] != '1'))))
@@ -192,18 +204,46 @@ void		check_map(t_config *config, char **map)
 			}
 			j++;
 		}
+		j = 0;
 		i++;
-	}
+//	}
+	printf("caca\n");
 }
 
 void		print_map(char **map)
 {
-	int i;
+	int i, j;
 
 	i = 0;
-	while(map[i] != 0)
+	j = 0;
+	while (map[i][j] != '\0')
 	{
-		printf("%s\n", map[i]);
+		while (map[i][j] != '\0')
+		{
+
+			j++;
+		}
+		j = 0;
 		i++;
 	}
+
 }
+/*
+void		print_map(char **map)
+{
+	int i, j;
+
+	i = 0;
+	j = 0;
+	while(i < 5)
+	{
+		while(j < 6)
+		{
+			printf("%c", map[i][j]);
+			j++;
+		}
+		printf("\n");
+		j=0;
+		i++;
+	}
+}*/

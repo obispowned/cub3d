@@ -37,8 +37,9 @@ char		*ft_strdup_sustitute_char(char *str, char now, char final, int max)
 
 	i = 0;
 	j = 0;
-	if (!(finally = (char *)calloc(sizeof(char) * max + 1, 1)))
+	if (!(finally = (char *)malloc(sizeof(char) * max + 2)))
 		print_error("Malloc ha fallado en: ft_strdup.c");
+	finally[max+1] = '\0';
 	while (str[i] != '\0')
 	{
 		if (str[i] == '\t')
@@ -50,7 +51,7 @@ char		*ft_strdup_sustitute_char(char *str, char now, char final, int max)
 		j++;
 		i++;
 	}
-	while (j < max)
+	while (j < max +1)
 	{
 		finally[j] = '9';
 		j++;
