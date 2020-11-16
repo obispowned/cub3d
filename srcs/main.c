@@ -12,11 +12,7 @@ int main(int argc, char **argv)
 	{
 		config = file_procesator(argv[1]);
 //		game_loading();
-
 	}
-
-	if (config.player_begin[0] == 0 && config.player_begin[1] == 0)
-		print_error("Este mapa no puede ser usado sin un jugador");
 
 	printf("\n");
 	printf("width %d, height %d\n", config.width, config.height);
@@ -42,7 +38,6 @@ int main(int argc, char **argv)
 
 	ace(config.NO, config.SO, config.WE, config.EA, config.S, NULL);
 
-//	exit(-1);
 	//system("leaks cub3D");
 	return(0);
 }

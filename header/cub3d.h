@@ -44,6 +44,7 @@ void		check_ceil_floor2(char conmut, char **splitter, t_config *config);
 
 /*	funciones para guardar, checkear y parsear el mapa - SEGUNDA LECTURA*/
 t_config	read_map(char *file, t_config config); //segunda lectura para sacar el mapa
+char		**read_map2(int fd, t_config config);
 int			who_needs_a_map(char *line); //devuelve 1 si encontro caracteres de mapa '210 nswe'
 void		check_map(t_config *config, char **map); //checkeo de primeras posiciones de mapa y guardo NWSE que no se repita en el mapa
 void		valid_map(char **map); //valido que los 9 no toquen ningun 0

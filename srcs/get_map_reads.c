@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 13:05:06 by agutierr          #+#    #+#             */
-/*   Updated: 2020/11/16 11:32:26 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/11/16 14:49:02 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,46 @@
 t_config		read_map(char *file, t_config config)
 {	//segunda lectura de mapa para guardarlo para posteriormente checkearlos
 	int			fd;
-	int			ret;
-	char		*line;
 	char		**map;
-	int			i;
-
-	i = 0;
+	int			**mapa_parseado;
+	
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 		print_error("Fallo al intentar abrir el archivo .cub");
 	config.maxR = (what_is_higher(config.map_max_lines, config.map_max_rows)) + 2;
+	map = read_map2(fd, config); //Guardo map con 9 dibujados
+	check_map(&config, map);	//validar mapa1
+	valid_map(map);				//validar mapa2
+	mapa_parseado = parserico(map, config); //pasar a int el mapa y guardar en la estructura
+	close(fd);
+ 	double_kill(map);
+	return (config);
+}
+
+int			**parserico(char **map, t_config config)
+{ /*CONTINUAR DESDE AQUI*/
+	int		**map;
+	int		i;
+
+	map = (int **)malloc(sizeof(int *) * config.map_max_lines);
+	while (config.map_max_lines > i)
+	{
+		map[i] = (int *)malloc(sizeof(int) * config.map_max_rows);
+		i++;
+	}
+}
+
+char		**read_map2(int fd, t_config config)
+{
+	char	*line;
+	char	**map;
+	int 	ret;
+	int		i;
+
+	i = 0;
 	if (!(map = (char **)calloc(sizeof(char *) * config.maxR + 1, 1)))
 		printf("Malloc ha fallado en: get_map_reads.c");
+	
 	while (((ret = get_next_line(fd, &line)) > 0) )
 	{
 		if (who_needs_a_map(line) == 1)
@@ -41,14 +69,7 @@ t_config		read_map(char *file, t_config config)
 	kill(line);
 	while (i < config.maxR)
 		map[i++] = fill_me('9', config.maxR);
-	
-	check_map(&config, map);
-	valid_map(map);
-
-	/*CONTINUAR AQUI*/
-	close(fd);
- 	double_kill(map);
-	return (config);
+	return (map);
 }
 
 void		valid_map(char **map)
@@ -156,9 +177,6 @@ void		check_map(t_config *config, char **map)
 		j = 0;
 		while (map[i][j])
 		{	//COMPRUEBO PRIMERAS POSICIONES DEL MAPA Y QUE SOLO HAYA UNA POSICION DE JUGADOR
-/*			if (((i == 0) && (map[i][j] != '9') && (map[i][j] != '1')) ||
-				((j == 0) && (map[i][j] != '9') && (map[i][j] != '1')))
-				print_error("Mapa malamente Cerrao.");*/
 			if (((map[i][j] == 'N') || (map[i][j] == 'S') ||
 				(map[i][j] == 'E') || (map[i][j] == 'W')) &&
 				(config->player_begin[0] == 0 && config->player_begin[1] == 0))
@@ -176,8 +194,6 @@ void		check_map(t_config *config, char **map)
 		i++;
 	}
 }
-
-
 
 void		print_map(char **map)
 {

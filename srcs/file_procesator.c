@@ -98,5 +98,7 @@ t_config file_procesator(char *file) /*le pasamos el archivo y devuelve la estru
 	config = reset_t_config();
 	config = load_file(file, config);
 	config = read_map(file, config);
+	if (config.player_begin[0] == 0 && config.player_begin[1] == 0)
+		print_error("Este mapa no puede ser usado sin un jugador");
 	return (config);
 }
