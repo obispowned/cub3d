@@ -16,7 +16,7 @@ t_config		read_map(char *file, t_config config)
 {	//segunda lectura de mapa para guardarlo para posteriormente checkearlos
 	int			fd;
 	char		**map;
-	int			**mapa_parseado;
+	t_mapi		mapa;
 	
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
@@ -25,7 +25,7 @@ t_config		read_map(char *file, t_config config)
 	map = read_map2(fd, config); //Guardo map con 9 dibujados
 	check_map(&config, map);	//validar mapa1
 	valid_map(map);				//validar mapa2
-	mapa_parseado = parserico(map, config); //pasar a int el mapa y guardar en la estructura
+	mapa.mapi = parserico(map, config); //pasar a int el mapa y guardar en la estructura
 	close(fd);
  	double_kill(map);
 	return (config);
@@ -33,15 +33,26 @@ t_config		read_map(char *file, t_config config)
 
 int			**parserico(char **map, t_config config)
 { /*CONTINUAR DESDE AQUI*/
-	int		**map;
+	t_mapi	mapa;
 	int		i;
+	int		j;
 
-	map = (int **)malloc(sizeof(int *) * config.map_max_lines);
+	i = 0;
+	mapa.mapi = (int **)malloc(sizeof(int *) * config.map_max_lines);
 	while (config.map_max_lines > i)
 	{
-		map[i] = (int *)malloc(sizeof(int) * config.map_max_rows);
+		mapa.mapi[i] = (int *)malloc(sizeof(int) * config.map_max_rows);
+		j = 0;
+		while (j < config.map_max_rows)
+		{
+			mapa.mapi[i][j] = (int)(map[i][j] - '0');
+			printf("%d", mapa.mapi[i][j]);
+			j++;
+		}
+		printf("\n");
 		i++;
 	}
+	return (mapa.mapi);
 }
 
 char		**read_map2(int fd, t_config config)
@@ -183,7 +194,7 @@ void		check_map(t_config *config, char **map)
 			{
 				config->player_begin[0] = i;
 				config->player_begin[1] = j;
-				map[i][j] = 0;
+				map[i][j] = '0';
 			}
 			else if (((map[i][j] == 'N') || (map[i][j] == 'S') ||
 				(map[i][j] == 'E') || (map[i][j] == 'W')) &&

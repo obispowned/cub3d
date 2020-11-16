@@ -28,6 +28,11 @@ typedef struct	s_config
 	int		player_begin[2];
 }				t_config;
 
+typedef struct	s_mapi
+{
+	int		**mapi;
+}				t_mapi;
+
 
 /* Arrancamos */
 t_config 	file_procesator(char *file);
@@ -51,8 +56,7 @@ void		valid_map(char **map); //valido que los 9 no toquen ningun 0
 void		print_map(char **map); // pintamos el mapa y ya
 char		*change_char(char *line, char a, char b);
 char 		*fill_me(char c, int lenght);
-int			check_me_baby(char c, char *str);
-
+int			**parserico(char **map, t_config config);
 
 
 
