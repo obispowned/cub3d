@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 13:05:06 by agutierr          #+#    #+#             */
-/*   Updated: 2020/11/05 14:19:33 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/11/16 11:32:26 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_config		read_map(char *file, t_config config)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 		print_error("Fallo al intentar abrir el archivo .cub");
-	config.maxR = what_is_higher(config.map_max_lines, config.map_max_rows);
+	config.maxR = (what_is_higher(config.map_max_lines, config.map_max_rows)) + 2;
 	if (!(map = (char **)calloc(sizeof(char *) * config.maxR + 1, 1)))
 		printf("Malloc ha fallado en: get_map_reads.c");
 	while (((ret = get_next_line(fd, &line)) > 0) )
@@ -62,6 +62,10 @@ void		valid_map(char **map)
 		j = 1;
 		while (map[i][j + 1]) 
 		{
+			if ((map[0][j] != '9' && map[0][j] != '1') ||
+			(map[i][0] != '9' && map[i][0] != '1') ||
+			(map[0][0] != '9' && map[0][0] != '1'))
+				print_error("Mapa abierto en primeras lineas\n");
 			if ((map[0][j] == '9') &&
 			(((map[1][j] != '1') && (map[1][j] != '9')) ||
 			((map[0][j + 1] != '1') && (map[0][j + 1] != '9')) ||

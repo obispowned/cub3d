@@ -1,6 +1,6 @@
 #include "../header/cub3d.h"
 #include "../get_next_line/get_next_line.h"
-#include "utils.h"
+#include "../header/utils.h"
 
 int main(int argc, char **argv)
 {
@@ -43,6 +43,6 @@ int main(int argc, char **argv)
 	ace(config.NO, config.SO, config.WE, config.EA, config.S, NULL);
 
 //	exit(-1);
-	system("leaks cub3D");
+	//system("leaks cub3D");
 	return(0);
 }
