@@ -6,13 +6,13 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 13:05:06 by agutierr          #+#    #+#             */
-/*   Updated: 2020/11/16 14:49:02 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/11/17 10:54:08 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/cub3d.h"
 
-t_config		read_map(char *file, t_config config)
+t_mapi		read_map(char *file, t_config *config)
 {	//segunda lectura de mapa para guardarlo para posteriormente checkearlos
 	int			fd;
 	char		**map;
@@ -21,29 +21,29 @@ t_config		read_map(char *file, t_config config)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 		print_error("Fallo al intentar abrir el archivo .cub");
-	config.maxR = (what_is_higher(config.map_max_lines, config.map_max_rows)) + 2;
+	config->maxR = (what_is_higher(config->map_max_lines, config->map_max_rows)) + 2;
 	map = read_map2(fd, config); //Guardo map con 9 dibujados
-	check_map(&config, map);	//validar mapa1
-	valid_map(map);				//validar mapa2
+	check_map(config, map);	//validar mapa1
+	valid_map(map);			//validar mapa2
 	mapa.mapi = parserico(map, config); //pasar a int el mapa y guardar en la estructura
 	close(fd);
  	double_kill(map);
-	return (config);
+	return (mapa);
 }
 
-int			**parserico(char **map, t_config config)
+int			**parserico(char **map, t_config *config)
 { /*CONTINUAR DESDE AQUI*/
 	t_mapi	mapa;
 	int		i;
 	int		j;
 
 	i = 0;
-	mapa.mapi = (int **)malloc(sizeof(int *) * config.map_max_lines);
-	while (config.map_max_lines > i)
+	mapa.mapi = (int **)malloc(sizeof(int *) * config->map_max_lines);
+	while (config->map_max_lines > i)
 	{
-		mapa.mapi[i] = (int *)malloc(sizeof(int) * config.map_max_rows);
+		mapa.mapi[i] = (int *)malloc(sizeof(int) * config->map_max_rows);
 		j = 0;
-		while (j < config.map_max_rows)
+		while (j < config->map_max_rows)
 		{
 			mapa.mapi[i][j] = (int)(map[i][j] - '0');
 			printf("%d", mapa.mapi[i][j]);
@@ -55,7 +55,7 @@ int			**parserico(char **map, t_config config)
 	return (mapa.mapi);
 }
 
-char		**read_map2(int fd, t_config config)
+char		**read_map2(int fd, t_config *config)
 {
 	char	*line;
 	char	**map;
@@ -63,23 +63,23 @@ char		**read_map2(int fd, t_config config)
 	int		i;
 
 	i = 0;
-	if (!(map = (char **)calloc(sizeof(char *) * config.maxR + 1, 1)))
+	if (!(map = (char **)calloc(sizeof(char *) * config->maxR + 1, 1)))
 		printf("Malloc ha fallado en: get_map_reads.c");
 	
 	while (((ret = get_next_line(fd, &line)) > 0) )
 	{
 		if (who_needs_a_map(line) == 1)
 		{
-			map[i] = ft_strdup_sustitute_char(line, ' ', '9', config.maxR);
+			map[i] = ft_strdup_sustitute_char(line, ' ', '9', config->maxR);
 			i++;
 		}
 		kill(line);
 	}
 	if (who_needs_a_map(line) == 1)
-		map[i++] = ft_strdup_sustitute_char(line, ' ', '9', config.maxR);
+		map[i++] = ft_strdup_sustitute_char(line, ' ', '9', config->maxR);
 	kill(line);
-	while (i < config.maxR)
-		map[i++] = fill_me('9', config.maxR);
+	while (i < config->maxR)
+		map[i++] = fill_me('9', config->maxR);
 	return (map);
 }
 
@@ -182,7 +182,6 @@ void		check_map(t_config *config, char **map)
 	int j;
 
 	i = 0;
-	print_map(map);
 	while(map[i])
 	{
 		j = 0;
@@ -217,20 +216,3 @@ void		print_map(char **map)
 		i++;
 	}
 }
-
-/*
-int		check_me_baby(char c, char *str)
-{
-	int i;
-
-	i = 0;
-	if (!c)
-		return (1);
-	while (str[i])
-	{
-		if (str[i] == c)
-			return (0);
-		i++;
-	}
-	return (1);
-}*/

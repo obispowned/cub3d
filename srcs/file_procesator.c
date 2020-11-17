@@ -88,16 +88,17 @@ t_config	load_file(char *file, t_config config)
 	return (config);
 }
 
-t_config file_procesator(char *file) /*le pasamos el archivo y devuelve la estructura rellenada*/
+t_config		file_procesator(char *file) /*le pasamos el archivo y devuelve la estructura rellenada*/
 {
-	t_config config;
+	t_config	config;
+	t_mapi		mapa;
 
 	if (file[ft_strlen(file) - 1] != 'b' && file[ft_strlen(file) - 2] != 'u' &&
 	file[ft_strlen(file) - 3] != 'c' && file[ft_strlen(file) - 4] != '.')
 		printf("El archivo que ingresa debe ser tener la extension .cub");
 	config = reset_t_config();
 	config = load_file(file, config);
-	config = read_map(file, config);
+	mapa = read_map(file, &config);
 	if (config.player_begin[0] == 0 && config.player_begin[1] == 0)
 		print_error("Este mapa no puede ser usado sin un jugador");
 	return (config);
