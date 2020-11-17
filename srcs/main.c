@@ -11,7 +11,7 @@ int main(int argc, char **argv)
 	else
 	{
 		config = file_procesator(argv[1]);
-//		game_loading();
+//		game_loading(config);
 	}
 
 	printf("\n");

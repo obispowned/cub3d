@@ -1,12 +1,13 @@
 #ifndef CUB3D_H
 # define CUB3D_H
 
-#include "../get_next_line/get_next_line.h"
-#include "utils.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include "../get_next_line/get_next_line.h"
+#include "utils.h"
+//#include "game.h"
 
 typedef struct	s_config
 {
@@ -33,7 +34,6 @@ typedef struct	s_mapi
 	int		**mapi;
 }				t_mapi;
 
-
 /* Arrancamos */
 t_config 	file_procesator(char *file);
 t_config 	load_file(char *file, t_config config);
@@ -54,9 +54,9 @@ int			who_needs_a_map(char *line); //devuelve 1 si encontro caracteres de mapa '
 void		check_map(t_config *config, char **map); //checkeo de primeras posiciones de mapa y guardo NWSE que no se repita en el mapa
 void		valid_map(char **map); //valido que los 9 no toquen ningun 0
 void		print_map(char **map); // pintamos el mapa y ya
-char		*change_char(char *line, char a, char b);
-char 		*fill_me(char c, int lenght);
-int			**parserico(char **map, t_config *config);
+char		*change_char(char *line, char a, char b); //cambiamos un char por otro
+char 		*fill_me(char c, int lenght); //rellenamos de 9
+int			**parserico(char **map, t_config *config); //cambiamos mapa de char ** a int**
 
 
 
