@@ -14,10 +14,12 @@ typedef struct	s_pos
 
 typedef	struct		s_mlx
 {
-	void			*mlx;
-	void			*win;
 	void			*ptr;
+	void			*win;
 	void			*img;
+	char			*addr;
+	int				linesize;
+	int				endian;
 	int				bpp;	//bits per pixel
 }					t_mlx;
 
@@ -81,6 +83,6 @@ typedef	struct		s_raycasting
 }					t_raycasting;
 
 void	game_loading(t_config config);
-int		create_window(t_config config);
+void	create_window(t_config config);
 
 #endif

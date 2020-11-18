@@ -5,6 +5,7 @@ SRCS			=	srcs/main.c\
 					srcs/file_procesator.c\
 					srcs/check_nd_save.c\
 					srcs/get_map_reads.c\
+					srcs/create_window.c\
 					utils/ft_split.c\
 					utils/ft_strdup.c\
 					utils/ft_strjoin_char.c\
@@ -18,11 +19,8 @@ FLAGS			= -g
 
 GCC 			= gcc
 
-INCLUDE			= -I header
-
-MLX_DIR			= minilibx_opengl
-
-LEAKS			= DYLD_INSERT_LIBRARIES=/Applications/Xcode.app/Contents/Developer/usr/lib/libLeaksAtExit.dylib leaks -atExit -- ./cub3D maps/map3.cub
+MLX				= ./mlx
+INCLUDE			= -I includes -lmlx -framework OpenGL -framework AppKit
 
 RED 			= \033[0;31m
 PURPLE			= \033[0;35m
@@ -33,8 +31,7 @@ all:
 				@echo "${RED}[...Haciendo CLEAN del a.out...]${RESET}"
 				@rm -rf cub3D
 				@echo "${PURPLE}[Compilando Minilibx...]${RESET}"
-				$(MAKE) -C minilibx_opengl
-				$(GCC) $(SRCS) -o $(NAME)
+				$(GCC) $(SRCS) $(INCLUDE) -o $(NAME)
 				@echo "${GREEN}[.oOo.oOo.oOo.oOo.]"
 				@echo "[ C O M P I L A O ]"
 				@echo "[.oOo.oOo.oOo.oOo.]${RESET}"

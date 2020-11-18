@@ -1,4 +1,5 @@
 #include "../header/cub3d.h"
+#include "../header/game.h"
 #include "../get_next_line/get_next_line.h"
 #include "../header/utils.h"
 
@@ -11,9 +12,16 @@ int main(int argc, char **argv)
 	else
 	{
 		config = file_procesator(argv[1]);
-//		game_loading(config);
+		print_values(config);
+		game_loading(config);
 	}
+	ace(config.NO, config.SO, config.WE, config.EA, config.S, NULL);
+	//system("leaks cub3D");
+	return(0);
+}
 
+void 	print_values(t_config config)
+{
 	printf("\n");
 	printf("width %d, height %d\n", config.width, config.height);
 
@@ -31,13 +39,6 @@ int main(int argc, char **argv)
 	printf("Cantidad de columnas: | %d |\n", config.map_max_rows);
 
 	printf("Coordenadas de cominezo: | %d-%d |\n", config.player_begin[0], config.player_begin[1]);
-
-
 	printf("\n");
 	printf("\n");
-
-	ace(config.NO, config.SO, config.WE, config.EA, config.S, NULL);
-
-	//system("leaks cub3D");
-	return(0);
 }

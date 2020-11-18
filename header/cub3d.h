@@ -34,6 +34,11 @@ typedef struct	s_mapi
 	int		**mapi;
 }				t_mapi;
 
+
+/*********************************/
+
+void 		print_values(t_config config);
+
 /* Arrancamos */
 t_config 	file_procesator(char *file);
 t_config 	load_file(char *file, t_config config);
