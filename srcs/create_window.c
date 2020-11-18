@@ -5,7 +5,12 @@ void	game_loading(t_config config)
 {
 	create_window(config);
 }
-
+/*
+int		close(int keycode, t_mlx mlx)
+{
+	mlx_destroy_window()
+}
+*/
 void	create_window(t_config config)
 {
 	t_mlx mlx; // primero creo mi estructura que contendrá todas las "cosas MLX"

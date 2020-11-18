@@ -1,72 +1,57 @@
 #ifndef KEY_LINUX_H
 # define KEY_LINUX_H
 
-/*
-** Keyboard LETTERS
-*/
+/** Keyboard LETTERS **/
+# define KEY_A 97
+# define KEY_B 98
+# define KEY_C 99
+# define KEY_D 100
+# define KEY_E 101
+# define KEY_F 102
+# define KEY_G 103
+# define KEY_H 104
+# define KEY_I 105
+# define KEY_J 106
+# define KEY_K 107
+# define KEY_L 108
+# define KEY_M 109
+# define KEY_N 110
+# define KEY_O 111
+# define KEY_P 112
+# define KEY_Q 113
+# define KEY_R 114
+# define KEY_S 115
+# define KEY_T 116
+# define KEY_U 117
+# define KEY_V 118
+# define KEY_W 119
+# define KEY_X 120
+# define KEY_Y 121
+# define KEY_Z 122
 
-# define A 97
-# define B 98
-# define C 99
-# define D 100
-# define E 101
-# define F 102
-# define G 103
-# define H 104
-# define I 105
-# define J 106
-# define K 107
-# define L 108
-# define M 109
-# define N 110
-# define O 111
-# define P 112
-# define Q 113
-# define R 114
-# define key_S 115
-# define T 116
-# define U 117
-# define V 118
-# define W 119
-# define X 120
-# define Y 121
-# define Z 122
+/** Keyboard ARROWS **/
+# define KEY_LEFT 65361
+# define KEY_RIGHT 65363
+# define KEY_UP 65362
+# define KEY_DOWN 65364
 
-/*
-** Keyboard ARROWS
-*/
+/** Keyboard NUMPAD **/
+# define KEY_NP_DIV 65455
+# define KEY_NP_MUL 65450
+# define KEY_NP_MIN 65453
+# define KEY_NP_PLU 65451
 
-# define LEFT 65361
-# define RIGHT 65363
-# define UP 65362
-# define DOWN 65364
+/** Keyboard MISC **/
+# define KEY_SP 32
+# define KEY_ESC 65307
+# define KEY_SHIFT_L 65505
+# define KEY_CTRL 65507
 
-/*
-** Keyboard NUMPAD
-*/
-
-# define NP_DIV 65455
-# define NP_MUL 65450
-# define NP_MIN 65453
-# define NP_PLU 65451
-
-/*
-** Keyboard MISC
-*/
-
-# define SP 32
-# define ESC 65307
-# define SHIFT_L 65505
-# define CTRL 65507
-
-/*
-** Mouse
-*/
-
-# define M_CK_LL 1
-# define M_CK_LR 3
-# define M_CK_LM 2
-# define M_SCR_U 4
-# define M_SCR_D 5
+/** Mouse **/
+# define KEY_M_CK_LL 1
+# define KEY_M_CK_LR 3
+# define KEY_M_CK_LM 2
+# define KEY_M_SCR_U 4
+# define KEY_M_SCR_D 5
 
 #endif
