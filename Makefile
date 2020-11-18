@@ -1,4 +1,4 @@
-  
+
 NAME			= 	cub3D
 
 SRCS			=	srcs/main.c\
@@ -15,12 +15,28 @@ SRCS			=	srcs/main.c\
 					utils/ft_is.c\
 					utils/utilities.c\
 
+#######BUFF QUINES############
+
+ifeq ($(OS),Windows_NT) 
+    detected_OS := Windows
+else
+    detected_OS := $(shell sh -c 'uname 2>/dev/null || echo Unknown')
+endif
+
+ifeq ($(detected_OS),Darwin)
+    MLXFLAGS = -I /usr/local/include -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit
+endif
+ifeq ($(detected_OS),Linux)
+    MLXFLAGS = -lm -lbsd -lmlx -lXext -lX11
+endif
+
+#############################
+
 FLAGS			= -g
 
 GCC 			= gcc
 
-MLX				= ./mlx
-INCLUDE			= -I includes -lmlx -framework OpenGL -framework AppKit
+INCLUDE			= -I header
 
 RED 			= \033[0;31m
 PURPLE			= \033[0;35m
@@ -31,7 +47,7 @@ all:
 				@echo "${RED}[...Haciendo CLEAN del a.out...]${RESET}"
 				@rm -rf cub3D
 				@echo "${PURPLE}[Compilando Minilibx...]${RESET}"
-				$(GCC) $(SRCS) $(INCLUDE) -o $(NAME)
+				$(GCC) $(SRCS) $(MLXFLAGS) -o $(NAME)
 				@echo "${GREEN}[.oOo.oOo.oOo.oOo.]"
 				@echo "[ C O M P I L A O ]"
 				@echo "[.oOo.oOo.oOo.oOo.]${RESET}"

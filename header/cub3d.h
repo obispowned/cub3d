@@ -7,6 +7,7 @@
 #include <fcntl.h>
 #include "../get_next_line/get_next_line.h"
 #include "utils.h"
+#include "detect_so.h"
 //#include "game.h"
 
 typedef struct	s_config
