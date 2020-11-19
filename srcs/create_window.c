@@ -5,25 +5,31 @@ void	game_loading(t_config config)
 {
 	create_window(config);
 }
-/*
-int		close(int keycode, t_mlx mlx)
+
+int		close_window(int keycode, t_mlx *mlx)
 {
-	mlx_destroy_window()
+	if (keycode == KEY_ESC)
+	{
+		mlx_destroy_window(mlx->ptr, mlx->win);
+		exit(-1);
+	}
+	return (0); //me da warning si no pongo return pero podriamos evitarlo.
 }
-*/
+
 void	create_window(t_config config)
 {
-	t_mlx mlx; // primero creo mi estructura que contendrá todas las "cosas MLX"
+	t_mlx mlx; // estructura que contendrá todas las "cosas MLX"
 
 	mlx.ptr = mlx_init();
 	mlx.win = mlx_new_window (mlx.ptr , config.height, config.width, "cub3D");
 //	mlx.img = mlx_new_image (mlx.ptr , config.width, config.height);
 //	mlx.addr = mlx_get_data_addr(mlx.img, mlx.bpp, &mlx.linesize, &mlx.endian);
-	
+//	my_pixel_put();
+	mlx_key_hook(mlx.win, close_window, &mlx);
 	mlx_loop(mlx.ptr);
 
 
-
+}
 	/*
 	 Ahora solo un pequeño ejemplo: aquí hay un bucle que dibujará cada píxel que
 	 tienen un ancho impar en blanco y los que tienen un ancho par en negro.
@@ -51,5 +57,3 @@ void	create_window(t_config config)
 	// ¡ Ahora solo tienes que imprimir la imagen usando mlx_put_image_to_window!
 	mlx_put_image_to_window (mlx. mlx_ptr , mlx. win , mlx. img . img_ptr , 0 , 0 );
 	mlx_loop (mlx. mlx_ptr );*/
-
-}

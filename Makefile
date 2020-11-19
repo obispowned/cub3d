@@ -1,21 +1,23 @@
 
 NAME			= 	cub3D
 
-SRCS			=	srcs/main.c\
+SRCS			=	get_next_line/get_next_line.c\
+					srcs/main.c\
 					srcs/file_procesator.c\
 					srcs/check_nd_save.c\
 					srcs/get_map_reads.c\
+					srcs/parse.c\
 					srcs/create_window.c\
+					srcs/draw_image.c\
 					utils/ft_split.c\
 					utils/ft_strdup.c\
 					utils/ft_strjoin_char.c\
-					get_next_line/get_next_line.c\
 					utils/ft_strlen.c\
 					utils/ft_calloc.c\
 					utils/ft_is.c\
 					utils/utilities.c\
 
-#######BUFF QUINES############
+#######BUFF QUINES###########
 
 ifeq ($(OS),Windows_NT) 
     detected_OS := Windows

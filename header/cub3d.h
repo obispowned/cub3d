@@ -32,7 +32,9 @@ typedef struct	s_config
 
 typedef struct	s_mapi
 {
-	int		**mapi;
+	int		**worldMap;
+	int		hexaceil;
+	int		hexafloor;
 }				t_mapi;
 
 
@@ -62,8 +64,8 @@ void		valid_map(char **map); //valido que los 9 no toquen ningun 0
 void		print_map(char **map); // pintamos el mapa y ya
 char		*change_char(char *line, char a, char b); //cambiamos un char por otro
 char 		*fill_me(char c, int lenght); //rellenamos de 9
-int			**parserico(char **map, t_config *config); //cambiamos mapa de char ** a int**
-
+t_mapi		parserico(char **map, t_config *config); //cambiamos mapa de char ** a int**
+void		hexa_ceil_floor_parsing(t_mapi	*mapa, t_config *config);
 
 
 #endif
