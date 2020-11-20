@@ -20,6 +20,7 @@ t_config reset_t_config()
 	config.maxR = 0;
 	config.player_begin[0] = 0;
 	config.player_begin[1] = 0;
+	config.save = 0;
 	while (o < 3)
 	{
 		config.ceil[o] = 0;
@@ -88,7 +89,7 @@ t_config	load_file(char *file, t_config config)
 	return (config);
 }
 
-t_config		file_procesator(char *file) /*le pasamos el archivo y devuelve la estructura rellenada*/
+t_config		file_procesator(char *file, int argc) /*le pasamos el archivo y devuelve la estructura rellenada*/
 {
 	t_config	config;
 	t_mapi		mapa;
@@ -97,6 +98,9 @@ t_config		file_procesator(char *file) /*le pasamos el archivo y devuelve la estr
 	file[ft_strlen(file) - 3] != 'c' && file[ft_strlen(file) - 4] != '.')
 		printf("El archivo que ingresa debe ser tener la extension .cub");
 	config = reset_t_config();
+	if (argc == 3)
+		config.save = 1;
+	//CHECK ARGC PENDIENTE
 	config = load_file(file, config);
 	mapa = read_map(file, &config);
 	if (config.player_begin[0] == 0 && config.player_begin[1] == 0)

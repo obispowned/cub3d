@@ -28,6 +28,7 @@ typedef struct	s_config
 	int		maxR;
 	int		i;
 	int		player_begin[2];
+	int		save;
 }				t_config;
 
 typedef struct	s_mapi
@@ -43,7 +44,7 @@ typedef struct	s_mapi
 void 		print_values(t_config config);
 
 /* Arrancamos */
-t_config 	file_procesator(char *file);
+t_config 	file_procesator(char *file, int argc);
 t_config 	load_file(char *file, t_config config);
 t_config 	check_file(char *line, t_config config);
 t_config 	reset_t_config();

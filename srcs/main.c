@@ -7,16 +7,16 @@ int main(int argc, char **argv)
 {
 	t_config	config;
 
-	if (argc != 2)
-		print_error("Incluya un archivo .cub como argumento");
+	if (argc < 2 || argc > 3)
+		print_error("Numero de argumentos invalido");
 	else
 	{
-		config = file_procesator(argv[1]);
+		config = file_procesator(argv[1], argc);
 		print_values(config);
 		game_loading(config);
 	}
 	ace(config.NO, config.SO, config.WE, config.EA, config.S, NULL);
-	//system("leaks cub3D");
+	system("leaks cub3D");
 	return(0);
 }
 
