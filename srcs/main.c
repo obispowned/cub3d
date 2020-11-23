@@ -9,12 +9,14 @@ int main(int argc, char **argv)
 
 	if (argc < 2 || argc > 3)
 		print_error("Numero de argumentos invalido");
-	else
+	if (argc == 3)
 	{
-		config = file_procesator(argv[1], argc);
-		print_values(config);
-		game_loading(config);
+		check_arg(argv[2]);
+		config.save = 1;
 	}
+	config = file_procesator(argv[1], argc);
+	print_values(config);
+	game_loading(config);
 	ace(config.NO, config.SO, config.WE, config.EA, config.S, NULL);
 	system("leaks cub3D");
 	return(0);

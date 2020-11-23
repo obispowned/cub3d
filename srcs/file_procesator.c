@@ -23,8 +23,8 @@ t_config reset_t_config()
 	config.save = 0;
 	while (o < 3)
 	{
-		config.ceil[o] = 0;
-		config.floor[o] = 0;
+		config.ceil[o] = -1;
+		config.floor[o] = -1;
 		o++;
 	}
 	return (config);
@@ -64,6 +64,28 @@ t_config check_file(char *line, t_config config)
 	return (config);
 }
 
+int		check_lines(char *line, char *chars)
+{
+	int		i;
+	int		j;
+	int		coincide;
+
+	coincide = 0;
+	i = 0;
+	j = 0;
+	while (line[i] != '\0')
+	{
+		while (chars[j] != '\0')
+		{
+			if (line[i] == chars[j])
+				return(1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
 t_config	load_file(char *file, t_config config)
 { /*le paso el archivo y la estructura y devuelve primera lectura*/
 	int		fd;
@@ -77,6 +99,11 @@ t_config	load_file(char *file, t_config config)
 		print_error("Fallo al intentar abrir el archivo.");
 	while (((ret = get_next_line(fd, &line)) > 0))
 	{
+		if ((check_lines(line, " NSR\tECFW") == 0 && line[0] != '\0')
+		&& (who_needs_a_map(line) == 0))
+			print_error("Elimine los caracteres sobrantes.");
+		if (who_needs_a_map(line) == 1 && config.flag != 8)
+			print_error("Debe declarar los parametros delante del mapa");
 		config.i = 0;
 		config = check_file(line, config);
 		kill(line);
@@ -84,9 +111,22 @@ t_config	load_file(char *file, t_config config)
 	config = check_file(line, config);
 	kill(line);
 	close(fd);
+	check_params(config);
+	return (config);
+}
+
+void	check_params(t_config config)
+{
 	if (config.flag != 8)	/*si no hay 8 valores guardados en la struct*/
 		print_error("Faltan datos en el archivo .cub");
-	return (config);
+	if ((config.ceil[0] < 0 || config.ceil[0] > 255) ||
+	(config.ceil[1] < 0 || config.ceil[1] > 255) ||
+	(config.ceil[2] < 0 || config.ceil[2] > 255) ||
+	(config.floor[0] < 0 || config.floor[0] > 255) ||
+	(config.floor[1] < 0 || config.floor[1] > 255) ||
+	(config.floor[2] < 0 || config.floor[2] > 255))
+		print_error("Los valores de ceil/floor deben ser entre 0 y 255.");
+
 }
 
 t_config		file_procesator(char *file, int argc) /*le pasamos el archivo y devuelve la estructura rellenada*/
@@ -98,12 +138,23 @@ t_config		file_procesator(char *file, int argc) /*le pasamos el archivo y devuel
 	file[ft_strlen(file) - 3] != 'c' && file[ft_strlen(file) - 4] != '.')
 		printf("El archivo que ingresa debe ser tener la extension .cub");
 	config = reset_t_config();
-	if (argc == 3)
-		config.save = 1;
+
 	//CHECK ARGC PENDIENTE
 	config = load_file(file, config);
 	mapa = read_map(file, &config);
 	if (config.player_begin[0] == 0 && config.player_begin[1] == 0)
 		print_error("Este mapa no puede ser usado sin un jugador");
 	return (config);
+}
+
+void	check_arg(char *argum)
+{
+	int i;
+
+	i = 0;
+	if (!((ft_strlen(argum) == 6) && (argum[0] == '-')
+	 && (argum[1] == '-') && (argum[2] == 's')
+	  && (argum[3] == 'a') && (argum[4] == 'v')
+	   && (argum[5] == 'e')))
+		print_error("El tercer argumento debe ser '--save'");
 }

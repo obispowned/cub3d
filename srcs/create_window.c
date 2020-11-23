@@ -6,6 +6,20 @@ void	game_loading(t_config config)
 	create_window(config);
 }
 
+int		exit_game(t_mlx *mlx)
+{
+	mlx_destroy_window(mlx->ptr, mlx->win);
+	exit(-1);
+	return(0);
+}
+
+int		close_win(int keycode, t_mlx *mlx)
+{
+	if (keycode == KEY_ESC)
+		exit_game(mlx);
+	return (0); //me da warning si no pongo return pero podriamos evitarlo.
+}
+
 void	create_window(t_config config)
 {
 	t_mlx mlx; // estructura que contendrá todas las "cosas MLX"

@@ -1,8 +1,10 @@
-1. GESTIONAR --SAVE
-2. Error al poner el mapa delante de los datos
-3. Datos duplicados de Ceil/Floor
-4. Carácter suelto entre linea y linea debería dar error
+V   1. GESTIONAR --SAVE
+V   2. Error al poner el mapa delante de los datos
+V   3. Datos duplicados de Ceil/Floor
+V   4. Carácter suelto entre linea y linea debería dar error
 5. Caracter diferente a 012WNES en mapa tiene que dar error
 6. Coma, tab, spacios al final de ceil/floor deberia dar error.
 7. Gestionar numero máximo y mínimo en ceil/floor.
 8. Validar que solo me pasen \n, variables o mapa.
+9. Ceil y floor no deben tener valores negativos
+10. gestionar resolucion minima y maxima

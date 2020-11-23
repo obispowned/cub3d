@@ -14,19 +14,7 @@ void		reset_rc(t_mlx *mlx, t_config config)
 	mlx->win_width = config.width;
 }
 
-int		exit_game(t_mlx *mlx)
-{
-	mlx_destroy_window(mlx->ptr, mlx->win);
-	exit(-1);
-	return(0);
-}
 
-int		close_win(int keycode, t_mlx *mlx)
-{
-	if (keycode == KEY_ESC)
-		exit_game(mlx);
-	return (0); //me da warning si no pongo return pero podriamos evitarlo.
-}
 
 /*int		screenshot(t_mlx *mlx)
 {//ADAPTAR ESTA ESTA FUNCION

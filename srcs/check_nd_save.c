@@ -103,6 +103,9 @@ t_config	check_ceil_floor(char *line, t_config config)
 	char	**splitter;
 	char	conmut;
 
+	if ((line[config.i] == 'C' && config.ceil[0] != -1) || 
+	(line[config.i] == 'F' && config.floor[0] != -1))
+		print_error("Duplicados los valores de ceil/floor");
 	conmut = line[config.i]; /*para saber si lo guardaremos en config.ceil[3] o en config.floor[3]*/
 	while ((line[config.i] != '\0') && ((line[config.i] < '0') || (line[config.i] > '9')))
 		config.i++;

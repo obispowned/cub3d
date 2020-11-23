@@ -13,6 +13,7 @@
 typedef struct	s_config
 {
 	int		flag;
+	int		flag_path;
 	int 	height;
 	int		width;
 	char 	*NO;
@@ -48,6 +49,7 @@ t_config 	file_procesator(char *file, int argc);
 t_config 	load_file(char *file, t_config config);
 t_config 	check_file(char *line, t_config config);
 t_config 	reset_t_config();
+void		check_arg(char *argum);
 
 /* funciones para guardar los datos en la estructura - PRIMERA LECTURA*/
 t_config 	check_R(char *file, t_config config);
@@ -67,6 +69,7 @@ char		*change_char(char *line, char a, char b); //cambiamos un char por otro
 char 		*fill_me(char c, int lenght); //rellenamos de 9
 t_mapi		parserico(char **map, t_config *config); //cambiamos mapa de char ** a int**
 void		hexa_ceil_floor_parsing(t_mapi	*mapa, t_config *config);
-
+int		check_lines(char *line, char *chars);
+void	check_params(t_config config);
 
 #endif
