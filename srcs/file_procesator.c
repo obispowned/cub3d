@@ -29,20 +29,24 @@ t_config reset_t_config()
 	}
 	return (config);
 }
+void	drifting_R_PATH(char *line, t_config *config)
+{
+	if ((line[config->i] == 'R') && (white_spaces(line[config->i + 1])))
+		*config = check_R(line, *config);
+	if (((line[config->i] == 'N') && (line[config->i + 1] == 'O') && (white_spaces(line[config->i + 2]))) ||
+	((line[config->i] == 'S') && (line[config->i + 1] == 'O') && (white_spaces(line[config->i + 2]))) ||
+	((line[config->i] == 'W') && (line[config->i + 1] == 'E') && (white_spaces(line[config->i + 2]))) ||
+	((line[config->i] == 'E') && (line[config->i + 1] == 'A') && (white_spaces(line[config->i + 2]))) ||
+	((line[config->i] == 'S') && (white_spaces(line[config->i + 1]))))
+		*config = check_path(&line[config->i], *config);
+}
 
 t_config check_file(char *line, t_config config)
 {
 	config.i = 0;
 	while (line[config.i] != '\0')
 	{
-		if ((line[config.i] == 'R') && (white_spaces(line[config.i + 1])))
-			config = check_R(line, config);
-		if (((line[config.i] == 'N') && (line[config.i + 1] == 'O') && (white_spaces(line[config.i + 2]))) ||
-		((line[config.i] == 'S') && (line[config.i + 1] == 'O') && (white_spaces(line[config.i + 2]))) ||
-		((line[config.i] == 'W') && (line[config.i + 1] == 'E') && (white_spaces(line[config.i + 2]))) ||
-		((line[config.i] == 'E') && (line[config.i + 1] == 'A') && (white_spaces(line[config.i + 2]))) ||
-		((line[config.i] == 'S') && (white_spaces(line[config.i + 1]))))
-			config = check_path(&line[config.i], config);
+		drifting_R_PATH(line, &config);
 		if (((line[config.i] == 'F') && (line[config.i + 1] == ' ')) ||
 		((line[config.i] == 'C') && (line[config.i + 1] == ' ')))
 			config = check_ceil_floor(line, config);

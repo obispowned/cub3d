@@ -1,7 +1,7 @@
 #include "../header/cub3d.h"
 
 t_mapi			parserico(char **map, t_config *config)
-{ /*CONTINUAR DESDE AQUI*/
+{ /*PARSEAMOS EL MAPA EN CHAR A MAPA EN INTS*/
 	t_mapi	mapa;
 	int		i;
 	int		j;

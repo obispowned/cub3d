@@ -71,5 +71,6 @@ t_mapi		parserico(char **map, t_config *config); //cambiamos mapa de char ** a i
 void		hexa_ceil_floor_parsing(t_mapi	*mapa, t_config *config);
 int		check_lines(char *line, char *chars);
 void	check_params(t_config config);
+void	drifting_R_PATH(char *line, t_config *config);
 
 #endif

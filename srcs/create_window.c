@@ -32,9 +32,9 @@ void	create_window(t_config config)
 //	my_pixel_put();
 
 //	if (config.save == 1) //si hay --save
-//		mlx_loop_hook(mlx.ptr, &screenshot, &mlx.rc);
+//		mlx_loop_hook(mlx.ptr, &screenshot_1, &mlx.rc);
 //	else
-//		mlx_loop_hook(rc.mlx_ptr, &raycasting, &rc);
+//		mlx_loop_hook(rc.mlx_ptr, &raycasting_1, &rc);
 	mlx_hook(mlx.win, 17, 1L << 17, exit_game, &mlx); //cerramos ventana al dar a la "equis"
 	mlx_key_hook(mlx.win, close_win, &mlx);
 	mlx_loop(mlx.ptr);

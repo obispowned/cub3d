@@ -70,10 +70,12 @@ float	radians_to_grads(float radians);
 float	grads_to_radians(float grads);
 
 /*	RAYCASTEO*/
-/*int		raycast(t_mlx *mlx);
-int		screenshot(t_mlx *mlx);
+/*
+int		screenshot_1(t_mlx *mlx);
+int		raycast_1(t_mlx *mlx);
 void	raycast_2(t_mlx *mlx, int x);
-void	raycast_3(t_mlx *mlx);*/
+void	raycast_3(t_mlx *mlx);
+*/
 
 
 

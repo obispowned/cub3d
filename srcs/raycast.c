@@ -14,9 +14,7 @@ void		reset_rc(t_mlx *mlx, t_config config)
 	mlx->win_width = config.width;
 }
 
-
-
-/*int		screenshot(t_mlx *mlx)
+/*int		screenshot_1(t_mlx *mlx)
 {//ADAPTAR ESTA ESTA FUNCION
 	int x;
 
@@ -44,7 +42,7 @@ void		reset_rc(t_mlx *mlx, t_config config)
 //	return (0);
 //}
 
-/*int		raycast(t_mlx *mlx)
+/*int		raycast_1(t_mlx *mlx)
 {
 	int x;
 
@@ -105,5 +103,22 @@ void		reset_rc(t_mlx *mlx, t_config config)
 	{
 		mlx->rc.step_y = 1;
 		mlx->rc.side_dist_y = (mlx->win_width + 1.0 - mlx->rc.player_pos_y) * mlx->rc.delta_dist_y;
-	}*/
+	}
 //}
+
+void	motionless_4(t_raycaster *rc)
+{
+	if (rc->side == 0)
+		rc->perp_wall_dist = (rc->map_x - rc->player_pos_x
+							+ (1 - rc->stepx) / 2) / rc->ray_dir_x;
+	else
+		rc->perp_wall_dist = (rc->map_y - rc->player_pos_y
+							+ (1 - rc->stepy) / 2) / rc->ray_dir_y;
+	rc->line_height = (int)(rc->win_y / rc->perp_wall_dist);
+	rc->draw_start = -rc->line_height / 2 + rc->win_y / 2;
+	if (rc->draw_start < 0)
+		rc->draw_start = 0;
+	rc->draw_end = rc->line_height / 2 + rc->win_y / 2;
+	if (rc->draw_end >= rc->win_y)
+		rc->draw_end = rc->win_y - 1;
+}*/
