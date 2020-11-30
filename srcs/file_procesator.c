@@ -1,34 +1,5 @@
 #include "../header/cub3d.h"
 
-t_config reset_t_config()
-{
-	t_config config;
-	int o;
-
-	o = 0;
-	config.flag = 0;
-	config.i = 0;
-	config.height = 0;
-	config.width = 0;
-	config.NO = NULL;
-	config.SO = NULL;
-	config.EA = NULL;
-	config.WE = NULL;
-	config.S = NULL;
-	config.map_max_lines = 0;
-	config.map_max_rows = 0;
-	config.maxR = 0;
-	config.player_begin[0] = 0;
-	config.player_begin[1] = 0;
-	config.save = 0;
-	while (o < 3)
-	{
-		config.ceil[o] = -1;
-		config.floor[o] = -1;
-		o++;
-	}
-	return (config);
-}
 void	drifting_R_PATH(char *line, t_config *config)
 {
 	if ((line[config->i] == 'R') && (white_spaces(line[config->i + 1])))
@@ -136,7 +107,6 @@ void	check_params(t_config config)
 t_config		file_procesator(char *file, int argc) /*le pasamos el archivo y devuelve la estructura rellenada*/
 {
 	t_config	config;
-	t_mapi		mapa;
 
 	if (file[ft_strlen(file) - 1] != 'b' && file[ft_strlen(file) - 2] != 'u' &&
 	file[ft_strlen(file) - 3] != 'c' && file[ft_strlen(file) - 4] != '.')
@@ -145,7 +115,7 @@ t_config		file_procesator(char *file, int argc) /*le pasamos el archivo y devuel
 
 	//CHECK ARGC PENDIENTE
 	config = load_file(file, config);
-	mapa = read_map(file, &config);
+	config.mapa = read_map(file, &config);
 	if (config.player_begin[0] == 0 && config.player_begin[1] == 0)
 		print_error("Este mapa no puede ser usado sin un jugador");
 	return (config);

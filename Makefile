@@ -9,6 +9,9 @@ SRCS			=	get_next_line/get_next_line.c\
 					srcs/parse.c\
 					srcs/create_window.c\
 					srcs/draw_image.c\
+					srcs/raycast.c\
+					srcs/raycast2.c\
+					srcs/events.c\
 					utils/ft_split.c\
 					utils/ft_strdup.c\
 					utils/ft_strjoin_char.c\

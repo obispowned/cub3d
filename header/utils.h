@@ -19,6 +19,7 @@ int 	what_is_higher(int a, int b);
 int  	ft_isdigit(char *str);
 char    *give_me_digit_without_spaces(char *str);
 void	*ft_memset(void *ptr, int x, size_t n);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 
 //liberacion de memoria

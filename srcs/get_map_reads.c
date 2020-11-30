@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 13:05:06 by agutierr          #+#    #+#             */
-/*   Updated: 2020/11/19 13:40:47 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/11/29 14:55:30 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ t_mapi		read_map(char *file, t_config *config)
 {	//segunda lectura de mapa para guardarlo para posteriormente checkearlos
 	int			fd;
 	char		**map;
-	t_mapi		mapa;
 	
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
@@ -25,10 +24,10 @@ t_mapi		read_map(char *file, t_config *config)
 	map = read_map2(fd, config); //Guardo map con 9 dibujados
 	check_map(config, map);	//validar mapa1
 	valid_map(map);			//validar mapa2
-	mapa = parserico(map, config); //pasar a int el mapa y guardar en la estructura
+	config->mapa = parserico(map, config); //pasar a int el mapa y guardar en la estructura
 	close(fd);
  	double_kill(map);
-	return (mapa);
+	return (config->mapa);
 }
 
 char		**read_map2(int fd, t_config *config)

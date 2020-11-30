@@ -18,20 +18,6 @@
 # define BROWN 0xB8761C
 /***/
 
-typedef	struct		s_mlx
-{
-	void			*ptr; //conecta el software
-	void			*win; //administra ventanas
-	void			*img; //puntero de imagen que pasaremos a la ventana
-	char			*addr; //dirección que representa el comienzo del área de memoria donde se almacena la imagen.
-	int				linesize; //número de bytes utilizados para almacenar una línea de la imagen en la memoria. Esto es necesario para moverse de una línea a otra en la imagen.
-	int				endian; //indica si el color de píxel en la imagen debe almacenarse en:pequeño (endian == 0)o grande (endian == 1).
-	int				bpp;	//bits per pixel
-	int				win_height; //height de config
-	int				win_width; //width de config
-//	t_raycasting	rc;
-}					t_mlx;
-
 typedef	struct		s_raycasting
 {
 	double			player_pos_x;
@@ -40,9 +26,14 @@ typedef	struct		s_raycasting
 	double			player_dir_y;
 	double			player_plane_x;
 	double			player_plane_y;
+	char			player_dir;
 	double			ray_dir_x;
 	double			ray_dir_y;
+	double			dirx;
+	double			diry;
 	double			camerax;
+	double			wallx;
+	double			movespeed;
 	int				hit;
 	int				map_x;
 	int				map_y;
@@ -56,7 +47,47 @@ typedef	struct		s_raycasting
 	int				draw_start;
 	int				draw_end;
 	double			perp_wall_dist;
+	double			*spr_buffer;
+	int				line_height;
+	int				up;
+	int				down;
+	int				right;
+	int				left;
+	int				rot_right;
+	int				rot_left;
+	char			hexaceil;
+	char			*hexafloor;
+	int				tex_height;
+	int				tex_width;
+	int				tex_x;
+	int				tex_y;
+	int				tex_id;
+	int				tex_side;
+	t_img			tex[12];
 }					t_raycasting;
+
+typedef struct		s_img
+{
+	void			*img;
+	char			*data;
+	int				size_l;
+	int				bpp;
+	int				endian;
+}					t_img;
+
+typedef	struct		s_mlx
+{
+	void			*ptr; //conecta el software
+	void			*win; //administra ventanas
+	void			*img; //puntero de imagen que pasaremos a la ventana
+	char			*addr; //dirección que representa el comienzo del área de memoria donde se almacena la imagen.
+	int				linesize; //número de bytes utilizados para almacenar una línea de la imagen en la memoria. Esto es necesario para moverse de una línea a otra en la imagen.
+	int				endian; //indica si el color de píxel en la imagen debe almacenarse en:pequeño (endian == 0)o grande (endian == 1).
+	int				bpp;	//bits per pixel
+	int				win_height; //height de config
+	int				win_width; //width de config
+	t_raycasting	rc;
+}					t_mlx;
 
 /* PREPARANDO GRAFICOS*/
 void	game_loading(t_config config);
@@ -70,12 +101,23 @@ float	radians_to_grads(float radians);
 float	grads_to_radians(float grads);
 
 /*	RAYCASTEO*/
-/*
-int		screenshot_1(t_mlx *mlx);
-int		raycast_1(t_mlx *mlx);
+
+int		screenshot_1(t_mlx *mlx, t_config *config);
+int		raycast_1(t_mlx *mlx, t_config *config);
 void	raycast_2(t_mlx *mlx, int x);
 void	raycast_3(t_mlx *mlx);
-*/
+void	raycast_4(t_mlx *mlx);
+int		handle_events(t_mlx *mlx, t_config *config);
+void	handle_events2(t_mlx *mlx);
+void	move_right(t_mlx *mlx, t_config *config);
+void	move_left(t_mlx *mlx, t_config *config);
+void	dda(t_mlx *mlx, t_config *config);
+
+
+void	sky_draw(t_mlx *mlx, int x);
+void	floor_draw(t_mlx *mlx, int x);
+void	draw_wall(t_mlx *mlx, int x);
+void	calcule_wall(t_mlx *mlx, t_config *config);
 
 
 
