@@ -112,8 +112,6 @@ t_config		file_procesator(char *file, int argc) /*le pasamos el archivo y devuel
 	file[ft_strlen(file) - 3] != 'c' && file[ft_strlen(file) - 4] != '.')
 		printf("El archivo que ingresa debe ser tener la extension .cub");
 	config = reset_t_config();
-
-	//CHECK ARGC PENDIENTE
 	config = load_file(file, config);
 	config.mapa = read_map(file, &config);
 	if (config.player_begin[0] == 0 && config.player_begin[1] == 0)

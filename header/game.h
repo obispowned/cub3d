@@ -18,6 +18,55 @@
 # define BROWN 0xB8761C
 /***/
 
+typedef struct		s_bitmap
+{
+	unsigned int	filesize;
+	unsigned short	reserved1;
+	unsigned short	reserved2;
+	unsigned int	pixeldataoffset;
+	unsigned int	headersize;
+	unsigned int	imagewidth;
+	unsigned int	imageheight;
+	unsigned short	planes;
+	unsigned short	bitsperpixel;
+	unsigned int	compression;
+	unsigned int	imagesize;
+	unsigned int	xpixelspermeter;
+	unsigned int	ypixelspermeter;
+	unsigned int	totalcolors;
+	unsigned int	importantcolors;
+}					t_bitmap;
+
+typedef struct		s_img
+{
+	void			*img;
+	char			*data;
+	int				size_l;
+	int				bpp;
+	int				endian;
+}					t_img;
+
+typedef struct		s_sprites
+{
+	double			x;
+	double			y;
+	double			distance;
+	double			sprite_x;
+	double			sprite_y;
+	double			invdet;
+	double			transform_x;
+	double			transform_y;
+	int				screen;
+	int				height;
+	int				width;
+	int				drawstart_x;
+	int				drawstart_y;
+	int				drawend_x;
+	int				drawend_y;
+	int				stripe;
+	t_img			tex;
+}					t_sprites;
+
 typedef	struct		s_raycasting
 {
 	double			player_pos_x;
@@ -47,7 +96,6 @@ typedef	struct		s_raycasting
 	int				draw_start;
 	int				draw_end;
 	double			perp_wall_dist;
-	double			*spr_buffer;
 	int				line_height;
 	int				up;
 	int				down;
@@ -63,17 +111,26 @@ typedef	struct		s_raycasting
 	int				tex_y;
 	int				tex_id;
 	int				tex_side;
+	double			*spr_buffer;
+	int				drawstartx;
+	int				drawendx;
+	int				sprtexx;
+	int				sprtexy;
+	int				spritescreenx;
+	int				spriteheight;
+	double			spritex;
+	double			spritey;
+	int				drawstarty;
+	int				drawendy;
+	int				spritewidth;
+	int				stripe;
+	double			transformx;
+	double			transformy;
+	int				d;
+	double			invdet;
 	t_img			tex[12];
+	t_sprites		sprite[255];
 }					t_raycasting;
-
-typedef struct		s_img
-{
-	void			*img;
-	char			*data;
-	int				size_l;
-	int				bpp;
-	int				endian;
-}					t_img;
 
 typedef	struct		s_mlx
 {
@@ -88,6 +145,11 @@ typedef	struct		s_mlx
 	int				win_width; //width de config
 	t_raycasting	rc;
 }					t_mlx;
+
+/* INICIALIZACION */
+void		init_raycast_params3(t_mlx *mlx, t_config *config);
+void		init_raycast_params2(t_mlx *mlx, t_config *config);
+void		init_raycast_params(t_mlx *mlx, t_config *config);
 
 /* PREPARANDO GRAFICOS*/
 void	game_loading(t_config config);

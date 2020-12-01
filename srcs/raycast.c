@@ -3,18 +3,6 @@
 #include "../header/cub3d.h"
 #include <math.h>
 
-void		reset_rc(t_mlx *mlx, t_config config)
-{
-	mlx->rc.player_pos_x = config.player_begin[0];
-	mlx->rc.player_pos_y = config.player_begin[1];
-	mlx->rc.player_dir_x = -1;
-	mlx->rc.player_dir_y = 0;
-	mlx->rc.player_plane_x = 0;
-	mlx->rc.player_plane_y = 0.66;
-	mlx->win_height = config.height;
-	mlx->win_width = config.width;
-}
-
 int		screenshot_1(t_mlx *mlx, t_config *config)
 {
 	int x;

@@ -25,20 +25,16 @@ void	create_window(t_config config)
 {
 	t_mlx mlx; // estructura que contendrá todas las "cosas MLX"
 
-	reset_rc(&mlx.rc, config);
-	mlx.ptr = mlx_init();
-	mlx.win = mlx_new_window (mlx.ptr , config.height, config.width, "cub3D");
+	reset_rc(&mlx, config);
 //	mlx.img = mlx_new_image (mlx.ptr , config.width, config.height);
 //	mlx.addr = mlx_get_data_addr(mlx.img, mlx.bpp, &mlx.linesize, &mlx.endian);
 //	my_pixel_put();
 
-//	if (config.save == 1) //si hay --save
-//		mlx_loop_hook(mlx.ptr, &screenshot_1, &mlx.rc);
-//	else
-//		mlx_loop_hook(rc.mlx_ptr, &raycasting_1, &rc);
+	if (config.save == 1) //si hay --save
+		mlx_loop_hook(mlx.ptr, &screenshot_1, &mlx.rc);
+	else
+		mlx_loop_hook(mlx.ptr, &raycast_1, &mlx);
 	mlx_hook(mlx.win, 17, 1L << 17, exit_game, &mlx); //cerramos ventana al dar a la "equis"
 	mlx_key_hook(mlx.win, close_win, &mlx);
 	mlx_loop(mlx.ptr);
-
-
 }

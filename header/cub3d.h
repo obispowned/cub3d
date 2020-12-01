@@ -10,6 +10,14 @@
 #include "detect_so.h"
 //#include "game.h"
 
+
+typedef struct	s_mapi
+{
+	int		**worldMap;
+	int		hexaceil;
+	int		hexafloor;
+}				t_mapi;
+
 typedef struct	s_config
 {
 	int		flag;
@@ -33,14 +41,6 @@ typedef struct	s_config
 	t_mapi	mapa;
 }				t_config;
 
-typedef struct	s_mapi
-{
-	int		**worldMap;
-	int		hexaceil;
-	int		hexafloor;
-}				t_mapi;
-
-
 /*********************************/
 
 void 		print_values(t_config config);
@@ -49,9 +49,11 @@ void 		print_values(t_config config);
 t_config 	file_procesator(char *file, int argc);
 t_config 	load_file(char *file, t_config config);
 t_config 	check_file(char *line, t_config config);
+void		check_arg(char *argum);
+
+/* Inicializacion */
 t_config 	reset_t_config();
 void		init_config(t_config *config);
-void		check_arg(char *argum);
 
 /* funciones para guardar los datos en la estructura - PRIMERA LECTURA*/
 t_config 	check_R(char *file, t_config config);
