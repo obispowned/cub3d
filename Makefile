@@ -15,6 +15,7 @@ SRCS			=	get_next_line/get_next_line.c\
 					srcs/init_params.c\
 					srcs/init_params2.c\
 					srcs/bpm.c\
+					srcs/sprites.c\
 					utils/ft_split.c\
 					utils/ft_strdup.c\
 					utils/ft_strjoin_char.c\

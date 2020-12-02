@@ -41,6 +41,8 @@ void 	print_values(t_config config)
 	printf("Cantidad de columnas: | %d |\n", config.map_max_rows);
 
 	printf("Coordenadas de cominezo: | %d-%d |\n", config.player_begin[0], config.player_begin[1]);
+	printf("numero de sprites: %d\n", config.numsprites);
+	
 	printf("\n");
 	printf("\n");
 }

@@ -1,12 +1,13 @@
 #include "../header/cub3d.h"
+#include "../header/game.h"
 
 t_mapi			parserico(char **map, t_config *config)
 { /*PARSEAMOS EL MAPA EN CHAR A MAPA EN INTS*/
 	int		i;
 	int		j;
 
-	config->mapa.hexaceil = 0;	//inicializo para evitar errorees
-	config->mapa.hexafloor = 0;
+	config->hexaceil = 0;	//inicializo para evitar errorees
+	config->hexafloor = 0;
 	i = 0;
 	config->mapa.worldMap = (int **)malloc(sizeof(int *) * config->map_max_lines);
 	while (config->map_max_lines > i)
@@ -15,19 +16,42 @@ t_mapi			parserico(char **map, t_config *config)
 		j = 0;
 		while (j < config->map_max_rows)
 		{
-			config->mapa.worldMap[i][j] = (int)(map[i][j] - '0');
-			printf("%d", config->mapa.worldMap[i][j]);
+			if (map[i][j] == '9')
+			{
+				config->mapa.worldMap[i][j] = 0;
+				printf("%d", config->mapa.worldMap[i][j]);
+			}
+			else
+			{
+				config->mapa.worldMap[i][j] = (int)(map[i][j] - '0');
+				printf("%d", config->mapa.worldMap[i][j]);
+			}
 			j++;
 		}
 		printf("\n");
 		i++;
 	}
-	hexa_ceil_floor_parsing(&config->mapa, config);
+	ceil_floor_parsing(&config->mapa, config);
 	return (config->mapa);
 }
 
-void	hexa_ceil_floor_parsing(t_mapi	*mapa, t_config *config)
+void	ceil_floor_parsing(t_mapi	*mapa, t_config *config)
 {
-	//CONVERTIR config.ceil y config.floor a hexadecimal y
-	//GUARDARLO en mapa.hexaceil y mapa.hexafloor
+	config->hexaceil = createRGB(config->ceil[0], config->ceil[1], config->ceil[2]);
+	config->hexafloor = createRGB(config->floor[0], config->floor[1], config->floor[2]);
+}
+
+unsigned long createRGB(int r, int g, int b)
+{
+    return ((r & 0xff) << 16) + ((g & 0xff) << 8) + (b & 0xff);
+}
+
+float   radians_to_grads(float radians)
+{
+	return(radians * (180.0 / PI));
+}
+
+float   grads_to_radians(float grads)
+{
+	return(grads * (PI / 180.0));
 }

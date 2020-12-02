@@ -57,14 +57,14 @@ void	sprite_casting2(t_mlx *mlx)
 		mlx->rc.drawendx = mlx->win_width - 1;
 }
 
-void	sprite_casting(t_mlx	*mlx)
+void	sprite_casting(t_mlx	*mlx, t_config	*config)
 {
 	int i;
 	int y;
 
 	i = 0;
 	y = 0;
-	while (i < mlx->numsprites)
+	while (i < config->numsprites)
 	{
 		mlx->rc.sprite[i].tex = mlx->rc.tex[5];
 		mlx->rc.spritex = mlx->rc.sprite[i].x + 0.5 - mlx->rc.player_pos_x;

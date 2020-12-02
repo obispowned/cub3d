@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 13:05:06 by agutierr          #+#    #+#             */
-/*   Updated: 2020/11/29 14:55:30 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/02 10:40:55 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,15 @@ char		**read_map2(int fd, t_config *config)
 {
 	char	*line;
 	char	**map;
-	int 	ret;
+	int 	count_sprites;
 	int		i;
 
+	count_sprites = 0;
 	i = 0;
 	if (!(map = (char **)calloc(sizeof(char *) * config->maxR + 1, 1)))
 		printf("Malloc ha fallado en: get_map_reads.c");
 	
-	while (((ret = get_next_line(fd, &line)) > 0) )
+	while (((get_next_line(fd, &line)) > 0))
 	{
 		if (who_needs_a_map(line) == 1)
 		{
@@ -55,6 +56,7 @@ char		**read_map2(int fd, t_config *config)
 	kill(line);
 	while (i < config->maxR)
 		map[i++] = fill_me('9', config->maxR);
+	config->numsprites = count_sprites;
 	return (map);
 }
 

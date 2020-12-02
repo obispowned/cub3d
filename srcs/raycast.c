@@ -24,7 +24,7 @@ int		screenshot_1(t_mlx *mlx, t_config *config)
 		mlx->rc.spr_buffer[x] = mlx->rc.perp_wall_dist;
 		x++;
 	}
-	sprite_casting(mlx);
+	sprite_casting(mlx, config);
 	mlx_put_image_to_window(mlx->ptr, mlx->win, mlx->img, 0, 0);
 	save_bmp(mlx);
 	return (0);
@@ -42,16 +42,16 @@ int		raycast_1(t_mlx *mlx, t_config *config)
 	{
 		raycast_2(mlx, x);
 		raycast_3(mlx);
-		dda(mlx, config);
+		dda(mlx, config); //SF
 		raycast_4(mlx);
-		calcule_wall(mlx, config);
+		calcule_wall(mlx, config); //SF
 		floor_draw(mlx, x);
 		sky_draw(mlx, x);
-		draw_wall(mlx, x);
+//		draw_wall(mlx, x); //SF
 		mlx->rc.spr_buffer[x] = mlx->rc.perp_wall_dist;
-		x++;
+		x++; 
 	}
-	sprite_casting(mlx);
+//	sprite_casting(mlx, config);
 	mlx_put_image_to_window(mlx->ptr, mlx->win,	mlx->img, 0, 0);
 	return (0);
 }

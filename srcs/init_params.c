@@ -21,6 +21,7 @@ t_config reset_t_config()
 	config.player_begin[0] = 0;
 	config.player_begin[1] = 0;
 	config.save = 0;
+	config.numsprites = 0;
 	init_config(&config);
 	return (config);
 }
@@ -36,8 +37,8 @@ void	init_config(t_config *config)
 		config->floor[i] = -1;
 		i++;
 	}
-	config->mapa.hexaceil = 0;
-	config->mapa.hexafloor = 0;
+	config->hexaceil = 0;
+	config->hexafloor = 0;
 }
 
 

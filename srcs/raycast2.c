@@ -1,4 +1,5 @@
 #include <mlx.h>
+#include <math.h>
 #include "../header/game.h"
 #include "../header/cub3d.h"
 

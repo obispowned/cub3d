@@ -11,11 +11,9 @@
 //#include "game.h"
 
 
-typedef struct	s_mapi
+typedef struct		s_mapi
 {
-	int		**worldMap;
-	int		hexaceil;
-	int		hexafloor;
+	int				**worldMap;
 }				t_mapi;
 
 typedef struct	s_config
@@ -38,6 +36,9 @@ typedef struct	s_config
 	int		i;
 	int		player_begin[2];
 	int		save;
+	int		numsprites;
+	unsigned long	hexaceil;
+	unsigned long	hexafloor;
 	t_mapi	mapa;
 }				t_config;
 
@@ -72,7 +73,8 @@ void		print_map(char **map); // pintamos el mapa y ya
 char		*change_char(char *line, char a, char b); //cambiamos un char por otro
 char 		*fill_me(char c, int lenght); //rellenamos de 9
 t_mapi		parserico(char **map, t_config *config); //cambiamos mapa de char ** a int**
-void		hexa_ceil_floor_parsing(t_mapi	*mapa, t_config *config);
+void		ceil_floor_parsing(t_mapi	*mapa, t_config *config);
+unsigned long createRGB(int r, int g, int b);
 int			check_lines(char *line, char *chars);
 void		check_params(t_config config);
 void		drifting_R_PATH(char *line, t_config *config);

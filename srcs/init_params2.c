@@ -12,8 +12,10 @@ void	init_raycast_params3(t_mlx *mlx, t_config *config)
 	mlx->rc.down = 0;
 	mlx->rc.right = 0;
 	mlx->rc.left = 0;
-	if (mlx->rc.player_dir == 'E')
+	mlx->rc.player_dir = 'E'; //
+	if (mlx->rc.player_dir == 'E') /****EXTRAER DIR DE JUGADOR NA MAS EMPIEZA****/
 	{
+		printf("asfbabosf");
 		mlx->rc.player_plane_x = 0.66;
 		mlx->rc.player_plane_y = 0;
 		mlx->rc.dirx = 0;
@@ -73,5 +75,7 @@ void		reset_rc(t_mlx *mlx, t_config config)
 	mlx->rc.player_plane_y = 0.66;
 	mlx->win_height = config.height;
 	mlx->win_width = config.width;
+	mlx->rc.hexafloor = (int)config.hexafloor;
+	mlx->rc.hexaceil = (int)config.hexaceil;
 	init_raycast_params(mlx, &config);
 }

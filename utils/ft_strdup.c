@@ -6,11 +6,12 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 08:33:02 by agutierr          #+#    #+#             */
-/*   Updated: 2020/11/05 14:02:45 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/02 10:40:17 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/utils.h"
+#include "../header/cub3d.h"
 
 char		*ft_strdup(char *str)
 {

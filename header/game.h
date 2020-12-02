@@ -103,8 +103,8 @@ typedef	struct		s_raycasting
 	int				left;
 	int				rot_right;
 	int				rot_left;
-	char			hexaceil;
-	char			*hexafloor;
+	int				hexaceil;
+	int				hexafloor;
 	int				tex_height;
 	int				tex_width;
 	int				tex_x;
@@ -162,7 +162,7 @@ void	reset_rc(t_mlx *mlx, t_config config);
 float	radians_to_grads(float radians);
 float	grads_to_radians(float grads);
 
-/*	RAYCASTEO*/
+/*	Raycast */
 
 int		screenshot_1(t_mlx *mlx, t_config *config);
 int		raycast_1(t_mlx *mlx, t_config *config);
@@ -174,13 +174,19 @@ void	handle_events2(t_mlx *mlx);
 void	move_right(t_mlx *mlx, t_config *config);
 void	move_left(t_mlx *mlx, t_config *config);
 void	dda(t_mlx *mlx, t_config *config);
-
-
 void	sky_draw(t_mlx *mlx, int x);
 void	floor_draw(t_mlx *mlx, int x);
 void	draw_wall(t_mlx *mlx, int x);
 void	calcule_wall(t_mlx *mlx, t_config *config);
 
+
+/* Drawing */
+int		save_bmp(t_mlx *mlx);
+static void		file_write(int fd, const void *buf, ssize_t len);
+static	t_bitmap	fill_header(t_mlx *mlx);
+void	sprite_casting(t_mlx	*mlx, t_config	*config);
+void	sprite_casting2(t_mlx *mlx);
+void	sprite_drawing(t_mlx *mlx, int i, int y);
 
 
 #endif
