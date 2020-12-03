@@ -35,6 +35,7 @@ typedef struct	s_config
 	int		maxR;
 	int		i;
 	int		player_begin[2];
+	char	player_pos_begin;
 	int		save;
 	int		numsprites;
 	unsigned long	hexaceil;
@@ -78,5 +79,6 @@ unsigned long createRGB(int r, int g, int b);
 int			check_lines(char *line, char *chars);
 void		check_params(t_config config);
 void		drifting_R_PATH(char *line, t_config *config);
+int			only_this_chars(char *line, char *chars);
 
 #endif

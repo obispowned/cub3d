@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 13:05:06 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/02 10:40:55 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/03 14:05:23 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,13 @@ char		**read_map2(int fd, t_config *config)
 	{
 		if (who_needs_a_map(line) == 1)
 		{
-			map[i] = ft_strdup_sustitute_char(line, ' ', '9', config->maxR);
+			map[i] = ft_strdup_sustitute_char(line, ' ', '9', config->maxR, &count_sprites);
 			i++;
 		}
 		kill(line);
 	}
 	if (who_needs_a_map(line) == 1)
-		map[i++] = ft_strdup_sustitute_char(line, ' ', '9', config->maxR);
+		map[i++] = ft_strdup_sustitute_char(line, ' ', '9', config->maxR, &count_sprites);
 	kill(line);
 	while (i < config->maxR)
 		map[i++] = fill_me('9', config->maxR);
@@ -77,6 +77,7 @@ void		check_map(t_config *config, char **map)
 			{
 				config->player_begin[0] = i;
 				config->player_begin[1] = j;
+				config->player_pos_begin = map[i][j];
 				map[i][j] = '0';
 			}
 			else if (((map[i][j] == 'N') || (map[i][j] == 'S') ||
@@ -139,8 +140,10 @@ int			who_needs_a_map(char *line)
 	int		j;
 	int		coincide;
 	char	*chain2;
+	int		tab;
 
 	coincide = 0;
+	tab = 0;
 	chain2 = "102 NSWE\t";
 	i = 0;
 	j = 0;
@@ -150,6 +153,11 @@ int			who_needs_a_map(char *line)
 		j = 0;
 		while (chain2[j] != '\0')
 		{
+			while (line[i] == '\t')
+			{
+				tab = 1;
+				i++;
+			}
 			if (line[i] == chain2[j])
 				coincide = 1;
 			j++;
@@ -159,7 +167,11 @@ int			who_needs_a_map(char *line)
 		i++;
 	}
 	if (coincide == 1)
+	{
+		if (tab == 1)
+			print_error("No tabs en el mapa");
 		return (1);
+	}
 	else
 		return (0);
 }

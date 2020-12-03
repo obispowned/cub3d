@@ -7,14 +7,18 @@ int main(int argc, char **argv)
 {
 	t_config	config;
 
+//	printf("%d\n\n", argc);
 	if (argc < 2 || argc > 3)
 		print_error("Numero de argumentos invalido");
+	config = file_procesator(argv[1], argc);
 	if (argc == 3)
 	{
-		check_arg(argv[2]);
-		config.save = 1;
+		if (argc == 3)
+		{
+			check_arg(argv[2]);
+			config.save = 1;
+		}
 	}
-	config = file_procesator(argv[1], argc);
 	print_values(config);
 	game_loading(config);
 	ace(config.NO, config.SO, config.WE, config.EA, config.S, NULL);
@@ -41,7 +45,9 @@ void 	print_values(t_config config)
 	printf("Cantidad de columnas: | %d |\n", config.map_max_rows);
 
 	printf("Coordenadas de cominezo: | %d-%d |\n", config.player_begin[0], config.player_begin[1]);
+	printf("El jugador empieza mirando a: %c\n", config.player_pos_begin);
 	printf("numero de sprites: %d\n", config.numsprites);
+	printf("config.save: %d\n", config.save);
 	
 	printf("\n");
 	printf("\n");

@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 08:32:54 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/02 13:52:22 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/03 12:20:14 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ t_config	check_R(char *line, t_config config)
 
 	line = change_char(line, '\t', ' ');
 	splitter = ft_split(line, ' ');
+	if (config.height != -1 || config.width != -1)
+		print_error("Resolucion duplicada");
 	if ((splitter[3]) || (ft_isdigit(splitter[1]) != 1)
 	|| (ft_isdigit(splitter[2]) != 1))
 		print_error("Formato de Resolucion incorrecto.");

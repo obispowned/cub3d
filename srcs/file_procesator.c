@@ -43,9 +43,7 @@ int		check_lines(char *line, char *chars)
 {
 	int		i;
 	int		j;
-	int		coincide;
 
-	coincide = 0;
 	i = 0;
 	j = 0;
 	while (line[i] != '\0')
@@ -74,8 +72,8 @@ t_config	load_file(char *file, t_config config)
 		print_error("Fallo al intentar abrir el archivo.");
 	while (((ret = get_next_line(fd, &line)) > 0))
 	{
-		if ((check_lines(line, " NSR\tECFW") == 0 && line[0] != '\0')
-		&& (who_needs_a_map(line) == 0))
+		if (((check_lines(line, " NSR\tECFW") == 0 && line[0] != '\0')
+		&& (who_needs_a_map(line) == 0)))
 			print_error("Elimine los caracteres sobrantes.");
 		if (who_needs_a_map(line) == 1 && config.flag != 8)
 			print_error("Debe declarar los parametros delante del mapa");
@@ -88,6 +86,35 @@ t_config	load_file(char *file, t_config config)
 	close(fd);
 	check_params(config);
 	return (config);
+}
+
+int		only_this_chars(char *line, char *chars)
+{
+	int i;
+	int j;
+	int coincide;
+
+	i = 0;
+	j = 0;
+	if (line[0] == '\0')
+		return (0);
+	while(line[i] != '\0')
+	{
+		while (line[i] == ' ' || line[i] == '\t')
+			i++;
+		coincide = 0;
+		j = 0;
+		while(chars[j] != '\0')
+		{
+			if (line[i] == chars[j])
+				coincide = 1;
+			j++;
+		}
+		if (coincide == 0)
+			return (0);
+		if (line[i] != '\0')i++;
+	}
+	return(1);
 }
 
 void	check_params(t_config config)

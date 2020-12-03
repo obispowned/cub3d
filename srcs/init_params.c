@@ -8,8 +8,8 @@ t_config reset_t_config()
 	
 	config.flag = 0;
 	config.i = 0;
-	config.height = 0;
-	config.width = 0;
+	config.height = -1;
+	config.width = -1;
 	config.NO = NULL;
 	config.SO = NULL;
 	config.EA = NULL;
@@ -20,7 +20,6 @@ t_config reset_t_config()
 	config.maxR = 0;
 	config.player_begin[0] = 0;
 	config.player_begin[1] = 0;
-	config.save = 0;
 	config.numsprites = 0;
 	init_config(&config);
 	return (config);
@@ -31,6 +30,7 @@ void	init_config(t_config *config)
 	int	i;
 
 	i = 0;
+	config->player_pos_begin = '\0';
 	while (i < 3)
 	{
 		config->ceil[i] = -1;
