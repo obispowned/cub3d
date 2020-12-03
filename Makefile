@@ -20,18 +20,18 @@ SRCS			=	get_next_line/get_next_line.c\
 
 #######BUFF QUINES###########
 
-#ifeq ($(OS),Windows_NT) 
-#    detected_OS := Windows
-#else
-#    detected_OS := $(shell sh -c 'uname 2>/dev/null || echo Unknown')
-#endif
-#
-#ifeq ($(detected_OS),Darwin)
-#    MLXFLAGS = -I /usr/local/include -L /usr/local/lib/ -lmlx -framework OpenGL #-framework AppKit
-#endif
-#ifeq ($(detected_OS),Linux)
-#    MLXFLAGS = -lm -lbsd -lmlx -lXext -lX11
-#endif
+ifeq ($(OS),Windows_NT) 
+    detected_OS := Windows
+else
+    detected_OS := $(shell sh -c 'uname 2>/dev/null || echo Unknown')
+endif
+
+ifeq ($(detected_OS),Darwin)
+    MLXFLAGS = -I /usr/local/include -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit
+endif
+ifeq ($(detected_OS),Linux)
+    MLXFLAGS = -lm -lbsd -lmlx -lXext -lX11
+endif
 
 #############################
 
@@ -46,8 +46,6 @@ PURPLE			= \033[0;35m
 GREEN			= \033[1;32m
 RESET			= \033[0m
 
-MLXFLAGS = -I /usr/local/include -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit
-
 all:		
 				@echo "${RED}[...Haciendo CLEAN del a.out...]${RESET}"
 				@rm -rf cub3D
@@ -56,8 +54,9 @@ all:
 				@echo "${GREEN}[.oOo.oOo.oOo.oOo.]"
 				@echo "[ C O M P I L A O ]"
 				@echo "[.oOo.oOo.oOo.oOo.]${RESET}"
+				clear && ./cub3D maps/Validos/map0.cub
 run: all
-	clear && ./cub3D maps/Validos/map0.cub --save
+	clear && ./cub3D maps/Validos/map0.cub
 
 fclean: clean
 	rm -f $(NAME)

@@ -7,7 +7,6 @@ int main(int argc, char **argv)
 {
 	t_config	config;
 
-//	printf("%d\n\n", argc);
 	if (argc < 2 || argc > 3)
 		print_error("Numero de argumentos invalido");
 	config = file_procesator(argv[1], argc);
