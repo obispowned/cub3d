@@ -6,7 +6,7 @@ void	game_loading(t_config config)
 {
 	t_mlx mlx;
 
-	reset_rc(&mlx, config);
+	reset_mlx(&mlx, config);
 	mlx.ptr = mlx_init();
 	mlx.win = mlx_new_window(mlx.ptr, config.height, config.width, "CUB3D");
 	/*if (config.save == 1) //si hay --save

@@ -3,7 +3,7 @@
 #include "../header/cub3d.h"
 
 
-void		reset_rc(t_mlx *mlx, t_config config)
+void		reset_mlx(t_mlx *mlx, t_config config)
 {
 	mlx->ptr = NULL;
 	mlx->win = NULL;

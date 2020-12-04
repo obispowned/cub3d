@@ -4,6 +4,7 @@
 		"limits": "cpp",
 		"*.tcc": "cpp",
 		"utils.h": "c",
-		"stdarg.h": "c"
+		"stdarg.h": "c",
+		"mlx.h": "c"
 	}
 }

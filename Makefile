@@ -8,6 +8,7 @@ SRCS			=	get_next_line/get_next_line.c\
 					srcs/get_map_reads.c\
 					srcs/parse.c\
 					srcs/create_window.c\
+					srcs/init_raycast.c\
 					srcs/init_params.c\
 					srcs/init_params2.c\
 					utils/ft_split.c\
@@ -54,7 +55,6 @@ all:
 				@echo "${GREEN}[.oOo.oOo.oOo.oOo.]"
 				@echo "[ C O M P I L A O ]"
 				@echo "[.oOo.oOo.oOo.oOo.]${RESET}"
-				clear && ./cub3D maps/Validos/map0.cub
 run: all
 	clear && ./cub3D maps/Validos/map0.cub
 

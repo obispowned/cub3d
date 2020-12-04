@@ -88,35 +88,6 @@ t_config	load_file(char *file, t_config config)
 	return (config);
 }
 
-int		only_this_chars(char *line, char *chars)
-{
-	int i;
-	int j;
-	int coincide;
-
-	i = 0;
-	j = 0;
-	if (line[0] == '\0')
-		return (0);
-	while(line[i] != '\0')
-	{
-		while (line[i] == ' ' || line[i] == '\t')
-			i++;
-		coincide = 0;
-		j = 0;
-		while(chars[j] != '\0')
-		{
-			if (line[i] == chars[j])
-				coincide = 1;
-			j++;
-		}
-		if (coincide == 0)
-			return (0);
-		if (line[i] != '\0')i++;
-	}
-	return(1);
-}
-
 void	check_params(t_config config)
 {
 	if (config.flag != 8)	/*si no hay 8 valores guardados en la struct*/

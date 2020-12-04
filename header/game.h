@@ -39,11 +39,11 @@ typedef struct		s_bitmap
 
 typedef struct		s_img
 {
-	void			*img;
-	char			*data;
-	int				size_l;
-	int				bpp;
-	int				endian;
+	void			*img; //puntero de imagen que pasaremos a la ventana
+	char			*addr; //dirección que representa el comienzo del área de memoria donde se almacena la imagen.
+	int				linesize; //número de bytes utilizados para almacenar una línea de la imagen en la memoria. Esto es necesario para moverse de una línea a otra en la imagen.
+	int				endian; //indica si el color de píxel en la imagen debe almacenarse en:pequeño (endian == 0)o grande (endian == 1).
+	int				bpp;	//bits per pixel
 }					t_img;
 
 typedef struct		s_sprites
@@ -84,6 +84,8 @@ typedef	struct		s_raycasting
 	double			wallx;
 	double			movespeed;
 	int				hit;
+	int				map_rows;
+	int				map_lines;
 	int				map_x;
 	int				map_y;
 	double			side_dist_x;
@@ -136,13 +138,9 @@ typedef	struct		s_mlx
 {
 	void			*ptr; //conecta el software
 	void			*win; //administra ventanas
-	void			*img; //puntero de imagen que pasaremos a la ventana
-	char			*addr; //dirección que representa el comienzo del área de memoria donde se almacena la imagen.
-	int				linesize; //número de bytes utilizados para almacenar una línea de la imagen en la memoria. Esto es necesario para moverse de una línea a otra en la imagen.
-	int				endian; //indica si el color de píxel en la imagen debe almacenarse en:pequeño (endian == 0)o grande (endian == 1).
-	int				bpp;	//bits per pixel
 	int				win_height; //height de config
 	int				win_width; //width de config
+	t_img			image;
 	t_raycasting	rc;
 }					t_mlx;
 
@@ -156,7 +154,7 @@ void	game_loading(t_config config);
 void	create_window(t_mlx *mlx, t_config config);
 int		exit_game(t_mlx *mlx);
 int		close_win(int keycode, t_mlx *mlx);
-void	reset_rc(t_mlx *mlx, t_config config);
+void	reset_mlx(t_mlx *mlx, t_config config);
 
 /* Conversiones */
 float	radians_to_grads(float radians);
@@ -164,7 +162,8 @@ float	grads_to_radians(float grads);
 
 /*	Raycast */
 
-int		screenshot_1(t_mlx *mlx, t_config *config);
+void 	init_raycast_params(t_mlx *mlx, t_config *config);
+/*int		screenshot_1(t_mlx *mlx, t_config *config);
 int		raycast_1(t_mlx *mlx, t_config *config);
 void	raycast_2(t_mlx *mlx, int x);
 void	raycast_3(t_mlx *mlx);
@@ -177,7 +176,7 @@ void	dda(t_mlx *mlx, t_config *config);
 void	sky_draw(t_mlx *mlx, int x);
 void	floor_draw(t_mlx *mlx, int x);
 void	draw_wall(t_mlx *mlx, int x);
-void	calcule_wall(t_mlx *mlx, t_config *config);
+void	calcule_wall(t_mlx *mlx, t_config *config);*/
 
 
 /* Drawing */
