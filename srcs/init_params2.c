@@ -9,6 +9,7 @@ void		reset_mlx(t_mlx *mlx, t_config config)
 	mlx->win = NULL;
 	mlx->win_height = config.height;
 	mlx->win_width = config.width;
+	mlx->finalMap = config.mapa.worldMap;
 }
 
 

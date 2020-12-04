@@ -9,6 +9,8 @@ SRCS			=	get_next_line/get_next_line.c\
 					srcs/parse.c\
 					srcs/create_window.c\
 					srcs/init_raycast.c\
+					srcs/raycasting.c\
+					srcs/load_texture.c\
 					srcs/init_params.c\
 					srcs/init_params2.c\
 					utils/ft_split.c\

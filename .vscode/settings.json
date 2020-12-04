@@ -5,6 +5,11 @@
 		"*.tcc": "cpp",
 		"utils.h": "c",
 		"stdarg.h": "c",
-		"mlx.h": "c"
+		"mlx.h": "c",
+		"game.h": "c",
+		"array": "c",
+		"string": "c",
+		"string_view": "c",
+		"vector": "c"
 	}
 }

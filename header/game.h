@@ -130,6 +130,7 @@ typedef	struct		s_raycasting
 	double			transformy;
 	int				d;
 	double			invdet;
+	int	textnum;
 	t_img			tex[12];
 	t_sprites		sprite[255];
 }					t_raycasting;
@@ -140,6 +141,7 @@ typedef	struct		s_mlx
 	void			*win; //administra ventanas
 	int				win_height; //height de config
 	int				win_width; //width de config
+	int				**finalMap;
 	t_img			image;
 	t_raycasting	rc;
 }					t_mlx;
@@ -178,6 +180,17 @@ void	floor_draw(t_mlx *mlx, int x);
 void	draw_wall(t_mlx *mlx, int x);
 void	calcule_wall(t_mlx *mlx, t_config *config);*/
 
+int raycasting(int key, t_mlx *mlx);
+int handle_events(int key, t_mlx *mlx);
+static void motionless_2(t_mlx *mlx, int x);
+static void motionless_3(t_mlx *mlx);
+static void dda(t_mlx *mlx);
+static void motionless_4(t_mlx *mlx);
+void calcule_wall(t_mlx *mlx);
+void draw_wall(t_mlx *mlx, int x);
+void drawMap(t_mlx *mlx);
+void load_textures(t_mlx *mlx);
+static void load_textures_2(t_mlx *mlx);
 
 /* Drawing */
 int		save_bmp(t_mlx *mlx);
