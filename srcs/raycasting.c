@@ -19,7 +19,7 @@ int raycasting(int key, t_mlx *mlx)
 		dda(mlx);
 		motionless_4(mlx);
 		calcule_wall(mlx);
-		draw_wall(mlx, x);
+		draw_wall(mlx, x); /*SEG FAULT LINUX*/
 		x++;
 	}
 	mlx_put_image_to_window(mlx->ptr, mlx->win, mlx->image.img, 0, 0);
@@ -32,11 +32,12 @@ int handle_events(int key, t_mlx *mlx)
 	double oldDirX;
 	double oldPlaneX;
 
-/*	if (key == ESC)
+	if (key == KEY_ESC)
 	{
-		system("killall a.out && clear");
-		return (-1);
-	}*/
+		mlx_destroy_window(mlx->ptr, mlx->win);
+		free(mlx->ptr);
+		exit(-1);
+	}
 	if (key == KEY_DOWN || key == KEY_UP || key == KEY_RIGHT || key == KEY_LEFT)
 	{
 		if (key == KEY_UP)
@@ -65,7 +66,7 @@ int handle_events(int key, t_mlx *mlx)
 			oldPlaneX = mlx->rc.player_plane_x;
 			mlx->rc.player_plane_x = mlx->rc.player_plane_x * cos(-ROT_SPEED) - mlx->rc.player_plane_y * sin(-ROT_SPEED);
 			mlx->rc.player_plane_y = oldPlaneX * sin(-ROT_SPEED) + mlx->rc.player_plane_y * cos(-ROT_SPEED);
-			printf("\nDerecha\n");
+			printf("Derecha\n");
 		}
 		if (key == KEY_LEFT)
 		{
@@ -156,7 +157,7 @@ static void motionless_4(t_mlx *mlx)
 
 void calcule_wall(t_mlx *mlx)
 {
-	//mlx->rc.tex_id = mlx->rc.finalMap[mlx->rc.map_x][mlx->rc.map_y] + mlx->rc.tex_side;
+//	mlx->rc.tex_id = mlx->finalMap[mlx->rc.map_x][mlx->rc.map_y] + mlx->rc.tex_side;
 	if (mlx->rc.side == 0)
 		mlx->rc.wallx = mlx->rc.player_pos_y + mlx->rc.perp_wall_dist * mlx->rc.ray_dir_y;
 	else
@@ -171,12 +172,15 @@ void draw_wall(t_mlx *mlx, int x)
 	{
 //		mlx->rc.tex_y = abs((((mlx->rc.draw_start * 256 - mlx->win_width * 128 +
 //		mlx->rc.line_height * 128) * 64) / mlx->rc.line_height) / 256); /*SEG FAULT*/
-		ft_memcpy(mlx->image.addr + 4 * mlx->win_height * mlx->rc.draw_start + x * 4,
+/*		printf("\nheight %d | draw_start %d | texy %d | texheight %d | linesize %d | tex_x %d |  texwidth %d | bpp %d",
+		mlx->win_height, mlx->rc.draw_start, mlx->rc.tex_y, mlx->rc.tex_height, mlx->rc.tex[1].linesize,
+		mlx->rc.tex_x, mlx->rc.tex_width, mlx->rc.tex[1].bpp);*/
+/*		ft_memcpy(mlx->image.addr + 4 * mlx->win_height * mlx->rc.draw_start + x * 4,
 				  &mlx->rc.tex[1].addr[mlx->rc.tex_y % mlx->rc.tex_height *
 									   mlx->rc.tex[1].linesize +
 								   mlx->rc.tex_x % mlx->rc.tex_width *
-									   mlx->rc.tex[1].bpp / 8],
-				  sizeof(int));
+									   mlx->rc.tex[1].bpp / 8], sizeof(int));*/
+				 /*SEG FAULT LINUX EN MEMCPY*/
 		mlx->rc.draw_start++;
 	}
 }
