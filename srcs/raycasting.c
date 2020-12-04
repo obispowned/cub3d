@@ -7,7 +7,7 @@ int raycasting(int key, t_mlx *mlx)
 	int x;
 
 	x = 0;
-	printf("Funciona Raycasting2\n");
+	printf("Funciona Raycasting\n");
 	if (handle_events(key, mlx) != 0)
 		return (-1);
 	mlx->image.img = mlx_new_image(mlx->ptr, mlx->win_height, mlx->win_width); //cuidao x y
@@ -47,6 +47,7 @@ int handle_events(int key, t_mlx *mlx)
 			if (mlx->finalMap[(int)(mlx->rc.player_pos_x)][(int)(mlx->rc.player_pos_y + mlx->rc.diry *
 			mlx->rc.movespeed)] == 0)
 				mlx->rc.player_pos_y += mlx->rc.diry * mlx->rc.movespeed;
+				printf("\nArriba\n");
 		}
 		if (key == KEY_DOWN)
 		{
@@ -54,6 +55,7 @@ int handle_events(int key, t_mlx *mlx)
 				mlx->rc.player_pos_x -= mlx->rc.dirx * MV_SPEED;
 			if (mlx->finalMap[(int)(mlx->rc.player_pos_x)][(int)(mlx->rc.player_pos_y - mlx->rc.diry * MV_SPEED)] == 0)
 				mlx->rc.player_pos_y -= mlx->rc.diry * MV_SPEED;
+				printf("\nAbajo\n");
 		}
 		if (key == KEY_RIGHT)
 		{
@@ -63,6 +65,7 @@ int handle_events(int key, t_mlx *mlx)
 			oldPlaneX = mlx->rc.player_plane_x;
 			mlx->rc.player_plane_x = mlx->rc.player_plane_x * cos(-ROT_SPEED) - mlx->rc.player_plane_y * sin(-ROT_SPEED);
 			mlx->rc.player_plane_y = oldPlaneX * sin(-ROT_SPEED) + mlx->rc.player_plane_y * cos(-ROT_SPEED);
+			printf("\nDerecha\n");
 		}
 		if (key == KEY_LEFT)
 		{
@@ -72,6 +75,7 @@ int handle_events(int key, t_mlx *mlx)
 			oldPlaneX = mlx->rc.player_plane_x;
 			mlx->rc.player_plane_x = mlx->rc.player_plane_x * cos(ROT_SPEED) - mlx->rc.player_plane_y * sin(ROT_SPEED);
 			mlx->rc.player_plane_y = oldPlaneX * sin(ROT_SPEED) + mlx->rc.player_plane_y * cos(ROT_SPEED);
+			printf("\nIzquierda\n");
 		}
 	}
 	return (0);
@@ -165,11 +169,8 @@ void draw_wall(t_mlx *mlx, int x)
 {
 	while (mlx->rc.draw_start <= mlx->rc.draw_end)
 	{
-		mlx->rc.tex_y = abs((((mlx->rc.draw_start * 256 - mlx->win_width * 128 +
-						   mlx->rc.line_height * 128) *
-						  64) /
-						 mlx->rc.line_height) /
-						256);
+//		mlx->rc.tex_y = abs((((mlx->rc.draw_start * 256 - mlx->win_width * 128 +
+//		mlx->rc.line_height * 128) * 64) / mlx->rc.line_height) / 256); /*SEG FAULT*/
 		ft_memcpy(mlx->image.addr + 4 * mlx->win_height * mlx->rc.draw_start + x * 4,
 				  &mlx->rc.tex[1].addr[mlx->rc.tex_y % mlx->rc.tex_height *
 									   mlx->rc.tex[1].linesize +
@@ -199,8 +200,7 @@ void drawMap(t_mlx *mlx)
 
 	printplayer_X = mlx->rc.player_pos_y * 10;
 	printplayer_Y = mlx->rc.player_pos_x * 10;
-	printf("2-\nX: %f\nY: %f\n\n", mlx->rc.player_pos_x, mlx->rc.player_pos_y);
-
+	printf("\nX: %f\nY: %f\n\n", mlx->rc.player_pos_x, mlx->rc.player_pos_y);
 	mlx_string_put(mlx->ptr, mlx->win, mlx->win_height / 2 - 20, 10, 0x33FF3C, "CUB3D");
 	int tmpx = printplayer_X;
 	int tmpy = printplayer_Y;
