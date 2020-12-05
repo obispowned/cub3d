@@ -30,8 +30,9 @@ void load_textures(t_mlx *mlx)
 
 static void load_textures_2(t_mlx *mlx)
 {
-	mlx->rc.tex[6].img = mlx_xpm_file_to_image(mlx->ptr, "textures/sprites/barrel.xpm",
-			&mlx->rc.tex_width, &mlx->rc.tex_height);
+	if (!(mlx->rc.tex[6].img = mlx_xpm_file_to_image(mlx->ptr, "textures/sprites/barrel.xpm",
+			&mlx->rc.tex_width, &mlx->rc.tex_height)))
+			print_error("Error al cargar barrel");
 	mlx->rc.tex[6].addr = mlx_get_data_addr(mlx->rc.tex[6].img, &mlx->rc.tex[6].bpp,
 			&mlx->rc.tex[6].linesize, &mlx->rc.tex[6].endian);
 	mlx->rc.tex[7].img = mlx_xpm_file_to_image(mlx->ptr, "textures/sprites/light.xpm",

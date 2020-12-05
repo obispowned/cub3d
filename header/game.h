@@ -153,7 +153,6 @@ void		init_raycast_params2(t_mlx *mlx, t_config *config);
 void		init_raycast_params(t_mlx *mlx, t_config *config);
 
 /* PREPARANDO GRAFICOS*/
-void	game_loading(t_config config);
 void	create_window(t_mlx *mlx, t_config config);
 int		exit_game(t_mlx *mlx);
 int		close_win(int keycode, t_mlx *mlx);

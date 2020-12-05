@@ -2,16 +2,79 @@
 #include "../header/game.h"
 #include "../header/cub3d.h"
 
+void	sky_draw(t_mlx *mlx, int x)
+{
+	int y;
+	int pixel;
+	int color;
+
+	y = 0;
+	color = 0xFFFF00;
+	//mlx->rc.draw_start = 300;
+	while (y < mlx->rc.draw_start)
+	{
+		pixel = (y * mlx->win_width + x) * 4;
+		if (mlx->image.endian == 1)
+		{
+			mlx->image.addr[pixel + 0] = (color >> 24);
+			mlx->image.addr[pixel + 1] = (color >> 16) & 0xFF;
+			mlx->image.addr[pixel + 2] = (color >> 8) & 0xFF;
+			mlx->image.addr[pixel + 3] = (color) & 0xFF;
+		}
+		else if (mlx->image.endian == 0)
+		{
+			mlx->image.addr[pixel + 0] = (color) & 0xFF;
+			mlx->image.addr[pixel + 1] = (color >> 8) & 0xFF;
+			mlx->image.addr[pixel + 2] = (color >> 16) & 0xFF;
+			mlx->image.addr[pixel + 3] = (color >> 24);
+		}
+		y++;
+	}
+}
+void	floor_draw(t_mlx *mlx, int x)
+{
+	int y;
+	int pixel;
+	int color;
+
+	y = mlx->rc.draw_end;
+	color = 0xFF0000;
+	//mlx->rc.draw_start = 300;
+	while (y < mlx->win_height)
+	{
+		pixel = (y * mlx->win_width + x) * 4;
+		if (mlx->image.endian == 1)
+		{
+			mlx->image.addr[pixel + 0] = (color >> 24);
+			mlx->image.addr[pixel + 1] = (color >> 16) & 0xFF;
+			mlx->image.addr[pixel + 2] = (color >> 8) & 0xFF;
+			mlx->image.addr[pixel + 3] = (color) & 0xFF;
+		}
+		else if (mlx->image.endian == 0)
+		{
+			mlx->image.addr[pixel + 0] = (color) & 0xFF;
+			mlx->image.addr[pixel + 1] = (color >> 8) & 0xFF;
+			mlx->image.addr[pixel + 2] = (color >> 16) & 0xFF;
+			mlx->image.addr[pixel + 3] = (color >> 24);
+		}
+		y++;
+	}
+}
+
 int raycasting(int key, t_mlx *mlx)
 {
 	int x;
 
 	x = 0;
 	printf("Funciona Raycasting\n");
+	mlx->win_width = 500;
+	mlx->win_height = 500;
+	printf("----%d",mlx->rc.player_pos_x);/****PASAR A DOUBLE****/
 	if (handle_events(key, mlx) != 0)
 		return (-1);
 	mlx->image.img = mlx_new_image(mlx->ptr, mlx->win_height, mlx->win_width); //cuidao x y
-	mlx->image.addr = mlx_get_data_addr(mlx->ptr, &mlx->image.bpp, &mlx->image.linesize, &mlx->image.endian);
+	mlx->image.addr = mlx_get_data_addr(mlx->image.img, &mlx->image.bpp, &mlx->image.linesize, &mlx->image.endian);
+	
 	while (x < mlx->win_height)
 	{
 		motionless_2(mlx, x);
@@ -19,11 +82,12 @@ int raycasting(int key, t_mlx *mlx)
 		dda(mlx);
 		motionless_4(mlx);
 		calcule_wall(mlx);
-		draw_wall(mlx, x); /*SEG FAULT LINUX*/
+		sky_draw(mlx,x);
+		floor_draw(mlx,x);
+		//draw_wall(mlx, x); /*SEG FAULT LINUX*/
 		x++;
 	}
 	mlx_put_image_to_window(mlx->ptr, mlx->win, mlx->image.img, 0, 0);
-	drawMap(mlx);
 	return (0);
 }
 
@@ -170,68 +234,17 @@ void draw_wall(t_mlx *mlx, int x)
 {
 	while (mlx->rc.draw_start <= mlx->rc.draw_end)
 	{
-//		mlx->rc.tex_y = abs((((mlx->rc.draw_start * 256 - mlx->win_width * 128 +
-//		mlx->rc.line_height * 128) * 64) / mlx->rc.line_height) / 256); /*SEG FAULT*/
-/*		printf("\nheight %d | draw_start %d | texy %d | texheight %d | linesize %d | tex_x %d |  texwidth %d | bpp %d",
+		//mlx->rc.tex_y = abs((((mlx->rc.draw_start * 256 - mlx->win_width * 128 +
+		//mlx->rc.line_height * 128) * 64) / mlx->rc.line_height) / 256); /*SEG FAULT*/
+		/*printf("\nheight %d | draw_start %d | texy %d | texheight %d | linesize %d | tex_x %d |  texwidth %d | bpp %d",
 		mlx->win_height, mlx->rc.draw_start, mlx->rc.tex_y, mlx->rc.tex_height, mlx->rc.tex[1].linesize,
 		mlx->rc.tex_x, mlx->rc.tex_width, mlx->rc.tex[1].bpp);*/
-/*		ft_memcpy(mlx->image.addr + 4 * mlx->win_height * mlx->rc.draw_start + x * 4,
+		/*ft_memcpy(mlx->image.addr + 4 * mlx->win_height * mlx->rc.draw_start + x * 4,
 				  &mlx->rc.tex[1].addr[mlx->rc.tex_y % mlx->rc.tex_height *
 									   mlx->rc.tex[1].linesize +
 								   mlx->rc.tex_x % mlx->rc.tex_width *
 									   mlx->rc.tex[1].bpp / 8], sizeof(int));*/
 				 /*SEG FAULT LINUX EN MEMCPY*/
 		mlx->rc.draw_start++;
-	}
-}
-
-void drawMap(t_mlx *mlx)
-{
-	int y;
-	int x;
-	int printplayer_X;
-	int printplayer_Y;
-
-	int x_wall;
-	int y_wall;
-	char *str;
-
-	x = 0;
-	y = 0;
-
-	x_wall = 10;
-	y_wall = 10;
-
-	printplayer_X = mlx->rc.player_pos_y * 10;
-	printplayer_Y = mlx->rc.player_pos_x * 10;
-	printf("\nX: %f\nY: %f\n\n", mlx->rc.player_pos_x, mlx->rc.player_pos_y);
-	mlx_string_put(mlx->ptr, mlx->win, mlx->win_height / 2 - 20, 10, 0x33FF3C, "CUB3D");
-	int tmpx = printplayer_X;
-	int tmpy = printplayer_Y;
-	mlx_pixel_put(mlx->ptr, mlx->win, tmpx + 1, tmpy + 1, 0x33FF3C);
-	mlx_pixel_put(mlx->ptr, mlx->win, tmpx, tmpy, 0x33FF3C);
-	mlx_pixel_put(mlx->ptr, mlx->win, tmpx - 1, tmpy - 1, 0x33FF3C);
-	mlx_pixel_put(mlx->ptr, mlx->win, tmpx - 1, tmpy + 1, 0x33FF3C);
-	mlx_pixel_put(mlx->ptr, mlx->win, tmpx + 1, tmpy - 1, 0x33FF3C);
-
-	while (x < mlx->rc.map_x)
-	{
-		while (y < mlx->rc.map_y)
-		{
-			if (mlx->finalMap[x][y] == 1 || mlx->finalMap[x][y] == 2 || mlx->finalMap[x][y] == 3)
-			{
-				mlx_pixel_put(mlx->ptr, mlx->win, x_wall, y_wall, 0xFA2C00);
-				mlx_pixel_put(mlx->ptr, mlx->win, x_wall + 1, y_wall + 1, 0xFA2C00);
-				mlx_pixel_put(mlx->ptr, mlx->win, x_wall - 1, y_wall - 1, 0xFA2C00);
-				mlx_pixel_put(mlx->ptr, mlx->win, x_wall - 1, y_wall + 1, 0xFA2C00);
-				mlx_pixel_put(mlx->ptr, mlx->win, x_wall + 1, y_wall - 1, 0xFA2C00);
-			}
-			y++;
-			x_wall = x_wall + 10;
-		}
-		y = 0;
-		x++;
-		x_wall = 10;
-		y_wall = y_wall + 10;
 	}
 }

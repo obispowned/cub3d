@@ -6,6 +6,7 @@
 int main(int argc, char **argv)
 {
 	t_config	config;
+	t_mlx mlx;
 
 	if (argc < 2 || argc > 3)
 		print_error("Numero de argumentos invalido");
@@ -19,9 +20,26 @@ int main(int argc, char **argv)
 		}
 	}
 	print_values(config);
-	game_loading(config);
+	reset_mlx(&mlx, config);
+	mlx.win_width = 500;
+	mlx.win_height = 500;
+	
+	mlx.ptr = mlx_init();
+	mlx.win = mlx_new_window(mlx.ptr, mlx.win_width, mlx.win_height, "CUB3D");
+	/*if (config.save == 1) //si hay --save
+	{
+		mlx_loop_hook(mlx.ptr, &screenshot_1, &mlx.rc);
+	}
+	else
+	{
+		mlx_loop_hook(mlx.ptr, &raycast_1, &mlx);
+	}*/
+	//load_textures(&mlx);
+	mlx_hook(mlx.win, 17, 1L << 17, exit_game, &mlx); //cerramos ventana al dar a la "equis"
+	mlx_hook(mlx.win, 2, 1L << 0, &raycasting, &mlx);
+	//mlx_hook(mlx.win, 3, 1L << 1, &raycasting, &mlx);
+	mlx_loop(mlx.ptr);
 	ace(config.NO, config.SO, config.WE, config.EA, config.S, NULL);
-	//system("leaks cub3D");
 	return(0);
 }
 

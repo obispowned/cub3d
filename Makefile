@@ -49,14 +49,15 @@ PURPLE			= \033[0;35m
 GREEN			= \033[1;32m
 RESET			= \033[0m
 
-all:		
-				@echo "${RED}[...Haciendo CLEAN del a.out...]${RESET}"
-				@rm -rf cub3D
-				@echo "${PURPLE}[Compilando Minilibx...]${RESET}"
-				$(GCC) $(SRCS) $(FLAGS) $(MLXFLAGS) -o $(NAME)
-				@echo "${GREEN}[.oOo.oOo.oOo.oOo.]"
-				@echo "[ C O M P I L A O ]"
-				@echo "[.oOo.oOo.oOo.oOo.]${RESET}"
+all:
+			@echo "${RED}[...Haciendo CLEAN del a.out...]${RESET}"
+			@rm -rf cub3D
+			@echo "${PURPLE}[Compilando Minilibx...]${RESET}"
+			$(GCC) $(SRCS) $(FLAGS) $(MLXFLAGS) -o $(NAME)
+			@echo "${GREEN}[.oOo.oOo.oOo.oOo.]"
+			@echo "[ C O M P I L A O ]"
+			@echo "[.oOo.oOo.oOo.oOo.]${RESET}"
+
 run: all
 	clear && ./cub3D maps/Validos/map0.cub
 

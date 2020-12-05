@@ -2,29 +2,6 @@
 #include "../header/game.h"
 #include "../header/cub3d.h"
 
-void	game_loading(t_config config)
-{
-	t_mlx mlx;
-
-	reset_mlx(&mlx, config);
-	mlx.ptr = mlx_init();
-	mlx.win = mlx_new_window(mlx.ptr, config.height, config.width, "CUB3D");
-	/*if (config.save == 1) //si hay --save
-	{
-		mlx_loop_hook(mlx.ptr, &screenshot_1, &mlx.rc);
-	}
-	else
-	{
-		mlx_loop_hook(mlx.ptr, &raycast_1, &mlx);
-	}*/
-	load_textures(&mlx);
-	mlx_hook(mlx.win, 17, 1L << 17, exit_game, &mlx); //cerramos ventana al dar a la "equis"
-	mlx_key_hook(mlx.win, close_win, &mlx);
-	mlx_hook(mlx.win, 2, 1L << 0, &raycasting, &mlx);
-	mlx_hook(mlx.win, 3, 1L << 1, &raycasting, &mlx);
-	mlx_loop(mlx.ptr);
-}
-
 int		exit_game(t_mlx *mlx)
 {
 	mlx_destroy_window(mlx->ptr, mlx->win);
