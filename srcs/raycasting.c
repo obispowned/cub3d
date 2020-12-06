@@ -9,7 +9,7 @@ void	sky_draw(t_mlx *mlx, int x)
 	int color;
 
 	y = 0;
-	color = 0xFFFF00;
+	color = 0x00aae4;
 	//mlx->rc.draw_start = 300;
 	while (y < mlx->rc.draw_start)
 	{
@@ -38,7 +38,7 @@ void	floor_draw(t_mlx *mlx, int x)
 	int color;
 
 	y = mlx->rc.draw_end;
-	color = 0xFF0000;
+	color = 0xD7D0B7;
 	//mlx->rc.draw_start = 300;
 	while (y < mlx->win_height)
 	{
@@ -67,14 +67,11 @@ int raycasting(int key, t_mlx *mlx)
 
 	x = 0;
 	printf("Funciona Raycasting\n");
-	mlx->win_width = 500;
-	mlx->win_height = 500;
-	printf("----%d",mlx->rc.player_pos_x);/****PASAR A DOUBLE****/
+	printf("-%f",mlx->rc.player_pos_x);/****PASAR A DOUBLE****/
 	if (handle_events(key, mlx) != 0)
 		return (-1);
 	mlx->image.img = mlx_new_image(mlx->ptr, mlx->win_height, mlx->win_width); //cuidao x y
 	mlx->image.addr = mlx_get_data_addr(mlx->image.img, &mlx->image.bpp, &mlx->image.linesize, &mlx->image.endian);
-	
 	while (x < mlx->win_height)
 	{
 		motionless_2(mlx, x);

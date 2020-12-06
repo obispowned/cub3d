@@ -7,7 +7,7 @@ void	init_raycast_params(t_mlx *mlx, t_config *config)
 	mlx->ptr = NULL;
 	mlx->win = NULL;
 	mlx->win_width = config->width;
-	mlx->win_height = config->height;//
+	mlx->win_height = config->height;
 	mlx->rc.player_pos_y = config->player_begin[0];
 	mlx->rc.player_pos_x = config->player_begin[1];
 	mlx->rc.map_lines = config->map_max_lines;
@@ -17,7 +17,7 @@ void	init_raycast_params(t_mlx *mlx, t_config *config)
 	mlx->rc.movespeed = 0.400;
 
 	if (config->player_pos_begin == 'N')
-	{
+	{ 
 		mlx->rc.dirx = -1;
 		mlx->rc.diry = 0;
 		mlx->rc.player_plane_x = 0;
