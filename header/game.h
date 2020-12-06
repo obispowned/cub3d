@@ -70,35 +70,35 @@ typedef struct		s_sprites
 
 typedef	struct		s_raycasting
 {
-	double			player_pos_x;
-	double			player_pos_y;
-	double			player_dir_x;
-	double			player_dir_y;
-	double			player_plane_x;
-	double			player_plane_y;
-	char			player_dir;
-	double			ray_dir_x;
+	double			player_pos_x; //vector de posicionamiento del jugador
+	double			player_pos_y; //vector de posicionamiento del jugador
+	double			player_dir_x; //direccion del jugador
+	double			player_dir_y; //direccion del jugador
+	double			player_plane_x; // plano de la camara. Debe ser perpendicular a la direccion
+	double			player_plane_y; // La relacion entre la longitud de la direccion y el plano de la camara determina el FOV.
+	char			player_dir;     // Comienzo del jugador NWES
+	double			ray_dir_x;		// Direccion del rayo raycast X/Y
 	double			ray_dir_y;
-	double			dirx;
+	double			dirx;			
 	double			diry;
 	double			camerax;
 	double			wallx;
 	double			movespeed;
-	int				hit;
+	int				hit;		// un flag que usamos para determinar si el rayo choco o no para finalizar el bucle o no.
 	int				map_rows;
 	int				map_lines;
-	int				map_x;
+	int				map_x;		//Coordenadas del cuadrado actual donde se encuentra el rayo
 	int				map_y;
-	double			side_dist_x;
+	double			side_dist_x; // La sidtancia que el rato tiene que viajar desde su pos inicial hasta el primer lado X/Y
 	double			side_dist_y;
-	double			delta_dist_x;
-	double			delta_dist_y;
+	double			delta_dist_x; //Distancia que debe recorrer el rayo para ir del lado X/Y al siguiente lado X/Y
+	double			delta_dist_y; 
 	int				step_x;
 	int				step_y;
 	int				side;
 	int				draw_start;
 	int				draw_end;
-	double			perp_wall_dist;
+	double			perp_wall_dist; // longitud del rayo
 	int				line_height;
 	int				up;
 	int				down;
@@ -162,43 +162,22 @@ void	reset_mlx(t_mlx *mlx, t_config config);
 float	radians_to_grads(float radians);
 float	grads_to_radians(float grads);
 
-/*	Raycast */
-
-void 	init_raycast_params(t_mlx *mlx, t_config *config);
-/*int		screenshot_1(t_mlx *mlx, t_config *config);
-int		raycast_1(t_mlx *mlx, t_config *config);
-void	raycast_2(t_mlx *mlx, int x);
-void	raycast_3(t_mlx *mlx);
-void	raycast_4(t_mlx *mlx);
-int		handle_events(t_mlx *mlx, t_config *config);
-void	handle_events2(t_mlx *mlx);
-void	move_right(t_mlx *mlx, t_config *config);
-void	move_left(t_mlx *mlx, t_config *config);
-void	dda(t_mlx *mlx, t_config *config);
+/*	GRAPHIC */
+void 	draw_player(t_mlx *mlx, int num);
+void 	draw_map(t_mlx *mlx);
 void	sky_draw(t_mlx *mlx, int x);
 void	floor_draw(t_mlx *mlx, int x);
-void	draw_wall(t_mlx *mlx, int x);
-void	calcule_wall(t_mlx *mlx, t_config *config);*/
-
-int raycasting(int key, t_mlx *mlx);
-int handle_events(int key, t_mlx *mlx);
+/**/
+void 	init_raycast_params(t_mlx *mlx, t_config *config);
+int 	raycasting(int key, t_mlx *mlx);
+int 	handle_events(int key, t_mlx *mlx);
 static void motionless_2(t_mlx *mlx, int x);
 static void motionless_3(t_mlx *mlx);
 static void dda(t_mlx *mlx);
 static void motionless_4(t_mlx *mlx);
-void calcule_wall(t_mlx *mlx);
-void draw_wall(t_mlx *mlx, int x);
-void drawMap(t_mlx *mlx);
-void load_textures(t_mlx *mlx);
+void 	calcule_wall(t_mlx *mlx);
+void 	draw_wall(t_mlx *mlx, int x);
+void 	load_textures(t_mlx *mlx);
 static void load_textures_2(t_mlx *mlx);
-
-/* Drawing */
-int		save_bmp(t_mlx *mlx);
-static void		file_write(int fd, const void *buf, ssize_t len);
-static	t_bitmap	fill_header(t_mlx *mlx);
-void	sprite_casting(t_mlx	*mlx, t_config	*config);
-void	sprite_casting2(t_mlx *mlx);
-void	sprite_drawing(t_mlx *mlx, int i, int y);
-
 
 #endif

@@ -8,8 +8,10 @@ SRCS			=	get_next_line/get_next_line.c\
 					srcs/get_map_reads.c\
 					srcs/parse.c\
 					srcs/create_window.c\
+					srcs/floor_sky_draw.c\
 					srcs/init_raycast.c\
 					srcs/raycasting.c\
+					srcs/handle_events.c\
 					srcs/load_texture.c\
 					srcs/init_params.c\
 					srcs/init_params2.c\

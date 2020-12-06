@@ -2,62 +2,87 @@
 #include "../header/game.h"
 #include "../header/cub3d.h"
 
-void	sky_draw(t_mlx *mlx, int x)
+void	draw_player(t_mlx *mlx, int num)
 {
+	int x;
 	int y;
-	int pixel;
 	int color;
+	int pixel;
 
-	y = 0;
-	color = 0x00aae4;
-	//mlx->rc.draw_start = 300;
-	while (y < mlx->rc.draw_start)
+	color = RED;
+	y = mlx->rc.player_pos_y * num - 1;
+	while (y < (mlx->rc.player_pos_y * num + 1))
 	{
-		pixel = (y * mlx->win_width + x) * 4;
-		if (mlx->image.endian == 1)
+		x = mlx->rc.player_pos_x * num - 1;
+		while (x < (mlx->rc.player_pos_x * num + 1))
 		{
-			mlx->image.addr[pixel + 0] = (color >> 24);
-			mlx->image.addr[pixel + 1] = (color >> 16) & 0xFF;
-			mlx->image.addr[pixel + 2] = (color >> 8) & 0xFF;
-			mlx->image.addr[pixel + 3] = (color) & 0xFF;
+			pixel = (y * mlx->win_width + x) * 4;
+			if (mlx->image.endian == 1)
+			{
+				mlx->image.addr[pixel + 0] = (color >> 24);
+				mlx->image.addr[pixel + 1] = (color >> 16) & 0xFF;
+				mlx->image.addr[pixel + 2] = (color >> 8) & 0xFF;
+				mlx->image.addr[pixel + 3] = (color) & 0xFF;
+			}
+			else if (mlx->image.endian == 0)
+			{
+				mlx->image.addr[pixel + 0] = (color) & 0xFF;
+				mlx->image.addr[pixel + 1] = (color >> 8) & 0xFF;
+				mlx->image.addr[pixel + 2] = (color >> 16) & 0xFF;
+				mlx->image.addr[pixel + 3] = (color >> 24);
+			}
+			x++;
 		}
-		else if (mlx->image.endian == 0)
-		{
-			mlx->image.addr[pixel + 0] = (color) & 0xFF;
-			mlx->image.addr[pixel + 1] = (color >> 8) & 0xFF;
-			mlx->image.addr[pixel + 2] = (color >> 16) & 0xFF;
-			mlx->image.addr[pixel + 3] = (color >> 24);
-		}
+		x = 0;
 		y++;
 	}
 }
-void	floor_draw(t_mlx *mlx, int x)
+
+void	draw_map(t_mlx *mlx)
 {
 	int y;
-	int pixel;
+	int x;
+	int num;
 	int color;
+	int pixel;
 
-	y = mlx->rc.draw_end;
-	color = 0xD7D0B7;
-	//mlx->rc.draw_start = 300;
-	while (y < mlx->win_height)
+	if (2000 < mlx->win_width)
+		num = 5;
+	else if (1000 < mlx->win_width)
+		num = 3;
+	else
+		num = 2;
+	x = 0;
+	y = 0;
+	color = BLACK;
+	draw_player(mlx, num);
+	printf("mapy: %d\nmapx; %d\n\n", mlx->rc.map_y, mlx->rc.map_x);
+	while (x < mlx->rc.map_y)
 	{
-		pixel = (y * mlx->win_width + x) * 4;
-		if (mlx->image.endian == 1)
+		while (y < mlx->rc.map_x)
 		{
-			mlx->image.addr[pixel + 0] = (color >> 24);
-			mlx->image.addr[pixel + 1] = (color >> 16) & 0xFF;
-			mlx->image.addr[pixel + 2] = (color >> 8) & 0xFF;
-			mlx->image.addr[pixel + 3] = (color) & 0xFF;
+			if (mlx->finalMap[x][y] == 1 || mlx->finalMap[x][y] == 2)
+			{
+				pixel = ((y * num) * mlx->win_width + (x * num)) * 4;
+				if (mlx->image.endian == 1)
+				{
+					mlx->image.addr[pixel + 0] = (color >> 24);
+					mlx->image.addr[pixel + 1] = (color >> 16) & 0xFF;
+					mlx->image.addr[pixel + 2] = (color >> 8) & 0xFF;
+					mlx->image.addr[pixel + 3] = (color) & 0xFF;
+				}
+				else if (mlx->image.endian == 0)
+				{
+					mlx->image.addr[pixel + 0] = (color) & 0xFF;
+					mlx->image.addr[pixel + 1] = (color >> 8) & 0xFF;
+					mlx->image.addr[pixel + 2] = (color >> 16) & 0xFF;
+					mlx->image.addr[pixel + 3] = (color >> 24);
+				}
+			}
+			y++;
 		}
-		else if (mlx->image.endian == 0)
-		{
-			mlx->image.addr[pixel + 0] = (color) & 0xFF;
-			mlx->image.addr[pixel + 1] = (color >> 8) & 0xFF;
-			mlx->image.addr[pixel + 2] = (color >> 16) & 0xFF;
-			mlx->image.addr[pixel + 3] = (color >> 24);
-		}
-		y++;
+		y = 0;
+		x++;
 	}
 }
 
@@ -81,65 +106,11 @@ int raycasting(int key, t_mlx *mlx)
 		calcule_wall(mlx);
 		sky_draw(mlx,x);
 		floor_draw(mlx,x);
-		draw_wall(mlx, x); /*SEG FAULT LINUX*/
+		draw_wall(mlx, x); /*posible SEG FAULT LINUX*/
+		draw_map(mlx);
 		x++;
 	}
 	mlx_put_image_to_window(mlx->ptr, mlx->win, mlx->image.img, 0, 0);
-	return (0);
-}
-
-int handle_events(int key, t_mlx *mlx)
-{
-	double oldDirX;
-	double oldPlaneX;
-
-	if (key == KEY_ESC)
-	{
-		mlx_destroy_window(mlx->ptr, mlx->win);
-		free(mlx->ptr);
-		exit(-1);
-	}
-	if (key == KEY_DOWN || key == KEY_UP || key == KEY_RIGHT || key == KEY_LEFT)
-	{
-		if (key == KEY_UP)
-		{
-			if (mlx->finalMap[(int)(mlx->rc.player_pos_x + mlx->rc.dirx *
-			mlx->rc.movespeed)][(int)(mlx->rc.player_pos_y)] == 0)
-				mlx->rc.player_pos_x += mlx->rc.dirx * mlx->rc.movespeed;
-			if (mlx->finalMap[(int)(mlx->rc.player_pos_x)][(int)(mlx->rc.player_pos_y + mlx->rc.diry *
-			mlx->rc.movespeed)] == 0)
-				mlx->rc.player_pos_y += mlx->rc.diry * mlx->rc.movespeed;
-				printf("\nArriba\n");
-		}
-		if (key == KEY_DOWN)
-		{
-			if (mlx->finalMap[(int)(mlx->rc.player_pos_x - mlx->rc.dirx * MV_SPEED)][(int)(mlx->rc.player_pos_y)] == 0)
-				mlx->rc.player_pos_x -= mlx->rc.dirx * MV_SPEED;
-			if (mlx->finalMap[(int)(mlx->rc.player_pos_x)][(int)(mlx->rc.player_pos_y - mlx->rc.diry * MV_SPEED)] == 0)
-				mlx->rc.player_pos_y -= mlx->rc.diry * MV_SPEED;
-				printf("\nAbajo\n");
-		}
-		if (key == KEY_RIGHT)
-		{
-			oldDirX = mlx->rc.dirx;
-			mlx->rc.dirx = mlx->rc.dirx * cos(-ROT_SPEED) - mlx->rc.diry * sin(-ROT_SPEED);
-			mlx->rc.diry = oldDirX * sin(-ROT_SPEED) + mlx->rc.diry * cos(-ROT_SPEED);
-			oldPlaneX = mlx->rc.player_plane_x;
-			mlx->rc.player_plane_x = mlx->rc.player_plane_x * cos(-ROT_SPEED) - mlx->rc.player_plane_y * sin(-ROT_SPEED);
-			mlx->rc.player_plane_y = oldPlaneX * sin(-ROT_SPEED) + mlx->rc.player_plane_y * cos(-ROT_SPEED);
-			printf("Derecha\n");
-		}
-		if (key == KEY_LEFT)
-		{
-			oldDirX = mlx->rc.dirx;
-			mlx->rc.dirx = mlx->rc.dirx * cos(ROT_SPEED) - mlx->rc.diry * sin(ROT_SPEED);
-			mlx->rc.diry = oldDirX * sin(ROT_SPEED) + mlx->rc.diry * cos(ROT_SPEED);
-			oldPlaneX = mlx->rc.player_plane_x;
-			mlx->rc.player_plane_x = mlx->rc.player_plane_x * cos(ROT_SPEED) - mlx->rc.player_plane_y * sin(ROT_SPEED);
-			mlx->rc.player_plane_y = oldPlaneX * sin(ROT_SPEED) + mlx->rc.player_plane_y * cos(ROT_SPEED);
-			printf("\nIzquierda\n");
-		}
-	}
 	return (0);
 }
 
@@ -180,7 +151,7 @@ static void motionless_3(t_mlx *mlx)
 }
 
 static void dda(t_mlx *mlx)
-{
+{ //Encuentra a que cuadrados gopea una linea
 	while (mlx->rc.hit == 0)
 	{
 		if (mlx->rc.side_dist_x < mlx->rc.side_dist_y)
@@ -242,3 +213,59 @@ void draw_wall(t_mlx *mlx, int x)
 		mlx->rc.draw_start++;
 	}
 }
+
+
+
+/*
+void	drawMap(t_mlx *mlx)
+{
+	int y;
+	int x;
+	int printplayer_X;
+	int printplayer_Y;
+
+	int x_wall;
+	int y_wall;
+	char *str;
+
+	x = 0;
+	y = 0;
+
+	x_wall=10;
+	y_wall=10;
+
+	
+	printplayer_X = mlx->rc.player_pos_y * 10;
+	printplayer_Y = mlx->rc.player_pos_x * 10;
+	printf("2-\nX: %f\nY: %f\n\n", mlx->rc.player_pos_x, mlx->rc.player_pos_y);
+	
+	mlx_string_put(mlx->ptr, mlx->win, mlx->win_width/2 - 20, 10, 0x33FF3C,"CUB3D");
+	int tmpx = printplayer_X;
+	int tmpy = printplayer_Y;
+	mlx_pixel_put(mlx->ptr, mlx->win, tmpx + 1, tmpy + 1, 0x33FF3C);
+	mlx_pixel_put(mlx->ptr, mlx->win, tmpx, tmpy, 0x33FF3C);
+	mlx_pixel_put(mlx->ptr, mlx->win, tmpx - 1, tmpy - 1, 0x33FF3C);
+	mlx_pixel_put(mlx->ptr, mlx->win, tmpx - 1, tmpy + 1, 0x33FF3C);
+	mlx_pixel_put(mlx->ptr, mlx->win, tmpx + 1, tmpy - 1, 0x33FF3C);
+
+	while (x < mlx->rc.map_y)
+	{
+		while (y < mlx->rc.map_x)
+		{
+			if (mlx->finalMap[x][y] == 1 || mlx->finalMap[x][y] == 2 || mlx->finalMap[x][y] == 3)
+			{
+				mlx_pixel_put(mlx->ptr, mlx->win, x_wall, y_wall, 0xFA2C00);
+				mlx_pixel_put(mlx->ptr, mlx->win, x_wall + 1, y_wall + 1, 0xFA2C00);
+				mlx_pixel_put(mlx->ptr, mlx->win, x_wall - 1, y_wall - 1, 0xFA2C00);
+				mlx_pixel_put(mlx->ptr, mlx->win, x_wall - 1, y_wall + 1, 0xFA2C00);
+				mlx_pixel_put(mlx->ptr, mlx->win, x_wall + 1, y_wall - 1, 0xFA2C00);
+			}
+			y++;
+			x_wall = x_wall + 10;
+		}
+		y = 0;
+		x++;
+		x_wall=10;
+		y_wall = y_wall + 10;
+	}
+}*/
