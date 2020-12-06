@@ -70,9 +70,9 @@ int raycasting(int key, t_mlx *mlx)
 	printf("-%f",mlx->rc.player_pos_x);/****PASAR A DOUBLE****/
 	if (handle_events(key, mlx) != 0)
 		return (-1);
-	mlx->image.img = mlx_new_image(mlx->ptr, mlx->win_height, mlx->win_width); //cuidao x y
+	mlx->image.img = mlx_new_image(mlx->ptr, mlx->win_width, mlx->win_height); //cuidao x y
 	mlx->image.addr = mlx_get_data_addr(mlx->image.img, &mlx->image.bpp, &mlx->image.linesize, &mlx->image.endian);
-	while (x < mlx->win_height)
+	while (x < mlx->win_width)
 	{
 		motionless_2(mlx, x);
 		motionless_3(mlx);
@@ -81,7 +81,7 @@ int raycasting(int key, t_mlx *mlx)
 		calcule_wall(mlx);
 		sky_draw(mlx,x);
 		floor_draw(mlx,x);
-		//draw_wall(mlx, x); /*SEG FAULT LINUX*/
+		draw_wall(mlx, x); /*SEG FAULT LINUX*/
 		x++;
 	}
 	mlx_put_image_to_window(mlx->ptr, mlx->win, mlx->image.img, 0, 0);
@@ -145,7 +145,7 @@ int handle_events(int key, t_mlx *mlx)
 
 static void motionless_2(t_mlx *mlx, int x)
 {
-	mlx->rc.camerax = 2 * x / (double)mlx->win_height - 1;
+	mlx->rc.camerax = 2 * x / (double)mlx->win_width - 1;
 	mlx->rc.ray_dir_x = mlx->rc.dirx + mlx->rc.player_plane_x * mlx->rc.camerax;
 	mlx->rc.ray_dir_y = mlx->rc.diry + mlx->rc.player_plane_y * mlx->rc.camerax;
 	mlx->rc.map_x = (int)mlx->rc.player_pos_x;
@@ -207,11 +207,11 @@ static void motionless_4(t_mlx *mlx)
 	else
 		mlx->rc.perp_wall_dist = (mlx->rc.map_y - mlx->rc.player_pos_y + (1 - mlx->rc.step_y) / 2) / mlx->rc.ray_dir_y;
 	mlx->rc.line_height = (int)(mlx->win_height / mlx->rc.perp_wall_dist);
-	mlx->rc.draw_start = -mlx->rc.line_height / 2 + mlx->win_width / 2;
+	mlx->rc.draw_start = -mlx->rc.line_height / 2 + mlx->win_height / 2;
 	if (mlx->rc.draw_start < 0)
 		mlx->rc.draw_start = 0;
-	mlx->rc.draw_end = mlx->rc.line_height / 2 + mlx->win_width / 2;
-	if (mlx->rc.draw_end >= mlx->win_width)
+	mlx->rc.draw_end = mlx->rc.line_height / 2 + mlx->win_height / 2;
+	if (mlx->rc.draw_end >= mlx->win_height)
 		mlx->rc.draw_end = mlx->win_height - 1;
 	mlx->rc.textnum = mlx->finalMap[mlx->rc.map_x][mlx->rc.map_y] - 1;
 }
@@ -231,17 +231,14 @@ void draw_wall(t_mlx *mlx, int x)
 {
 	while (mlx->rc.draw_start <= mlx->rc.draw_end)
 	{
-		//mlx->rc.tex_y = abs((((mlx->rc.draw_start * 256 - mlx->win_width * 128 +
-		//mlx->rc.line_height * 128) * 64) / mlx->rc.line_height) / 256); /*SEG FAULT*/
-		/*printf("\nheight %d | draw_start %d | texy %d | texheight %d | linesize %d | tex_x %d |  texwidth %d | bpp %d",
-		mlx->win_height, mlx->rc.draw_start, mlx->rc.tex_y, mlx->rc.tex_height, mlx->rc.tex[1].linesize,
-		mlx->rc.tex_x, mlx->rc.tex_width, mlx->rc.tex[1].bpp);*/
-		/*ft_memcpy(mlx->image.addr + 4 * mlx->win_height * mlx->rc.draw_start + x * 4,
+		mlx->rc.tex_y = abs((((mlx->rc.draw_start * 256 - mlx->win_height * 128 +
+		mlx->rc.line_height * 128) * 64) / mlx->rc.line_height) / 256); /*SEG FAULT*/
+
+		ft_memcpy(mlx->image.addr + 4 * mlx->win_width * mlx->rc.draw_start + x * 4,
 				  &mlx->rc.tex[1].addr[mlx->rc.tex_y % mlx->rc.tex_height *
 									   mlx->rc.tex[1].linesize +
 								   mlx->rc.tex_x % mlx->rc.tex_width *
-									   mlx->rc.tex[1].bpp / 8], sizeof(int));*/
-				 /*SEG FAULT LINUX EN MEMCPY*/
+									   mlx->rc.tex[1].bpp / 8], sizeof(int));
 		mlx->rc.draw_start++;
 	}
 }

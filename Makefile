@@ -23,7 +23,7 @@ SRCS			=	get_next_line/get_next_line.c\
 
 #######BUFF QUINES###########
 
-ifeq ($(OS),Windows_NT) 
+ifeq ($(OS),Windows_NT)
     detected_OS := Windows
 else
     detected_OS := $(shell sh -c 'uname 2>/dev/null || echo Unknown')
