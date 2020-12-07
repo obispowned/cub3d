@@ -56,7 +56,7 @@ void	draw_map(t_mlx *mlx)
 	y = 0;
 	color = BLACK;
 	draw_player(mlx, num);
-	printf("mapy: %d\nmapx; %d\n\n", mlx->rc.map_y, mlx->rc.map_x);
+	//printf("mapy: %d -- mapx; %d\n", mlx->rc.map_y, mlx->rc.map_x);
 	while (x < mlx->rc.map_y)
 	{
 		while (y < mlx->rc.map_x)
@@ -91,10 +91,11 @@ int raycasting(int key, t_mlx *mlx)
 	int x;
 
 	x = 0;
-	printf("Funciona Raycasting\n");
-	printf("-%f",mlx->rc.player_pos_x);/****PASAR A DOUBLE****/
+	printf("Coordinadas x%f-y%f\n",mlx->rc.player_pos_x, mlx->rc.player_pos_y);/****PASAR A DOUBLE****/
 	if (handle_events(key, mlx) != 0)
 		return (-1);
+	if (mlx->image.img) //importante limpiar imagen cada vez que subimos otra
+		mlx_destroy_image(mlx->ptr, mlx->image.img);
 	mlx->image.img = mlx_new_image(mlx->ptr, mlx->win_width, mlx->win_height); //cuidao x y
 	mlx->image.addr = mlx_get_data_addr(mlx->image.img, &mlx->image.bpp, &mlx->image.linesize, &mlx->image.endian);
 	while (x < mlx->win_width)

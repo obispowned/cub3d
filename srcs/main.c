@@ -35,7 +35,7 @@ int main(int argc, char **argv)
 	load_textures(&mlx);
 	mlx_hook(mlx.win, 2, 1L << 0, &raycasting, &mlx); //pulsar
 	mlx_hook(mlx.win, 3, 1L << 1, &raycasting, &mlx); //soltar
-	mlx_hook(mlx.win, 17, 1L << 17, exit_game, &mlx); //cerramos ventana al dar a la "equis"
+//	mlx_hook(mlx.win, 17, 1L << 17, exit_game, &mlx); //cerramos ventana al dar a la "equis"
 	mlx_loop(mlx.ptr);
 	ace(config.NO, config.SO, config.WE, config.EA, config.S, NULL);
 	return(0);

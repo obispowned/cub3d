@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 13:05:06 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/04 10:42:37 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/07 13:21:28 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void		check_map(t_config *config, char **map)
 				(map[i][j] == 'E') || (map[i][j] == 'W')) &&
 				(config->player_begin[0] == 0 && config->player_begin[1] == 0))
 			{
+				comprobar_muros_cerca(config, map, i, j); //necesario para evitar seg fault en parte grafica
 				config->player_begin[0] = i;
 				config->player_begin[1] = j;
 				config->player_pos_begin = map[i][j];
@@ -88,6 +89,18 @@ void		check_map(t_config *config, char **map)
 		}
 		i++;
 	}
+}
+
+void	comprobar_muros_cerca(t_config *config, char **map, int i, int j)
+{
+	if (map[i-1][j] == 1)
+		config->muro_arriba_abajo = 1; //hay muro arriba
+	else if (map[i+1][j] == 1)
+		config->muro_arriba_abajo = -1; //hay muro abajo
+	if (map[i][j-1] == 1)
+		config->muro_izq_dcha = 1; //hay muro izq
+	else if (map[i][j+1] == 1)
+		config->muro_arriba_abajo = -1; //hay muro dcha
 }
 
 void		valid_map(char **map)

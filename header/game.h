@@ -82,7 +82,7 @@ typedef	struct		s_raycasting
 	double			dirx;			
 	double			diry;
 	double			camerax;
-	double			wallx;
+	double			wallx; 	//distancia al muro
 	double			movespeed;
 	int				hit;		// un flag que usamos para determinar si el rayo choco o no para finalizar el bucle o no.
 	int				map_rows;
@@ -112,7 +112,7 @@ typedef	struct		s_raycasting
 	int				tex_width;
 	int				tex_x;
 	int				tex_y;
-	int				tex_id;
+	int				tex_id;		//indice para moverme en el array de estructura
 	int				tex_side;
 	double			*spr_buffer;
 	int				drawstartx;
@@ -151,6 +151,7 @@ typedef	struct		s_mlx
 void		init_raycast_params3(t_mlx *mlx, t_config *config);
 void		init_raycast_params2(t_mlx *mlx, t_config *config);
 void		init_raycast_params(t_mlx *mlx, t_config *config);
+void		init_player(t_mlx *mlx, t_config *config);
 
 /* PREPARANDO GRAFICOS*/
 void	create_window(t_mlx *mlx, t_config config);

@@ -38,6 +38,8 @@ typedef struct	s_config
 	char	player_pos_begin;
 	int		save;
 	int		numsprites;
+	int		muro_arriba_abajo; // 1 arriba, -1 abajo, 0 no hay
+	int		muro_izq_dcha; //1 izq, -1dcha, 0sin muros
 	unsigned long	hexaceil;
 	unsigned long	hexafloor;
 	t_mapi	mapa;
@@ -80,5 +82,6 @@ int			check_lines(char *line, char *chars);
 void		check_params(t_config config);
 void		drifting_R_PATH(char *line, t_config *config);
 int			only_this_chars(char *line, char *chars);
+void		comprobar_muros_cerca(t_config *config, char **map, int i, int j);
 
 #endif

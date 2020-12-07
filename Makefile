@@ -7,7 +7,7 @@ SRCS			=	get_next_line/get_next_line.c\
 					srcs/check_nd_save.c\
 					srcs/get_map_reads.c\
 					srcs/parse.c\
-					srcs/create_window.c\
+					srcs/create_and_clean.c\
 					srcs/floor_sky_draw.c\
 					srcs/init_raycast.c\
 					srcs/raycasting.c\

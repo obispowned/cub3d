@@ -20,6 +20,8 @@ t_config reset_t_config()
 	config.maxR = 0;
 	config.player_begin[0] = 0;
 	config.player_begin[1] = 0;
+	config.muro_izq_dcha = 0;
+	config.muro_arriba_abajo = 0;
 	init_config(&config);
 	return (config);
 }
