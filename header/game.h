@@ -153,6 +153,14 @@ void		init_raycast_params2(t_mlx *mlx, t_config *config);
 void		init_raycast_params(t_mlx *mlx, t_config *config);
 void		init_player(t_mlx *mlx, t_config *config);
 
+/*	TECLAS */
+int		key_press(int key, t_mlx *mlx);
+int		key_release(int key, t_mlx *mlx);
+void	move_right(t_mlx *mlx);
+void	move_left(t_mlx *mlx);
+int		handle_events(t_mlx *mlx);
+void	handle_events2(t_mlx *mlx);
+
 /* PREPARANDO GRAFICOS*/
 void	create_window(t_mlx *mlx, t_config config);
 int		exit_game(t_mlx *mlx);
@@ -170,15 +178,13 @@ void	sky_draw(t_mlx *mlx, int x);
 void	floor_draw(t_mlx *mlx, int x);
 /**/
 void 	init_raycast_params(t_mlx *mlx, t_config *config);
-int 	raycasting(int key, t_mlx *mlx);
-int 	handle_events(int key, t_mlx *mlx);
-static void motionless_2(t_mlx *mlx, int x);
-static void motionless_3(t_mlx *mlx);
-static void dda(t_mlx *mlx);
-static void motionless_4(t_mlx *mlx);
+int 	raycasting(t_mlx *mlx);
+void	motionless_2(t_mlx *mlx, int x);
+void	motionless_3(t_mlx *mlx);
+void	dda(t_mlx *mlx);
+void	motionless_4(t_mlx *mlx);
 void 	calcule_wall(t_mlx *mlx);
 void 	draw_wall(t_mlx *mlx, int x);
 void 	load_textures(t_mlx *mlx, t_config *config);
-static void load_textures_2(t_mlx *mlx);
 
 #endif

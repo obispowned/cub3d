@@ -10,13 +10,17 @@ void	init_raycast_params(t_mlx *mlx, t_config *config)
 	mlx->win_height = config->height;
 	mlx->rc.player_pos_y = (double)config->player_begin[0] + 0.5;
 	mlx->rc.player_pos_x = (double)config->player_begin[1] + 0.5;
-//	init_player(mlx, config);
+	init_player(mlx, config);
 	mlx->rc.map_lines = config->map_max_lines;
 	mlx->rc.map_rows = config->map_max_rows;
 	mlx->rc.tex_height = 64;
 	mlx->rc.tex_width = 64;
-	mlx->rc.movespeed = 0.400;
-
+	mlx->rc.movespeed = 0.030;
+	mlx->rc.tex_side = 1;
+	mlx->rc.up = 0;
+	mlx->rc.down = 0;
+	mlx->rc.right = 0;
+	mlx->rc.left = 0;
 	if (config->player_pos_begin == 'N')
 	{ 
 		mlx->rc.dirx = -1;
@@ -51,13 +55,7 @@ void	init_raycast_params(t_mlx *mlx, t_config *config)
 
 void		init_player(t_mlx *mlx, t_config *config)
 {
-	if (config->muro_arriba_abajo == 1)
-		mlx->rc.player_pos_y = (double)config->player_begin[0] + 0.5;
-	else if (config->muro_arriba_abajo == -1)
-		mlx->rc.player_pos_y = (double)config->player_begin[0] + 0.5;
-	if (config->muro_izq_dcha == 1)
-		mlx->rc.player_pos_x = (double)config->player_begin[1] + 0.5;
-	else if (config->muro_izq_dcha == -1)
-		mlx->rc.player_pos_x = (double)config->player_begin[1] + 0.5;
-	printf("%d-%d\n", config->player_begin[0], config->player_begin[1]);
+	mlx->rc.player_pos_y = (double)config->player_begin[0] + 0.5;
+	mlx->rc.player_pos_x = (double)config->player_begin[1] + 0.5;
+	printf("Posicion Inicial: x:%d - y:%d\n", config->player_begin[0], config->player_begin[1]);
 }

@@ -22,8 +22,12 @@ int main(int argc, char **argv)
 	print_values(config);
 	reset_mlx(&mlx, config);
 	init_raycast_params(&mlx, &config);
+	mlx.rc.spr_buffer = (double *)malloc(sizeof(double) * mlx.win_width);
 	mlx.ptr = mlx_init();
 	mlx.win = mlx_new_window(mlx.ptr, mlx.win_width, mlx.win_height, "CUB3D");
+	load_textures(&mlx, &config);
+	mlx_hook(mlx.win, 2, 1L << 0, &key_press, &mlx); //pulsar
+	mlx_hook(mlx.win, 3, 1L << 1, &key_release, &mlx); //soltar
 	/*if (config.save == 1) //si hay --save
 	{
 		mlx_loop_hook(mlx.ptr, &screenshot_1, &mlx.rc);
@@ -32,10 +36,9 @@ int main(int argc, char **argv)
 	{
 		mlx_loop_hook(mlx.ptr, &raycast_1, &mlx);
 	}*/
-	load_textures(&mlx, &config);
-	mlx_hook(mlx.win, 2, 1L << 0, &raycasting, &mlx); //pulsar
-	mlx_hook(mlx.win, 3, 1L << 1, &raycasting, &mlx); //soltar
-//	mlx_hook(mlx.win, 17, 1L << 17, exit_game, &mlx); //cerramos ventana al dar a la "equis"
+	mlx_loop_hook(mlx.ptr, &raycasting, &mlx);
+
+	//mlx_hook(mlx.win, 17, 1L << 17, exit_game, &mlx); //cerramos ventana al dar a la "equis"
 	mlx_loop(mlx.ptr);
 	ace(config.NO, config.SO, config.WE, config.EA, config.S, NULL);
 	return(0);
