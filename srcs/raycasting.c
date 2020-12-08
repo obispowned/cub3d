@@ -104,10 +104,10 @@ int raycasting(int key, t_mlx *mlx)
 		motionless_3(mlx);
 		dda(mlx);
 		motionless_4(mlx);
-		calcule_wall(mlx);
+		calcule_wall(mlx);  //Sin esto se ve la textura muy distorsionada
 		sky_draw(mlx,x);
 		floor_draw(mlx,x);
-		draw_wall(mlx, x); /*posible SEG FAULT LINUX*/
+		draw_wall(mlx, x); //memcpy donde dibujo muros
 		draw_map(mlx);
 		x++;
 	}
@@ -190,7 +190,7 @@ static void motionless_4(t_mlx *mlx)
 
 void calcule_wall(t_mlx *mlx)
 {
-//	mlx->rc.tex_id = mlx->finalMap[mlx->rc.map_x][mlx->rc.map_y] + mlx->rc.tex_side;
+	mlx->rc.tex_id = mlx->finalMap[mlx->rc.map_x][mlx->rc.map_y] + mlx->rc.tex_side;
 	if (mlx->rc.side == 0)
 		mlx->rc.wallx = mlx->rc.player_pos_y + mlx->rc.perp_wall_dist * mlx->rc.ray_dir_y;
 	else
@@ -207,10 +207,9 @@ void draw_wall(t_mlx *mlx, int x)
 		mlx->rc.line_height * 128) * 64) / mlx->rc.line_height) / 256); /*SEG FAULT*/
 
 		ft_memcpy(mlx->image.addr + 4 * mlx->win_width * mlx->rc.draw_start + x * 4,
-				  &mlx->rc.tex[1].addr[mlx->rc.tex_y % mlx->rc.tex_height *
-									   mlx->rc.tex[1].linesize +
-								   mlx->rc.tex_x % mlx->rc.tex_width *
-									   mlx->rc.tex[1].bpp / 8], sizeof(int));
+				&mlx->rc.tex[mlx->rc.tex_id].addr[mlx->rc.tex_y % mlx->rc.tex_height *
+				mlx->rc.tex[mlx->rc.tex_id].linesize + mlx->rc.tex_x % mlx->rc.tex_width *
+				mlx->rc.tex[mlx->rc.tex_id].bpp / 8], sizeof(int));
 		mlx->rc.draw_start++;
 	}
 }

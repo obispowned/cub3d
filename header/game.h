@@ -178,7 +178,7 @@ static void dda(t_mlx *mlx);
 static void motionless_4(t_mlx *mlx);
 void 	calcule_wall(t_mlx *mlx);
 void 	draw_wall(t_mlx *mlx, int x);
-void 	load_textures(t_mlx *mlx);
+void 	load_textures(t_mlx *mlx, t_config *config);
 static void load_textures_2(t_mlx *mlx);
 
 #endif

@@ -1,10 +1,10 @@
 R 1000 700
 
-NO ./textures/sand.xpm
-SO ./textures/stone.xpm
-WE ./textures/blue.xpm
-EA ./textures/red_brick.xpm
-S ./textures/hitler.xmp
+NO ./textures/redbrick.xpm
+SO ./textures/sand.xpm
+WE ./textures/mossy.xpm
+EA ./textures/stone.xpm
+S ./textures//sprites/barrel.xpm
 F 51,51,51
 C 0,0,65
 
@@ -14,7 +14,7 @@ C 0,0,65
 10N001
 100001
 100001
-100001
+101001
 100001
 100001
 100001

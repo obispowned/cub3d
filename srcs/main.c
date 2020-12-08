@@ -32,7 +32,7 @@ int main(int argc, char **argv)
 	{
 		mlx_loop_hook(mlx.ptr, &raycast_1, &mlx);
 	}*/
-	load_textures(&mlx);
+	load_textures(&mlx, &config);
 	mlx_hook(mlx.win, 2, 1L << 0, &raycasting, &mlx); //pulsar
 	mlx_hook(mlx.win, 3, 1L << 1, &raycasting, &mlx); //soltar
 //	mlx_hook(mlx.win, 17, 1L << 17, exit_game, &mlx); //cerramos ventana al dar a la "equis"
