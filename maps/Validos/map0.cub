@@ -4,9 +4,10 @@ NO ./textures/redbrick.xpm
 SO ./textures/sand.xpm
 WE ./textures/mossy.xpm
 EA ./textures/stone.xpm
-S ./textures//sprites/barrel.xpm
+S ./textures/sprites/barrel.xpm
 F 51,51,51
 C 0,0,65
+
 
 111111
 100001
