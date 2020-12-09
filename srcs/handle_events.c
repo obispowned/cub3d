@@ -35,16 +35,10 @@ void	move_right(t_mlx *mlx)
 {
 	if (mlx->rc.right)
 	{
-		if (mlx->finalMap[(int)mlx->rc.player_pos_y]
-			[(int)(mlx->rc.player_pos_x + mlx->rc.player_plane_x
-			* mlx->rc.movespeed)] == 0)
-			mlx->rc.player_pos_x += mlx->rc.player_plane_x
-			* mlx->rc.movespeed;
-		if (mlx->finalMap[(int)(mlx->rc.player_pos_y
-			+ mlx->rc.player_plane_y * mlx->rc.movespeed)]
-			[(int)mlx->rc.player_pos_x] == 0)
-			mlx->rc.player_pos_y += mlx->rc.player_plane_y
-			* mlx->rc.movespeed;
+		if (mlx->finalMap[(int)mlx->rc.player_pos_y][(int)(mlx->rc.player_pos_x + mlx->rc.player_plane_x * mlx->rc.movespeed)] == 0)
+			mlx->rc.player_pos_x += mlx->rc.player_plane_x * mlx->rc.movespeed;
+		if (mlx->finalMap[(int)(mlx->rc.player_pos_y + mlx->rc.player_plane_y * mlx->rc.movespeed)][(int)mlx->rc.player_pos_x] == 0)
+			mlx->rc.player_pos_y += mlx->rc.player_plane_y * mlx->rc.movespeed;
 	}
 }
 

@@ -6,8 +6,7 @@
 
 /***/
 # define PI		3.14159265359
-# define MV_SPEED 0.200
-# define ROT_SPEED 0.1345
+# define ROT_SPEED 0.0336
 # define AMB_LIGHT 7
 
 # define RED 0xFF0000

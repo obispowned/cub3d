@@ -17,7 +17,7 @@ void	init_raycast_params(t_mlx *mlx, t_config *config)
 	mlx->rc.map_rows = config->map_max_rows;
 	mlx->rc.tex_height = 64;
 	mlx->rc.tex_width = 64;
-	mlx->rc.movespeed = 0.030;
+	mlx->rc.movespeed = 0.060;
 	mlx->rc.tex_side = 1;
 	mlx->rc.up = 0;
 	mlx->rc.down = 0;
