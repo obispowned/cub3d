@@ -142,6 +142,8 @@ typedef	struct		s_mlx
 	void			*win; //administra ventanas
 	int				win_height; //height de config
 	int				win_width; //width de config
+	unsigned long	hexa_ceil;
+	unsigned long	hexa_floor;
 	int				**finalMap;
 	t_img			image;
 	t_raycasting	rc;

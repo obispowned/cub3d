@@ -9,7 +9,7 @@ void	sky_draw(t_mlx *mlx, int x)
 	int color;
 
 	y = 0;
-	color = 0x00aae4;
+	color = mlx->hexa_ceil;/*0x00aae4*/;
 	//mlx->rc.draw_start = 300;
 	while (y < mlx->rc.draw_start)
 	{
@@ -38,7 +38,7 @@ void	floor_draw(t_mlx *mlx, int x)
 	int color;
 
 	y = mlx->rc.draw_end;
-	color = 0xD7D0B7;
+	color = mlx->hexa_floor;/*0xD7D0B7*/
 	//mlx->rc.draw_start = 300;
 	while (y < mlx->win_height)
 	{

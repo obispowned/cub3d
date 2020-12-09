@@ -8,6 +8,8 @@ void	init_raycast_params(t_mlx *mlx, t_config *config)
 	mlx->win = NULL;
 	mlx->win_width = config->width;
 	mlx->win_height = config->height;
+	mlx->hexa_ceil = config->hexaceil;
+	mlx->hexa_floor = config->hexafloor;
 	mlx->rc.player_pos_y = (double)config->player_begin[0] + 0.5;
 	mlx->rc.player_pos_x = (double)config->player_begin[1] + 0.5;
 	init_player(mlx, config);

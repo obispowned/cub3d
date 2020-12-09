@@ -6,7 +6,7 @@ WE ./textures/mossy.xpm
 EA ./textures/stone.xpm
 S ./textures/sprites/barrel.xpm
 F 51,51,51
-C 0,0,65
+C 0,235,255
 
 
 111111
