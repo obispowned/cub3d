@@ -18,7 +18,7 @@ t_mapi			parserico(char **map, t_config *config)
 		{
 			if (map[i][j] == '9')
 			{
-				config->mapa.worldMap[i][j] = 0;
+				config->mapa.worldMap[i][j] = 1;
 				printf("%d", config->mapa.worldMap[i][j]);
 			}
 			else

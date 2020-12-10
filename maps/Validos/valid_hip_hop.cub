@@ -1,9 +1,9 @@
 R 1000 1000
-NO ./image_texture/test.xpm
-SO ./image_texture/test1.xpm
-WE ./image_texture/test2.xpm
-EA ./image_texture/test3.xpm
-S ./image_sprite/test0.xpm
+NO ./textures/redbrick.xpm
+SO ./textures/wood.xpm
+WE ./textures/mossy.xpm
+EA ./textures/stone.xpm
+S ./textures/sprites/barrel.xpm
 F 209,209,209
 C 23,236,255
 

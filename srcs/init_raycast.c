@@ -33,24 +33,24 @@ void	init_raycast_params(t_mlx *mlx, t_config *config)
 	}
 	else if (config->player_pos_begin == 'S')
 	{
-		mlx->rc.player_plane_x = 0;
-		mlx->rc.player_plane_y = -0.66;
-		mlx->rc.dirx = 1;
-		mlx->rc.diry = 0;
+		mlx->rc.player_plane_x = 1;
+		mlx->rc.player_plane_y = 0;
+		mlx->rc.dirx = 0;
+		mlx->rc.diry = -0.66;
 	}
 	else if (config->player_pos_begin == 'E')
 	{
-		mlx->rc.player_plane_x = 0.66;
-		mlx->rc.player_plane_y = 0;
-		mlx->rc.dirx = 0;
-		mlx->rc.diry = 1;
+		mlx->rc.player_plane_x = 0;
+		mlx->rc.player_plane_y = 1;
+		mlx->rc.dirx = 0.66;
+		mlx->rc.diry = 0;
 	}
 	else if (config->player_pos_begin == 'W')
 	{
-		mlx->rc.player_plane_x = -0.66;
-		mlx->rc.player_plane_y = 0;
-		mlx->rc.dirx = 0;
-		mlx->rc.diry = -1;
+		mlx->rc.player_plane_x = 0;
+		mlx->rc.player_plane_y = -1;
+		mlx->rc.dirx = -0.66;
+		mlx->rc.diry = 0;
 	}
 	printf("Posicion Inicial: x:%f - y:%f\n", mlx->rc.player_pos_x, mlx->rc.player_pos_y);
 }

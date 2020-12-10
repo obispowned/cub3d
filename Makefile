@@ -65,7 +65,7 @@ all:
 run: all
 	clear && ./cub3D maps/Validos/map0.cub
 
-fclean: clean
+fclean:	clean
 	rm -f $(NAME)
 
 clean :
@@ -73,3 +73,5 @@ clean :
 	$(RM) $(OBJS)
 
 re:				fclean all
+
+.PHONY:	clean all
