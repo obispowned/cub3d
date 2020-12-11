@@ -10,7 +10,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/cub3D",
-            "args": ["maps/validos/map0.cub", "--save"],
+            "args": ["maps/validos/valid_hip_hop.cub", "--save"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],

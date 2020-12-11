@@ -63,7 +63,7 @@ all:
 			@echo "[.oOo.oOo.oOo.oOo.]${RESET}"
 
 run: all
-	clear && ./cub3D maps/Validos/map0.cub
+	clear && ./cub3D maps/validos/valid_hip_hop.cub
 
 fclean:	clean
 	rm -f $(NAME)

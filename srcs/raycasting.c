@@ -26,7 +26,7 @@ int raycasting(t_mlx *mlx)
 		x++;
 	}
 	/*funcion para sprites aqui*/
-	draw_map(mlx); //MINIMAPA
+//	draw_map(mlx); //MINIMAPA
 	mlx_put_image_to_window(mlx->ptr, mlx->win, mlx->image.img, 0, 0);
 	return (0);
 }

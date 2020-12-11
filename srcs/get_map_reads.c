@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 13:05:06 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/07 13:21:28 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/11 13:40:48 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,11 @@ void		check_map(t_config *config, char **map)
 				(config->player_begin[0] == 0 && config->player_begin[1] == 0))
 			{
 				comprobar_muros_cerca(config, map, i, j); //necesario para evitar seg fault en parte grafica
-				config->player_begin[0] = i;
-				config->player_begin[1] = j;
+				config->player_begin[0] = j;
+				config->player_begin[1] = i;
 				config->player_pos_begin = map[i][j];
 				map[i][j] = '0';
+				printf("%d,%d\n", config->player_begin[0], config->player_begin[1]);
 			}
 			else if (((map[i][j] == 'N') || (map[i][j] == 'S') ||
 				(map[i][j] == 'E') || (map[i][j] == 'W')) &&

@@ -54,32 +54,18 @@ int		handle_events(t_mlx *mlx)
 	}
 	if (mlx->rc.left)
 	{
-		if (mlx->finalMap[(int)mlx->rc.player_pos_y][(int)(mlx->rc.player_pos_x - mlx->rc.player_plane_x * mlx->rc.movespeed)] != 1)
+		if (mlx->finalMap[(int)mlx->rc.player_pos_y][(int)(mlx->rc.player_pos_x - mlx->rc.player_plane_x * mlx->rc.movespeed)] == 0)
 			mlx->rc.player_pos_x -= mlx->rc.player_plane_x * mlx->rc.movespeed;
-		if (mlx->finalMap[(int)(mlx->rc.player_pos_y - mlx->rc.player_plane_y * mlx->rc.movespeed)][(int)mlx->rc.player_pos_x] != 1)
+		if (mlx->finalMap[(int)(mlx->rc.player_pos_y - mlx->rc.player_plane_y * mlx->rc.movespeed)][(int)mlx->rc.player_pos_x] == 0)
 			mlx->rc.player_pos_y -= mlx->rc.player_plane_y * mlx->rc.movespeed;
 	}
 	if (mlx->rc.right)
 	{
-		if (mlx->finalMap[(int)mlx->rc.player_pos_y][(int)(mlx->rc.player_pos_x + mlx->rc.player_plane_x * mlx->rc.movespeed)] <= 0)
+		if (mlx->finalMap[(int)mlx->rc.player_pos_y][(int)(mlx->rc.player_pos_x + mlx->rc.player_plane_x * mlx->rc.movespeed)] == 0)
 			mlx->rc.player_pos_x += mlx->rc.player_plane_x * mlx->rc.movespeed;
-		if (mlx->finalMap[(int)(mlx->rc.player_pos_y + mlx->rc.player_plane_y * mlx->rc.movespeed)][(int)mlx->rc.player_pos_x] <= 0)
+		if (mlx->finalMap[(int)(mlx->rc.player_pos_y + mlx->rc.player_plane_y * mlx->rc.movespeed)][(int)mlx->rc.player_pos_x] == 0)
 			mlx->rc.player_pos_y += mlx->rc.player_plane_y * mlx->rc.movespeed;
 	}
-/*	if (mlx->rc.left)
-	{
-		if (mlx->finalMap[(int)mlx->rc.player_pos_y][(int)(mlx->rc.player_pos_x - mlx->rc.player_plane_x * mlx->rc.movespeed)] != 1)
-			mlx->rc.player_pos_x -= mlx->rc.player_plane_x * mlx->rc.movespeed;
-		if (mlx->finalMap[(int)(mlx->rc.player_pos_y - mlx->rc.player_plane_y * mlx->rc.movespeed)][(int)mlx->rc.player_pos_x] != 1)
-			mlx->rc.player_pos_y -= mlx->rc.player_plane_y * mlx->rc.movespeed;
-	}
-	if (mlx->rc.right)
-	{
-		if (mlx->finalMap[(int)mlx->rc.player_pos_y][(int)(mlx->rc.player_pos_x + mlx->rc.player_plane_x * mlx->rc.movespeed)] <= 0)
-			mlx->rc.player_pos_x += mlx->rc.player_plane_x * mlx->rc.movespeed;
-		if (mlx->finalMap[(int)(mlx->rc.player_pos_y + mlx->rc.player_plane_y * mlx->rc.movespeed)][(int)mlx->rc.player_pos_x] <= 0)
-			mlx->rc.player_pos_y += mlx->rc.player_plane_y * mlx->rc.movespeed;
-	}*/
 	handle_events2(mlx);
 	return (0);
 }
