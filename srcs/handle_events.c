@@ -31,56 +31,55 @@ void	handle_events2(t_mlx *mlx)
 	}
 }
 
-void	move_right(t_mlx *mlx)
-{
-	if (mlx->rc.right)
-	{
-		if (mlx->finalMap[(int)mlx->rc.player_pos_y][(int)(mlx->rc.player_pos_x + mlx->rc.player_plane_x * mlx->rc.movespeed)] == 0)
-			mlx->rc.player_pos_x += mlx->rc.player_plane_x * mlx->rc.movespeed;
-		if (mlx->finalMap[(int)(mlx->rc.player_pos_y + mlx->rc.player_plane_y * mlx->rc.movespeed)][(int)mlx->rc.player_pos_x] == 0)
-			mlx->rc.player_pos_y += mlx->rc.player_plane_y * mlx->rc.movespeed;
-	}
-}
-
-void	move_left(t_mlx *mlx)
-{
-	if (mlx->rc.left)
-	{
-		if (mlx->finalMap[(int)mlx->rc.player_pos_y]
-			[(int)(mlx->rc.player_pos_x - mlx->rc.player_plane_x
-			* mlx->rc.movespeed)] == 0)
-			mlx->rc.player_pos_x -= mlx->rc.player_plane_x
-			* mlx->rc.movespeed;
-		if (mlx->finalMap[(int)(mlx->rc.player_pos_y
-			- mlx->rc.player_plane_y * mlx->rc.movespeed)]
-			[(int)mlx->rc.player_pos_x] == 0)
-			mlx->rc.player_pos_y -= mlx->rc.player_plane_y
-			* mlx->rc.movespeed;
-	}
-}
-
 int		handle_events(t_mlx *mlx)
 {
+
+	if (mlx->rc.run == 1)
+		mlx->rc.movespeed = SPEED * 2;
+	else if (mlx->rc.run == 0)
+		mlx->rc.movespeed = SPEED;
 	if (mlx->rc.up == 1)
 	{
-		if (mlx->finalMap[(int)(mlx->rc.player_pos_x + mlx->rc.dirx
-			* mlx->rc.movespeed)][(int)(mlx->rc.player_pos_y)] == 0)
+		if (mlx->finalMap[(int)(mlx->rc.player_pos_x + mlx->rc.dirx	* mlx->rc.movespeed)][(int)(mlx->rc.player_pos_y)] == 0)
 			mlx->rc.player_pos_x += mlx->rc.dirx * mlx->rc.movespeed;
-		if (mlx->finalMap[(int)(mlx->rc.player_pos_x)]
-			[(int)(mlx->rc.player_pos_y + mlx->rc.diry * mlx->rc.movespeed)] == 0)
+		if (mlx->finalMap[(int)(mlx->rc.player_pos_x)][(int)(mlx->rc.player_pos_y + mlx->rc.diry * mlx->rc.movespeed)] == 0)
 			mlx->rc.player_pos_y += mlx->rc.diry * mlx->rc.movespeed;
 	}
 	else if (mlx->rc.down)
 	{
-		if (mlx->finalMap[(int)(mlx->rc.player_pos_x - mlx->rc.dirx
-			* mlx->rc.movespeed)][(int)(mlx->rc.player_pos_y)] == 0)
+		if (mlx->finalMap[(int)(mlx->rc.player_pos_x - mlx->rc.dirx	* mlx->rc.movespeed)][(int)(mlx->rc.player_pos_y)] == 0)
 			mlx->rc.player_pos_x -= mlx->rc.dirx * mlx->rc.movespeed;
-		if (mlx->finalMap[(int)(mlx->rc.player_pos_x)]
-			[(int)(mlx->rc.player_pos_y - mlx->rc.diry * mlx->rc.movespeed)] == 0)
+		if (mlx->finalMap[(int)(mlx->rc.player_pos_x)][(int)(mlx->rc.player_pos_y - mlx->rc.diry * mlx->rc.movespeed)] == 0)
 			mlx->rc.player_pos_y -= mlx->rc.diry * mlx->rc.movespeed;
 	}
+	if (mlx->rc.left)
+	{
+		if (mlx->finalMap[(int)mlx->rc.player_pos_y][(int)(mlx->rc.player_pos_x - mlx->rc.player_plane_x * mlx->rc.movespeed)] != 1)
+			mlx->rc.player_pos_x -= mlx->rc.player_plane_x * mlx->rc.movespeed;
+		if (mlx->finalMap[(int)(mlx->rc.player_pos_y - mlx->rc.player_plane_y * mlx->rc.movespeed)][(int)mlx->rc.player_pos_x] != 1)
+			mlx->rc.player_pos_y -= mlx->rc.player_plane_y * mlx->rc.movespeed;
+	}
+	if (mlx->rc.right)
+	{
+		if (mlx->finalMap[(int)mlx->rc.player_pos_y][(int)(mlx->rc.player_pos_x + mlx->rc.player_plane_x * mlx->rc.movespeed)] <= 0)
+			mlx->rc.player_pos_x += mlx->rc.player_plane_x * mlx->rc.movespeed;
+		if (mlx->finalMap[(int)(mlx->rc.player_pos_y + mlx->rc.player_plane_y * mlx->rc.movespeed)][(int)mlx->rc.player_pos_x] <= 0)
+			mlx->rc.player_pos_y += mlx->rc.player_plane_y * mlx->rc.movespeed;
+	}
+/*	if (mlx->rc.left)
+	{
+		if (mlx->finalMap[(int)mlx->rc.player_pos_y][(int)(mlx->rc.player_pos_x - mlx->rc.player_plane_x * mlx->rc.movespeed)] != 1)
+			mlx->rc.player_pos_x -= mlx->rc.player_plane_x * mlx->rc.movespeed;
+		if (mlx->finalMap[(int)(mlx->rc.player_pos_y - mlx->rc.player_plane_y * mlx->rc.movespeed)][(int)mlx->rc.player_pos_x] != 1)
+			mlx->rc.player_pos_y -= mlx->rc.player_plane_y * mlx->rc.movespeed;
+	}
+	if (mlx->rc.right)
+	{
+		if (mlx->finalMap[(int)mlx->rc.player_pos_y][(int)(mlx->rc.player_pos_x + mlx->rc.player_plane_x * mlx->rc.movespeed)] <= 0)
+			mlx->rc.player_pos_x += mlx->rc.player_plane_x * mlx->rc.movespeed;
+		if (mlx->finalMap[(int)(mlx->rc.player_pos_y + mlx->rc.player_plane_y * mlx->rc.movespeed)][(int)mlx->rc.player_pos_x] <= 0)
+			mlx->rc.player_pos_y += mlx->rc.player_plane_y * mlx->rc.movespeed;
+	}*/
 	handle_events2(mlx);
-	move_right(mlx);
-	move_left(mlx);
 	return (0);
 }

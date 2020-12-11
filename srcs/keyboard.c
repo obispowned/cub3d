@@ -16,6 +16,8 @@ int		key_press(int key, t_mlx *mlx)
 		mlx->rc.rot_left = 1;
 	if (key == KEY_A)
 		mlx->rc.left = 1;
+	if (key == KEY_SHIFT_L)
+		mlx->rc.run = 1;
 	if (key == KEY_ESC)
 	{
 		mlx_destroy_window(mlx->ptr, mlx->win);
@@ -39,5 +41,7 @@ int		key_release(int key, t_mlx *mlx)
 		mlx->rc.rot_left = 0;
 	if (key == KEY_A)
 		mlx->rc.left = 0;
+	if (key == KEY_SHIFT_L)
+		mlx->rc.run = 0;
 	return (0);
 }

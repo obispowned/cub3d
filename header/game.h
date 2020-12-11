@@ -6,6 +6,7 @@
 
 /***/
 # define PI		3.14159265359
+# define SPEED 0.06
 # define ROT_SPEED 0.0336
 # define AMB_LIGHT 7
 
@@ -103,6 +104,7 @@ typedef	struct		s_raycasting
 	int				down;
 	int				right;
 	int				left;
+	int				run;
 	int				rot_right;
 	int				rot_left;
 	int				hexaceil;
