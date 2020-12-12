@@ -13,7 +13,6 @@ SRCS			=	get_next_line/get_next_line.c\
 					srcs/raycasting.c\
 					srcs/keyboard.c\
 					srcs/minimap.c\
-					srcs/sprites.c\
 					srcs/handle_events.c\
 					srcs/load_texture.c\
 					srcs/init_params.c\

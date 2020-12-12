@@ -47,7 +47,6 @@ int		white_spaces(char c)
 
 void 		print_error(char *str)
 {
-	printf("ERROR: %s\n", str);
+	printf("ERROR:\n %s\n", str);
 	exit(-1);
 }
-

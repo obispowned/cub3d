@@ -54,18 +54,20 @@ int		handle_events(t_mlx *mlx)
 	}
 	if (mlx->rc.left)/*PONER LIMITES EN EL MAPA PARA QUE NO PASE*/
 	{
-		if (mlx->finalMap[(int)mlx->rc.player_pos_y][(int)(mlx->rc.player_pos_x - mlx->rc.player_plane_x * mlx->rc.movespeed)] == 0)
-			mlx->rc.player_pos_x -= mlx->rc.player_plane_x * mlx->rc.movespeed;
-		if (mlx->finalMap[(int)(mlx->rc.player_pos_y - mlx->rc.player_plane_y * mlx->rc.movespeed)][(int)mlx->rc.player_pos_x] == 0)
-			mlx->rc.player_pos_y -= mlx->rc.player_plane_y * mlx->rc.movespeed;
+		if (mlx->finalMap[(int)(mlx->rc.player_pos_x - mlx->rc.diry * mlx->rc.movespeed)][(int)(mlx->rc.player_pos_y)] == 0)
+			mlx->rc.player_pos_x -= mlx->rc.diry * mlx->rc.movespeed;
+		if (mlx->finalMap[(int)(mlx->rc.player_pos_x)][(int)(mlx->rc.player_pos_y + mlx->rc.dirx * mlx->rc.movespeed)] == 0)
+			mlx->rc.player_pos_y += mlx->rc.dirx * mlx->rc.movespeed;
+	
 	}
 	if (mlx->rc.right) /*PONER LIMITES EN EL MAPA PARA QUE NO PASE*/
 	{
-		if (mlx->finalMap[(int)mlx->rc.player_pos_y][(int)(mlx->rc.player_pos_x + mlx->rc.player_plane_x * mlx->rc.movespeed)] == 0)
-			mlx->rc.player_pos_x += mlx->rc.player_plane_x * mlx->rc.movespeed;
-		if (mlx->finalMap[(int)(mlx->rc.player_pos_y + mlx->rc.player_plane_y * mlx->rc.movespeed)][(int)mlx->rc.player_pos_x] == 0)
-			mlx->rc.player_pos_y += mlx->rc.player_plane_y * mlx->rc.movespeed;
+		if (mlx->finalMap[(int)(mlx->rc.player_pos_x + mlx->rc.diry * mlx->rc.movespeed)][(int)mlx->rc.player_pos_y] == 0)
+			mlx->rc.player_pos_x += mlx->rc.diry * mlx->rc.movespeed;
+		if (mlx->finalMap[(int)mlx->rc.player_pos_x][(int)(mlx->rc.player_pos_y - mlx->rc.dirx * mlx->rc.movespeed)] == 0)
+			mlx->rc.player_pos_y -= mlx->rc.dirx * mlx->rc.movespeed;
 	}
 	handle_events2(mlx);
+	printf("posx:%f, posy:%f", mlx->rc.dirx);
 	return (0);
 }

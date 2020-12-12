@@ -27,7 +27,7 @@ int raycasting(t_mlx *mlx)
 	}
 	/*funcion para sprites aqui*/
 //	draw_map(mlx); //MINIMAPA /*SEG FAULT EN ALGUNOS MAPAS*/
-	sprite_casting(mlx);
+//	sprite_casting(mlx);
 	mlx_put_image_to_window(mlx->ptr, mlx->win, mlx->image.img, 0, 0);
 	return (0);
 }
