@@ -59,20 +59,6 @@ int		check_lines(char *line, char *chars)
 	return (0);
 }
 
-void	check_num_sprites(char *file, t_config *config)
-{
-	int i;
-
-	i = 0;
-	while (file[i] != '\0')
-	{
-		if (file[i] == 2)
-			config->numsprites++;
-		i++;
-	}
-	printf("numero de sprites: %d", config->numsprites);
-}
-
 t_config	load_file(char *file, t_config config)
 { /*le paso el archivo y la estructura y devuelve primera lectura*/
 	int		fd;
@@ -91,9 +77,7 @@ t_config	load_file(char *file, t_config config)
 			print_error("Elimine los caracteres sobrantes.");
 		if (who_needs_a_map(line) == 1 && config.flag != 8)
 			print_error("Debe declarar los parametros delante del mapa");
-		else
-			check_num_sprites(file, &config);
-				config.i = 0;
+		config.i = 0;
 		config = check_file(line, config);
 		kill(line);
 	}

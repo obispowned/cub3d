@@ -22,7 +22,8 @@ int main(int argc, char **argv)
 	print_values(config);
 	reset_mlx(&mlx, config);
 	init_raycast_params(&mlx, &config);
-	mlx.rc.spr_buffer = (double *)malloc(sizeof(double) * mlx.win_width);
+	printf("\nrows: %d, lines: %d\n",mlx.rc.map_rows, mlx.rc.map_lines);
+	save_sprites_position(&mlx);
 	mlx.ptr = mlx_init();
 	mlx.win = mlx_new_window(mlx.ptr, mlx.win_width, mlx.win_height, "CUB3D");
 	load_textures(&mlx, &config);
@@ -37,11 +38,41 @@ int main(int argc, char **argv)
 		mlx_loop_hook(mlx.ptr, &raycast_1, &mlx);
 	}*/
 	mlx_loop_hook(mlx.ptr, &raycasting, &mlx);
-
-	//mlx_hook(mlx.win, 17, 1L << 17, exit_game, &mlx); //cerramos ventana al dar a la "equis"
+	mlx_hook(mlx.win, 17, 1L << 17, exit_game, &mlx); //cerramos ventana al dar a la "equis"
 	mlx_loop(mlx.ptr);
 	ace(config.NO, config.SO, config.WE, config.EA, config.S, NULL);
 	return(0);
+}
+
+void	save_sprites_position(t_mlx *mlx)
+{
+	int 	i;
+	int		j;
+	int		cont;
+
+	i = 0;
+	cont = 0;
+	while (i < mlx->rc.map_lines)
+	{
+		j = 0;
+		while (j < mlx->rc.map_rows)
+		{
+			if (mlx->finalMap[i][j] == 2)
+			{
+				mlx->rc.sprite[cont].id = cont;
+				mlx->rc.sprite[cont].x = (double)i + 0.5;
+				mlx->rc.sprite[cont].y = (double)j + 0.5;
+				printf("////////////\n");
+				printf("sprite id:%d\n", mlx->rc.sprite[cont].id);
+				printf("sprite x:%f\n", mlx->rc.sprite[cont].x);
+				printf("sprite y:%f\n", mlx->rc.sprite[cont].y);
+				printf("////////////\n");
+				cont ++;
+			}
+			j++;
+		}
+		i++;
+	}
 }
 
 void 	print_values(t_config config)
@@ -65,6 +96,7 @@ void 	print_values(t_config config)
 	printf("Coordenadas de cominezo: | %d-%d |\n", config.player_begin[0], config.player_begin[1]);
 	printf("El jugador empieza mirando a: %c\n", config.player_pos_begin);
 	printf("numero de sprites: %d\n", config.numsprites);
+
 	printf("config.save: %d\n", config.save);
 	
 	printf("\n");

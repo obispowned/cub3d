@@ -102,7 +102,6 @@ typedef	struct		s_raycasting
 	int				tex_y;
 	int				tex_id;		//indice para moverme en el array de estructura
 	int				tex_side;
-	double			*spr_buffer;
 	int				drawstartx;
 	int				drawendx;
 	int				sprtexx;
@@ -119,7 +118,9 @@ typedef	struct		s_raycasting
 	double			transformy;
 	int				d;
 	double			invdet;
+	int				sprites_count;
 	int				textnum;
+	t_sprite		*sprite;
 	t_img			tex[12];
 }					t_raycasting;
 
@@ -175,5 +176,6 @@ void	motionless_4(t_mlx *mlx);
 void 	calcule_wall(t_mlx *mlx);
 void 	draw_wall(t_mlx *mlx, int x);
 void 	load_textures(t_mlx *mlx, t_config *config);
+void	save_sprites_position(t_mlx *mlx);
 
 #endif

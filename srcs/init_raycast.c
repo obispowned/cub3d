@@ -10,8 +10,6 @@ void	init_raycast_params(t_mlx *mlx, t_config *config)
 	mlx->win_height = config->height;
 	mlx->hexa_ceil = config->hexaceil;
 	mlx->hexa_floor = config->hexafloor;
-	mlx->rc.player_pos_y = (double)config->player_begin[0] + 0.5;
-	mlx->rc.player_pos_x = (double)config->player_begin[1] + 0.5;
 	init_player(mlx, config);
 	mlx->rc.map_lines = config->map_max_lines;
 	mlx->rc.map_rows = config->map_max_rows;
@@ -23,6 +21,8 @@ void	init_raycast_params(t_mlx *mlx, t_config *config)
 	mlx->rc.down = 0;
 	mlx->rc.right = 0;
 	mlx->rc.left = 0;
+	mlx->rc.sprites_count = config->numsprites;
+	mlx->rc.sprite = malloc(sizeof(t_sprite) * config->numsprites);
 	if (config->player_pos_begin == 'N')
 	{ 
 		mlx->rc.dirx = -1;
