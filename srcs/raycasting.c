@@ -100,7 +100,7 @@ void dda(t_mlx *mlx)
 			mlx->rc.map_y += mlx->rc.step_y;
 			mlx->rc.side = 1;
 		}
-		if (mlx->finalMap[mlx->rc.map_x][mlx->rc.map_y] > 0)
+		if (mlx->finalMap[mlx->rc.map_x][mlx->rc.map_y] == 1)
 			mlx->rc.hit = 1;
 	}
 }

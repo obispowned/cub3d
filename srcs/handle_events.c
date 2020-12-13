@@ -68,6 +68,5 @@ int		handle_events(t_mlx *mlx)
 			mlx->rc.player_pos_y -= mlx->rc.dirx * mlx->rc.movespeed;
 	}
 	handle_events2(mlx);
-	printf("posx:%f, posy:%f", mlx->rc.dirx);
 	return (0);
 }

@@ -47,26 +47,13 @@ typedef struct		s_img
 	int				bpp;	//bits per pixel
 }					t_img;
 
-typedef struct		s_sprites
+typedef struct		s_sprite
 {
-	double			x;
-	double			y;
-	double			distance;
-	double			sprite_x;
-	double			sprite_y;
-	double			invdet;
-	double			transform_x;
-	double			transform_y;
-	int				screen;
-	int				height;
-	int				width;
-	int				drawstart_x;
-	int				drawstart_y;
-	int				drawend_x;
-	int				drawend_y;
-	int				stripe;
-	t_img			tex;
-}					t_sprites;
+	int				id;		//id identificativo de la textura
+	double			x;		//coordenada x del sprite
+	double			y; 		//coordenada y del sprite
+	double			dest;	//distancia al sprite
+}					t_sprite;
 
 typedef	struct		s_raycasting
 {
@@ -79,14 +66,14 @@ typedef	struct		s_raycasting
 	char			player_dir;     // Comienzo del jugador NWES
 	double			ray_dir_x;		// Direccion del rayo raycast X/Y
 	double			ray_dir_y;
-	double			dirx;			
+	double			dirx;			// dir del rayo
 	double			diry;
 	double			camerax;
 	double			wallx; 	//distancia al muro
-	double			movespeed;
+	double			movespeed;		//velocidad que cambiara al pulsar shift
 	int				hit;		// un flag que usamos para determinar si el rayo choco o no para finalizar el bucle o no.
-	int				map_rows;
-	int				map_lines;
+	int				map_rows;		//columnas mapa
+	int				map_lines;		//lineas mapa
 	int				map_x;		//Coordenadas del cuadrado actual donde se encuentra el rayo
 	int				map_y;
 	double			side_dist_x; // La sidtancia que el rato tiene que viajar desde su pos inicial hasta el primer lado X/Y
@@ -96,8 +83,8 @@ typedef	struct		s_raycasting
 	int				step_x;
 	int				step_y;
 	int				side;
-	int				draw_start;
-	int				draw_end;
+	int				draw_start;		//coordenadas pixel donde empezamos a pintar
+	int				draw_end;		//coordenadas pixel donde terminamos de pintar
 	double			perp_wall_dist; // longitud del rayo
 	int				line_height;
 	int				up;
@@ -132,9 +119,8 @@ typedef	struct		s_raycasting
 	double			transformy;
 	int				d;
 	double			invdet;
-	int	textnum;
+	int				textnum;
 	t_img			tex[12];
-	t_sprites		sprite[255];
 }					t_raycasting;
 
 typedef	struct		s_mlx
