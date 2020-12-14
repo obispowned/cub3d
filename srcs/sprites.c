@@ -4,33 +4,32 @@
 
 void	sprite_drawing(t_mlx *mlx, int i, int y)
 {
-	rc->stripe = rc->drawstartx;
-	while (rc->stripe < rc->drawendx)
+	mlx->rc.stripe = mlx->rc.drawstartx;
+	while (mlx->rc.stripe < mlx->rc.drawendx)
 	{
-		rc->sprtexx = (int)(256 * (rc->stripe - (-rc->spritewidth / 2
-			+ rc->spritescreenx)) * rc->tex_width / rc->spritewidth) / 256;
-		rc->tex_x = abs((int)(rc->wallx * (double)(64)));
-		y = rc->drawstarty;
-		if (rc->transformy > 0 && rc->stripe > 0 && rc->stripe < mlx->win_width &&
-			rc->transformy < rc->spr_buffer[rc->stripe])
-			while (y < rc->drawendy)
+		mlx->rc.sprtexx = (int)(256 * (mlx->rc.stripe - (-mlx->rc.spritewidth / 2
+			+ mlx->rc.spritescreenx)) * mlx->rc.tex_width / mlx->rc.spritewidth) / 256;
+		mlx->rc.tex_x = abs((int)(mlx->rc.wallx * (double)(64)));
+		y = mlx->rc.drawstarty;
+		if (mlx->rc.transformy > 0 && mlx->rc.stripe > 0 && mlx->rc.stripe < mlx->win_width &&
+			mlx->rc.transformy < mlx->rc.spr_buffer[mlx->rc.stripe])
+			while (y < mlx->rc.drawendy)
 			{
-				rc->d = (y) * 256 - rc->win_height * 128 + rc->spriteheight * 128;
-				rc->sprtexy = ((rc->d *
-				rc->tex_height) / rc->spriteheight) / 256;
-				if (rc->sprite[i].tex.data[4 * (rc->sprtexx + 64 * rc->sprtexy)]
-				!= (char)0)
-					ft_memcpy(rc->img_data + 4 * mlx->win_width * y + rc->stripe * 4,
-						&rc->sprite[i].tex.data[rc->sprtexy % rc->tex_height *
-						rc->sprite[i].tex.size_l + rc->sprtexx % rc->tex_width
-						* rc->sprite[i].tex.bpp / 8], sizeof(int));
+				mlx->rc.d = (y) * 256 - mlx->win_height * 128 + mlx->rc.spriteheight * 128;
+				mlx->rc.sprtexy = ((mlx->rc.d *
+				mlx->rc.tex_height) / mlx->rc.spriteheight) / 256;
+				if (mlx->rc.sprite[i].tex.addr[4 * (mlx->rc.sprtexx + 64 * mlx->rc.sprtexy)] != (char)0)
+					ft_memcpy(mlx->rc.sprite[i].tex.addr + 4 * mlx->win_width * y + mlx->rc.stripe * 4,
+						&mlx->rc.sprite[i].tex.addr[mlx->rc.sprtexy % mlx->rc.tex_height *
+						mlx->rc.sprite[i].tex.linesize + mlx->rc.sprtexx % mlx->rc.tex_width
+						* mlx->rc.sprite[i].tex.bpp / 8], sizeof(int));
 				y++;
 			}
-		rc->stripe++;
+		mlx->rc.stripe++;
 	}
 }
 
-void	sprite_casting2(t_mlx *mlx) /*adapptation*/
+void	sprite_casting2(t_mlx *mlx)
 {
 	mlx->rc.invdet = 1.0 / (mlx->rc.player_plane_x *
 				mlx->rc.diry - mlx->rc.dirx * mlx->rc.player_plane_y);
@@ -63,7 +62,7 @@ void	sprite_casting(t_mlx *mlx)
 
 	i = 0;
 	y = 0;
-	while (i < mlx->rc.numsprites) /*implementar variables*/
+	while (i < mlx->rc.sprites_count)
 	{
 		mlx->rc.sprite[i].tex = mlx->rc.tex[5];
 		mlx->rc.spritex = mlx->rc.sprite[i].x + 0.5 - mlx->rc.player_pos_x;

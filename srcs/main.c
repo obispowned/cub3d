@@ -62,11 +62,6 @@ void	save_sprites_position(t_mlx *mlx)
 				mlx->rc.sprite[cont].id = cont;
 				mlx->rc.sprite[cont].x = (double)i + 0.5;
 				mlx->rc.sprite[cont].y = (double)j + 0.5;
-				printf("////////////\n");
-				printf("sprite id:%d\n", mlx->rc.sprite[cont].id);
-				printf("sprite x:%f\n", mlx->rc.sprite[cont].x);
-				printf("sprite y:%f\n", mlx->rc.sprite[cont].y);
-				printf("////////////\n");
 				cont ++;
 			}
 			j++;

@@ -52,7 +52,21 @@ typedef struct		s_sprite
 	int				id;		//id identificativo de la textura
 	double			x;		//coordenada x del sprite
 	double			y; 		//coordenada y del sprite
-	double			dest;	//distancia al sprite
+	double			dist;	//distancia al sprite	
+	double			sprite_x;
+	double			sprite_y;
+	double			invdet;
+	double			transform_x;
+	double			transform_y;
+	int				screen;
+	int				height;
+	int				width;
+	int				drawstart_x;
+	int				drawstart_y;
+	int				drawend_x;
+	int				drawend_y;
+	int				stripe;
+	t_img			tex;
 }					t_sprite;
 
 typedef	struct		s_raycasting
@@ -117,8 +131,10 @@ typedef	struct		s_raycasting
 	double			transformx;
 	double			transformy;
 	int				d;
+	int				savebpm;
 	double			invdet;
 	int				sprites_count;
+	double			*spr_buffer;
 	int				textnum;
 	t_sprite		*sprite;
 	t_img			tex[12];
@@ -130,6 +146,7 @@ typedef	struct		s_mlx
 	void			*win; //administra ventanas
 	int				win_height; //height de config
 	int				win_width; //width de config
+	int				flag_bmp;
 	unsigned long	hexa_ceil;
 	unsigned long	hexa_floor;
 	int				**finalMap;
@@ -177,5 +194,14 @@ void 	calcule_wall(t_mlx *mlx);
 void 	draw_wall(t_mlx *mlx, int x);
 void 	load_textures(t_mlx *mlx, t_config *config);
 void	save_sprites_position(t_mlx *mlx);
+void	sprite_casting(t_mlx *mlx);
+void	sprite_casting2(t_mlx *mlx);
+void	sprite_drawing(t_mlx *mlx, int i, int y);
+
+/* SCREENSHOOT BMP*/
+int				save_bmp(t_mlx *mlx);
+static void		file_write(int fd, const void *buf, ssize_t len);
+static t_bitmap	fill_header(t_mlx *mlx);
+
 
 #endif

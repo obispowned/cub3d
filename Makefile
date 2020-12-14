@@ -17,6 +17,8 @@ SRCS			=	get_next_line/get_next_line.c\
 					srcs/load_texture.c\
 					srcs/init_params.c\
 					srcs/init_params2.c\
+					srcs/sprites.c\
+					srcs/screenshoot.c\
 					utils/ft_split.c\
 					utils/ft_strdup.c\
 					utils/ft_strjoin_char.c\

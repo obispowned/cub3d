@@ -18,11 +18,14 @@ void	init_raycast_params(t_mlx *mlx, t_config *config)
 	mlx->rc.movespeed = 0.060;
 	mlx->rc.tex_side = 1;
 	mlx->rc.up = 0;
+	mlx->flag_bmp = 0;
 	mlx->rc.down = 0;
 	mlx->rc.right = 0;
 	mlx->rc.left = 0;
+	mlx->rc.savebpm = config->save;
 	mlx->rc.sprites_count = config->numsprites;
 	mlx->rc.sprite = malloc(sizeof(t_sprite) * config->numsprites);
+	mlx->rc.spr_buffer = (double *)malloc(sizeof(double) * mlx->win_width);
 	if (config->player_pos_begin == 'N')
 	{ 
 		mlx->rc.dirx = -1;

@@ -23,12 +23,18 @@ int raycasting(t_mlx *mlx)
 		sky_draw(mlx,x);	//COLOR PLANO CIELO
 		floor_draw(mlx,x); //COLOR PLANO SUELO
 		draw_wall(mlx, x); //memcpy donde dibujo muros
+		mlx->rc.spr_buffer[x] = mlx->rc.perp_wall_dist;
 		x++;
 	}
 	/*funcion para sprites aqui*/
 //	draw_map(mlx); //MINIMAPA /*SEG FAULT EN ALGUNOS MAPAS*/
 //	sprite_casting(mlx);
 	mlx_put_image_to_window(mlx->ptr, mlx->win, mlx->image.img, 0, 0);
+	if (mlx->rc.savebpm == 1 && mlx->flag_bmp == 0)
+	{
+		mlx->flag_bmp = 1;
+		save_bmp(mlx);
+	}
 	return (0);
 }
 
