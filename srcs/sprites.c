@@ -65,8 +65,8 @@ void	sprite_casting(t_mlx *mlx)
 	while (i < mlx->rc.sprites_count)
 	{
 		mlx->rc.sprite[i].tex = mlx->rc.tex[5];
-		mlx->rc.spritex = mlx->rc.sprite[i].x + 0.5 - mlx->rc.player_pos_x;
-		mlx->rc.spritey = mlx->rc.sprite[i].y + 0.5 - mlx->rc.player_pos_y;
+		mlx->rc.spritex = mlx->rc.sprite[i].x - mlx->rc.player_pos_x;
+		mlx->rc.spritey = mlx->rc.sprite[i].y - mlx->rc.player_pos_y; 
 		sprite_casting2(mlx);
 		sprite_drawing(mlx, i, y);
 		i++;
