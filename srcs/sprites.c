@@ -19,7 +19,7 @@ void	sprite_drawing(t_mlx *mlx, int i, int y)
 				mlx->rc.sprtexy = ((mlx->rc.d *
 				mlx->rc.tex_height) / mlx->rc.spriteheight) / 256;
 				if (mlx->rc.sprite[i].tex.addr[4 * (mlx->rc.sprtexx + 64 * mlx->rc.sprtexy)] != (char)0)
-					ft_memcpy(mlx->rc.sprite[i].tex.addr + 4 * mlx->win_width * y + mlx->rc.stripe * 4,
+					ft_memcpy(mlx->image.addr + 4 * mlx->win_width * y + mlx->rc.stripe * 4,
 						&mlx->rc.sprite[i].tex.addr[mlx->rc.sprtexy % mlx->rc.tex_height *
 						mlx->rc.sprite[i].tex.linesize + mlx->rc.sprtexx % mlx->rc.tex_width
 						* mlx->rc.sprite[i].tex.bpp / 8], sizeof(int));

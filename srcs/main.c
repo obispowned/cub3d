@@ -29,14 +29,6 @@ int main(int argc, char **argv)
 	load_textures(&mlx, &config);
 	mlx_hook(mlx.win, 2, 1L << 0, &key_press, &mlx); //pulsar
 	mlx_hook(mlx.win, 3, 1L << 1, &key_release, &mlx); //soltar
-	/*if (config.save == 1) //si hay --save
-	{
-		mlx_loop_hook(mlx.ptr, &screenshot_1, &mlx.rc);
-	}
-	else
-	{
-		mlx_loop_hook(mlx.ptr, &raycast_1, &mlx);
-	}*/
 	mlx_loop_hook(mlx.ptr, &raycasting, &mlx);
 	mlx_hook(mlx.win, 17, 1L << 17, exit_game, &mlx); //cerramos ventana al dar a la "equis"
 	mlx_loop(mlx.ptr);

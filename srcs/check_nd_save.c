@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 08:32:54 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/03 12:20:14 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/14 13:41:12 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ t_config	check_ceil_floor(char *line, t_config config)
 		splitter[2] = give_me_digit_without_spaces(splitter[2]);
 	if ((splitter[3]) || (ft_isdigit(splitter[0]) != 1) ||
 	(ft_isdigit(splitter[1]) != 1) || (ft_isdigit(splitter[2]) != 1))
-		print_error("Formato de ceil/floor incorrecto.");
+		print_error("Formato de ceil/floor incorrecto. Elimine espacios y caracteres raros");
 	check_ceil_floor2(conmut, splitter, &config);
 	while (line[config.i])
 		config.i++;
