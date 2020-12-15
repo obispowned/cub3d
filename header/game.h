@@ -197,6 +197,7 @@ void	save_sprites_position(t_mlx *mlx);
 void	sprite_casting(t_mlx *mlx);
 void	sprite_casting2(t_mlx *mlx);
 void	sprite_drawing(t_mlx *mlx, int i, int y);
+void	sprite_order(t_mlx *mlx);
 
 /* SCREENSHOOT BMP*/
 int				save_bmp(t_mlx *mlx);

@@ -4,6 +4,7 @@
 
 void	sprite_drawing(t_mlx *mlx, int i, int y)
 {
+	sprite_order(mlx);
 	mlx->rc.stripe = mlx->rc.drawstartx;
 	while (mlx->rc.stripe < mlx->rc.drawendx)
 	{
@@ -27,6 +28,35 @@ void	sprite_drawing(t_mlx *mlx, int i, int y)
 			}
 		mlx->rc.stripe++;
 	}
+}
+
+void			sprite_order(t_mlx *mlx)
+{
+    int			i;
+    int			j;
+    t_sprite	tmp;
+    i = 0;
+    while(i < mlx->rc.sprites_count){
+            mlx->rc.sprite[i].dist = pow((mlx->rc.player_pos_x - mlx->rc.sprite[i].x), 2)
+			+ pow((mlx->rc.player_pos_y - mlx->rc.sprite[i].y), 2);
+        i++;
+    }
+    i = 0;
+    while (i < mlx->rc.sprites_count)
+    {
+        j = i + 1;
+        while (j < mlx->rc.sprites_count)
+        {
+            if (mlx->rc.sprite[i].dist < mlx->rc.sprite[j].dist)
+            {
+                tmp = mlx->rc.sprite[i];
+                mlx->rc.sprite[i] = mlx->rc.sprite[j];
+                mlx->rc.sprite[j] = tmp;
+            }
+            j++;
+        }
+        i++;
+    }
 }
 
 void	sprite_casting2(t_mlx *mlx)

@@ -6,15 +6,15 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 08:32:54 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/14 13:41:12 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/15 12:45:56 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/cub3d.h"
 
-t_config	check_R(char *line, t_config config)
+t_config		check_R(char *line, t_config config)
 {
-	char	**splitter;
+	char		**splitter;
 
 	line = change_char(line, '\t', ' ');
 	splitter = ft_split(line, ' ');
@@ -30,21 +30,7 @@ t_config	check_R(char *line, t_config config)
 	return (config);
 }
 
-char		*change_char(char *line, char a, char b)
-{
-	int		i;
-
-	i = 0;
-	while (line[i])
-	{
-		if (line[i] == a)
-			line[i] = b;
-		i++;
-	}
-	return (line);
-}
-
-t_config	check_path(char *line, t_config config)
+t_config		check_path(char *line, t_config config)
 {
 	if ((line[config.i] == 'N') && (line[config.i + 1] == 'O')
 	&& (white_spaces(line[config.i + 2])) && (!config.NO))
@@ -58,7 +44,8 @@ t_config	check_path(char *line, t_config config)
 	else if ((line[config.i] == 'E') && (line[config.i + 1] == 'A')
 	&& (white_spaces(line[config.i + 2])) && (!config.EA))
 		config.EA = give_me_a_path(line);
-	else if ((line[config.i] == 'S') && (white_spaces(line[config.i + 1])) && (!config.S))
+	else if ((line[config.i] == 'S') &&
+	(white_spaces(line[config.i + 1])) && (!config.S))
 		config.S = give_me_a_path(line);
 	else
 		print_error("Formato de texturas incorrecto.");
@@ -66,11 +53,11 @@ t_config	check_path(char *line, t_config config)
 	return (config);
 }
 
-char		*give_me_a_path(char *line)
+char			*give_me_a_path(char *line)
 {
-	char	*final;
-	int		i;
-	int		j;
+	char		*final;
+	int			i;
+	int			j;
 
 	i = 0;
 	j = 0;
@@ -92,39 +79,36 @@ char		*give_me_a_path(char *line)
 			i++;
 	}
 	final[i] = '\0';
-	if ((final[ft_strlen(final) - 1] != 'm') &&
-	(final[ft_strlen(final) - 2] != 'p') &&
-	(final[ft_strlen(final) - 3] != 'x') &&
-	(final[ft_strlen(final) - 4] != '.'))
-		print_error("Formato de texturas incorrecto. La textura debe ser una: ./ruta.xmp");
+	error_xpm(final);
 	return (final);
 }
 
-t_config	check_ceil_floor(char *line, t_config config)
+t_config		check_ceil_floor(char *line, t_config config)
 {
-	char	**splitter;
-	char	conmut;
+	char		**splitter;
+	char		conmut;
 
-	if ((line[config.i] == 'C' && config.ceil[0] != -1) || 
+	if ((line[config.i] == 'C' && config.ceil[0] != -1) ||
 	(line[config.i] == 'F' && config.floor[0] != -1))
 		print_error("Duplicados los valores de ceil/floor");
-	conmut = line[config.i]; /*para saber si lo guardaremos en config.ceil[3] o en config.floor[3]*/
-	while ((line[config.i] != '\0') && ((line[config.i] < '0') || (line[config.i] > '9')))
+	conmut = line[config.i];
+	while ((line[config.i] != '\0') && ((line[config.i] < '0')
+	|| (line[config.i] > '9')))
 		config.i++;
 	splitter = ft_split(&line[config.i], ',');
 	if (ft_isdigit(splitter[2]) != 1)
 		splitter[2] = give_me_digit_without_spaces(splitter[2]);
 	if ((splitter[3]) || (ft_isdigit(splitter[0]) != 1) ||
 	(ft_isdigit(splitter[1]) != 1) || (ft_isdigit(splitter[2]) != 1))
-		print_error("Formato de ceil/floor incorrecto. Elimine espacios y caracteres raros");
-	check_ceil_floor2(conmut, splitter, &config);
+		print_error("Formato de ceil/floor incorrecto.");
+	check_cf(conmut, splitter, &config);
 	while (line[config.i])
 		config.i++;
 	double_kill(splitter);
 	return (config);
 }
 
-void		check_ceil_floor2(char conmut, char **splitter, t_config *config)
+void			check_cf(char conmut, char **splitter, t_config *config)
 {
 	if (conmut == 'C')
 	{
@@ -141,31 +125,3 @@ void		check_ceil_floor2(char conmut, char **splitter, t_config *config)
 		config->flag += 1;
 	}
 }
-
-
-
-/*t_config check_path(char *line, t_config config)
-{
-	char **splitter;
-
-	splitter = ft_split((const char *)line, ' ');
-	if ((splitter[2]) || ((splitter[1][ft_strlen(splitter[1]) -1] != 'm') && (splitter[1][ft_strlen(splitter[1]) -2] != 'p')
-	 && (splitter[1][ft_strlen(splitter[1]) -3] != 'x')  && (splitter[1][ft_strlen(splitter[1]) -4] != '.')))
-		print_error("Formato de texturas incorrecto.");
-	if ((line[config.i] == 'N') && (line[config.i+1] == 'O') && (line[config.i+2] == ' ') && (!config.NO))
-		config.NO = ft_strdup(splitter[1]);
-	else if ((line[config.i] == 'S') && (line[config.i+1] == 'O') && (line[config.i+2] == ' ') && (!config.SO))
-		config.SO = ft_strdup(splitter[1]);
-	else if	((line[config.i] == 'W') && (line[config.i+1] == 'E') && (line[config.i+2] == ' ') && (!config.WE))
-		config.WE = ft_strdup(splitter[1]);
-	else if ((line[config.i] == 'E') && (line[config.i+1] == 'A') && (line[config.i+2] == ' ') && (!config.EA))
-		config.EA = ft_strdup(splitter[1]);
-	else if ((line[config.i] == 'S') && (line[config.i+1] == ' ') && (!config.S))
-		config.S = ft_strdup(splitter[1]);
-	else
-		print_error("Formato de texturas incorrecto.");
-	double_kill(splitter);
-	config.flag += 1;
-	return (config);
-}
-*/

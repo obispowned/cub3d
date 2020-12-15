@@ -16,6 +16,7 @@ SRCS			=	get_next_line/get_next_line.c\
 					srcs/handle_events.c\
 					srcs/load_texture.c\
 					srcs/init_params.c\
+					srcs/utils.c\
 					srcs/init_params2.c\
 					srcs/sprites.c\
 					srcs/screenshoot.c\
