@@ -11,7 +11,7 @@
 int		ft_strlen(char *str);
 char	*ft_strjoin_char(char *str, char c);
 char	*ft_strdup(char *str);
-char		*ft_strdup_sustitute_char(char *str, char now, char final, int max, int *count_sprites);
+char	*ft_strdup2(char *str, char now, char final, int max, int *count_sprites);
 void	change_tabs(char *finally, char c, int n);
 char	**ft_split(char const *s, char c);
 void	double_kill(char **str);

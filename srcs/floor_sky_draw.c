@@ -1,16 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   floor_sky_draw.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/15 13:24:14 by agutierr          #+#    #+#             */
+/*   Updated: 2020/12/15 13:25:27 by agutierr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <mlx.h>
 #include "../header/game.h"
 #include "../header/cub3d.h"
 
-void	sky_draw(t_mlx *mlx, int x)
+void		sky_draw(t_mlx *mlx, int x)
 {
-	int y;
-	int pixel;
-	int color;
+	int		y;
+	int		pixel;
+	int		color;
 
 	y = 0;
-	color = mlx->hexa_ceil;/*0x00aae4*/;
-	//mlx->rc.draw_start = 300;
+	color = mlx->hexa_ceil;
 	while (y < mlx->rc.draw_start)
 	{
 		pixel = (y * mlx->win_width + x) * 4;
@@ -31,15 +42,15 @@ void	sky_draw(t_mlx *mlx, int x)
 		y++;
 	}
 }
-void	floor_draw(t_mlx *mlx, int x)
+
+void		floor_draw(t_mlx *mlx, int x)
 {
-	int y;
-	int pixel;
-	int color;
+	int		y;
+	int		pixel;
+	int		color;
 
 	y = mlx->rc.draw_end;
-	color = mlx->hexa_floor;/*0xD7D0B7*/
-	//mlx->rc.draw_start = 300;
+	color = mlx->hexa_floor;
 	while (y < mlx->win_height)
 	{
 		pixel = (y * mlx->win_width + x) * 4;

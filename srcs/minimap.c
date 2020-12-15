@@ -56,7 +56,6 @@ void	draw_map(t_mlx *mlx)
 	y = 0;
 	color = BLACK;
 	draw_player(mlx, num);
-	//printf("mapy: %d -- mapx; %d\n", mlx->rc.map_y, mlx->rc.map_x);
 	while (x < mlx->rc.map_y)
 	{
 		while (y < mlx->rc.map_x)

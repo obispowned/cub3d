@@ -76,6 +76,7 @@ char		**read_map2(int fd, t_config *config);
 int			who_needs_a_map(char *line); //devuelve 1 si encontro caracteres de mapa '210 nswe'
 void		check_map(t_config *config, char **map); //checkeo de primeras posiciones de mapa y guardo NWSE que no se repita en el mapa
 void		valid_map(char **map); //valido que los 9 no toquen ningun 0
+void		valid_map2(char **map, int i, int j);
 void		print_map(char **map); // pintamos el mapa y ya
 char		*change_char(char *line, char a, char b); //cambiamos un char por otro
 char 		*fill_me(char c, int lenght); //rellenamos de 9
@@ -86,6 +87,6 @@ int			check_lines(char *line, char *chars);
 void		check_params(t_config config);
 void		drifting_R_PATH(char *line, t_config *config);
 int			only_this_chars(char *line, char *chars);
-void		comprobar_muros_cerca(t_config *config, char **map, int i, int j);
+void		check_wall(t_config *config, char **map, int i, int j);
 
 #endif

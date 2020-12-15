@@ -7,6 +7,7 @@ SRCS			=	get_next_line/get_next_line.c\
 					srcs/file_procesator2.c\
 					srcs/check_nd_save.c\
 					srcs/get_map_reads.c\
+					srcs/get_map_reads2.c\
 					srcs/parse.c\
 					srcs/create_and_clean.c\
 					srcs/floor_sky_draw.c\

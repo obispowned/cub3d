@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 08:33:02 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/03 12:44:20 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/15 13:39:14 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char		*ft_strdup(char *str)
 	return (finally);
 }
 
-char		*ft_strdup_sustitute_char(char *str, char now, char final, int max, int *count_sprites)
+char		*ft_strdup2(char *str, char now, char final, int max, int *count_sprites)
 {
 	char	*finally;
 	int		i;
