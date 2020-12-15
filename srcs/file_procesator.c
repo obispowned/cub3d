@@ -1,18 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   file_procesator.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/15 13:17:21 by agutierr          #+#    #+#             */
+/*   Updated: 2020/12/15 13:19:43 by agutierr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../header/cub3d.h"
 
-void	drifting_R_PATH(char *line, t_config *config)
+void			drifting_R_PATH(char *line, t_config *config)
 {
 	if ((line[config->i] == 'R') && (white_spaces(line[config->i + 1])))
 		*config = check_R(line, *config);
-	if (((line[config->i] == 'N') && (line[config->i + 1] == 'O') && (white_spaces(line[config->i + 2]))) ||
-	((line[config->i] == 'S') && (line[config->i + 1] == 'O') && (white_spaces(line[config->i + 2]))) ||
-	((line[config->i] == 'W') && (line[config->i + 1] == 'E') && (white_spaces(line[config->i + 2]))) ||
-	((line[config->i] == 'E') && (line[config->i + 1] == 'A') && (white_spaces(line[config->i + 2]))) ||
+	if (((line[config->i] == 'N') && (line[config->i + 1] == 'O')
+	&& (white_spaces(line[config->i + 2]))) ||
+	((line[config->i] == 'S') && (line[config->i + 1] == 'O') &&
+	(white_spaces(line[config->i + 2]))) ||
+	((line[config->i] == 'W') && (line[config->i + 1] == 'E') &&
+	(white_spaces(line[config->i + 2]))) ||
+	((line[config->i] == 'E') && (line[config->i + 1] == 'A') &&
+	(white_spaces(line[config->i + 2]))) ||
 	((line[config->i] == 'S') && (white_spaces(line[config->i + 1]))))
 		*config = check_path(&line[config->i], *config);
 }
 
-t_config check_file(char *line, t_config config)
+t_config		check_file(char *line, t_config config)
 {
 	config.i = 0;
 	while (line[config.i] != '\0')
@@ -39,10 +55,10 @@ t_config check_file(char *line, t_config config)
 	return (config);
 }
 
-int		check_lines(char *line, char *chars)
+int				check_lines(char *line, char *chars)
 {
-	int		i;
-	int		j;
+	int			i;
+	int			j;
 
 	i = 0;
 	j = 0;
@@ -51,7 +67,7 @@ int		check_lines(char *line, char *chars)
 		while (chars[j] != '\0')
 		{
 			if (line[i] == chars[j])
-				return(1);
+				return (1);
 			j++;
 		}
 		i++;
@@ -59,12 +75,12 @@ int		check_lines(char *line, char *chars)
 	return (0);
 }
 
-t_config	load_file(char *file, t_config config)
-{ /*le paso el archivo y la estructura y devuelve primera lectura*/
-	int		fd;
-	char	buf[2];
-	int		ret;
-	char	*line;
+t_config		load_file(char *file, t_config config)
+{
+	int			fd;
+	char		buf[2];
+	int			ret;
+	char		*line;
 
 	buf[1] = '\0';
 	fd = open(file, O_RDONLY);
@@ -88,21 +104,7 @@ t_config	load_file(char *file, t_config config)
 	return (config);
 }
 
-void	check_params(t_config config)
-{
-	if (config.flag != 8)	/*si no hay 8 valores guardados en la struct*/
-		print_error("Faltan datos en el archivo .cub");
-	if ((config.ceil[0] < 0 || config.ceil[0] > 255) ||
-	(config.ceil[1] < 0 || config.ceil[1] > 255) ||
-	(config.ceil[2] < 0 || config.ceil[2] > 255) ||
-	(config.floor[0] < 0 || config.floor[0] > 255) ||
-	(config.floor[1] < 0 || config.floor[1] > 255) ||
-	(config.floor[2] < 0 || config.floor[2] > 255))
-		print_error("Los valores de ceil/floor deben ser entre 0 y 255.");
-
-}
-
-t_config		file_procesator(char *file, int argc) /*le pasamos el archivo y devuelve la estructura rellenada*/
+t_config		file_procesator(char *file, int argc)
 {
 	t_config	config;
 
@@ -115,16 +117,4 @@ t_config		file_procesator(char *file, int argc) /*le pasamos el archivo y devuel
 	if (config.player_begin[0] == 0 && config.player_begin[1] == 0)
 		print_error("Este mapa no puede ser usado sin un jugador");
 	return (config);
-}
-
-void	check_arg(char *argum)
-{
-	int i;
-
-	i = 0;
-	if (!((ft_strlen(argum) == 6) && (argum[0] == '-')
-	 && (argum[1] == '-') && (argum[2] == 's')
-	  && (argum[3] == 'a') && (argum[4] == 'v')
-	   && (argum[5] == 'e')))
-		print_error("El tercer argumento debe ser '--save'");
 }

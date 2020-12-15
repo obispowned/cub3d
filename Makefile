@@ -4,6 +4,7 @@ NAME			= 	cub3D
 SRCS			=	get_next_line/get_next_line.c\
 					srcs/main.c\
 					srcs/file_procesator.c\
+					srcs/file_procesator2.c\
 					srcs/check_nd_save.c\
 					srcs/get_map_reads.c\
 					srcs/parse.c\
