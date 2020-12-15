@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_params2.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/15 14:35:10 by agutierr          #+#    #+#             */
+/*   Updated: 2020/12/15 14:35:13 by agutierr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <mlx.h>
 #include "../header/game.h"
 #include "../header/cub3d.h"
-
 
 void		reset_mlx(t_mlx *mlx, t_config config)
 {
@@ -11,13 +22,3 @@ void		reset_mlx(t_mlx *mlx, t_config config)
 	mlx->win_width = config.width;
 	mlx->finalMap = config.mapa.worldMap;
 }
-
-
-void		init_position_N()
-{}
-void		init_position_S()
-{}
-void		init_position_E()
-{}
-void		init_position_W()
-{}

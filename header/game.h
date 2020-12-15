@@ -155,8 +155,8 @@ typedef	struct		s_mlx
 }					t_mlx;
 
 /* INICIALIZACION */
-void		init_raycast_params3(t_mlx *mlx, t_config *config);
-void		init_raycast_params2(t_mlx *mlx, t_config *config);
+void		init_raycast_params3(t_config *config, t_mlx *mlx);
+void		init_raycast_params2(t_config *config, t_mlx *mlx);
 void		init_raycast_params(t_mlx *mlx, t_config *config);
 void		init_player(t_mlx *mlx, t_config *config);
 
