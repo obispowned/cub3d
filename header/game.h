@@ -53,19 +53,6 @@ typedef struct		s_sprite
 	double			x;		//coordenada x del sprite
 	double			y; 		//coordenada y del sprite
 	double			dist;	//distancia al sprite	
-	double			sprite_x;
-	double			sprite_y;
-	double			invdet;
-	double			transform_x;
-	double			transform_y;
-	int				screen;
-	int				height;
-	int				width;
-	int				drawstart_x;
-	int				drawstart_y;
-	int				drawend_x;
-	int				drawend_y;
-	int				stripe;
 	t_img			tex;
 }					t_sprite;
 

@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 14:45:54 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/15 14:51:34 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/16 13:28:45 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void		init_raycast_params(t_mlx *mlx, t_config *config)
 	mlx->rc.left = 0;
 	mlx->rc.savebpm = config->save;
 	mlx->rc.sprites_count = config->numsprites;
-	mlx->rc.sprite = malloc(sizeof(t_sprite) * config->numsprites);
+	mlx->rc.sprite = calloc(sizeof(t_sprite) * config->numsprites, 1);
 	mlx->rc.spr_buffer = (double *)malloc(sizeof(double) * mlx->win_width);
 	init_raycast_params2(config, mlx);
 	init_raycast_params3(config, mlx);
@@ -59,27 +59,27 @@ void		init_raycast_params2(t_config *config, t_mlx *mlx)
 	}
 	else if (config->player_pos_begin == 'S')
 	{
-		mlx->rc.player_plane_x = 1;
-		mlx->rc.player_plane_y = 0;
-		mlx->rc.dirx = 0;
-		mlx->rc.diry = -0.66;
+		mlx->rc.dirx = 1;
+		mlx->rc.diry = 0;
+		mlx->rc.player_plane_x = 0;
+		mlx->rc.player_plane_y = -0.66;
 	}
 }
 
-void		init_raycast_params2(t_config *config, t_mlx *mlx)
+void		init_raycast_params3(t_config *config, t_mlx *mlx)
 {
 	if (config->player_pos_begin == 'E')
 	{
-		mlx->rc.player_plane_x = 0;
-		mlx->rc.player_plane_y = 1;
-		mlx->rc.dirx = 0.66;
-		mlx->rc.diry = 0;
+		mlx->rc.dirx = 0;
+		mlx->rc.diry = 1;
+		mlx->rc.player_plane_x = 0.66;
+		mlx->rc.player_plane_y = 0;
 	}
 	else if (config->player_pos_begin == 'W')
 	{
-		mlx->rc.player_plane_x = 0;
-		mlx->rc.player_plane_y = -1;
-		mlx->rc.dirx = -0.66;
-		mlx->rc.diry = 0;
+		mlx->rc.dirx = 0;
+		mlx->rc.diry = -1;
+		mlx->rc.player_plane_x = -0.66;
+		mlx->rc.player_plane_y = 0;
 	}
 }

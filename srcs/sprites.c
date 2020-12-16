@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 13:08:31 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/15 14:08:08 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/16 14:54:49 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,11 @@ void			sprite_order(t_mlx *mlx)
 	i = 0;
 	while (i < mlx->rc.sprites_count)
 	{
-		j = i + 1;\
+		j = i + 1;
 		while (j < mlx->rc.sprites_count)
 		{
-			if (mlx->rc.sprite[i].dist < mlx->rc.sprite[j].dist)
-			{
+			if (mlx->rc.sprite[i].dist < mlx->rc.sprite[j].dist && (i != 0))
+			{/********/
 				tmp = mlx->rc.sprite[i];
 				mlx->rc.sprite[i] = mlx->rc.sprite[j];
 				mlx->rc.sprite[j] = tmp;
