@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 13:17:21 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/17 11:22:51 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/17 13:46:39 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,14 +85,14 @@ t_config		load_file(char *file, t_config config)
 	buf[1] = '\0';
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-		print_error("Fallo al intentar abrir el archivo.");
+		print_err("Fallo al intentar abrir el archivo.");
 	while (((ret = get_next_line(fd, &line)) > 0))
 	{
 		if (((check_lines(line, " NSR\tECFW") == 0 && line[0] != '\0')
 		&& (who_needs_a_map(line, "102 NSWE\t", 0, 0) == 0)))
-			print_error("Elimine los caracteres sobrantes.");
+			print_err("Elimine los caracteres sobrantes.");
 		if (who_needs_a_map(line, "102 NSWE\t", 0, 0) == 1 && config.flag != 8)
-			print_error("Debe declarar los parametros delante del mapa");
+			print_err("Declare correctamente los parametros delante del mapa");
 		config.i = 0;
 		config = check_file(line, config);
 		kill(line);
@@ -115,6 +115,6 @@ t_config		file_procesator(char *file, int argc)
 	config = load_file(file, config);
 	config.mapa = read_map(file, &config);
 	if (config.player_begin[0] == 0 && config.player_begin[1] == 0)
-		print_error("Este mapa no puede ser usado sin un jugador");
+		print_err("Este mapa no puede ser usado sin un jugador");
 	return (config);
 }

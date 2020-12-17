@@ -6,15 +6,15 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 11:38:28 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/17 11:43:27 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/17 13:47:21 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/utils.h"
 
-void			print_error(char *str)
+void			print_err(char *str)
 {
-	ft_putchar("ERROR:\n");
+	ft_putchar("ERROR\n");
 	ft_putchar(str);
 	exit(-1);
 }

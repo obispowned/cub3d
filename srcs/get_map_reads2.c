@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 13:29:06 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/17 11:30:54 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/17 13:46:59 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int				who_needs_a_map2(int tab, int coincide)
 	if (coincide == 1)
 	{
 		if (tab == 1)
-			print_error("No tabs en el mapa");
+			print_err("No tabs en el mapa");
 		return (1);
 	}
 	else
@@ -88,7 +88,7 @@ void			valid_map(char **map)
 			(((map[i - 1][j] != '1') && (map[i - 1][j] != '9')) ||
 			((map[i + 1][j] != '1') && (map[i + 1][j] != '9')) ||
 			((map[i][j - 1] != '1') && (map[i][j - 1] != '9'))))
-			print_error("Mapa abierto\n");
+			print_err("Mapa abierto\n");
 		i++;
 	}
 }
@@ -98,16 +98,16 @@ void			valid_map2(char **map, int i, int j)
 	if ((map[0][j] != '9' && map[0][j] != '1') ||
 	(map[i][0] != '9' && map[i][0] != '1') ||
 	(map[0][0] != '9' && map[0][0] != '1'))
-		print_error("Mapa abierto en primeras lineas\n");
+		print_err("Mapa abierto en primeras lineas\n");
 	if ((map[0][j] == '9') &&
 	(((map[1][j] != '1') && (map[1][j] != '9')) ||
 	((map[0][j + 1] != '1') && (map[0][j + 1] != '9')) ||
 	((map[0][j - 1] != '1') && (map[0][j - 1] != '9'))))
-		print_error("Mapa abierto\n");
+		print_err("Mapa abierto\n");
 	else if ((map[i][j] == '9') &&
 	(((map[i - 1][j] != '1') && (map[i - 1][j] != '9')) ||
 	((map[i + 1][j] != '1') && (map[i + 1][j] != '9')) ||
 	((map[i][j + 1] != '1') && (map[i][j + 1] != '9')) ||
 	((map[i][j - 1] != '1') && (map[i][j - 1] != '9'))))
-		print_error("Mapa abierto\n");
+		print_err("Mapa abierto\n");
 }

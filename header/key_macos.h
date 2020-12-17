@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   key_macos.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/17 12:02:07 by agutierr          #+#    #+#             */
+/*   Updated: 2020/12/17 12:02:21 by agutierr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef KEY_MACOS_H
 # define KEY_MACOS_H
 
-/** Keyboard LETTERS **/
 # define KEY_A 0
 # define KEY_B 11
 # define KEY_C 8
@@ -28,14 +39,10 @@
 # define KEY_X 7
 # define KEY_Y 16
 # define KEY_Z 6
-
-/** Keyboard ARROWS **/
 # define KEY_LEFT 123
 # define KEY_RIGHT 124
 # define KEY_UP 126
 # define KEY_DOWN 125
-
-/** Keyboard NUMPAD **/
 # define KEY_NP_DIV 75
 # define KEY_NP_MUL 67
 # define KEY_NP_MIN 78
@@ -49,15 +56,11 @@
 # define KEY_NP_7	89
 # define KEY_NP_8	91
 # define KEY_NP_9	92
-
-/** Keyboard MISC **/
 # define KEY_SP 49
 # define KEY_ESC 53
 # define KEY_TAB 48
 # define KEY_SHIFT_L 257
 # define KEY_CTRL 256
-
-/** Mouse **/
 # define KEY_M_CK_LL 1
 # define KEY_M_CK_LR 3
 # define KEY_M_CK_LM 2

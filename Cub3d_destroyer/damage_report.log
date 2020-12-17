@@ -1,4 +1,4 @@
-Sat Dec 12 14:33:13 CET 2020
+Thu Dec 17 13:13:47 CET 2020
 
 
 =============== CUB3D DESTROYER - DAMAGE REPORT ===============
@@ -60,8 +60,8 @@ F
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF # 3]=====================
 ./invalid_maps/invalid_RGB_002.cub
@@ -89,8 +89,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF # 4]=====================
 ./invalid_maps/invalid_RGB_003.cub
@@ -118,8 +118,8 @@ C 255,200,160
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF # 5]=====================
 ./invalid_maps/invalid_RGB_004.cub
@@ -147,8 +147,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-[139] Segmentation fault
+ERROR
+Debe declarar los parametros delante del mapa[139] Segmentation fault
 
 
 =====================[DESTROYED STUFF # 6]=====================
@@ -264,8 +264,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de ceil/floor incorrecto.
-
+ERROR
+Formato de ceil/floor incorrecto.
 
 =====================[DESTROYED STUFF #10]=====================
 ./invalid_maps/invalid_RGB_009.cub
@@ -293,8 +293,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de ceil/floor incorrecto.
-
+ERROR
+Formato de ceil/floor incorrecto.
 
 =====================[DESTROYED STUFF #11]=====================
 ./invalid_maps/invalid_RGB_010.cub
@@ -322,8 +322,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de ceil/floor incorrecto.
-
+ERROR
+Formato de ceil/floor incorrecto.
 
 =====================[DESTROYED STUFF #12]=====================
 ./invalid_maps/invalid_RGB_011.cub
@@ -351,23 +351,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 1080, height 720
+ERROR
+Textura NO no existewidth 1080, height 720
 path  NO: ./wolftex/greystone.png
 path  SO: ./wolftex/redbrick.png
 path  WE: ./wolftex/wood.png
@@ -382,11 +367,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #13]=====================
@@ -415,8 +395,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de ceil/floor incorrecto.
-
+ERROR
+Formato de ceil/floor incorrecto.
 
 =====================[DESTROYED STUFF #14]=====================
 ./invalid_maps/invalid_RGB_013.cub
@@ -444,8 +424,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de ceil/floor incorrecto.
-
+ERROR
+Formato de ceil/floor incorrecto.
 
 =====================[DESTROYED STUFF #15]=====================
 ./invalid_maps/invalid_RGB_014.cub
@@ -473,23 +453,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 1080, height 720
+ERROR
+Textura NO no existewidth 1080, height 720
 path  NO: ./wolftex/greystone.png
 path  SO: ./wolftex/redbrick.png
 path  WE: ./wolftex/wood.png
@@ -504,11 +469,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #16]=====================
@@ -537,8 +497,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Los valores de ceil/floor deben ser entre 0 y 255.
-
+ERROR
+Los valores de ceil/floor deben ser entre 0 y 255.
 
 =====================[DESTROYED STUFF #17]=====================
 ./invalid_maps/invalid_RGB_016.cub
@@ -566,8 +526,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Los valores de ceil/floor deben ser entre 0 y 255.
-
+ERROR
+Los valores de ceil/floor deben ser entre 0 y 255.
 
 =====================[DESTROYED STUFF #18]=====================
 ./invalid_maps/invalid_RGB_017.cub
@@ -595,8 +555,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Los valores de ceil/floor deben ser entre 0 y 255.
-
+ERROR
+Los valores de ceil/floor deben ser entre 0 y 255.
 
 =====================[DESTROYED STUFF #19]=====================
 ./invalid_maps/invalid_RGB_018.cub
@@ -624,23 +584,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 1080, height 720
+ERROR
+Textura NO no existewidth 1080, height 720
 path  NO: ./wolftex/greystone.png
 path  SO: ./wolftex/redbrick.png
 path  WE: ./wolftex/wood.png
@@ -655,11 +600,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #20]=====================
@@ -688,23 +628,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 1080, height 720
+ERROR
+Textura NO no existewidth 1080, height 720
 path  NO: ./wolftex/greystone.png
 path  SO: ./wolftex/redbrick.png
 path  WE: ./wolftex/wood.png
@@ -719,11 +644,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 [139] Segmentation fault
 
 
@@ -781,23 +701,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 1080, height 720
+ERROR
+Textura NO no existewidth 1080, height 720
 path  NO: ./wolftex/greystone.png
 path  SO: ./wolftex/redbrick.png
 path  WE: ./wolftex/wood.png
@@ -812,11 +717,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #23]=====================
@@ -845,23 +745,8 @@ F 122,122,122,
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 1080, height 720
+ERROR
+Textura NO no existewidth 1080, height 720
 path  NO: ./wolftex/greystone.png
 path  SO: ./wolftex/redbrick.png
 path  WE: ./wolftex/wood.png
@@ -876,11 +761,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #24]=====================
@@ -909,8 +789,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Elimine los caracteres sobrantes.
-
+ERROR
+Elimine los caracteres sobrantes.
 
 =====================[DESTROYED STUFF #25]=====================
 ./invalid_maps/invalid_RGB_024.cub
@@ -938,8 +818,8 @@ f 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Elimine los caracteres sobrantes.
-
+ERROR
+Elimine los caracteres sobrantes.
 
 =====================[DESTROYED STUFF #26]=====================
 ./invalid_maps/invalid_RGB_025.cub
@@ -967,8 +847,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Duplicados los valores de ceil/floor
-
+ERROR
+Duplicados los valores de ceil/floor
 
 =====================[DESTROYED STUFF #27]=====================
 ./invalid_maps/invalid_RGB_026.cub
@@ -996,23 +876,8 @@ CF 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 1080, height 720
+ERROR
+Textura NO no existewidth 1080, height 720
 path  NO: ./wolftex/greystone.png
 path  SO: ./wolftex/redbrick.png
 path  WE: ./wolftex/wood.png
@@ -1027,11 +892,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #28]=====================
@@ -1060,23 +920,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 1080, height 720
+ERROR
+Textura NO no existewidth 1080, height 720
 path  NO: ./wolftex/greystone.png
 path  SO: ./wolftex/redbrick.png
 path  WE: ./wolftex/wood.png
@@ -1091,11 +936,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #29]=====================
@@ -1124,8 +964,8 @@ F 122,122,122, 200
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de ceil/floor incorrecto.
-[139] Segmentation fault
+ERROR
+Formato de ceil/floor incorrecto.[139] Segmentation fault
 
 
 =====================[DESTROYED STUFF #30]=====================
@@ -1211,23 +1051,8 @@ F 122,122,,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 1080, height 720
+ERROR
+Textura NO no existewidth 1080, height 720
 path  NO: ./wolftex/greystone.png
 path  SO: ./wolftex/redbrick.png
 path  WE: ./wolftex/wood.png
@@ -1242,11 +1067,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #33]=====================
@@ -1275,23 +1095,8 @@ F 122,,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 1080, height 720
+ERROR
+Textura NO no existewidth 1080, height 720
 path  NO: ./wolftex/greystone.png
 path  SO: ./wolftex/redbrick.png
 path  WE: ./wolftex/wood.png
@@ -1306,11 +1111,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #34]=====================
@@ -1339,23 +1139,8 @@ F ,122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 1080, height 720
+ERROR
+Textura NO no existewidth 1080, height 720
 path  NO: ./wolftex/greystone.png
 path  SO: ./wolftex/redbrick.png
 path  WE: ./wolftex/wood.png
@@ -1370,11 +1155,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #35]=====================
@@ -1402,8 +1182,8 @@ F 122,122,122 C 200,200,200
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de ceil/floor incorrecto.
-
+ERROR
+Formato de ceil/floor incorrecto.
 
 =====================[DESTROYED STUFF #36]=====================
 ./invalid_maps/invalid_RGB_035.cub
@@ -1430,8 +1210,8 @@ C 255,200,200 F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de ceil/floor incorrecto.
-
+ERROR
+Formato de ceil/floor incorrecto.
 
 =====================[DESTROYED STUFF #37]=====================
 ./invalid_maps/invalid_RGB_036.cub
@@ -1459,8 +1239,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de ceil/floor incorrecto.
-
+ERROR
+Formato de ceil/floor incorrecto.
 
 =====================[DESTROYED STUFF #38]=====================
 ./invalid_maps/invalid_RGB_037.cub
@@ -1487,8 +1267,8 @@ S ./wolftex/barrel.png
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #39]=====================
 ./invalid_maps/invalid_RGB_038.cub
@@ -1517,8 +1297,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Duplicados los valores de ceil/floor
-
+ERROR
+Duplicados los valores de ceil/floor
 
 =====================[DESTROYED STUFF #40]=====================
 ./invalid_maps/invalid_RGB_039.cub
@@ -1547,8 +1327,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Duplicados los valores de ceil/floor
-[139] Segmentation fault
+ERROR
+Duplicados los valores de ceil/floor[139] Segmentation fault
 
 
 =====================[DESTROYED STUFF #41]=====================
@@ -1604,8 +1384,8 @@ C 255,200,200
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #43]=====================
 ./invalid_maps/invalid_RGB_042.cub
@@ -1632,8 +1412,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #44]=====================
 ./invalid_maps/invalid_map_area_000.cub
@@ -1661,9 +1441,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-ERROR: Mapa abierto en primeras lineas
-
+ERROR
+Mapa abierto en primeras lineas
 
 
 =====================[DESTROYED STUFF #45]=====================
@@ -1692,9 +1471,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-ERROR: Mapa abierto en primeras lineas
-
+ERROR
+Mapa abierto en primeras lineas
 
 
 =====================[DESTROYED STUFF #46]=====================
@@ -1723,10 +1501,8 @@ F 122,122,122
 11111111111111110
 
 PARSER OUTPUT:
-8,6
-Coordenadas: 12-17 
-ERROR: Mapa abierto
-
+ERROR
+Mapa abierto
 
 
 =====================[DESTROYED STUFF #47]=====================
@@ -1755,9 +1531,8 @@ F 122,122,122
 01111111111111111
 
 PARSER OUTPUT:
-8,5
-ERROR: Mapa abierto en primeras lineas
-
+ERROR
+Mapa abierto en primeras lineas
 
 
 =====================[DESTROYED STUFF #48]=====================
@@ -1786,9 +1561,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,5
-ERROR: Mapa abierto en primeras lineas
-
+ERROR
+Mapa abierto en primeras lineas
 
 
 =====================[DESTROYED STUFF #49]=====================
@@ -1817,21 +1591,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-ERROR: Este mapa no puede ser usado sin un jugador
+ERROR
+Este mapa no puede ser usado sin un jugador[139] Segmentation fault
 
 
 =====================[DESTROYED STUFF #50]=====================
@@ -1860,9 +1621,6 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,0
-ERROR: Mapa abierto en primeras lineas
-
 
 
 =====================[DESTROYED STUFF #51]=====================
@@ -1892,23 +1650,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,1
-| El mapa es VALIDO |
-00000000100000000
-11111111011111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-
-width 1080, height 720
+ERROR
+Textura NO no existewidth 1080, height 720
 path  NO: ./wolftex/greystone.png
 path  SO: ./wolftex/redbrick.png
 path  WE: ./wolftex/wood.png
@@ -1923,11 +1666,6 @@ Coordenadas de cominezo: | 8-1 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:1
-Posicion Inicial: x:1.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #52]=====================
@@ -1956,23 +1694,8 @@ F 122,122,122
 1111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111110
-
-width 1080, height 720
+ERROR
+Textura NO no existewidth 1080, height 720
 path  NO: ./wolftex/greystone.png
 path  SO: ./wolftex/redbrick.png
 path  WE: ./wolftex/wood.png
@@ -1987,11 +1710,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #53]=====================
@@ -2020,23 +1738,8 @@ F 122,122,122
  1111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-01111111111111111
-
-width 1080, height 720
+ERROR
+Textura NO no existewidth 1080, height 720
 path  NO: ./wolftex/greystone.png
 path  SO: ./wolftex/redbrick.png
 path  WE: ./wolftex/wood.png
@@ -2051,11 +1754,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #54]=====================
@@ -2084,23 +1782,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-01111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 1080, height 720
+ERROR
+Textura NO no existewidth 1080, height 720
 path  NO: ./wolftex/greystone.png
 path  SO: ./wolftex/redbrick.png
 path  WE: ./wolftex/wood.png
@@ -2115,11 +1798,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #55]=====================
@@ -2148,23 +1826,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111110
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 1080, height 720
+ERROR
+Textura NO no existewidth 1080, height 720
 path  NO: ./wolftex/greystone.png
 path  SO: ./wolftex/redbrick.png
 path  WE: ./wolftex/wood.png
@@ -2179,11 +1842,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #56]=====================
@@ -2201,11 +1859,8 @@ F 122,122,122
 11
 
 PARSER OUTPUT:
-| El mapa es VALIDO |
-11
-11
-ERROR: Este mapa no puede ser usado sin un jugador
-
+ERROR
+Este mapa no puede ser usado sin un jugador
 
 =====================[DESTROYED STUFF #57]=====================
 ./invalid_maps/invalid_map_area_013.cub
@@ -2223,12 +1878,8 @@ F 122,122,122
 111
 
 PARSER OUTPUT:
-| El mapa es VALIDO |
-111
-101
-111
-ERROR: Este mapa no puede ser usado sin un jugador
-
+ERROR
+Este mapa no puede ser usado sin un jugador
 
 =====================[DESTROYED STUFF #58]=====================
 ./invalid_maps/invalid_map_area_014.cub
@@ -2246,12 +1897,8 @@ F 122,122,122
 111
 
 PARSER OUTPUT:
-| El mapa es VALIDO |
-111
-121
-111
-ERROR: Este mapa no puede ser usado sin un jugador
-
+ERROR
+Este mapa no puede ser usado sin un jugador
 
 =====================[DESTROYED STUFF #59]=====================
 ./invalid_maps/invalid_map_area_015.cub
@@ -2266,9 +1913,8 @@ F 122,122,122
 
 
 PARSER OUTPUT:
-| El mapa es VALIDO |
-ERROR: Este mapa no puede ser usado sin un jugador
-
+ERROR
+Este mapa no puede ser usado sin un jugador
 
 =====================[DESTROYED STUFF #60]=====================
 ./invalid_maps/invalid_map_area_016.cub
@@ -2284,9 +1930,8 @@ F 122,122,122
 1
 
 PARSER OUTPUT:
-| El mapa es VALIDO |
-ERROR: Este mapa no puede ser usado sin un jugador
-
+ERROR
+Este mapa no puede ser usado sin un jugador
 
 =====================[DESTROYED STUFF #61]=====================
 ./invalid_maps/invalid_map_area_017.cub
@@ -2302,9 +1947,8 @@ F 122,122,122
 0
 
 PARSER OUTPUT:
-| El mapa es VALIDO |
-ERROR: Este mapa no puede ser usado sin un jugador
-[139] Segmentation fault
+ERROR
+Este mapa no puede ser usado sin un jugador[139] Segmentation fault
 
 
 =====================[DESTROYED STUFF #62]=====================
@@ -2333,7 +1977,6 @@ N1111111111111111
 11111111111111111
 
 PARSER OUTPUT:
-[139] Segmentation fault
 
 
 =====================[DESTROYED STUFF #63]=====================
@@ -2362,6 +2005,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
+ERROR
+Mapa abierto en primeras lineas
 
 
 =====================[DESTROYED STUFF #64]=====================
@@ -2390,9 +2035,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-ERROR: Mapa abierto en primeras lineas
-
+ERROR
+Mapa abierto en primeras lineas
 
 
 =====================[DESTROYED STUFF #65]=====================
@@ -2421,10 +2065,8 @@ F 122,122,122
 11111111111111112
 
 PARSER OUTPUT:
-8,6
-Coordenadas: 12-17 
-ERROR: Mapa abierto
-
+ERROR
+Mapa abierto
 
 
 =====================[DESTROYED STUFF #66]=====================
@@ -2453,9 +2095,8 @@ F 122,122,122
 21111111111111111
 
 PARSER OUTPUT:
-8,6
-ERROR: Mapa abierto en primeras lineas
-
+ERROR
+Mapa abierto en primeras lineas
 
 
 =====================[DESTROYED STUFF #67]=====================
@@ -2484,9 +2125,8 @@ F 122,122,122
 11111111111111112
 
 PARSER OUTPUT:
-8,6
-ERROR: Mapa abierto en primeras lineas
-
+ERROR
+Mapa abierto en primeras lineas
 
 
 =====================[DESTROYED STUFF #68]=====================
@@ -2515,23 +2155,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111000000
-10000000000000001000000
-10200000200000201000000
-10000000000000001000000
-10002000200020001000011
-10000000000000001111101
-10202020002020200000001
-10000000000000001111101
-10002000200200001000111
-10000000000000001000000
-10200000200002001000000
-10000000000000001000000
-11111111111111111000000
-
-width 1080, height 720
+ERROR
+Textura NO no existewidth 1080, height 720
 path  NO: ./wolftex/greystone.png
 path  SO: ./wolftex/redbrick.png
 path  WE: ./wolftex/wood.png
@@ -2546,11 +2171,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #69]=====================
@@ -2579,23 +2199,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-21,6
-| El mapa es VALIDO |
-11111111111111111000000
-10000000000000001000000
-10200000200000201000000
-10000000000000001000000
-10002000200020001000000
-10000000000000001000110
-10202020002020201000101
-10000000000000001000111
-10002000200200001000000
-10000000000000001000000
-10200000200002001000000
-10000000000000001000000
-11111111111111111000000
-
-width 1080, height 720
+ERROR
+Textura NO no existewidth 1080, height 720
 path  NO: ./wolftex/greystone.png
 path  SO: ./wolftex/redbrick.png
 path  WE: ./wolftex/wood.png
@@ -2610,11 +2215,6 @@ Coordenadas de cominezo: | 21-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:21 - y:6
-Posicion Inicial: x:6.500000 - y:21.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #70]=====================
@@ -2643,9 +2243,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,5
-ERROR: Ya existe otra posicion para el jugador
-
+ERROR
+Ya existe otra posicion para el jugador
 
 =====================[DESTROYED STUFF #71]=====================
 ./invalid_maps/invalid_map_area_027.cub
@@ -2673,9 +2272,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,5
-ERROR: Ya existe otra posicion para el jugador
-
+ERROR
+Ya existe otra posicion para el jugador
 
 =====================[DESTROYED STUFF #72]=====================
 ./invalid_maps/invalid_res_000.cub
@@ -2703,8 +2301,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de Resolucion incorrecto.
-
+ERROR
+Formato de Resolucion incorrecto.
 
 =====================[DESTROYED STUFF #73]=====================
 ./invalid_maps/invalid_res_001.cub
@@ -2732,8 +2330,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de Resolucion incorrecto.
-
+ERROR
+Formato de Resolucion incorrecto.
 
 =====================[DESTROYED STUFF #74]=====================
 ./invalid_maps/invalid_res_002.cub
@@ -2761,8 +2359,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de Resolucion incorrecto.
-
+ERROR
+Formato de Resolucion incorrecto.
 
 =====================[DESTROYED STUFF #75]=====================
 ./invalid_maps/invalid_res_003.cub
@@ -2790,8 +2388,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de Resolucion incorrecto.
-
+ERROR
+Formato de Resolucion incorrecto.
 
 =====================[DESTROYED STUFF #76]=====================
 ./invalid_maps/invalid_res_004.cub
@@ -2819,8 +2417,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de Resolucion incorrecto.
-
+ERROR
+Formato de Resolucion incorrecto.
 
 =====================[DESTROYED STUFF #77]=====================
 ./invalid_maps/invalid_res_005.cub
@@ -2848,8 +2446,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de Resolucion incorrecto.
-
+ERROR
+Formato de Resolucion incorrecto.
 
 =====================[DESTROYED STUFF #78]=====================
 ./invalid_maps/invalid_res_006.cub
@@ -2877,8 +2475,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de Resolucion incorrecto.
-
+ERROR
+Formato de Resolucion incorrecto.
 
 =====================[DESTROYED STUFF #79]=====================
 ./invalid_maps/invalid_res_007.cub
@@ -2906,8 +2504,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de Resolucion incorrecto.
-
+ERROR
+Formato de Resolucion incorrecto.
 
 =====================[DESTROYED STUFF #80]=====================
 ./invalid_maps/invalid_res_008.cub
@@ -2935,8 +2533,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de Resolucion incorrecto.
-
+ERROR
+Formato de Resolucion incorrecto.
 
 =====================[DESTROYED STUFF #81]=====================
 ./invalid_maps/invalid_res_009.cub
@@ -2964,8 +2562,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de Resolucion incorrecto.
-
+ERROR
+Formato de Resolucion incorrecto.
 
 =====================[DESTROYED STUFF #82]=====================
 ./invalid_maps/invalid_res_010.cub
@@ -2993,8 +2591,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Elimine los caracteres sobrantes.
-
+ERROR
+Elimine los caracteres sobrantes.
 
 =====================[DESTROYED STUFF #83]=====================
 ./invalid_maps/invalid_res_011.cub
@@ -3022,8 +2620,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de Resolucion incorrecto.
-
+ERROR
+Formato de Resolucion incorrecto.
 
 =====================[DESTROYED STUFF #84]=====================
 ./invalid_maps/invalid_res_012.cub
@@ -3051,8 +2649,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #85]=====================
 ./invalid_maps/invalid_res_013.cub
@@ -3080,8 +2678,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #86]=====================
 ./invalid_maps/invalid_res_014.cub
@@ -3109,23 +2707,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 0, height 0
+ERROR
+Textura NO no existewidth 0, height 0
 path  NO: ./wolftex/greystone.png
 path  SO: ./wolftex/redbrick.png
 path  WE: ./wolftex/wood.png
@@ -3140,11 +2723,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #87]=====================
@@ -3173,8 +2751,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto.
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #88]=====================
 ./invalid_maps/invalid_res_016.cub
@@ -3202,23 +2780,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 200, height 720
+ERROR
+Textura NO no existewidth 200, height 720
 path  NO: ./wolftex/greystone.png
 path  SO: ./wolftex/redbrick.png
 path  WE: ./wolftex/wood.png
@@ -3233,11 +2796,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #89]=====================
@@ -3266,8 +2824,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #90]=====================
 ./invalid_maps/invalid_res_018.cub
@@ -3295,8 +2853,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto.
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #91]=====================
 ./invalid_maps/invalid_res_019.cub
@@ -3324,8 +2882,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #92]=====================
 ./invalid_maps/invalid_res_020.cub
@@ -3353,8 +2911,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de Resolucion incorrecto.
-
+ERROR
+Formato de Resolucion incorrecto.
 
 =====================[DESTROYED STUFF #93]=====================
 ./invalid_maps/invalid_res_021.cub
@@ -3383,8 +2941,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de Resolucion incorrecto.
-
+ERROR
+Formato de Resolucion incorrecto.
 
 =====================[DESTROYED STUFF #94]=====================
 ./invalid_maps/invalid_res_022.cub
@@ -3413,8 +2971,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de Resolucion incorrecto.
-
+ERROR
+Formato de Resolucion incorrecto.
 
 =====================[DESTROYED STUFF #95]=====================
 ./invalid_maps/invalid_res_023.cub
@@ -3442,8 +3000,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de Resolucion incorrecto.
-
+ERROR
+Formato de Resolucion incorrecto.
 
 =====================[DESTROYED STUFF #96]=====================
 ./invalid_maps/invalid_res_024.cub
@@ -3471,8 +3029,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de Resolucion incorrecto.
-
+ERROR
+Formato de Resolucion incorrecto.
 
 =====================[DESTROYED STUFF #97]=====================
 ./invalid_maps/invalid_res_025.cub
@@ -3500,8 +3058,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de Resolucion incorrecto.
-
+ERROR
+Formato de Resolucion incorrecto.
 
 =====================[DESTROYED STUFF #98]=====================
 ./invalid_maps/invalid_res_026.cub
@@ -3529,8 +3087,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de Resolucion incorrecto.
-
+ERROR
+Formato de Resolucion incorrecto.
 
 =====================[DESTROYED STUFF #99]=====================
 ./invalid_maps/invalid_res_027.cub
@@ -3558,8 +3116,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de Resolucion incorrecto.
-
+ERROR
+Formato de Resolucion incorrecto.
 
 =====================[DESTROYED STUFF #100]=====================
 ./invalid_maps/invalid_tex_EA_000.cub
@@ -3587,8 +3145,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #101]=====================
 ./invalid_maps/invalid_tex_EA_001.cub
@@ -3616,8 +3174,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Elimine los caracteres sobrantes.
-
+ERROR
+Elimine los caracteres sobrantes.
 
 =====================[DESTROYED STUFF #102]=====================
 ./invalid_maps/invalid_tex_EA_002.cub
@@ -3645,8 +3203,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #103]=====================
 ./invalid_maps/invalid_tex_EA_003.cub
@@ -3674,8 +3232,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #104]=====================
 ./invalid_maps/invalid_tex_EA_004.cub
@@ -3703,8 +3261,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto.
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #105]=====================
 ./invalid_maps/invalid_tex_EA_005.cub
@@ -3732,23 +3290,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 100, height 720
+ERROR
+Textura NO no existewidth 100, height 720
 path  NO: ./wolftex/redbrick.png
 path  SO: ./wolftex/wood.png
 path  WE: ./wolftex/wood.png
@@ -3763,11 +3306,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #106]=====================
@@ -3796,8 +3334,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto. La textura debe ser una: ./ruta.xmp
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #107]=====================
 ./invalid_maps/invalid_tex_EA_007.cub
@@ -3825,23 +3363,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 100, height 720
+ERROR
+Textura NO no existewidth 100, height 720
 path  NO: ./wolftex/redbrick.png
 path  SO: ./wolftex/wood.png
 path  WE: ./wolftex/wood.png
@@ -3856,11 +3379,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #108]=====================
@@ -3890,8 +3408,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto. La textura debe ser una: ./ruta.xmp
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #109]=====================
 ./invalid_maps/invalid_tex_EA_009.cub
@@ -3919,8 +3437,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #110]=====================
 ./invalid_maps/invalid_tex_EA_010.cub
@@ -3948,8 +3466,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #111]=====================
 ./invalid_maps/invalid_tex_EA_011.cub
@@ -3977,8 +3495,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #112]=====================
 ./invalid_maps/invalid_tex_EA_012.cub
@@ -4006,8 +3524,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #113]=====================
 ./invalid_maps/invalid_tex_EA_013.cub
@@ -4035,8 +3553,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Elimine los caracteres sobrantes.
-
+ERROR
+Elimine los caracteres sobrantes.
 
 =====================[DESTROYED STUFF #114]=====================
 ./invalid_maps/invalid_tex_EA_014.cub
@@ -4064,8 +3582,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #115]=====================
 ./invalid_maps/invalid_tex_EA_015.cub
@@ -4093,23 +3611,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 100, height 720
+ERROR
+Textura NO no existewidth 100, height 720
 path  NO: ./wolftex/redbrick.png
 path  SO: ./wolftex/wood.png
 path  WE: ./wolftex/wood.png
@@ -4124,11 +3627,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #116]=====================
@@ -4159,8 +3657,8 @@ F 122,122,122
 EA ./wolftex/greystone.png
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #117]=====================
 ./invalid_maps/invalid_tex_EA_017.cub
@@ -4188,8 +3686,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto. La textura debe ser una: ./ruta.xmp
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #118]=====================
 ./invalid_maps/invalid_tex_EA_018.cub
@@ -4217,8 +3715,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto. La textura debe ser una: ./ruta.xmp
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #119]=====================
 ./invalid_maps/invalid_tex_EA_019.cub
@@ -4247,8 +3745,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto.
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #120]=====================
 ./invalid_maps/invalid_tex_EA_020.cub
@@ -4276,23 +3774,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 100, height 720
+ERROR
+Textura NO no existewidth 100, height 720
 path  NO: ./wolftex/redbrick.png
 path  SO: ./wolftex/wood.png
 path  WE: ./wolftex/wood.png
@@ -4307,11 +3790,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #121]=====================
@@ -4341,8 +3819,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto.
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #122]=====================
 ./invalid_maps/invalid_tex_EA_022.cub
@@ -4371,8 +3849,8 @@ SO ./wolftex/greystone.png
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto.
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #123]=====================
 ./invalid_maps/invalid_tex_NO_000.cub
@@ -4400,8 +3878,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #124]=====================
 ./invalid_maps/invalid_tex_NO_001.cub
@@ -4429,8 +3907,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Elimine los caracteres sobrantes.
-
+ERROR
+Elimine los caracteres sobrantes.
 
 =====================[DESTROYED STUFF #125]=====================
 ./invalid_maps/invalid_tex_NO_002.cub
@@ -4458,8 +3936,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #126]=====================
 ./invalid_maps/invalid_tex_NO_003.cub
@@ -4487,8 +3965,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #127]=====================
 ./invalid_maps/invalid_tex_NO_004.cub
@@ -4516,8 +3994,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto.
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #128]=====================
 ./invalid_maps/invalid_tex_NO_005.cub
@@ -4545,23 +4023,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 100, height 720
+ERROR
+Textura NO no existewidth 100, height 720
 path  NO: ./woolftex/greystone.png
 path  SO: ./wolftex/redbrick.png
 path  WE: ./wolftex/wood.png
@@ -4576,11 +4039,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #129]=====================
@@ -4609,8 +4067,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto. La textura debe ser una: ./ruta.xmp
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #130]=====================
 ./invalid_maps/invalid_tex_NO_007.cub
@@ -4638,23 +4096,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 100, height 720
+ERROR
+Textura NO no existewidth 100, height 720
 path  NO: ./wolftex/greystone.pngxpm
 path  SO: ./wolftex/redbrick.png
 path  WE: ./wolftex/wood.png
@@ -4669,11 +4112,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #131]=====================
@@ -4703,8 +4141,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto. La textura debe ser una: ./ruta.xmp
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #132]=====================
 ./invalid_maps/invalid_tex_NO_009.cub
@@ -4732,8 +4170,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #133]=====================
 ./invalid_maps/invalid_tex_NO_010.cub
@@ -4761,8 +4199,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #134]=====================
 ./invalid_maps/invalid_tex_NO_011.cub
@@ -4790,8 +4228,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #135]=====================
 ./invalid_maps/invalid_tex_NO_012.cub
@@ -4819,8 +4257,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #136]=====================
 ./invalid_maps/invalid_tex_NO_013.cub
@@ -4848,8 +4286,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Elimine los caracteres sobrantes.
-
+ERROR
+Elimine los caracteres sobrantes.
 
 =====================[DESTROYED STUFF #137]=====================
 ./invalid_maps/invalid_tex_NO_014.cub
@@ -4877,8 +4315,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #138]=====================
 ./invalid_maps/invalid_tex_NO_015.cub
@@ -4906,23 +4344,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 100, height 720
+ERROR
+Textura NO no existewidth 100, height 720
 path  NO: ./wolftex/greystone.png
 path  SO: ./wolftex/redbrick.png
 path  WE: ./wolftex/wood.png
@@ -4937,11 +4360,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #139]=====================
@@ -4970,8 +4388,8 @@ F 122,122,122
 NO ./wolftex/greystone.png
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #140]=====================
 ./invalid_maps/invalid_tex_NO_017.cub
@@ -4999,8 +4417,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto. La textura debe ser una: ./ruta.xmp
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #141]=====================
 ./invalid_maps/invalid_tex_NO_018.cub
@@ -5028,8 +4446,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto. La textura debe ser una: ./ruta.xmp
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #142]=====================
 ./invalid_maps/invalid_tex_NO_019.cub
@@ -5058,23 +4476,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 100, height 720
+ERROR
+Textura NO no existewidth 100, height 720
 path  NO: ./wolftex/greystone.png
 path  SO: ./wolftex/redbrick.png
 path  WE: ./wolftex/wood.png
@@ -5089,11 +4492,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #143]=====================
@@ -5122,23 +4520,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 100, height 720
+ERROR
+Textura NO no existewidth 100, height 720
 path  NO: ./wolftex/greystone.png
 path  SO: ./wolftex/redbrick.png
 path  WE: ./wolftex/wood.png
@@ -5153,11 +4536,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #144]=====================
@@ -5187,8 +4565,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto.
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #145]=====================
 ./invalid_maps/invalid_tex_NO_022.cub
@@ -5217,8 +4595,8 @@ NO ./wolftex/greystone.png
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto.
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #146]=====================
 ./invalid_maps/invalid_tex_SO_000.cub
@@ -5246,8 +4624,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #147]=====================
 ./invalid_maps/invalid_tex_SO_001.cub
@@ -5275,8 +4653,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Elimine los caracteres sobrantes.
-
+ERROR
+Elimine los caracteres sobrantes.
 
 =====================[DESTROYED STUFF #148]=====================
 ./invalid_maps/invalid_tex_SO_002.cub
@@ -5304,8 +4682,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto.
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #149]=====================
 ./invalid_maps/invalid_tex_SO_003.cub
@@ -5333,8 +4711,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #150]=====================
 ./invalid_maps/invalid_tex_SO_004.cub
@@ -5362,8 +4740,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto.
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #151]=====================
 ./invalid_maps/invalid_tex_SO_005.cub
@@ -5391,23 +4769,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 100, height 720
+ERROR
+Textura NO no existewidth 100, height 720
 path  NO: ./wolftex/redbrick.png
 path  SO: ./woolftex/greystone.png
 path  WE: ./wolftex/wood.png
@@ -5422,11 +4785,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #152]=====================
@@ -5455,8 +4813,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto. La textura debe ser una: ./ruta.xmp
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #153]=====================
 ./invalid_maps/invalid_tex_SO_007.cub
@@ -5484,23 +4842,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 100, height 720
+ERROR
+Textura NO no existewidth 100, height 720
 path  NO: ./wolftex/redbrick.png
 path  SO: ./wolftex/greystone.pngxpm
 path  WE: ./wolftex/wood.png
@@ -5515,11 +4858,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #154]=====================
@@ -5549,8 +4887,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto. La textura debe ser una: ./ruta.xmp
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #155]=====================
 ./invalid_maps/invalid_tex_SO_009.cub
@@ -5578,8 +4916,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #156]=====================
 ./invalid_maps/invalid_tex_SO_010.cub
@@ -5607,8 +4945,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #157]=====================
 ./invalid_maps/invalid_tex_SO_011.cub
@@ -5636,8 +4974,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #158]=====================
 ./invalid_maps/invalid_tex_SO_012.cub
@@ -5665,8 +5003,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #159]=====================
 ./invalid_maps/invalid_tex_SO_013.cub
@@ -5694,8 +5032,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Elimine los caracteres sobrantes.
-
+ERROR
+Elimine los caracteres sobrantes.
 
 =====================[DESTROYED STUFF #160]=====================
 ./invalid_maps/invalid_tex_SO_014.cub
@@ -5723,8 +5061,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #161]=====================
 ./invalid_maps/invalid_tex_SO_015.cub
@@ -5752,23 +5090,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 100, height 720
+ERROR
+Textura NO no existewidth 100, height 720
 path  NO: ./wolftex/redbrick.png
 path  SO: ./wolftex/greystone.png
 path  WE: ./wolftex/wood.png
@@ -5783,11 +5106,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #162]=====================
@@ -5818,8 +5136,8 @@ F 122,122,122
 SO ./wolftex/greystone.png
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #163]=====================
 ./invalid_maps/invalid_tex_SO_017.cub
@@ -5847,8 +5165,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto. La textura debe ser una: ./ruta.xmp
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #164]=====================
 ./invalid_maps/invalid_tex_SO_018.cub
@@ -5876,8 +5194,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto. La textura debe ser una: ./ruta.xmp
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #165]=====================
 ./invalid_maps/invalid_tex_SO_019.cub
@@ -5906,8 +5224,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto.
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #166]=====================
 ./invalid_maps/invalid_tex_SO_020.cub
@@ -5935,23 +5253,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 100, height 720
+ERROR
+Textura NO no existewidth 100, height 720
 path  NO: ./wolftex/redbrick.png
 path  SO: ./wolftex/greystone.png
 path  WE: ./wolftex/wood.png
@@ -5966,11 +5269,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #167]=====================
@@ -6000,8 +5298,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto.
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #168]=====================
 ./invalid_maps/invalid_tex_SO_022.cub
@@ -6030,8 +5328,8 @@ SO ./wolftex/greystone.png
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto.
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #169]=====================
 ./invalid_maps/invalid_tex_WE_000.cub
@@ -6059,8 +5357,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #170]=====================
 ./invalid_maps/invalid_tex_WE_001.cub
@@ -6088,8 +5386,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Elimine los caracteres sobrantes.
-
+ERROR
+Elimine los caracteres sobrantes.
 
 =====================[DESTROYED STUFF #171]=====================
 ./invalid_maps/invalid_tex_WE_002.cub
@@ -6117,8 +5415,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #172]=====================
 ./invalid_maps/invalid_tex_WE_003.cub
@@ -6146,8 +5444,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #173]=====================
 ./invalid_maps/invalid_tex_WE_004.cub
@@ -6175,8 +5473,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto.
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #174]=====================
 ./invalid_maps/invalid_tex_WE_005.cub
@@ -6204,23 +5502,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 100, height 720
+ERROR
+Textura NO no existewidth 100, height 720
 path  NO: ./wolftex/wood.png
 path  SO: ./wolftex/redbrick.png
 path  WE: ./woolftex/greystone.png
@@ -6235,11 +5518,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #175]=====================
@@ -6268,8 +5546,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto. La textura debe ser una: ./ruta.xmp
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #176]=====================
 ./invalid_maps/invalid_tex_WE_007.cub
@@ -6297,23 +5575,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 100, height 720
+ERROR
+Textura NO no existewidth 100, height 720
 path  NO: ./wolftex/wood.png
 path  SO: ./wolftex/redbrick.png
 path  WE: ./wolftex/greystone.pngxpm
@@ -6328,11 +5591,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #177]=====================
@@ -6362,8 +5620,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto. La textura debe ser una: ./ruta.xmp
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #178]=====================
 ./invalid_maps/invalid_tex_WE_009.cub
@@ -6391,8 +5649,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #179]=====================
 ./invalid_maps/invalid_tex_WE_010.cub
@@ -6420,8 +5678,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #180]=====================
 ./invalid_maps/invalid_tex_WE_011.cub
@@ -6449,8 +5707,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #181]=====================
 ./invalid_maps/invalid_tex_WE_012.cub
@@ -6478,8 +5736,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #182]=====================
 ./invalid_maps/invalid_tex_WE_013.cub
@@ -6507,8 +5765,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Elimine los caracteres sobrantes.
-
+ERROR
+Elimine los caracteres sobrantes.
 
 =====================[DESTROYED STUFF #183]=====================
 ./invalid_maps/invalid_tex_WE_014.cub
@@ -6536,8 +5794,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #184]=====================
 ./invalid_maps/invalid_tex_WE_015.cub
@@ -6565,23 +5823,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 100, height 720
+ERROR
+Textura NO no existewidth 100, height 720
 path  NO: ./wolftex/wood.png
 path  SO: ./wolftex/redbrick.png
 path  WE: ./wolftex/greystone.png
@@ -6596,11 +5839,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #185]=====================
@@ -6629,8 +5867,8 @@ F 122,122,122
 WE ./wolftex/greystone.png
 
 PARSER OUTPUT:
-ERROR: Debe declarar los parametros delante del mapa
-
+ERROR
+Debe declarar los parametros delante del mapa
 
 =====================[DESTROYED STUFF #186]=====================
 ./invalid_maps/invalid_tex_WE_017.cub
@@ -6658,8 +5896,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto. La textura debe ser una: ./ruta.xmp
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #187]=====================
 ./invalid_maps/invalid_tex_WE_018.cub
@@ -6687,8 +5925,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto. La textura debe ser una: ./ruta.xmp
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #188]=====================
 ./invalid_maps/invalid_tex_WE_019.cub
@@ -6717,23 +5955,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 100, height 720
+ERROR
+Textura NO no existewidth 100, height 720
 path  NO: ./wolftex/wood.png
 path  SO: ./wolftex/redbrick.png
 path  WE: ./wolftex/greystone.png
@@ -6748,11 +5971,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #189]=====================
@@ -6781,23 +5999,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-width 100, height 720
+ERROR
+Textura NO no existewidth 100, height 720
 path  NO: ./wolftex/wood.png
 path  SO: ./wolftex/redbrick.png
 path  WE: ./wolftex/greystone.png
@@ -6812,11 +6015,6 @@ Coordenadas de cominezo: | 8-6 |
 El jugador empieza mirando a: N
 numero de sprites: 18
 config.save: 0
-
-
-Posicion Inicial: x:8 - y:6
-Posicion Inicial: x:6.500000 - y:8.500000
-ERROR: Textura NO no existe
 
 
 =====================[DESTROYED STUFF #190]=====================
@@ -6846,8 +6044,8 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto.
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #191]=====================
 ./invalid_maps/invalid_tex_WE_022.cub
@@ -6876,441 +6074,157 @@ WE ./wolftex/greystone.png
 11111111111111111
 
 PARSER OUTPUT:
-ERROR: Formato de texturas incorrecto.
-
+ERROR
+Formato de texturas incorrecto.
 
 =====================[DESTROYED STUFF #192]=====================
 
 ../cub3D valid_maps/valid_tex_050.cub "-save"
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-ERROR: El tercer argumento debe ser '--save'
-
+ERROR
+El tercer argumento debe ser '--save'
 
 =====================[DESTROYED STUFF #193]=====================
 
 ../cub3D valid_maps/valid_tex_050.cub "save"
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-ERROR: El tercer argumento debe ser '--save'
-
+ERROR
+El tercer argumento debe ser '--save'
 
 =====================[DESTROYED STUFF #194]=====================
 
 ../cub3D valid_maps/valid_tex_050.cub "--savea"
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-ERROR: El tercer argumento debe ser '--save'
-
+ERROR
+El tercer argumento debe ser '--save'
 
 =====================[DESTROYED STUFF #195]=====================
 
 ../cub3D valid_maps/valid_tex_050.cub "--SAVE"
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-ERROR: El tercer argumento debe ser '--save'
-
+ERROR
+El tercer argumento debe ser '--save'
 
 =====================[DESTROYED STUFF #196]=====================
 
 ../cub3D valid_maps/valid_tex_050.cub "---save"
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-ERROR: El tercer argumento debe ser '--save'
-
+ERROR
+El tercer argumento debe ser '--save'
 
 =====================[DESTROYED STUFF #197]=====================
 
 ../cub3D valid_maps/valid_tex_050.cub "savea"
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-ERROR: El tercer argumento debe ser '--save'
-
+ERROR
+El tercer argumento debe ser '--save'
 
 =====================[DESTROYED STUFF #198]=====================
 
 ../cub3D valid_maps/valid_tex_050.cub "-sav"
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-ERROR: El tercer argumento debe ser '--save'
-
+ERROR
+El tercer argumento debe ser '--save'
 
 =====================[DESTROYED STUFF #199]=====================
 
 ../cub3D valid_maps/valid_tex_050.cub "--save s"
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-ERROR: El tercer argumento debe ser '--save'
-
+ERROR
+El tercer argumento debe ser '--save'
 
 =====================[DESTROYED STUFF #200]=====================
 
 ../cub3D valid_maps/valid_tex_050.cub "-- save"
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-ERROR: El tercer argumento debe ser '--save'
-
+ERROR
+El tercer argumento debe ser '--save'
 
 =====================[DESTROYED STUFF #201]=====================
 
 ../cub3D valid_maps/valid_tex_050.cub "--save --save"
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-ERROR: El tercer argumento debe ser '--save'
-
+ERROR
+El tercer argumento debe ser '--save'
 
 =====================[DESTROYED STUFF #202]=====================
 
 ../cub3D valid_maps/valid_tex_050.cub "       "
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-ERROR: El tercer argumento debe ser '--save'
-
+ERROR
+El tercer argumento debe ser '--save'
 
 =====================[DESTROYED STUFF #203]=====================
 
 ../cub3D valid_maps/valid_tex_050.cub "--safe"
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-ERROR: El tercer argumento debe ser '--save'
-
+ERROR
+El tercer argumento debe ser '--save'
 
 =====================[DESTROYED STUFF #204]=====================
 
 ../cub3D valid_maps/valid_tex_050.cub "--shave"
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-ERROR: El tercer argumento debe ser '--save'
-
+ERROR
+El tercer argumento debe ser '--save'
 
 =====================[DESTROYED STUFF #205]=====================
 
 ../cub3D valid_maps/valid_tex_050.cub "--rafe"
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-ERROR: El tercer argumento debe ser '--save'
-
+ERROR
+El tercer argumento debe ser '--save'
 
 =====================[DESTROYED STUFF #206]=====================
 
 ../cub3D valid_maps/valid_tex_050.cub "--1234"
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-ERROR: El tercer argumento debe ser '--save'
-
+ERROR
+El tercer argumento debe ser '--save'
 
 =====================[DESTROYED STUFF #207]=====================
 
 ../cub3D valid_maps/valid_tex_050.cub "-+save"
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-ERROR: El tercer argumento debe ser '--save'
-
+ERROR
+El tercer argumento debe ser '--save'
 
 =====================[DESTROYED STUFF #208]=====================
 
 ../cub3D valid_maps/valid_tex_050.cub "+-save"
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-ERROR: El tercer argumento debe ser '--save'
-
+ERROR
+El tercer argumento debe ser '--save'
 
 =====================[DESTROYED STUFF #209]=====================
 
 ../cub3D valid_maps/valid_tex_050.cub "--sove"
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-ERROR: El tercer argumento debe ser '--save'
-
+ERROR
+El tercer argumento debe ser '--save'
 
 =====================[DESTROYED STUFF #210]=====================
 
 ../cub3D valid_maps/valid_tex_050.cub "--sav3"
 
 PARSER OUTPUT:
-8,6
-| El mapa es VALIDO |
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020002020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-ERROR: El tercer argumento debe ser '--save'
+ERROR
+El tercer argumento debe ser '--save'

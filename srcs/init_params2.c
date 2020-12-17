@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 14:35:10 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/17 09:48:30 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/17 12:19:38 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ void		reset_mlx(t_mlx *mlx, t_config config)
 	mlx->win = NULL;
 	mlx->win_height = config.height;
 	mlx->win_width = config.width;
-	mlx->finalMap = config.mapa.worldMap;
+	mlx->finalmap = config.mapa.worldmap;
 }

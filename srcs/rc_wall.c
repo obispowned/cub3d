@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 09:19:45 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/17 09:19:47 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/17 12:00:40 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ void		dda(t_mlx *mlx)
 			mlx->rc.map_y += mlx->rc.step_y;
 			mlx->rc.side = 1;
 		}
-		if (mlx->finalMap[mlx->rc.map_x][mlx->rc.map_y] == 1)
+		if (mlx->finalmap[mlx->rc.map_x][mlx->rc.map_y] == 1)
 			mlx->rc.hit = 1;
 	}
 }
 
 void		calcule_wall(t_mlx *mlx)
 {
-	mlx->rc.tex_id = mlx->finalMap[mlx->rc.map_x]
+	mlx->rc.tex_id = mlx->finalmap[mlx->rc.map_x]
 	[mlx->rc.map_y] + mlx->rc.tex_side;
 	if (mlx->rc.side == 0)
 		mlx->rc.wallx = mlx->rc.player_pos_y +

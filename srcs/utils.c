@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 09:15:17 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/17 09:15:18 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/17 13:47:14 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ void			error_xpm(char *final)
 	(final[ft_strlen(final) - 2] != 'p') &&
 	(final[ft_strlen(final) - 3] != 'x') &&
 	(final[ft_strlen(final) - 4] != '.'))
-		print_error("Formato de texturas incorrecto.");
+		print_err("Formato de texturas incorrecto.");
 }

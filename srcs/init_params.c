@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 09:48:59 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/17 10:07:21 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/17 12:22:45 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ void			reset_t_config(t_config *config)
 	config->i = 0;
 	config->height = -1;
 	config->width = -1;
-	config->NO = NULL;
-	config->SO = NULL;
-	config->EA = NULL;
-	config->WE = NULL;
-	config->S = NULL;
+	config->no = NULL;
+	config->so = NULL;
+	config->ea = NULL;
+	config->we = NULL;
+	config->s = NULL;
 	config->map_max_lines = 0;
 	config->map_max_rows = 0;
-	config->maxR = 0;
+	config->maxr = 0;
 	config->player_begin[0] = 0;
 	config->player_begin[1] = 0;
 	config->muro_izq_dcha = 0;

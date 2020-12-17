@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 14:22:50 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/17 11:01:10 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/17 12:00:15 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,19 +57,19 @@ int				handle_events(t_mlx *mlx)
 		mlx->rc.movespeed = SPEED;
 	if (mlx->rc.up == 1)
 	{
-		if (mlx->finalMap[(int)(mlx->rc.player_pos_x + mlx->rc.dirx
+		if (mlx->finalmap[(int)(mlx->rc.player_pos_x + mlx->rc.dirx
 		* mlx->rc.movespeed)][(int)(mlx->rc.player_pos_y)] == 0)
 			mlx->rc.player_pos_x += mlx->rc.dirx * mlx->rc.movespeed;
-		if (mlx->finalMap[(int)(mlx->rc.player_pos_x)]
+		if (mlx->finalmap[(int)(mlx->rc.player_pos_x)]
 		[(int)(mlx->rc.player_pos_y + mlx->rc.diry * mlx->rc.movespeed)] == 0)
 			mlx->rc.player_pos_y += mlx->rc.diry * mlx->rc.movespeed;
 	}
 	else if (mlx->rc.down)
 	{
-		if (mlx->finalMap[(int)(mlx->rc.player_pos_x - mlx->rc.dirx
+		if (mlx->finalmap[(int)(mlx->rc.player_pos_x - mlx->rc.dirx
 		* mlx->rc.movespeed)][(int)(mlx->rc.player_pos_y)] == 0)
 			mlx->rc.player_pos_x -= mlx->rc.dirx * mlx->rc.movespeed;
-		if (mlx->finalMap[(int)(mlx->rc.player_pos_x)]
+		if (mlx->finalmap[(int)(mlx->rc.player_pos_x)]
 		[(int)(mlx->rc.player_pos_y - mlx->rc.diry * mlx->rc.movespeed)] == 0)
 			mlx->rc.player_pos_y -= mlx->rc.diry * mlx->rc.movespeed;
 	}
@@ -82,19 +82,19 @@ void			handle_events2(t_mlx *mlx)
 {
 	if (mlx->rc.left)
 	{
-		if (mlx->finalMap[(int)(mlx->rc.player_pos_x - mlx->rc.diry
+		if (mlx->finalmap[(int)(mlx->rc.player_pos_x - mlx->rc.diry
 		* mlx->rc.movespeed)][(int)(mlx->rc.player_pos_y)] == 0)
 			mlx->rc.player_pos_x -= mlx->rc.diry * mlx->rc.movespeed;
-		if (mlx->finalMap[(int)(mlx->rc.player_pos_x)]
+		if (mlx->finalmap[(int)(mlx->rc.player_pos_x)]
 		[(int)(mlx->rc.player_pos_y + mlx->rc.dirx * mlx->rc.movespeed)] == 0)
 			mlx->rc.player_pos_y += mlx->rc.dirx * mlx->rc.movespeed;
 	}
 	if (mlx->rc.right)
 	{
-		if (mlx->finalMap[(int)(mlx->rc.player_pos_x + mlx->rc.diry
+		if (mlx->finalmap[(int)(mlx->rc.player_pos_x + mlx->rc.diry
 		* mlx->rc.movespeed)][(int)mlx->rc.player_pos_y] == 0)
 			mlx->rc.player_pos_x += mlx->rc.diry * mlx->rc.movespeed;
-		if (mlx->finalMap[(int)mlx->rc.player_pos_x]
+		if (mlx->finalmap[(int)mlx->rc.player_pos_x]
 		[(int)(mlx->rc.player_pos_y - mlx->rc.dirx * mlx->rc.movespeed)] == 0)
 			mlx->rc.player_pos_y -= mlx->rc.dirx * mlx->rc.movespeed;
 	}

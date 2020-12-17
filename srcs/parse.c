@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 13:08:24 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/17 10:00:43 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/17 12:19:49 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,19 @@ t_mapi			parserico(char **map, t_config *config)
 	config->hexaceil = 0;
 	config->hexafloor = 0;
 	i = 0;
-	config->mapa.worldMap = (int **)malloc(sizeof(int *)
+	config->mapa.worldmap = (int **)malloc(sizeof(int *)
 	* config->map_max_lines);
 	while (config->map_max_lines > i)
 	{
-		config->mapa.worldMap[i] = (int *)malloc(sizeof(int)
+		config->mapa.worldmap[i] = (int *)malloc(sizeof(int)
 		* config->map_max_rows);
 		j = 0;
 		while (j < config->map_max_rows)
 		{
 			if (map[i][j] == '9')
-				config->mapa.worldMap[i][j] = 0;
+				config->mapa.worldmap[i][j] = 0;
 			else
-				config->mapa.worldMap[i][j] = (int)(map[i][j] - '0');
+				config->mapa.worldmap[i][j] = (int)(map[i][j] - '0');
 			j++;
 		}
 		i++;

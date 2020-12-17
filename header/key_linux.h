@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   key_linux.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/17 12:07:55 by agutierr          #+#    #+#             */
+/*   Updated: 2020/12/17 12:07:56 by agutierr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef KEY_LINUX_H
 # define KEY_LINUX_H
 
-/** Keyboard LETTERS **/
 # define KEY_A 97
 # define KEY_B 98
 # define KEY_C 99
@@ -28,26 +39,18 @@
 # define KEY_X 120
 # define KEY_Y 121
 # define KEY_Z 122
-
-/** Keyboard ARROWS **/
 # define KEY_LEFT 65361
 # define KEY_RIGHT 65363
 # define KEY_UP 65362
 # define KEY_DOWN 65364
-
-/** Keyboard NUMPAD **/
 # define KEY_NP_DIV 65455
 # define KEY_NP_MUL 65450
 # define KEY_NP_MIN 65453
 # define KEY_NP_PLU 65451
-
-/** Keyboard MISC **/
 # define KEY_SP 32
 # define KEY_ESC 65307
 # define KEY_SHIFT_L 65505
 # define KEY_CTRL 65507
-
-/** Mouse **/
 # define KEY_M_CK_LL 1
 # define KEY_M_CK_LR 3
 # define KEY_M_CK_LM 2

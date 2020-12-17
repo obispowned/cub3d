@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 13:05:06 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/17 11:49:53 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/17 13:46:50 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ t_mapi			read_map(char *file, t_config *config)
 
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-		print_error("Fallo al intentar abrir el archivo .cub");
-	config->maxR = (what_is_higher(config->map_max_lines,
+		print_err("Fallo al intentar abrir el archivo .cub");
+	config->maxr = (what_is_higher(config->map_max_lines,
 	config->map_max_rows)) + 2;
 	map = read_map2(fd, config);
 	check_map(config, map);
@@ -40,22 +40,22 @@ char			**read_map2(int fd, t_config *config)
 
 	count_sprites = 0;
 	i = 0;
-	if (!(map = (char **)calloc(sizeof(char *) * config->maxR + 1, 1)))
+	if (!(map = (char **)calloc(sizeof(char *) * config->maxr + 1, 1)))
 		printf("Malloc ha fallado en: get_map_reads.c");
 	while (((get_next_line(fd, &line)) > 0))
 	{
 		if (who_needs_a_map(line, "102 NSWE\t", 0, 0) == 1)
 		{
-			map[i] = ft_strdup2(line, ' ', config->maxR, &count_sprites);
+			map[i] = ft_strdup2(line, ' ', config->maxr, &count_sprites);
 			i++;
 		}
 		kill(line);
 	}
 	if (who_needs_a_map(line, "102 NSWE\t", 0, 0) == 1)
-		map[i++] = ft_strdup2(line, ' ', config->maxR, &count_sprites);
+		map[i++] = ft_strdup2(line, ' ', config->maxr, &count_sprites);
 	kill(line);
-	while (i < config->maxR)
-		map[i++] = fill_me('9', config->maxR);
+	while (i < config->maxr)
+		map[i++] = fill_me('9', config->maxr);
 	config->numsprites = count_sprites;
 	return (map);
 }
@@ -93,7 +93,7 @@ void			check_map2(t_config *config, char **map, int i, int j)
 	else if (((map[i][j] == 'N') || (map[i][j] == 'S') ||
 	(map[i][j] == 'E') || (map[i][j] == 'W')) &&
 	(config->player_begin[0] != 0 && config->player_begin[1] != 0))
-		print_error("Ya existe otra posicion para el jugador");
+		print_err("Ya existe otra posicion para el jugador");
 }
 
 void			check_wall(t_config *config, char **map, int i, int j)

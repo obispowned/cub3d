@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 08:33:02 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/17 11:49:59 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/17 13:47:18 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ char		*ft_strdup2(char *str, char now, int max, int *count_sprites)
 	i = -1;
 	j = 0;
 	if (!(finally = (char *)malloc(sizeof(char) * max + 2)))
-		print_error("Malloc ha fallado en: ft_strdup.c");
+		print_err("Malloc ha fallado en: ft_strdup.c");
 	while (str[++i] != '\0')
 	{
 		if (str[i] == '2')
 			*count_sprites += 1;
 		if (str[i] == '\t')
-			print_error("No debe haber tabulaciones al empezar el mapa");
+			print_err("No debe haber tabulaciones al empezar el mapa");
 		else if (str[i] == now)
 			finally[j] = '9';
 		else
