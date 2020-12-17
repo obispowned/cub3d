@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 14:22:50 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/15 14:37:49 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/17 11:01:10 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 #include "../header/game.h"
 #include "../header/cub3d.h"
 
-void	handle_events2(t_mlx *mlx)
+void			handle_events3(t_mlx *mlx)
 {
-	double olddirx;
-	double oldplanex;
+	double		olddirx;
+	double		oldplanex;
 
 	if (mlx->rc.rot_right)
 	{
@@ -33,20 +33,23 @@ void	handle_events2(t_mlx *mlx)
 		sin(-ROT_SPEED) + mlx->rc.player_plane_y * cos(-ROT_SPEED);
 	}
 	else if (mlx->rc.rot_left)
-	{
-		olddirx = mlx->rc.dirx;
-		mlx->rc.dirx = mlx->rc.dirx * cos(ROT_SPEED) -
-		mlx->rc.diry * sin(ROT_SPEED);
-		mlx->rc.diry = olddirx * sin(ROT_SPEED) + mlx->rc.diry * cos(ROT_SPEED);
-		oldplanex = mlx->rc.player_plane_x;
-		mlx->rc.player_plane_x = mlx->rc.player_plane_x *
-		cos(ROT_SPEED) - mlx->rc.player_plane_y * sin(ROT_SPEED);
-		mlx->rc.player_plane_y = oldplanex *
-		sin(ROT_SPEED) + mlx->rc.player_plane_y * cos(ROT_SPEED);
-	}
+		handle_events4(mlx, olddirx, oldplanex);
 }
 
-int		handle_events(t_mlx *mlx)
+void			handle_events4(t_mlx *mlx, double olddirx, double oldplanex)
+{
+	olddirx = mlx->rc.dirx;
+	mlx->rc.dirx = mlx->rc.dirx * cos(ROT_SPEED) -
+	mlx->rc.diry * sin(ROT_SPEED);
+	mlx->rc.diry = olddirx * sin(ROT_SPEED) + mlx->rc.diry * cos(ROT_SPEED);
+	oldplanex = mlx->rc.player_plane_x;
+	mlx->rc.player_plane_x = mlx->rc.player_plane_x *
+	cos(ROT_SPEED) - mlx->rc.player_plane_y * sin(ROT_SPEED);
+	mlx->rc.player_plane_y = oldplanex *
+	sin(ROT_SPEED) + mlx->rc.player_plane_y * cos(ROT_SPEED);
+}
+
+int				handle_events(t_mlx *mlx)
 {
 	if (mlx->rc.run == 1)
 		mlx->rc.movespeed = SPEED * 2;
@@ -70,6 +73,13 @@ int		handle_events(t_mlx *mlx)
 		[(int)(mlx->rc.player_pos_y - mlx->rc.diry * mlx->rc.movespeed)] == 0)
 			mlx->rc.player_pos_y -= mlx->rc.diry * mlx->rc.movespeed;
 	}
+	handle_events2(mlx);
+	handle_events3(mlx);
+	return (0);
+}
+
+void			handle_events2(t_mlx *mlx)
+{
 	if (mlx->rc.left)
 	{
 		if (mlx->finalMap[(int)(mlx->rc.player_pos_x - mlx->rc.diry
@@ -88,6 +98,4 @@ int		handle_events(t_mlx *mlx)
 		[(int)(mlx->rc.player_pos_y - mlx->rc.dirx * mlx->rc.movespeed)] == 0)
 			mlx->rc.player_pos_y -= mlx->rc.dirx * mlx->rc.movespeed;
 	}
-	handle_events2(mlx);
-	return (0);
 }

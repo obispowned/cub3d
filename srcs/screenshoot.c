@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   screenshoot.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/17 09:15:40 by agutierr          #+#    #+#             */
+/*   Updated: 2020/12/17 09:17:02 by agutierr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <mlx.h>
 #include "../header/game.h"
 #include "../header/cub3d.h"
@@ -7,7 +19,8 @@ static t_bitmap	fill_header(t_mlx *mlx)
 	t_bitmap header;
 
 	ft_memset(&header, 0, sizeof(header));
-	header.filesize = (mlx->win_width * mlx->win_height * (mlx->image.bpp / 8)) + 54;
+	header.filesize = (mlx->win_width * mlx->win_height
+	* (mlx->image.bpp / 8)) + 54;
 	header.pixeldataoffset = 54;
 	header.headersize = 40;
 	header.imagewidth = mlx->win_width;
@@ -45,11 +58,11 @@ int				save_bmp(t_mlx *mlx)
 	i = 0;
 	while (i < mlx->win_height)
 	{
-		line = (unsigned int *)&mlx->image.addr[(mlx->win_height - i - 1) * mlx->image.linesize];
+		line = (unsigned int *)&mlx->image.addr
+		[(mlx->win_height - i - 1) * mlx->image.linesize];
 		file_write(fd, line, mlx->image.linesize);
 		i++;
 	}
-	//close_success(mlx); //////*///////
 	if (close(fd) == -1)
 		return (1);
 	return (0);

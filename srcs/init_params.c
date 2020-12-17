@@ -1,32 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_params.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/17 09:48:59 by agutierr          #+#    #+#             */
+/*   Updated: 2020/12/17 10:07:21 by agutierr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <mlx.h>
 #include "../header/game.h"
 #include "../header/cub3d.h"
 
-t_config reset_t_config()
+void			reset_t_config(t_config *config)
 {
-	t_config config;
-	
-	config.flag = 0;
-	config.i = 0;
-	config.height = -1;
-	config.width = -1;
-	config.NO = NULL;
-	config.SO = NULL;
-	config.EA = NULL;
-	config.WE = NULL;
-	config.S = NULL;
-	config.map_max_lines = 0;
-	config.map_max_rows = 0;
-	config.maxR = 0;
-	config.player_begin[0] = 0;
-	config.player_begin[1] = 0;
-	config.muro_izq_dcha = 0;
-	config.muro_arriba_abajo = 0;
-	init_config(&config);
-	return (config);
+	config->flag = 0;
+	config->i = 0;
+	config->height = -1;
+	config->width = -1;
+	config->NO = NULL;
+	config->SO = NULL;
+	config->EA = NULL;
+	config->WE = NULL;
+	config->S = NULL;
+	config->map_max_lines = 0;
+	config->map_max_rows = 0;
+	config->maxR = 0;
+	config->player_begin[0] = 0;
+	config->player_begin[1] = 0;
+	config->muro_izq_dcha = 0;
+	config->muro_arriba_abajo = 0;
+	init_config(config);
 }
 
-void	init_config(t_config *config)
+void			init_config(t_config *config)
 {
 	int	i;
 

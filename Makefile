@@ -13,14 +13,15 @@ SRCS			=	get_next_line/get_next_line.c\
 					srcs/floor_sky_draw.c\
 					srcs/init_raycast.c\
 					srcs/raycasting.c\
+					srcs/rc_wall.c\
 					srcs/keyboard.c\
-					srcs/minimap.c\
 					srcs/handle_events.c\
 					srcs/load_texture.c\
 					srcs/init_params.c\
 					srcs/utils.c\
 					srcs/init_params2.c\
 					srcs/sprites.c\
+					srcs/sprites_casting.c\
 					srcs/screenshoot.c\
 					utils/ft_split.c\
 					utils/ft_strdup.c\

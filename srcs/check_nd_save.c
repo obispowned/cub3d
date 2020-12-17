@@ -6,13 +6,13 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 08:32:54 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/15 12:45:56 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/17 11:20:39 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/cub3d.h"
 
-t_config		check_R(char *line, t_config config)
+t_config		check_r(char *line, t_config config)
 {
 	char		**splitter;
 
@@ -34,32 +34,30 @@ t_config		check_path(char *line, t_config config)
 {
 	if ((line[config.i] == 'N') && (line[config.i + 1] == 'O')
 	&& (white_spaces(line[config.i + 2])) && (!config.NO))
-		config.NO = give_me_a_path(line);
+		config.NO = give_me_a_path(line, 0);
 	else if ((line[config.i] == 'S') && (line[config.i + 1] == 'O')
 	&& (white_spaces(line[config.i + 2])) && (!config.SO))
-		config.SO = give_me_a_path(line);
+		config.SO = give_me_a_path(line, 0);
 	else if ((line[config.i] == 'W') && (line[config.i + 1] == 'E')
 	&& (white_spaces(line[config.i + 2])) && (!config.WE))
-		config.WE = give_me_a_path(line);
+		config.WE = give_me_a_path(line, 0);
 	else if ((line[config.i] == 'E') && (line[config.i + 1] == 'A')
 	&& (white_spaces(line[config.i + 2])) && (!config.EA))
-		config.EA = give_me_a_path(line);
+		config.EA = give_me_a_path(line, 0);
 	else if ((line[config.i] == 'S') &&
 	(white_spaces(line[config.i + 1])) && (!config.S))
-		config.S = give_me_a_path(line);
+		config.S = give_me_a_path(line, 0);
 	else
 		print_error("Formato de texturas incorrecto.");
 	config.flag += 1;
 	return (config);
 }
 
-char			*give_me_a_path(char *line)
+char			*give_me_a_path(char *line, int i)
 {
 	char		*final;
-	int			i;
 	int			j;
 
-	i = 0;
 	j = 0;
 	final = calloc(ft_strlen(line), 1);
 	while (line[i])

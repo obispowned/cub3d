@@ -56,13 +56,13 @@ t_config 	check_file(char *line, t_config config);
 void		check_arg(char *argum);
 
 /* Inicializacion */
-t_config 	reset_t_config();
+void 		reset_t_config(t_config *config);
 void		init_config(t_config *config);
 
 /* funciones para guardar los datos en la estructura - PRIMERA LECTURA*/
-t_config 	check_R(char *file, t_config config);
+t_config 	check_r(char *file, t_config config);
 t_config 	check_path(char *file, t_config config);
-char		*give_me_a_path(char *line);
+char		*give_me_a_path(char *line, int i);
 t_config 	check_ceil_floor(char *line, t_config config);
 void		check_cf(char conmut, char **splitter, t_config *config);
 void		error_xpm(char *final);
@@ -73,8 +73,10 @@ char			*change_char(char *line, char a, char b);
 /*	funciones para guardar, checkear y parsear el mapa - SEGUNDA LECTURA*/
 t_mapi		read_map(char *file, t_config *config); //segunda lectura para sacar el mapa
 char		**read_map2(int fd, t_config *config);
-int			who_needs_a_map(char *line); //devuelve 1 si encontro caracteres de mapa '210 nswe'
+int			who_needs_a_map(char *line, char *chain2, int tab, int coincide); //devuelve 1 si encontro caracteres de mapa '210 nswe'
+int			who_needs_a_map2(int tab, int coincide);
 void		check_map(t_config *config, char **map); //checkeo de primeras posiciones de mapa y guardo NWSE que no se repita en el mapa
+void		check_map2(t_config *config, char **map, int i, int j);
 void		valid_map(char **map); //valido que los 9 no toquen ningun 0
 void		valid_map2(char **map, int i, int j);
 void		print_map(char **map); // pintamos el mapa y ya
@@ -82,10 +84,10 @@ char		*change_char(char *line, char a, char b); //cambiamos un char por otro
 char 		*fill_me(char c, int lenght); //rellenamos de 9
 t_mapi		parserico(char **map, t_config *config); //cambiamos mapa de char ** a int**
 void		ceil_floor_parsing(t_mapi	*mapa, t_config *config);
-unsigned long createRGB(int r, int g, int b);
+unsigned long creatergb(int r, int g, int b);
 int			check_lines(char *line, char *chars);
 void		check_params(t_config config);
-void		drifting_R_PATH(char *line, t_config *config);
+void		drifting_r_path(char *line, t_config *config);
 int			only_this_chars(char *line, char *chars);
 void		check_wall(t_config *config, char **map, int i, int j);
 

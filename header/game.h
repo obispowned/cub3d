@@ -154,6 +154,8 @@ void	move_right(t_mlx *mlx);
 void	move_left(t_mlx *mlx);
 int		handle_events(t_mlx *mlx);
 void	handle_events2(t_mlx *mlx);
+void	handle_events3(t_mlx *mlx);
+void	handle_events4(t_mlx *mlx, double olddirx, double oldplanex);
 
 /* PREPARANDO GRAFICOS*/
 void	create_window(t_mlx *mlx, t_config config);
@@ -173,6 +175,8 @@ void	floor_draw(t_mlx *mlx, int x);
 /**/
 void 	init_raycast_params(t_mlx *mlx, t_config *config);
 int 	raycasting(t_mlx *mlx);
+void	raycasting2(t_mlx *mlx, int x);
+void	sprite_drawing2(t_mlx *mlx, int i, int y);
 void	motionless_2(t_mlx *mlx, int x);
 void	motionless_3(t_mlx *mlx);
 void	dda(t_mlx *mlx);
@@ -185,6 +189,7 @@ void	sprite_casting(t_mlx *mlx);
 void	sprite_casting2(t_mlx *mlx);
 void	sprite_drawing(t_mlx *mlx, int i, int y);
 void	sprite_order(t_mlx *mlx);
+void	sprite_preorder(t_mlx *mlx);
 
 /* SCREENSHOOT BMP*/
 int				save_bmp(t_mlx *mlx);

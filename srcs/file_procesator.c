@@ -6,16 +6,16 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 13:17:21 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/15 13:48:53 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/17 11:22:51 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/cub3d.h"
 
-void			drifting_R_PATH(char *line, t_config *config)
+void			drifting_r_path(char *line, t_config *config)
 {
 	if ((line[config->i] == 'R') && (white_spaces(line[config->i + 1])))
-		*config = check_R(line, *config);
+		*config = check_r(line, *config);
 	if (((line[config->i] == 'N') && (line[config->i + 1] == 'O')
 	&& (white_spaces(line[config->i + 2]))) ||
 	((line[config->i] == 'S') && (line[config->i + 1] == 'O') &&
@@ -33,7 +33,7 @@ t_config		check_file(char *line, t_config config)
 	config.i = 0;
 	while (line[config.i] != '\0')
 	{
-		drifting_R_PATH(line, &config);
+		drifting_r_path(line, &config);
 		if (((line[config.i] == 'F') && (line[config.i + 1] == ' ')) ||
 		((line[config.i] == 'C') && (line[config.i + 1] == ' ')))
 			config = check_ceil_floor(line, config);
@@ -89,9 +89,9 @@ t_config		load_file(char *file, t_config config)
 	while (((ret = get_next_line(fd, &line)) > 0))
 	{
 		if (((check_lines(line, " NSR\tECFW") == 0 && line[0] != '\0')
-		&& (who_needs_a_map(line) == 0)))
+		&& (who_needs_a_map(line, "102 NSWE\t", 0, 0) == 0)))
 			print_error("Elimine los caracteres sobrantes.");
-		if (who_needs_a_map(line) == 1 && config.flag != 8)
+		if (who_needs_a_map(line, "102 NSWE\t", 0, 0) == 1 && config.flag != 8)
 			print_error("Debe declarar los parametros delante del mapa");
 		config.i = 0;
 		config = check_file(line, config);
@@ -111,7 +111,7 @@ t_config		file_procesator(char *file, int argc)
 	if (file[ft_strlen(file) - 1] != 'b' && file[ft_strlen(file) - 2] != 'u' &&
 	file[ft_strlen(file) - 3] != 'c' && file[ft_strlen(file) - 4] != '.')
 		printf("El archivo que ingresa debe ser tener la extension .cub");
-	config = reset_t_config();
+	reset_t_config(&config);
 	config = load_file(file, config);
 	config.mapa = read_map(file, &config);
 	if (config.player_begin[0] == 0 && config.player_begin[1] == 0)

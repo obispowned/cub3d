@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 13:08:24 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/15 14:41:39 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/17 10:00:43 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ t_mapi			parserico(char **map, t_config *config)
 
 void			ceil_floor_parsing(t_mapi *mapa, t_config *config)
 {
-	config->hexaceil = createRGB(config->ceil[0],
+	config->hexaceil = creatergb(config->ceil[0],
 	config->ceil[1], config->ceil[2]);
-	config->hexafloor = createRGB(config->floor[0],
+	config->hexafloor = creatergb(config->floor[0],
 	config->floor[1], config->floor[2]);
 }
 
-unsigned long	createRGB(int r, int g, int b)
+unsigned long	creatergb(int r, int g, int b)
 {
 	return ((r & 0xff) << 16) + ((g & 0xff) << 8) + (b & 0xff);
 }
