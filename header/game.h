@@ -1,15 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   game.h                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/17 11:56:19 by agutierr          #+#    #+#             */
+/*   Updated: 2020/12/17 11:56:31 by agutierr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef GAME_H
 # define GAME_H
 
 #include "cub3d.h"
 #include <math.h>
 
-/***/
 # define PI		3.14159265359
 # define SPEED 0.06
 # define ROT_SPEED 0.0336
 # define AMB_LIGHT 7
-
 # define RED 0xFF0000
 # define GREEN 0x00FF00
 # define BLUE 0x0000FF
@@ -17,7 +27,6 @@
 # define WHITE 0xFFFFFF
 # define BLUESKY 0X9DF6FF
 # define BROWN 0xB8761C
-/***/
 
 typedef struct		s_bitmap
 {
@@ -142,59 +151,57 @@ typedef	struct		s_mlx
 }					t_mlx;
 
 /* INICIALIZACION */
-void		init_raycast_params3(t_config *config, t_mlx *mlx);
-void		init_raycast_params2(t_config *config, t_mlx *mlx);
-void		init_raycast_params(t_mlx *mlx, t_config *config);
-void		init_player(t_mlx *mlx, t_config *config);
+void				init_raycast_params3(t_config *config, t_mlx *mlx);
+void				init_raycast_params2(t_config *config, t_mlx *mlx);
+void				init_raycast_params(t_mlx *mlx, t_config *config);
+void				init_player(t_mlx *mlx, t_config *config);
 
 /*	TECLAS */
-int		key_press(int key, t_mlx *mlx);
-int		key_release(int key, t_mlx *mlx);
-void	move_right(t_mlx *mlx);
-void	move_left(t_mlx *mlx);
-int		handle_events(t_mlx *mlx);
-void	handle_events2(t_mlx *mlx);
-void	handle_events3(t_mlx *mlx);
-void	handle_events4(t_mlx *mlx, double olddirx, double oldplanex);
+int					key_press(int key, t_mlx *mlx);
+int					key_release(int key, t_mlx *mlx);
+void				move_right(t_mlx *mlx);
+void				move_left(t_mlx *mlx);
+int					handle_events(t_mlx *mlx);
+void				handle_events2(t_mlx *mlx);
+void				handle_events3(t_mlx *mlx);
+void				handle_events4(t_mlx *mlx, double olddirx, double oldplanex);
 
 /* PREPARANDO GRAFICOS*/
-void	create_window(t_mlx *mlx, t_config config);
-int		exit_game(t_mlx *mlx);
-int		close_win(int keycode, t_mlx *mlx);
-void	reset_mlx(t_mlx *mlx, t_config config);
+void				create_window(t_mlx *mlx, t_config config);
+int					exit_game(t_mlx *mlx);
+int					close_win(int keycode, t_mlx *mlx);
+void				reset_mlx(t_mlx *mlx, t_config config);
 
 /* Conversiones */
-float	radians_to_grads(float radians);
-float	grads_to_radians(float grads);
+float				radians_to_grads(float radians);
+float				grads_to_radians(float grads);
 
 /*	GRAPHIC */
-void 	draw_player(t_mlx *mlx, int num);
-void 	draw_map(t_mlx *mlx);
-void	sky_draw(t_mlx *mlx, int x);
-void	floor_draw(t_mlx *mlx, int x);
-/**/
-void 	init_raycast_params(t_mlx *mlx, t_config *config);
-int 	raycasting(t_mlx *mlx);
-void	raycasting2(t_mlx *mlx, int x);
-void	sprite_drawing2(t_mlx *mlx, int i, int y);
-void	motionless_2(t_mlx *mlx, int x);
-void	motionless_3(t_mlx *mlx);
-void	dda(t_mlx *mlx);
-void	motionless_4(t_mlx *mlx);
-void 	calcule_wall(t_mlx *mlx);
-void 	draw_wall(t_mlx *mlx, int x);
-void 	load_textures(t_mlx *mlx, t_config *config);
-void	save_sprites_position(t_mlx *mlx);
-void	sprite_casting(t_mlx *mlx);
-void	sprite_casting2(t_mlx *mlx);
-void	sprite_drawing(t_mlx *mlx, int i, int y);
-void	sprite_order(t_mlx *mlx);
-void	sprite_preorder(t_mlx *mlx);
+void				draw_player(t_mlx *mlx, int num);
+void				draw_map(t_mlx *mlx);
+void				sky_draw(t_mlx *mlx, int x);
+void				floor_draw(t_mlx *mlx, int x);
+void				init_raycast_params(t_mlx *mlx, t_config *config);
+int					raycasting(t_mlx *mlx);
+void				raycasting2(t_mlx *mlx, int x);
+void				sprite_drawing2(t_mlx *mlx, int i, int y);
+void				motionless_2(t_mlx *mlx, int x);
+void				motionless_3(t_mlx *mlx);
+void				dda(t_mlx *mlx);
+void				motionless_4(t_mlx *mlx);
+void				calcule_wall(t_mlx *mlx);
+void				draw_wall(t_mlx *mlx, int x);
+void				load_textures(t_mlx *mlx, t_config *config);
+void				save_sprites_position(t_mlx *mlx);
+void				sprite_casting(t_mlx *mlx);
+void				sprite_casting2(t_mlx *mlx);
+void				sprite_drawing(t_mlx *mlx, int i, int y);
+void				sprite_order(t_mlx *mlx);
+void				sprite_preorder(t_mlx *mlx);
 
 /* SCREENSHOOT BMP*/
-int				save_bmp(t_mlx *mlx);
-static void		file_write(int fd, const void *buf, ssize_t len);
-static t_bitmap	fill_header(t_mlx *mlx);
-
+int					save_bmp(t_mlx *mlx);
+static void			file_write(int fd, const void *buf, ssize_t len);
+static t_bitmap		fill_header(t_mlx *mlx);
 
 #endif

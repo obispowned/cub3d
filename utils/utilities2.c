@@ -1,58 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utilities.c                                        :+:      :+:    :+:   */
+/*   utilities2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/17 11:37:29 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/17 11:44:13 by agutierr         ###   ########.fr       */
+/*   Created: 2020/12/17 11:38:28 by agutierr          #+#    #+#             */
+/*   Updated: 2020/12/17 11:43:27 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/utils.h"
 
-void			ace(char *str, ...)
+void			print_error(char *str)
 {
-	va_list		ap;
-
-	va_start(ap, str);
-	kill(str);
-	while ((str = va_arg(ap, char *)))
-		kill(str);
-	va_end(ap);
+	ft_putchar("ERROR:\n");
+	ft_putchar(str);
+	exit(-1);
 }
 
-void			kill(char *str)
+void			ft_putchar(char *str)
 {
-	free(str);
-	str = NULL;
-}
-
-void			double_kill(char **str)
-{
-	int i;
+	int			i;
 
 	i = 0;
-	while (str[i])
+	while (str[i] != '\0')
 	{
-		kill(str[i]);
+		write(1, &str[i], 1);
 		i++;
 	}
-	free(str);
-}
-
-int				what_is_higher(int a, int b)
-{
-	if (a > b)
-		return (a);
-	else
-		return (b);
-}
-
-int				white_spaces(char c)
-{
-	if (c == ' ' || c == '\t')
-		return (1);
-	return (0);
 }

@@ -11,7 +11,7 @@
 int		ft_strlen(char *str);
 char	*ft_strjoin_char(char *str, char c);
 char	*ft_strdup(char *str);
-char	*ft_strdup2(char *str, char now, char final, int max, int *count_sprites);
+char	*ft_strdup2(char *str, char now, int max, int *count_sprites);
 void	change_tabs(char *finally, char c, int n);
 char	**ft_split(char const *s, char c);
 void	double_kill(char **str);
@@ -24,10 +24,10 @@ void	*ft_calloc(size_t count, size_t size);
 
 //liberacion de memoria
 void	kill(char *str);
-void	double_kill(char **str); //liberar un doble puntero
-void	ace(char *str, ...); //liberar cualquier cantidad de punteros
+void	double_kill(char **str);
+void	ace(char *str, ...);
 void 	print_error(char *str);
-////
+void	ft_putchar(char *str);
 int		white_spaces(char c);
 
 #endif

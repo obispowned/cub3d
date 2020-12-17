@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 13:05:06 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/17 11:30:46 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/17 11:49:53 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,13 @@ char			**read_map2(int fd, t_config *config)
 	{
 		if (who_needs_a_map(line, "102 NSWE\t", 0, 0) == 1)
 		{
-			map[i] = ft_strdup2(line, ' ', '9', config->maxR, &count_sprites);
+			map[i] = ft_strdup2(line, ' ', config->maxR, &count_sprites);
 			i++;
 		}
 		kill(line);
 	}
 	if (who_needs_a_map(line, "102 NSWE\t", 0, 0) == 1)
-		map[i++] = ft_strdup2(line, ' ', '9', config->maxR, &count_sprites);
+		map[i++] = ft_strdup2(line, ' ', config->maxR, &count_sprites);
 	kill(line);
 	while (i < config->maxR)
 		map[i++] = fill_me('9', config->maxR);

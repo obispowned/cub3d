@@ -6,16 +6,16 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 08:32:42 by agutierr          #+#    #+#             */
-/*   Updated: 2020/11/05 08:32:45 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/17 11:36:40 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/utils.h"
 
-static size_t	count_segment(char const *s, char c)
+static size_t			count_segment(char const *s, char c)
 {
-	size_t	counter;
-	int		i;
+	size_t				counter;
+	int					i;
 
 	counter = 0;
 	i = 0;
@@ -33,10 +33,10 @@ static size_t	count_segment(char const *s, char c)
 	return (counter);
 }
 
-static char		*ft_strndup(const char *s1, size_t n)
+static char				*ft_strndup(const char *s1, size_t n)
 {
-	char	*clone;
-	size_t	i;
+	char				*clone;
+	size_t				i;
 
 	if ((clone = (char*)malloc(sizeof(char) * (n + 1))) == NULL)
 		return (NULL);
@@ -50,9 +50,9 @@ static char		*ft_strndup(const char *s1, size_t n)
 	return (clone);
 }
 
-static void		*destroy_strs(char **strs)
+static void				*destroy_strs(char **strs)
 {
-	int i;
+	int					i;
 
 	i = 0;
 	while (strs[i] != NULL)
@@ -61,12 +61,12 @@ static void		*destroy_strs(char **strs)
 	return (NULL);
 }
 
-char			**ft_split(char const *s, char c)
+char					**ft_split(char const *s, char c)
 {
-	char	**strs;
-	size_t	tab_counter;
-	size_t	i;
-	size_t	j;
+	char				**strs;
+	size_t				tab_counter;
+	size_t				i;
+	size_t				j;
 
 	if (s == NULL)
 		return (NULL);

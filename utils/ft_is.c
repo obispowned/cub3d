@@ -6,18 +6,16 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 08:53:07 by agutierr          #+#    #+#             */
-/*   Updated: 2020/11/05 08:53:08 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/17 11:47:11 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
 #include "../header/utils.h"
 
-int  ft_isdigit(char *str)
-{	//Devuelve 1 si el string es todo numeros, devuelve 0 si hay algun caracter que no sea numero, devuelve -1 en caso de error.
-	int i;
-	int x;
+int			ft_isdigit(char *str)
+{
+	int		i;
+	int		x;
 
 	i = 0;
 	x = 1;
@@ -29,25 +27,25 @@ int  ft_isdigit(char *str)
 			x = 0;
 		i++;
 	}
-	return(x);
+	return (x);
 }
 
-char  *give_me_digit_without_spaces(char *str)
-{	//Devuelve 1 si el string es todo numeros, devuelve 0 si hay algun caracter que no sea numero, devuelve -1 en caso de error.
-	int i;
-	int x;
-	char *finally;
+char		*give_me_digit_without_spaces(char *str)
+{
+	int		i;
+	int		x;
+	char	*finally;
 
 	i = 0;
 	x = 0;
-	if(!(finally = calloc(ft_strlen(str), 1)))
-		return(NULL);
+	if (!(finally = calloc(ft_strlen(str), 1)))
+		return (NULL);
 	while (str[i++])
-		if(str[i] != ' ' && (str[i] < 0 || str[i] > 9))
+		if (str[i] != ' ' && (str[i] < 0 || str[i] > 9))
 			return ("FAIL");
 	i = 0;
-	while(str[i++])
-		if(str[i] <= 9 && str[i] >= 0)
+	while (str[i++])
+		if (str[i] <= 9 && str[i] >= 0)
 			finally[x++] = str[i];
-	return(finally);
+	return (finally);
 }

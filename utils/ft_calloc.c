@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/17 11:47:26 by agutierr          #+#    #+#             */
+/*   Updated: 2020/12/17 11:47:28 by agutierr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../header/utils.h"
 
-void		*ft_memcpy(void *dst, const void *src, size_t n)
+void				*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	unsigned char	*str1;
 	unsigned char	*str2;
@@ -14,10 +26,10 @@ void		*ft_memcpy(void *dst, const void *src, size_t n)
 	return (dst);
 }
 
-void		*ft_memset(void *ptr, int x, size_t n)
+void				*ft_memset(void *ptr, int x, size_t n)
 {
-	size_t	i;
-	char	*a;
+	size_t			i;
+	char			*a;
 
 	i = 0;
 	a = ptr;

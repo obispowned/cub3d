@@ -30,6 +30,7 @@ SRCS			=	get_next_line/get_next_line.c\
 					utils/ft_calloc.c\
 					utils/ft_is.c\
 					utils/utilities.c\
+					utils/utilities2.c\
 
 #######BUFF QUINES###########
 
