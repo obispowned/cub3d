@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 13:49:23 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/17 09:26:15 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/18 13:31:55 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int			raycasting(t_mlx *mlx)
 	{
 		mlx->flag_bmp = 1;
 		save_bmp(mlx);
+		exit(-1);
 	}
 	return (0);
 }

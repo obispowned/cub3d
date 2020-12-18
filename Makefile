@@ -32,6 +32,7 @@ SRCS			=	get_next_line/get_next_line.c\
 					utils/ft_strchr.c\
 					utils/ft_calloc.c\
 					utils/ft_is.c\
+					utils/ft_atoi.c\
 					utils/utilities.c\
 					utils/utilities2.c\
 
@@ -52,7 +53,7 @@ endif
 
 #############################
 
-FLAGS			= -g
+FLAGS			= -Wall -Wall -Werror
 
 GCC 			= gcc
 
@@ -77,6 +78,9 @@ run0: all
 
 run1: all
 	clear && ./cub3D maps/valid_hip_hop.cub
+
+norminette:
+	norminette srcs/* header/* utils/*
 
 fclean:	clean
 	rm -f $(NAME)

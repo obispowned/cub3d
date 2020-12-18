@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 09:21:34 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/18 11:22:21 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/18 13:38:19 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void			check_ceil_floor2(char *line)
 			i++;
 		if ((line[i] == ',' && (line[i - 1] < '0' || line[i - 1] > '9')) ||
 		(line[i] == ',' && (line[i + 1] < '0' || line[i + 1] > '9')))
-			print_err("Ceil/Floor debe tener el formato: 'x,x,x'");
+			print_err("Ceil/Floor debe tener el formato: 'x,x,x' en positivo");
 		i++;
 	}
 }
@@ -58,16 +58,16 @@ void			check_cf(char conmut, char **splitter, t_config *config)
 {
 	if (conmut == 'C')
 	{
-		config->ceil[0] = atoi(splitter[0]);
-		config->ceil[1] = atoi(splitter[1]);
-		config->ceil[2] = atoi(splitter[2]);
+		config->ceil[0] = ft_atoi(splitter[0]);
+		config->ceil[1] = ft_atoi(splitter[1]);
+		config->ceil[2] = ft_atoi(splitter[2]);
 		config->flag += 1;
 	}
 	if (conmut == 'F')
 	{
-		config->floor[0] = atoi(splitter[0]);
-		config->floor[1] = atoi(splitter[1]);
-		config->floor[2] = atoi(splitter[2]);
+		config->floor[0] = ft_atoi(splitter[0]);
+		config->floor[1] = ft_atoi(splitter[1]);
+		config->floor[2] = ft_atoi(splitter[2]);
 		config->flag += 1;
 	}
 }

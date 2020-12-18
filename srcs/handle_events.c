@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 14:22:50 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/17 12:00:15 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/18 13:18:02 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void			handle_events3(t_mlx *mlx)
 	double		olddirx;
 	double		oldplanex;
 
+	olddirx = 0.0;
+	oldplanex = 0.0;
 	if (mlx->rc.rot_right)
 	{
 		olddirx = mlx->rc.dirx;

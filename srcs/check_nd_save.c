@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 08:32:54 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/18 11:22:40 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/18 13:45:24 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,14 @@ t_config		check_r(char *line, t_config config)
 	if ((splitter[3]) || (ft_isdigit(splitter[1]) != 1)
 	|| (ft_isdigit(splitter[2]) != 1))
 		print_err("Formato de Resolucion incorrecto.");
-	config.width = atoi(splitter[1]);
-	config.height = atoi(splitter[2]);
+	if (ft_strlen(splitter[1]) > 4)
+		config.width = 2560;
+	else
+		config.width = ft_atoi(splitter[1]);
+	if (ft_strlen(splitter[2]) > 4)
+		config.height = 1440;
+	else
+		config.height = ft_atoi(splitter[2]);
 	config.flag += 1;
 	double_kill(splitter);
 	return (config);

@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 11:56:19 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/17 11:59:52 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/18 13:17:08 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,7 +191,5 @@ void				sprite_drawing(t_mlx *mlx, int i, int y);
 void				sprite_order(t_mlx *mlx);
 void				sprite_preorder(t_mlx *mlx);
 int					save_bmp(t_mlx *mlx);
-static void			file_write(int fd, const void *buf, ssize_t len);
-static t_bitmap		fill_header(t_mlx *mlx);
 
 #endif
