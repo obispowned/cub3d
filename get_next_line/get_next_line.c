@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/18 11:42:52 by agutierr          #+#    #+#             */
+/*   Updated: 2020/12/18 11:44:49 by agutierr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
-int		ft_strlen_gnl(char *str)
+int				ft_strlen_gnl(char *str)
 {
-	int i;
+	int			i;
 
 	i = 0;
 	while (str[i])
@@ -10,10 +22,10 @@ int		ft_strlen_gnl(char *str)
 	return (i);
 }
 
-char	*ft_strjoint(char *str, char c)
+char			*ft_strjoint(char *str, char c)
 {
-	int i;
-	char *final;
+	int			i;
+	char		*final;
 
 	i = 0;
 	if (!(final = ((char *)malloc(sizeof(char) * (ft_strlen_gnl(str) + 2)))))
@@ -24,20 +36,20 @@ char	*ft_strjoint(char *str, char c)
 		i++;
 	}
 	final[i] = c;
-	final[i+1] = '\0';
+	final[i + 1] = '\0';
 	free(str);
 	return (final);
 }
 
-char	*ft_strdup_gnl(char *str)
+char			*ft_strdup_gnl(char *str)
 {
-	int i;
-	char *final;
+	int			i;
+	char		*final;
 
 	i = 0;
 	if (!(final = ((char *)malloc(sizeof(char) * (ft_strlen_gnl(str) + 1)))))
 		return (NULL);
-	while(str[i])
+	while (str[i])
 	{
 		final[i] = str[i];
 		i++;
@@ -46,10 +58,10 @@ char	*ft_strdup_gnl(char *str)
 	return (final);
 }
 
-int		get_next_line(int fd, char **line)
+int				get_next_line(int fd, char **line)
 {
-	int ret;
-	char buf[2];
+	int			ret;
+	char		buf[2];
 
 	if (!line || !(*line = ft_strdup_gnl("")))
 		return (-1);
@@ -59,7 +71,7 @@ int		get_next_line(int fd, char **line)
 		if (ret == -1)
 			return (-1);
 		if (buf[0] == '\n')
-			break;
+			break ;
 		*line = ft_strjoint(*line, buf[0]);
 	}
 	return (ret);
