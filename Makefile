@@ -6,6 +6,7 @@ SRCS			=	get_next_line/get_next_line.c\
 					srcs/file_procesator.c\
 					srcs/file_procesator2.c\
 					srcs/check_nd_save.c\
+					srcs/ceil_floor.c\
 					srcs/get_map_reads.c\
 					srcs/get_map_reads2.c\
 					srcs/parse.c\
@@ -27,6 +28,8 @@ SRCS			=	get_next_line/get_next_line.c\
 					utils/ft_strdup.c\
 					utils/ft_strjoin_char.c\
 					utils/ft_strlen.c\
+					utils/ft_strtrim.c\
+					utils/ft_strchr.c\
 					utils/ft_calloc.c\
 					utils/ft_is.c\
 					utils/utilities.c\

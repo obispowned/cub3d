@@ -1,13 +1,13 @@
 R 2000 700
-N ./textures/redbrick.xpm
+NO ./textures/redbrick.xpm
 SO ./textures/wood.xpm
 WE ./textures/mossy.xpm
-EA ./textures/graffiti_invertido.xpm
+EA ./textures/graffiti.xpm
 S ./textures/sprites/barrel.xpm
 F 209,209,209
 C 23,236,255
 
-C
+
 
 11111111111     1111111111      1111111111     1111111111111111111111111111
 11200111111     1111111111      1111111111     1111111111111111111111111111

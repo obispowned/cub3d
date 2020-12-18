@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 14:41:55 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/17 13:47:08 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/18 11:38:12 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ void		load_textures(t_mlx *mlx, t_config *config)
 		print_err("Textura SO no existe");
 	mlx->rc.tex[2].addr = mlx_get_data_addr(mlx->rc.tex[2].img,
 	&mlx->rc.tex[2].bpp, &mlx->rc.tex[2].linesize, &mlx->rc.tex[2].endian);
-	if (!(mlx->rc.tex[3].img = mlx_xpm_file_to_image(mlx->ptr, config->we,
+	if (!(mlx->rc.tex[3].img = mlx_xpm_file_to_image(mlx->ptr, config->ea,
 	&mlx->rc.tex_width, &mlx->rc.tex_height)))
 		print_err("Textura WE no existe");
 	mlx->rc.tex[3].addr = mlx_get_data_addr(mlx->rc.tex[3].img,
 	&mlx->rc.tex[3].bpp, &mlx->rc.tex[3].linesize, &mlx->rc.tex[3].endian);
-	if (!(mlx->rc.tex[4].img = mlx_xpm_file_to_image(mlx->ptr, config->ea,
+	if (!(mlx->rc.tex[4].img = mlx_xpm_file_to_image(mlx->ptr, config->we,
 	&mlx->rc.tex_width, &mlx->rc.tex_height)))
 		print_err("Textura EA no existe");
 	mlx->rc.tex[4].addr = mlx_get_data_addr(mlx->rc.tex[4].img,

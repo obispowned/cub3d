@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/17 11:37:20 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/18 08:51:32 by agutierr         ###   ########.fr       */
+/*   Created: 2020/12/18 11:28:06 by agutierr          #+#    #+#             */
+/*   Updated: 2020/12/18 11:28:09 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/utils.h"
 
-int					ft_strlen(char *str)
+char		*ft_strchr(const char *s, int c)
 {
-	int				i;
+	char	*sc;
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
+	sc = (char *)s;
+	while (*sc && *sc != (char)c)
+		sc++;
+	return ((*sc == (char)c) ? sc : 0);
 }

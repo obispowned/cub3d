@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 13:48:46 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/17 13:47:11 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/18 11:25:59 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int				main(int argc, char **argv)
 		config.save = 1;
 	}
 	final_check(&config);
-	//print_values(config);
 	reset_mlx(&mlx, config);
 	init_raycast_params(&mlx, &config);
 	save_sprites_position(&mlx);
@@ -51,6 +50,16 @@ void			final_check(t_config *config)
 	config->width < 200 ? config->width = 200 : config->width;
 	config->height > 1440 ? config->height = 1440 : config->height;
 	config->height < 100 ? config->height = 100 : config->height;
+	check_final_paths(config);
+}
+
+void			check_final_paths(t_config *config)
+{
+	config->no = ft_strtrim(config->no, " \t");
+	config->so = ft_strtrim(config->so, " \t");
+	config->ea = ft_strtrim(config->ea, " \t");
+	config->we = ft_strtrim(config->we, " \t");
+	config->s = ft_strtrim(config->s, " \t");
 }
 
 void			save_sprites_position(t_mlx *mlx)

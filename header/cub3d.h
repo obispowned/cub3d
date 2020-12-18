@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 12:07:16 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/17 13:35:06 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/18 11:24:34 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,9 @@ typedef struct		s_config
 
 void				final_check(t_config *config);
 void				print_values(t_config config);
+void				check_final_paths(t_config *config);
 t_config			file_procesator(char *file, int argc);
+void				check_errors(char *line, t_config config);
 t_config			load_file(char *file, t_config config);
 t_config			check_file(char *line, t_config config);
 void				check_arg(char *argum);
@@ -67,11 +69,12 @@ t_config			check_r(char *file, t_config config);
 t_config			check_path(char *file, t_config config);
 char				*give_me_a_path(char *line, int i);
 t_config			check_ceil_floor(char *line, t_config config);
+void				check_ceil_floor2(char *line);
 void				check_cf(char conmut, char **splitter, t_config *config);
 void				error_xpm(char *final);
 char				*change_char(char *line, char a, char b);
 t_mapi				read_map(char *file, t_config *config);
-char				**read_map2(int fd, t_config *config);
+char				**read_map2(int fd, t_config *config, int count_sprites);
 int					who_needs_a_map(char *line, char *chain2,
 					int tab, int coincide);
 int					who_needs_a_map2(int tab, int coincide);

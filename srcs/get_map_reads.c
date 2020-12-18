@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 13:05:06 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/17 13:46:50 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/18 11:24:15 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_mapi			read_map(char *file, t_config *config)
 		print_err("Fallo al intentar abrir el archivo .cub");
 	config->maxr = (what_is_higher(config->map_max_lines,
 	config->map_max_rows)) + 2;
-	map = read_map2(fd, config);
+	map = read_map2(fd, config, 0);
 	check_map(config, map);
 	valid_map(map);
 	config->mapa = parserico(map, config);
@@ -31,16 +31,14 @@ t_mapi			read_map(char *file, t_config *config)
 	return (config->mapa);
 }
 
-char			**read_map2(int fd, t_config *config)
+char			**read_map2(int fd, t_config *config, int count_sprites)
 {
 	char		*line;
 	char		**map;
-	int			count_sprites;
 	int			i;
 
-	count_sprites = 0;
 	i = 0;
-	if (!(map = (char **)calloc(sizeof(char *) * config->maxr + 1, 1)))
+	if (!(map = (char **)ft_calloc(sizeof(char *) * config->maxr + 1, 1)))
 		printf("Malloc ha fallado en: get_map_reads.c");
 	while (((get_next_line(fd, &line)) > 0))
 	{
@@ -56,6 +54,7 @@ char			**read_map2(int fd, t_config *config)
 	kill(line);
 	while (i < config->maxr)
 		map[i++] = fill_me('9', config->maxr);
+	map[i] = NULL;
 	config->numsprites = count_sprites;
 	return (map);
 }
@@ -66,10 +65,10 @@ void			check_map(t_config *config, char **map)
 	int			j;
 
 	i = 0;
-	while (map[i])
+	while (map[i] != NULL)
 	{
 		j = 0;
-		while (map[i][j])
+		while (map[i][j] != '\0')
 		{
 			check_map2(config, map, i, j);
 			j++;
@@ -98,7 +97,7 @@ void			check_map2(t_config *config, char **map, int i, int j)
 
 void			check_wall(t_config *config, char **map, int i, int j)
 {
-	if (map[i - 1][j] == 1)
+	if ((i != 0) && map[i - 1][j] == 1)
 		config->muro_arriba_abajo = 1;
 	else if (map[i + 1][j] == 1)
 		config->muro_arriba_abajo = -1;

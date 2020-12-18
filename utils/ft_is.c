@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 08:53:07 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/17 11:47:11 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/18 09:18:45 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,17 @@ char		*give_me_digit_without_spaces(char *str)
 
 	i = 0;
 	x = 0;
-	if (!(finally = calloc(ft_strlen(str), 1)))
+	if (!(finally = ft_calloc(ft_strlen(str), 1)))
 		return (NULL);
-	while (str[i++])
-		if (str[i] != ' ' && (str[i] < 0 || str[i] > 9))
+	while (str[i])
+	{
+		if ((str[i] != ' ' && str[i] != '\t') && (str[i] < '0' || str[i] > '9'))
 			return ("FAIL");
+		i++;
+	}
 	i = 0;
 	while (str[i++])
-		if (str[i] <= 9 && str[i] >= 0)
+		if (str[i] <= '9' && str[i] >= '0')
 			finally[x++] = str[i];
 	return (finally);
 }

@@ -6,7 +6,7 @@
 /*   By: agutierr <agutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 13:17:21 by agutierr          #+#    #+#             */
-/*   Updated: 2020/12/17 13:46:39 by agutierr         ###   ########.fr       */
+/*   Updated: 2020/12/18 11:24:52 by agutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,11 +88,7 @@ t_config		load_file(char *file, t_config config)
 		print_err("Fallo al intentar abrir el archivo.");
 	while (((ret = get_next_line(fd, &line)) > 0))
 	{
-		if (((check_lines(line, " NSR\tECFW") == 0 && line[0] != '\0')
-		&& (who_needs_a_map(line, "102 NSWE\t", 0, 0) == 0)))
-			print_err("Elimine los caracteres sobrantes.");
-		if (who_needs_a_map(line, "102 NSWE\t", 0, 0) == 1 && config.flag != 8)
-			print_err("Declare correctamente los parametros delante del mapa");
+		check_errors(line, config);
 		config.i = 0;
 		config = check_file(line, config);
 		kill(line);
