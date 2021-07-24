@@ -42,9 +42,6 @@ void			error_xpm(char *final)
 
 void			check_errors(char *line, t_config config)
 {
-	int i;
-
-	i = 0;
 	if (((check_lines(line, " NSR\tECFW") == 0 && line[0] != '\0')
 	&& (who_needs_a_map(line, "102 NSWE\t", 0, 0) == 0)))
 		print_err("Elimine los caracteres sobrantes.");

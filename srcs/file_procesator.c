@@ -78,11 +78,9 @@ int				check_lines(char *line, char *chars)
 t_config		load_file(char *file, t_config config)
 {
 	int			fd;
-	char		buf[2];
 	int			ret;
 	char		*line;
 
-	buf[1] = '\0';
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 		print_err("Fallo al intentar abrir el archivo.");

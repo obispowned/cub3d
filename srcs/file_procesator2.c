@@ -27,9 +27,6 @@ void	check_params(t_config config)
 
 void	check_arg(char *argum)
 {
-	int i;
-
-	i = 0;
 	if (!((ft_strlen(argum) == 6) && (argum[0] == '-')
 	&& (argum[1] == '-') && (argum[2] == 's')
 	&& (argum[3] == 'a') && (argum[4] == 'v')
