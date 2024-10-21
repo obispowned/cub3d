@@ -45,7 +45,8 @@ else
 endif
 
 ifeq ($(detected_OS),Darwin)
-    MLXFLAGS = -I /usr/local/include -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit
+	MLXFLAGS = -I /Users/alvarog/cub3d/mlx/minilibx-macos -L /Users/alvarog/cub3d/mlx/minilibx-macos -lmlx -framework OpenGL -framework AppKit
+
 endif
 ifeq ($(detected_OS),Linux)
     MLXFLAGS = -lm -lbsd -lmlx -lXext -lX11

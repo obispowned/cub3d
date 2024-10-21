@@ -1,4 +1,4 @@
-R 600 400 
+R 800 600 
 NO ./textures/redbrick.xpm
 SO ./textures/wood.xpm
 WE ./textures/mossy.xpm
