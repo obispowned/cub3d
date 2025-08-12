@@ -1,35 +1,54 @@
-Este proyecto es un motor gráfico en un falso 3D, escrito en C.
-Utilizando la técnica de raycasting, inspirada en el clásico Wolfenstein 3D.
-Desarrollado como parte del currículo de la escuela 42 Madrid, el objetivo es profundizar en la programación en C, la gestión de memoria y el desarrollo de gráficos.
+# Cub3D - Motor Gráfico Falso 3D en C
 
-https://harm-smits.github.io/42docs/projects/cub3d
+Este proyecto es un **motor gráfico en un falso 3D**, escrito en **C**.  
+Utiliza la técnica de **raycasting**, inspirada en el clásico _Wolfenstein 3D_.  
 
-🧩 Características principales
-Raycasting en 3D: Renderizado de paredes y objetos con perspectiva utilizando la técnica de raycasting.
-Interacción con el entorno: Capacidad para abrir y cerrar puertas dentro del juego.
+Desarrollado como parte del currículo de la escuela **42 Madrid**, el objetivo es profundizar en la programación en C, la gestión de memoria y el desarrollo de gráficos.
 
-Controles básicos:
+Más info: [42 Cub3D Docs](https://harm-smits.github.io/42docs/projects/cub3d)
 
-WASD para mover al jugador.
-← y → para rotar la vista.
-SHIFT para correr
-ESC para salir del juego.
+---
 
-Mapas personalizables: Creación de mapas en formato .cub con especificaciones para texturas y colores. El mapa debe tener el siguiente formato para que sea válido:
-NO textures/norte.xpm
-SO textures/sur.xpm
-EA textures/este.xpm
-WE textures/oeste.xpm
-F 255,255,255
-C 0,0,0
+## 🧩 Características principales
 
-111111111111111
-100000000000001
-101110111110101
-100010000010001
-111111111111111
+- **Raycasting en 3D**  
+  Renderizado de paredes y objetos con perspectiva usando la técnica de raycasting.
 
-📥 Instalación
+- **Interacción con el entorno**  
+  Capacidad para abrir y cerrar puertas dentro del juego.
+
+---
+
+## 🎮 Controles básicos
+
+| Tecla     | Acción                |
+| --------- | --------------------- |
+| W, A, S, D| Mover al jugador      |
+| ←, →      | Rotar la vista        |
+| SHIFT     | Correr                |
+| ESC       | Salir del juego       |
+
+---
+
+## 🗺️ Mapas personalizables
+
+Puedes crear mapas en formato `.cub` con especificaciones para texturas y colores.  
+El mapa debe respetar el siguiente formato para ser válido:
+
+    NO textures/norte.xpm
+    SO textures/sur.xpm
+    EA textures/este.xpm
+    WE textures/oeste.xpm
+    F 255,255,255
+    C 0,0,0
+
+    111111111111111
+    100000000000001
+    101110111110101
+    100010000010001
+    111111111111111
+
+## 📥 Instalación y Ejecución
 Clonar el repositorio:
 git clone https://github.com/obispowned/cub3d.git
 cd cub3d
